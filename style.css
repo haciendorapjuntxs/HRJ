@@ -1,0 +1,26 @@
+body { margin: 0; background-color: #1a1a1a; color: #ffffff; font-family: 'Arial', sans-serif; }
+
+.banner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 160px;
+    background-color: #f37021; /* Naranja institucional */
+    overflow: hidden;
+}
+
+.side-pattern {
+    width: 250px;
+    height: 100%;
+    background-image: url('patron.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header { text-align: center; flex-grow: 1; padding: 10px; }
+.logo-unaj { height: 60px; margin-bottom: 5px; }
+
+.contenido { display: flex; padding: 40px; gap: 50px; max-width: 1000px; margin: auto; }
+.columna { flex: 1; }
+
+h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; }
