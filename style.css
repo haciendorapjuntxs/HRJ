@@ -28,3 +28,25 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; }
 .slide { position: absolute; width: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
 .slide.active { opacity: 1; }
 .slide img { width: 100%; height: 400px; object-fit: cover; }
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.imagen-proyecto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.imagen-proyecto img:hover {
+    transform: scale(1.03);
+    border-color: #f37021;
+}
