@@ -97,18 +97,40 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- GALERÍA DE IMÁGENES (ANCHO COMPLETO IGUAL AL BANNER) --- */
+/* --- GALERÍA FINAL: ANCHO COMPLETO Y CENTRADA --- */
 .galeria-grid { 
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: center !important; 
+    justify-content: center !important; /* Centra las fotos si no llegan a llenar el ancho */
     gap: 15px; 
     padding: 20px;
-    width: 100%;             /* OCUPA TODO EL ANCHO DISPONIBLE */
-    max-width: none;         /* ELIMINAMOS EL LÍMITE DE 900PX */
-    margin: 20px 0 !important; /* ELIMINAMOS EL CENTRADO LATERAL */
-    box-sizing: border-box;  /* ASEGURA QUE EL PADDING NO ROMPA EL DISEÑO */
+    width: 100%;            /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Importante para que el padding no sume ancho extra */
+    margin: 20px 0;
 }
+
+.imagen-proyecto {
+    width: 250px;           /* Ajusta este valor si quieres fotos más grandes o pequeñas */
+    height: 250px; 
+    flex: 0 0 250px;        /* Evita que se deformen */
+    overflow: hidden; 
+    border: 3px solid #333; 
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.imagen-proyecto img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+}
+
+.imagen-proyecto:hover { 
+    transform: scale(1.03); 
+    border-color: #f37021;
+}
+
 
 /* --- LOGROS --- */
 .logros-container { 
