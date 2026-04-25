@@ -97,26 +97,25 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- CORRECCIÓN DE GALERÍA --- */
+/* --- GALERÍA DE IMÁGENES (CORREGIDO) --- */
 .galeria-grid { 
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: center !important; /* Esto centra las fotos horizontalmente */
-    gap: 10px; 
+    justify-content: center !important; 
+    gap: 15px; 
     padding: 20px;
-    width: 850px;       /* Ancho fijo para que entren exactamente 4 fotos de 200px + gaps */
-    margin: 20px auto !important; /* Centra todo el bloque en la página */
-    background: transparent;
+    max-width: 900px; /* Esto fuerza a 4 por fila */
+    margin: 20px auto !important; 
 }
 
 .imagen-proyecto {
     width: 200px !important; 
     height: 200px !important; 
-    flex: 0 0 200px !important; /* Fuerza a que no se achiquen */
+    flex: 0 0 200px !important; 
     overflow: hidden; 
     border: 3px solid #333; 
     border-radius: 8px;
-    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .imagen-proyecto img { 
@@ -124,6 +123,11 @@ h2 {
     height: 100% !important; 
     object-fit: cover !important; 
     display: block;
+}
+
+.imagen-proyecto:hover { 
+    transform: scale(1.05); 
+    border-color: #f37021;
 }
 
 /* --- LOGROS --- */
