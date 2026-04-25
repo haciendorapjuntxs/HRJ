@@ -97,31 +97,34 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- GALERÍA DE IMÁGENES (FORZADO 4x2) --- */
+/* --- GALERÍA DE IMÁGENES (RESET Y POSICIONAMIENTO) --- */
 .galeria-grid { 
-    display: flex; 
-    flex-wrap: wrap;        
-    justify-content: center; 
+    display: flex !important;       /* El !important asegura que no sea anulado */
+    flex-wrap: wrap !important;     /* Permite el salto de línea */
+    justify-content: center !important; /* Centra todo el bloque en pantalla */
+    align-items: center !important;
     gap: 15px; 
     padding: 20px; 
-    max-width: 900px;      /* Esto asegura que el bloque no se pase de ancho */
-    margin: 0 auto; 
+    width: 100%;                    /* Ocupa el ancho disponible */
+    max-width: 900px;               /* Limita el ancho total para que entren 4x2 */
+    margin: 0 auto !important;      /* Centra el contenedor completo */
 }
 
 .imagen-proyecto {
-    width: 200px;          /* Ancho fijo para que entren 4 en 800px + gaps */
-    height: 200px;        
-    flex: 0 0 200px;       /* Esto le dice que NO se estire y NO se encoja */
+    width: 200px !important;        /* Tamaño fijo */
+    height: 200px !important;       
+    flex: 0 0 200px !important;     /* Evita que se deformen */
     overflow: hidden; 
     border: 3px solid #333; 
     border-radius: 8px;
     transition: transform 0.3s ease;
+    display: block;                 /* Asegura que no se comporten como tablas */
 }
 
 .imagen-proyecto img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: cover !important; 
     display: block;
 }
 
@@ -129,6 +132,7 @@ h2 {
     transform: scale(1.05); 
     border-color: #f37021;
 }
+
 
 /* --- LOGROS --- */
 .logros-container { 
