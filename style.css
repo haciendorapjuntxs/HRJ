@@ -49,3 +49,26 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 .logro-item { margin: 40px auto; padding: 40px; background: #252525; border-radius: 15px; }
 .grid-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; justify-items: center; }
 .video-item { width: 100%; max-width: 350px; text-align: center; }
+/* Contenedor de logos: centrado y vertical */
+.logo-area {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important; /* Espacio pequeño entre ambos */
+    padding: 10px !important;
+}
+
+/* Estilo para el logo nuevo (más pequeño y delicado) */
+.logo-hrj-pequeno {
+    width: 80px !important; /* Ajusta este valor si lo quieres más grande o chico */
+    height: auto !important;
+}
+
+/* Estilo para el logo original */
+.logo-unaj {
+    width: 120px !important; /* Ajusta este tamaño para que acompañe al otro */
+    height: auto !important;
+    filter: brightness(0) invert(1);
+}
+
