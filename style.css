@@ -97,26 +97,25 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- GALERÍA DE IMÁGENES (4x2) --- */
+/* --- GALERÍA DE IMÁGENES (FORZADO 4x2) --- */
 .galeria-grid { 
     display: flex; 
-    flex-wrap: wrap;        /* Esto permite que salten a la siguiente fila */
-    justify-content: center; /* Centra las fotos en la pantalla */
+    flex-wrap: wrap;        
+    justify-content: center; 
     gap: 15px; 
     padding: 20px; 
-    /* Ajustamos el ancho máximo para que entren exactamente 4 de 200px + gaps */
-    max-width: 900px;      
+    max-width: 900px;      /* Esto asegura que el bloque no se pase de ancho */
     margin: 0 auto; 
 }
 
 .imagen-proyecto {
-    width: 200px; 
-    height: 200px; 
+    width: 200px;          /* Ancho fijo para que entren 4 en 800px + gaps */
+    height: 200px;        
+    flex: 0 0 200px;       /* Esto le dice que NO se estire y NO se encoja */
     overflow: hidden; 
     border: 3px solid #333; 
     border-radius: 8px;
     transition: transform 0.3s ease;
-    flex-shrink: 0;        /* Esto evita que las imágenes se achiquen */
 }
 
 .imagen-proyecto img { 
