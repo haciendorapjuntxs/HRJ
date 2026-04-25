@@ -1,5 +1,10 @@
 /* --- ESTILOS GENERALES --- */
-body { margin: 0; background-color: #1a1a1a; color: #ffffff; font-family: 'Arial', sans-serif; }
+body { 
+    margin: 0; 
+    background-color: #1a1a1a; 
+    color: #ffffff; 
+    font-family: 'Bebas Neue', sans-serif; 
+}
 
 /* --- NUEVO BANNER PRINCIPAL --- */
 .banner-wrapper { position: relative; height: 250px; background-color: black; display: flex; align-items: center; }
