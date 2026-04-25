@@ -97,24 +97,26 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- GALERÍA DE IMÁGENES (MINIATURAS) --- */
+/* --- GALERÍA DE IMÁGENES (4x2) --- */
 .galeria-grid { 
     display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 8px; 
+    flex-wrap: wrap;        /* Esto permite que salten a la siguiente fila */
+    justify-content: center; /* Centra las fotos en la pantalla */
+    gap: 15px; 
     padding: 20px; 
-    max-width: 900px; 
+    /* Ajustamos el ancho máximo para que entren exactamente 4 de 200px + gaps */
+    max-width: 900px;      
     margin: 0 auto; 
 }
 
 .imagen-proyecto {
-    width: 120px; 
-    height: 120px; 
+    width: 200px; 
+    height: 200px; 
     overflow: hidden; 
-    border: 2px solid #333; 
-    border-radius: 4px;
+    border: 3px solid #333; 
+    border-radius: 8px;
     transition: transform 0.3s ease;
+    flex-shrink: 0;        /* Esto evita que las imágenes se achiquen */
 }
 
 .imagen-proyecto img { 
@@ -125,7 +127,7 @@ h2 {
 }
 
 .imagen-proyecto:hover { 
-    transform: scale(1.1); 
+    transform: scale(1.05); 
     border-color: #f37021;
 }
 
