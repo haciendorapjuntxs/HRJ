@@ -1,33 +1,51 @@
+/* --- ESTILOS GENERALES --- */
 body { margin: 0; background-color: #1a1a1a; color: #ffffff; font-family: 'Arial', sans-serif; }
 
-.banner-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 160px;
-    background-color: #f37021; /* Naranja institucional */
-    overflow: hidden;
+/* --- NUEVO BANNER PRINCIPAL --- */
+.banner-wrapper { 
+    position: relative; 
+    height: 250px; 
+    background-color: black; 
+    display: flex; 
+    align-items: center; 
 }
 
-.side-pattern {
-    width: 250px;
-    height: 100%;
-    background-image: url('patron.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+.logo-area { 
+    width: 250px; 
+    padding: 20px; 
+    z-index: 2; 
+    display: flex; 
+    justify-content: center; 
 }
 
-header { text-align: center; flex-grow: 1; padding: 10px; }
-.logo-unaj { height: 60px; margin-bottom: 5px; }
+.logo-unaj { 
+    width: 200px; 
+    height: auto; 
+    filter: brightness(0) invert(1); 
+}
 
+.banner-carousel { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    width: calc(100% - 250px); 
+    height: 100%; 
+}
+
+.banner-slide { 
+    position: absolute; width: 100%; height: 100%; 
+    background-size: cover; background-position: center; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
+}
+.banner-slide.active { opacity: 0.6; }
+
+/* --- SECCIONES DE CONTENIDO --- */
 .contenido { display: flex; padding: 40px; gap: 50px; max-width: 1000px; margin: auto; }
 .columna { flex: 1; }
-
 h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; }
-.carousel { width: 100%; height: 400px; position: relative; overflow: hidden; margin-bottom: 20px; }
-.slide { position: absolute; width: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
-.slide.active { opacity: 1; }
-.slide img { width: 100%; height: 400px; object-fit: cover; }
+
+/* --- GALERÍA DE IMÁGENES --- */
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
