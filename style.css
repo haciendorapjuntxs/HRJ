@@ -25,7 +25,7 @@ body {
     display: flex; 
     flex-direction: column; /* Apilados verticalmente */
     align-items: center;    /* Centrados entre sí */
-    gap: 10px;              /* Espacio entre los dos logos */
+    gap: 0px;              /* Espacio entre los dos logos */
 }
 
 /* Logos al tamaño que definiste */
