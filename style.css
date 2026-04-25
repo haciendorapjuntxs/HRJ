@@ -97,37 +97,17 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- GALERÍA DE IMÁGENES (CORREGIDO) --- */
+/* --- GALERÍA DE IMÁGENES (ANCHO COMPLETO IGUAL AL BANNER) --- */
 .galeria-grid { 
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important; 
     gap: 15px; 
     padding: 20px;
-    max-width: 900px; /* Esto fuerza a 4 por fila */
-    margin: 20px auto !important; 
-}
-
-.imagen-proyecto {
-    width: 200px !important; 
-    height: 200px !important; 
-    flex: 0 0 200px !important; 
-    overflow: hidden; 
-    border: 3px solid #333; 
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.imagen-proyecto img { 
-    width: 100% !important; 
-    height: 100% !important; 
-    object-fit: cover !important; 
-    display: block;
-}
-
-.imagen-proyecto:hover { 
-    transform: scale(1.05); 
-    border-color: #f37021;
+    width: 100%;             /* OCUPA TODO EL ANCHO DISPONIBLE */
+    max-width: none;         /* ELIMINAMOS EL LÍMITE DE 900PX */
+    margin: 20px 0 !important; /* ELIMINAMOS EL CENTRADO LATERAL */
+    box-sizing: border-box;  /* ASEGURA QUE EL PADDING NO ROMPA EL DISEÑO */
 }
 
 /* --- LOGROS --- */
