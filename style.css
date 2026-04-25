@@ -30,7 +30,7 @@ body {
 
 /* Logos pequeños y sutiles */
 .logo-hrj-pequeno { width: 200px !important; height: auto !important; }
-.logo-unaj { width: 200px !important; height: auto !important; filter: brightness(0) invert(1); }
+.logo-unaj { width: 180px !important; height: auto !important; filter: brightness(0) invert(1); }
 
 /* Texto del banner */
 .banner-text { 
