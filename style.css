@@ -98,10 +98,11 @@ h2 {
 }
 
 /* --- GALERÍA DE IMÁGENES (MINIATURAS) --- */
-
 .galeria-grid { 
     display: grid; 
-    grid-template-columns: repeat(14, 1fr); 
+    /* Cambiamos de 14 columnas fijas a un sistema dinámico: 
+       cada columna mide al menos 100px y se reparte el espacio */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
     gap: 6px; 
     padding: 15px; 
     max-width: 1200px; 
@@ -111,6 +112,7 @@ h2 {
 .imagen-proyecto {
     aspect-ratio: 1 / 1; 
     overflow: hidden;
+    background-color: #333; /* Fondo por si alguna imagen no carga */
 }
 
 .imagen-proyecto img { 
@@ -118,12 +120,13 @@ h2 {
     height: 100%;
     object-fit: cover; 
     display: block;
-    transition: transform 0.2s ease; 
+    transition: transform 0.3s ease; 
 }
 
 .imagen-proyecto:hover img { 
-    transform: scale(1.03); 
+    transform: scale(1.1); /* Un zoom un poquito más notable */
 }
+
 
 /* --- LOGROS --- */
 .logros-container { 
