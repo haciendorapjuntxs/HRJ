@@ -24,3 +24,7 @@ header { text-align: center; flex-grow: 1; padding: 10px; }
 .columna { flex: 1; }
 
 h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; }
+.carousel { width: 100%; height: 400px; position: relative; overflow: hidden; margin-bottom: 20px; }
+.slide { position: absolute; width: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
+.slide.active { opacity: 1; }
+.slide img { width: 100%; height: 400px; object-fit: cover; }
