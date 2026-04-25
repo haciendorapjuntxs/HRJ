@@ -101,7 +101,7 @@ h2 {
 
 .galeria-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* 🔥 miniaturas */
+    grid-template-columns: repeat(10, 1fr); 
     gap: 6px; 
     padding: 15px; 
     max-width: 1200px; 
