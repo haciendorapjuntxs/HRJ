@@ -69,7 +69,6 @@ body {
     transition: opacity 1s ease-in-out; 
 }
 
-/* Más impacto visual */
 .banner-slide.active { 
     opacity: 1; 
 }
@@ -98,13 +97,13 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- GALERÍA DE IMÁGENES --- */
+/* --- GALERÍA DE IMÁGENES (MINIATURAS) --- */
 
 .galeria-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 12px; 
-    padding: 20px; 
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* 🔥 miniaturas */
+    gap: 6px; 
+    padding: 15px; 
     max-width: 1200px; 
     margin: 0 auto; 
 }
@@ -112,8 +111,6 @@ h2 {
 .imagen-proyecto {
     aspect-ratio: 1 / 1; 
     overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid #2a2a2a;
 }
 
 .imagen-proyecto img { 
@@ -121,11 +118,11 @@ h2 {
     height: 100%;
     object-fit: cover; 
     display: block;
-    transition: transform 0.3s ease; 
+    transition: transform 0.2s ease; 
 }
 
 .imagen-proyecto:hover img { 
-    transform: scale(1.05); 
+    transform: scale(1.03); 
 }
 
 /* --- LOGROS --- */
@@ -196,16 +193,7 @@ h2 {
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 1024px) {
-    .galeria-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    .galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
     .banner-text h1 {
         font-size: 1.5rem;
