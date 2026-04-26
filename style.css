@@ -1,34 +1,41 @@
-/* --- RESET GLOBAL --- */
-* { box-sizing: border-box; }
-body, html { margin: 0; padding: 0; width: 100%; background-color: #1a1a1a; color: #ffffff; overflow-x: hidden; }
-
-h1, h2, h3 { font-family: 'Stardos Stencil', cursive !important; }
-p, a { font-family: 'Montserrat', sans-serif !important; }
-
 /* --- MENÚ HORIZONTAL --- */
-.main-nav { background: #000; border-bottom: 2px solid #f37021; width: 100%; }
+.main-nav { 
+    background: #000; 
+    border-bottom: 2px solid #f37021; 
+    width: 100%;
+}
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    max-width: 1400px; /* Centra el contenido en pantallas grandes */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.logo-hrj-nav { height: 45px; width: auto; } /* Clase específica para el nav */
+.logo-hrj-nav { 
+    height: 35px;        /* Tamaño pequeño y elegante */
+    width: auto;         
+    display: block;
+}
 
-.nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
-.nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 25px;           /* Un poco más de aire entre botones */
+    margin: 0; 
+    padding: 0; 
+    align-items: center; /* Asegura que los links estén centrados verticalmente */
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #fff; 
+    font-size: 0.9rem; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    transition: 0.3s; 
+}
+
 .nav-links a:hover { color: #f37021; }
-
-/* --- BANNER --- */
-.banner-wrapper { position: relative; height: 400px; background-color: black; display: flex; align-items: center; padding: 0 5%; overflow: hidden; }
-.logo-area { display: flex; flex-direction: column; gap: 10px; z-index: 10; margin-right: 30px; flex-shrink: 0; }
-.logo-hrj-pequeno { width: 150px !important; }
-.logo-unaj { width: 160px !important; filter: brightness(0) invert(1); }
-.banner-text { z-index: 3; flex: 1; }
-.banner-text h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; }
-
-/* (El resto de tus secciones se mantienen igual) */
