@@ -92,3 +92,33 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 .boton-logro { display: inline-block; padding: 15px 40px; background: #f37021; color: white; text-decoration: none; font-weight: bold; border-radius: 50px; }
 .grid-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; justify-items: center; }
 .video-item { width: 100%; max-width: 350px; text-align: center; }
+/* --- ADAPTACIÓN PARA CELULARES (Responsive) --- */
+@media (max-width: 768px) {
+    .main-nav-urban {
+        position: relative; /* Cambiamos a relative para que no flote y empuje el banner hacia abajo */
+        top: 0;
+        right: 0;
+        padding: 10px;
+        background: #000;
+    }
+
+    .nav-links-urban {
+        flex-direction: column; /* Apilamos los botones verticalmente */
+        align-items: center;
+        gap: 5px; /* Menos espacio entre botones */
+    }
+
+    .nav-links-urban li a {
+        font-size: 0.8rem; /* Fuente un poco más chica */
+        padding: 8px 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .banner-text {
+        margin-left: 0; /* Centramos el texto en celular */
+        text-align: center;
+        padding: 10px;
+    }
+}
+
