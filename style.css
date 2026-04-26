@@ -13,12 +13,13 @@ h1, h2, h3, a, p, .logo-brand, .boton-logro {
 }
 /* --- CURSOR PERSONALIZADO: PUÑO Y MICRO --- */
 body {
-    cursor: url('cursor-puno-micro.png') 0 0, auto !important;
+    /* 16 16 centra el punto de clic */
+    cursor: url('cursor-logo-hrj.png') 16 16, auto !important;
 }
 
-/* Aplicar a elementos interactivos para mantener la consistencia */
+/* Aplicar a elementos interactivos */
 a, button, .boton-logro, .nav-banner a, .imagen-proyecto {
-    cursor: url('cursor-puno-micro.png') 0 0, pointer !important;
+    cursor: url('cursor-logo-hrj.png') 16 16, pointer !important;
 }
 
 /* --- BANNER --- */
