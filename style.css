@@ -7,18 +7,8 @@ p, a { font-family: 'Montserrat', sans-serif !important; }
 
 /* --- MENÚ HORIZONTAL --- */
 .main-nav { background: #000; border-bottom: 2px solid #f37021; width: 100%; }
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; max-width: 1400px; margin: 0 auto; }
 .logo-hrj-nav { height: 35px; width: auto; display: block; }
-
 .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; align-items: center; }
 .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
 .nav-links a:hover { color: #f37021; }
@@ -30,6 +20,11 @@ p, a { font-family: 'Montserrat', sans-serif !important; }
 .logo-unaj { width: 160px !important; filter: brightness(0) invert(1); }
 .banner-text { z-index: 3; flex: 1; }
 .banner-text h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; }
+
+/* --- CARRUSEL (AQUÍ ESTABA EL ERROR) --- */
+.banner-carousel { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.banner-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease; }
+.banner-slide.active { opacity: 1; }
 
 /* --- SECCIONES --- */
 main { width: 100%; }
