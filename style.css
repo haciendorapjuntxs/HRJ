@@ -62,7 +62,10 @@ body {
 .banner-slide.active { 
     opacity: 1; /* Solo la activa es visible */
 } 
-
+.banner-slide {
+    /* ... tus otros estilos ... */
+    will-change: opacity;
+}
 
 /* --- SECCIONES --- */
 .manifiesto, .contenido { padding: 40px; text-align: center; }
