@@ -11,6 +11,15 @@ body, html {
 h1, h2, h3, a, p, .logo-brand, .boton-logro {
     font-family: "Sedgwick Ave", cursive !important;
 }
+/* --- CURSOR PERSONALIZADO --- */
+body {
+    cursor: url('cursor-logo-hrj.png') 0 0, auto !important;
+}
+
+a, button, .boton-logro, .nav-banner a, .imagen-proyecto {
+    cursor: url('cursor-logo-hrj.png') 0 0, pointer !important;
+} 
+
 
 /* --- BANNER --- */
 .banner-wrapper { 
