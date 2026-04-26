@@ -9,7 +9,7 @@ body {
 /* --- BANNER --- */
 .banner-wrapper { 
     position: relative; 
-    height: 250px; 
+    height: 350px; 
     background-color: black; 
     display: flex; 
     align-items: center; 
