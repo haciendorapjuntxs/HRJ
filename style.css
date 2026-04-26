@@ -5,15 +5,16 @@ body, html { margin: 0; padding: 0; width: 100%; background-color: #1a1a1a; colo
 h1, h2, h3 { font-family: 'Stardos Stencil', cursive !important; }
 p, a { font-family: 'Montserrat', sans-serif !important; }
 
-/* --- MENÚ HORIZONTAL --- */
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 15px 5%; /* Usamos porcentajes para que siempre quepa */
     background: #000;
     border-bottom: 2px solid #f37021;
-}
+    width: 100%;
+    box-sizing: border-box; /* Esto evita que el padding sume tamaño extra */
+} 
 
 .logo-brand { font-size: 1.8rem; color: #f37021; font-weight: bold; }
 .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
