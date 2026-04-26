@@ -101,11 +101,15 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 .grid-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; justify-items: center; }
 .video-item { width: 100%; max-width: 350px; text-align: center; }
 
-/* Aplicar la estética urbana a todo el sitio */
+/* =========================================
+   ESTILOS GENERALES Y FUENTES URBANAS
+   (Sección agregada para unificar el sitio)
+   ========================================= */
+
 h1, h2, h3 {
     font-family: 'Stardos Stencil', cursive !important;
 }
 
 p {
     font-family: 'Montserrat', sans-serif !important;
-}
+} 
