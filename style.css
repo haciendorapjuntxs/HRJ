@@ -11,15 +11,15 @@ body, html {
 h1, h2, h3, a, p, .logo-brand, .boton-logro {
     font-family: "Sedgwick Ave", cursive !important;
 }
-/* --- CURSOR PERSONALIZADO --- */
+/* --- CURSOR PERSONALIZADO: PUÑO Y MICRO --- */
 body {
-    cursor: url('cursor-logo-hrj.png') 0 0, auto !important;
+    cursor: url('cursor-puno-micro.png') 0 0, auto !important;
 }
 
+/* Aplicar a elementos interactivos para mantener la consistencia */
 a, button, .boton-logro, .nav-banner a, .imagen-proyecto {
-    cursor: url('cursor-logo-hrj.png') 0 0, pointer !important;
-} 
-
+    cursor: url('cursor-puno-micro.png') 0 0, pointer !important;
+}
 
 /* --- BANNER --- */
 .banner-wrapper { 
