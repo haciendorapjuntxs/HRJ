@@ -14,7 +14,7 @@
         </div>
 
         <ul class="nav-banner">
-            <li><a href="biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
+            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
         </ul>
     </div>
 
