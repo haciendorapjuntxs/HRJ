@@ -1,24 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Sitio Haciendo Rap Juntxs cargado correctamente.");
-    
-    // Declaramos las variables aquí para asegurar que los elementos ya existan
-    const bannerSlides = document.querySelectorAll('.banner-slide');
-    let currentBanner = 0;
 
-    // Definimos la función de cambio dentro del mismo contexto
-    function showBannerSlides() {
-        if (bannerSlides.length === 0) return;
+    // Buscamos todos los carruseles presentes en la página
+    const carousels = document.querySelectorAll('.banner-carousel');
 
-        // Quitamos la clase active del actual
-        bannerSlides[currentBanner].classList.remove('active');
-        
-        // Calculamos el siguiente índice
-        currentBanner = (currentBanner + 1) % bannerSlides.length;
-        
-        // Activamos el siguiente
-        bannerSlides[currentBanner].classList.add('active');
-    }
+    carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('.banner-slide');
+        let currentBanner = 0;
 
-    // Iniciamos el intervalo de 4 segundos
-    setInterval(showBannerSlides, 4000);
-});
+        if (slides.length === 0) return;
+
+        function showNextSlide() {
+            // Quitamos la clase 'active' del slide actual
+            slides[currentBanner].classList.remove('active');
+            
+            // Calculamos el índice siguiente
+            currentBanner = (currentBanner + 1) % slides.length;
+            
+            // Activamos el nuevo slide
+            slides[currentBanner].classList.add('active');
+        }
+
+        // Iniciamos el intervalo para este carrusel específico (cada 4 segundos)
+        setInterval(showNextSlide, 4000);
+    });
+}); 
