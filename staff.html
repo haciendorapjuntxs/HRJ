@@ -2,91 +2,104 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff | Haciendo Rap Juntxs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        .header { text-align: center; margin-bottom: 50px; }
+        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -2px; }
+        .sub { letter-spacing: 3px; opacity: 0.6; font-size: 0.8rem; text-transform: uppercase; }
+
+        .staff-container { width: 100%; max-width: 800px; }
+        .grupo-staff { margin-bottom: 40px; }
+        .cat-title { font-size: 0.7rem; color: #666; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .grid-staff { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        
+        /* --- ESTILO DE TARJETA TIPO "LINK" --- */
+        .staff-card { border: 1px solid #fff; padding: 20px; text-align: center; transition: 0.3s; }
+        .staff-card:hover { background-color: #fff; color: #000; }
+        .staff-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 1px solid #333; }
+        .staff-card h3 { font-size: 0.9rem; text-transform: uppercase; }
+        .staff-card p { font-size: 0.7rem; opacity: 0.7; margin-top: 5px; }
+
+        .btn-volver { display: block; width: 100%; max-width: 200px; margin: 40px auto; padding: 15px; border: 1px solid #333; color: #fff; text-decoration: none; text-align: center; font-size: 0.8rem; transition: 0.3s; }
+        .btn-volver:hover { background: #fff; color: #000; }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('ASSETS-STAFF/profes-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('ASSETS-STAFF/profes-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('ASSETS-STAFF/profes-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('ASSETS-STAFF/profes-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('ASSETS-STAFF/profes-5.jpg');"></div>
-        </div>
 
-        <ul class="nav-banner">
-            <li><a href="contacto.html">CONTACTO</a></li>
-            <li><a href="biografias.html">BIOGRAFÍAS</a></li>
-            <li><a href="index.html">INICIO</a></li>
-        </ul>
+    <header class="header">
+        <h1>STAFF</h1> 
+        <p class="sub">Equipo técnico y docente</p>
+    </header>
 
-        <div class="banner-text">
-            <h1>STAFF</h1> 
-            <p>El motor detrás del mic: docentes y colaboradores comprometidos.</p>
-        </div> 
-    </div>
-
-    <main class="staff-grid">
-        <h2>EQUIPO DE GESTIÓN Y STAFF</h2>
-
+    <main class="staff-container">
+        
         <div class="grupo-staff">
-            <h3>Dirección</h3>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/martinbiaggini.jpg');"></div>
-                <h3>Martin Biaggini</h3>
-            </article>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Lucia Calvi</h3>
-            </article>
+            <h3 class="cat-title">DIRECCIÓN</h3>
+            <div class="grid-staff">
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/martinbiaggini.jpg" alt="Martin Biaggini">
+                    <h3>Martin Biaggini</h3>
+                    <p>Dirección General</p>
+                </article>
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Lucia Calvi">
+                    <h3>Lucia Calvi</h3>
+                    <p>Dirección Académica</p>
+                </article>
+            </div>
         </div>
 
         <div class="grupo-staff">
-            <h3>Cuerpo Docente</h3>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Marisa Pignolo</h3>
-            </article>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>María Marino</h3>
-            </article>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Gisela Longobuco</h3>
-            </article>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Mercedes Sánchez</h3>
-            </article>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Leo Rueda</h3>
-            </article>
+            <h3 class="cat-title">CUERPO DOCENTE</h3>
+            <div class="grid-staff">
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Marisa Pignolo">
+                    <h3>Marisa Pignolo</h3>
+                </article>
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="María Marino">
+                    <h3>María Marino</h3>
+                </article>
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Gisela Longobuco">
+                    <h3>Gisela Longobuco</h3>
+                </article>
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Mercedes Sánchez">
+                    <h3>Mercedes Sánchez</h3>
+                </article>
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Leo Rueda">
+                    <h3>Leo Rueda</h3>
+                </article>
+            </div>
         </div>
 
         <div class="grupo-staff">
-            <h3>Equipo de Apoyo y Estudiantes</h3>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Brenda Jara</h3>
-            </article>
-            <article class="staff-card">
-                <div class="img-thumb" style="background-image: url('ASSETS-STAFF/foto-staff.jpg');"></div>
-                <h3>Analia Moreff</h3>
-            </article>
+            <h3 class="cat-title">APOYO Y ESTUDIANTES</h3>
+            <div class="grid-staff">
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Brenda Jara">
+                    <h3>Brenda Jara</h3>
+                </article>
+                <article class="staff-card">
+                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Analia Moreff">
+                    <h3>Analia Moreff</h3>
+                </article>
+            </div>
         </div>
-    </main> 
+
+        <a href="index.html" class="btn-volver">VOLVER AL INICIO</a>
+    </main>
 
     <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
+        <p style="text-align: center; font-size: 0.7rem; opacity: 0.5;">&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html> 
