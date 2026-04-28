@@ -307,3 +307,42 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     border-color: #f37021;
 
 } 
+
+/* --- AJUSTES ESPECÍFICOS PARA MÓVILES --- */
+@media (max-width: 768px) {
+    /* 1. Hacemos que el banner sea más grande en celular (ocupa el 50% de la altura de pantalla) */
+    .banner-wrapper { 
+        height: 50vh !important; 
+        padding-top: 0 !important; /* Quitamos el espacio extra que achicaba el banner */
+    }
+
+    /* 2. Centramos el texto y logo del banner para que se vea mejor */
+    .banner-text { 
+        margin-left: 0; 
+        margin-top: 10px; 
+        width: 100%; 
+    }
+
+    /* 3. Damos espacio a la biografía para que no parezca texto bruto */
+    .detalle-artista {
+        padding: 40px 20px !important; /* Más aire a los costados */
+        max-width: 100%;
+    }
+
+    .bio-completa p {
+        font-size: 1.1rem;      /* Letra más legible */
+        line-height: 1.7;       /* Espaciado para que no canse la vista */
+        text-align: justify;    /* Orden visual */
+        margin-bottom: 25px;    /* Separación entre párrafos */
+    }
+
+    /* 4. Aseguramos que los logos no molesten al texto */
+    .logo-area { 
+        position: relative; 
+        margin-top: 10px; 
+        gap: 5px; 
+    }
+    
+    .logo-hrj-pequeno { width: 140px !important; }
+    .logo-unaj { width: 150px !important; }
+}
