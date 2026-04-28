@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[currentBanner].classList.add('active');
         }
 
-        // Iniciamos el intervalo para este carrusel específico (cada 4 segundos)
-        setInterval(showNextSlide, 4000);
+        // Iniciamos el intervalo para este carrusel específico (cada 2 segundos)
+        setInterval(showNextSlide, 2000);
     });
 }); 
