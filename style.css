@@ -308,41 +308,51 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 
 } 
 
-/* --- AJUSTES ESPECÍFICOS PARA MÓVILES --- */
+/* --- ADAPTACIÓN RESPONSIVE DEFINITIVA (Móviles) --- */
 @media (max-width: 768px) {
-    /* 1. Hacemos que el banner sea más grande en celular (ocupa el 50% de la altura de pantalla) */
+    /* 1. Ajustes del Banner */
     .banner-wrapper { 
         height: 50vh !important; 
-        padding-top: 0 !important; /* Quitamos el espacio extra que achicaba el banner */
+        min-height: 300px;
+        padding-top: 0 !important; 
+        flex-direction: column !important;
     }
 
-    /* 2. Centramos el texto y logo del banner para que se vea mejor */
-    .banner-text { 
-        margin-left: 0; 
-        margin-top: 10px; 
-        width: 100%; 
-    }
-
-    /* 3. Damos espacio a la biografía para que no parezca texto bruto */
-    .detalle-artista {
-        padding: 40px 20px !important; /* Más aire a los costados */
-        max-width: 100%;
-    }
-
-    .bio-completa p {
-        font-size: 1.1rem;      /* Letra más legible */
-        line-height: 1.7;       /* Espaciado para que no canse la vista */
-        text-align: justify;    /* Orden visual */
-        margin-bottom: 25px;    /* Separación entre párrafos */
-    }
-
-    /* 4. Aseguramos que los logos no molesten al texto */
+    /* 2. Logos y texto en el banner */
     .logo-area { 
-        position: relative; 
-        margin-top: 10px; 
-        gap: 5px; 
+        position: relative !important; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        margin-bottom: 10px; 
     }
     
     .logo-hrj-pequeno { width: 140px !important; }
     .logo-unaj { width: 150px !important; }
+
+    .banner-text { 
+        margin-left: 0 !important; 
+        width: 100%; 
+        padding: 0 15px; 
+        text-align: center; 
+    }
+
+    /* 3. Navegación en banner */
+    .nav-banner { top: 10px; right: 10px; gap: 10px; }
+    .nav-banner a { font-size: 0.8rem; }
+
+    /* 4. Biografía y legibilidad de texto */
+    .detalle-artista {
+        padding: 40px 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .bio-completa p {
+        font-size: 1.1rem !important;
+        line-height: 1.7 !important;
+        text-align: justify !important;
+        margin-bottom: 25px !important;
+    }
+} 
 }
