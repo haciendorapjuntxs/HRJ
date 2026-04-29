@@ -34,6 +34,14 @@
         .btn-volver:hover { background: #fff; color: #000; }
         
         footer { margin-top: 50px; opacity: 0.3; font-size: 0.7rem; }
+        /* Esto hace que la foto se oscurezca un poco al pasar el mouse, avisando que es un link */
+.staff-card a img {
+    transition: transform 0.3s, opacity 0.3s;
+}
+.staff-card a:hover img {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
     </style>
 </head>
 <body>
@@ -45,53 +53,62 @@
 
     <main class="staff-container">
         
-        <div class="grupo-staff">
-            <h3 class="cat-title">DIRECCIÓN</h3>
-            <div class="grid-staff">
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/martinbiaggini.jpg" alt="Martin Biaggini">
-                    <h3>Martin Biaggini</h3>
-                    <p>Dirección General</p>
-                </article>
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/foto-staff.jpg" alt="Lucia Calvi">
-                    <h3>Lucia Calvi</h3>
-                    <p>Dirección General</p>
-                </article>
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/josefinaheine.jpg" alt="Josefina Heine">
-                    <h3>Josefina Heine</h3>
-                    <p>Dirección General</p>
-                </article>
-            </div>
-        </div>
+       <div class="grid-staff">
+    <article class="staff-card">
+        <a href="https://www.instagram.com/martinbiaggini?igsh=NXVwbjRlbTI0azBs" target="_blank">
+            <img src="ASSETS-STAFF/martinbiaggini.jpg" alt="Martin Biaggini">
+        </a>
+        <h3>Martin Biaggini</h3>
+        <p>Dirección General</p>
+    </article>
+    <article class="staff-card">
+        <a href="https://www.instagram.com/lucalviok?igsh=MWJhOGtvZ3l3M2p6NQ==" target="_blank">
+            <img src="ASSETS-STAFF/foto-staff.jpg" alt="Lucia Calvi">
+        </a>
+        <h3>Lucia Calvi</h3>
+        <p>Dirección General</p>
+    </article>
+    <article class="staff-card">
+        <a href="https://www.instagram.com/josefaheine?igsh=Zm4yZzRpZWlwbmxs" target="_blank">
+            <img src="ASSETS-STAFF/josefinaheine.jpg" alt="Josefina Heine">
+        </a>
+        <h3>Josefina Heine</h3>
+        <p>Dirección General</p>
+    </article>
+</div>
 
-        <div class="grupo-staff">
-            <h3 class="cat-title">CUERPO DOCENTE</h3>
-            <div class="grid-staff">
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/marisapignolo.jpg" alt="Marisa Pignolo">
-                    <h3>Marisa Pignolo</h3>
-                </article>
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/maria marino.jpg" alt="María Marino">
-                    <h3>María Marino</h3>
-                </article>
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/giselalongobucco.jpg" alt="Gisela Longobuco">
-                    <h3>Gisela Longobuco</h3>
-                </article>
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/mercedessanchez.jpg" alt="Mercedes Sánchez">
-                    <h3>Mercedes Sánchez</h3>
-                </article>
-                <article class="staff-card">
-                    <img src="ASSETS-STAFF/leonardorueda.jpg" alt="Leonardo Rueda">
-                    <h3>Leonardo Rueda</h3>
-                </article>
-            </div>
-        </div>
-
+<div class="grid-staff">
+    <article class="staff-card">
+        <a href="https://www.instagram.com/marisapignolo?igsh=MXBtOG80cXNqMThheA==" target="_blank">
+            <img src="ASSETS-STAFF/marisapignolo.jpg" alt="Marisa Pignolo">
+        </a>
+        <h3>Marisa Pignolo</h3>
+    </article>
+    <article class="staff-card">
+        <a href="https://www.facebook.com/share/18uKjDHMdW/" target="_blank">
+            <img src="ASSETS-STAFF/maria marino.jpg" alt="María Marino">
+        </a>
+        <h3>María Marino</h3>
+    </article>
+    <article class="staff-card">
+        <a href="https://www.instagram.com/giselalongobucco?igsh=cmZkbXplc2dtZnI3" target="_blank">
+            <img src="ASSETS-STAFF/giselalongobucco.jpg" alt="Gisela Longobuco">
+        </a>
+        <h3>Gisela Longobuco</h3>
+    </article>
+    <article class="staff-card">
+        <a href="https://www.instagram.com/cliomms?igsh=MWNvbXNwMG4xd3lodA==" target="_blank">
+            <img src="ASSETS-STAFF/mercedessanchez.jpg" alt="Mercedes Sánchez">
+        </a>
+        <h3>Mercedes Sánchez</h3>
+    </article>
+    <article class="staff-card">
+        <a href="https://www.instagram.com/leoruedadixit?igsh=Z2QwMXl6cnB1ZTZp" target="_blank">
+            <img src="ASSETS-STAFF/leonardorueda.jpg" alt="Leonardo Rueda">
+        </a>
+        <h3>Leonardo Rueda</h3>
+    </article>
+</div> 
         <div class="grupo-staff">
             <h3 class="cat-title">APOYO Y ESTUDIANTES</h3>
             <div class="grid-staff">
