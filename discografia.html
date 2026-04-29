@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discografía | Haciendo Rap Juntxs</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <style>
+        .banner-wrapper { position: relative; width: 100%; height: 300px; background: #000; overflow: hidden; }
+        .banner-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .nav-banner { position: absolute; top: 20px; width: 100%; display: flex; justify-content: center; gap: 20px; z-index: 10; }
+        
+        .discografia-container { padding: 50px 20px; max-width: 900px; margin: auto; color: #fff; }
+        .tarjeta-disco { background: #1a1a1a; padding: 40px; border-radius: 20px; border: 2px solid #f37021; }
+        
+        .btn-escuchar { 
+            display: inline-block; padding: 10px 25px; background: #f37021; color: #000; 
+            text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 10px;
+            transition: transform 0.3s;
+        }
+        .btn-escuchar:hover { background: #ff8c4a; transform: scale(1.05); }
+
+        .cita-agradecimiento {
+            font-style: italic; border-left: 4px solid #f37021; padding-left: 20px;
+            margin: 30px 0; color: #ddd; line-height: 1.6; font-size: 0.95rem;
+        }
+        .info-tecnica { margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.85rem; color: #999; }
+    </style>
+</head>
+<body>
+
+    <header class="banner-wrapper">
+        <video autoplay muted loop playsinline class="banner-video">
+            <source src="GALERY/prensa-video.mp4" type="video/mp4">
+        </video>
+        <nav class="nav-banner">
+            <a href="index.html">INICIO</a>
+            <a href="prensa.html">PRENSA</a>
+            <a href="discografia.html" style="color: #f37021; border-bottom: 2px solid #f37021;">DISCOGRAFÍA</a>
+        </nav>
+    </header>
+
+    <main class="discografia-container">
+        <h2 style="text-align: center; color: #f37021; font-size: 2.5rem;">HACIENDO RAP JUNTXS (2024)</h2>
+        
+        <div class="tarjeta-disco">
+            <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
+                <img src="GALERY/tapa-1.jpg" style="width: 300px; border-radius: 15px; border: 2px solid #fff;">
+                <img src="GALERY/tapa-2.jpg" style="width: 300px; border-radius: 15px; border: 2px solid #fff;">
+            </div>
+
+            <h3 style="color: #f37021; border-bottom: 1px solid #444; padding-bottom: 10px;">TRACKLIST</h3>
+            
+            <div class="track" style="margin-bottom: 25px;">
+                <h4>1. CARA A CARA, NO LES DA LA CARA</h4>
+                <p style="font-size: 0.9rem;">Beat: Jail Beats | Letra: Marcos J. Duarte, R. Daniel Bravo y Facundo Chamorro | Intérpretes: Mr. Hyde, Dany de Caraza y El Chamo MC</p>
+                <a href="https://www.youtube.com/watch?v=TGmSBw9QE9k" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
+            </div>
+
+            <div class="track" style="margin-bottom: 25px;">
+                <h4>2. SENTIMIENTOS SOBRE EL MIC</h4>
+                <p style="font-size: 0.9rem;">Beat: Elliot Gann | Letra: M. Eugenia Lizarraga, Jonathan Gallo y Mariano Velázquez | Intérpretes: Luna, El Joni2020, Pinta Ruido</p>
+                <a href="https://www.youtube.com/watch?v=WQKzsCVjRM4" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
+            </div>
+
+            <div class="track" style="margin-bottom: 25px;">
+                <h4>3. UN DÍA A LA VEZ</h4>
+                <p style="font-size: 0.9rem;">Beat: Edi B | Letra: Julieta Roldan, Norma Emilse Trejo y Juan José Bataglia | Intérpretes: Shhu, Normy y Juan Doble H</p>
+                <a href="https://youtu.be/9YYNLzb9i-g" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
+            </div>
+
+            <div class="track">
+                <h4>4. FLUYE</h4>
+                <p style="font-size: 0.9rem;">Beat: Brown Jewel | Letra: Maximiliano Ruggiero y Erika Belén Córdoba | Intérpretes: Ram Das y la Brujah</p>
+                <a href="https://www.youtube.com/watch?v=MpYa0bPlMHA" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
+            </div>
+
+            <div class="info-tecnica">
+                <p><strong>Producción y contexto:</strong> El presente disco es resultado del proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche "Haciendo rap juntxs", realizado con el apoyo económico de la SPyT-UNAJ y el subsidio "Culturas Colectivas" del Instituto de Cultura de la Provincia de Buenos Aires. Grabado en estudios "D-Kllao" por Mauro González, mezclado y masterizado en CBM DISCOS por El Cubano (2024). Diseño de portada: Suburbio Estudios.</p>
+                
+                <div class="cita-agradecimiento">
+                    <p><strong>Proyecto de Vinculación Territorial UNAJ 2025/6 “Haciendo rap juntxs”.</strong></p>
+                    <p>Integrantes: Lucia Calvi y Martin Biaggini (dirección), Marisa Pignolo, María Marino, Gisela Longobuco, Mercedes Sánchez y Leo Rueda (docentes), Brenda Jara y Analia Moreff (alumnas).</p>
+                    <p>Agradecemos a Arnaldo Medina (rector de la UNAJ), Ernesto Villanueva (rector emérito de la UNAJ), a Julián Dercoli, y a las y los compañeros de la Secretaria de Políticas y Territorio, a Carolina González Velazco y Mauricio Shutemberg (directores del Instituto de Estudios Iniciales), a Laura Itchart y Juan Donati, coordinadores de la materia Prácticas Culturales, y a todas y todos los y las compañeros/as docentes y no docentes que nos acompañaron.</p>
+                    <p>Un agradecimiento especial a las y los raperos hermanos latinoamericanos que sumaron su arte en estos temas, y especialmente al Cubano y Martes13 por su invalorable trabajo.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
