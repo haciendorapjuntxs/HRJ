@@ -401,3 +401,27 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     height: 70vh !important; /* Altura más imponente */
     min-height: 450px;
 } 
+/* Botón Ver Más de alto impacto */
+.btn-destacado {
+    display: inline-block;
+    padding: 18px 45px;
+    background-color: #f37021; /* Tu naranja */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid #f37021;
+    font-family: "Sedgwick Ave", cursive;
+}
+
+.btn-destacado:hover {
+    background-color: transparent;
+    color: #f37021;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(243, 112, 33, 0.4);
+}
+
