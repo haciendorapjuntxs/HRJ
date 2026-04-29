@@ -424,4 +424,63 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(243, 112, 33, 0.4);
 }
+/* --- ESTILO URBANO AGRESIVO PARA PRENSA --- */
 
+/* Contenedor principal */
+.prensa-container { 
+    padding: 60px 20px; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    background-color: #000; 
+}
+
+/* Las tarjetas de las notas */
+.tarjeta-prensa {
+    background: #111;
+    border: 3px solid #f37021; /* Naranja eléctrico */
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 8px 8px 0px #f37021; /* El efecto sombra "stencil" */
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el mouse por encima (Interacción urbana) */
+.tarjeta-prensa:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 12px 12px 0px #fff;
+    background: #f37021;
+}
+
+/* Texto dentro de las tarjetas */
+.tarjeta-prensa h3 { 
+    font-size: 2rem; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+    color: #fff;
+}
+
+.tarjeta-prensa p { 
+    color: #ccc; 
+    font-size: 1.1rem; 
+}
+
+/* Botón de cada tarjeta */
+.btn-leer {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    transition: 0.2s;
+}
+
+.tarjeta-prensa:hover .btn-leer {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+} 
