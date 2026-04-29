@@ -391,3 +391,13 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 .carousel-destacados .banner-slide.active {
     opacity: 1;
 }
+/* Ocultamos el bloque de texto antiguo que solía tapar el banner */
+.banner-text {
+    display: none !important;
+}
+
+/* Aseguramos que el banner no sea empujado por elementos antiguos */
+.banner-wrapper {
+    height: 70vh !important; /* Altura más imponente */
+    min-height: 450px;
+} 
