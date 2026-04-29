@@ -6,38 +6,56 @@
     <title>Prensa | Haciendo Rap Juntxs</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos exclusivos para la página de Prensa para evitar conflictos */
+        .banner-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+        .banner-video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .banner-agradecimiento {
+            padding: 20px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+        }
+        .nav-banner {
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
 </head>
 <body>
 
     <header class="banner-wrapper">
-    <video autoplay muted loop playsinline class="banner-video">
-        <source src="GALERY/prensa-video.mp4" type="video/mp4">
-        Tu navegador no soporta videos.
-    </video>
+        <video autoplay muted loop playsinline class="banner-video">
+            <source src="GALERY/prensa-video.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
 
-    <nav class="nav-banner">
-        <a href="index.html">INICIO</a>
-        <a href="biografias.html" style="color: #f37021; border-bottom: 2px solid #f37021;">VER ARTISTAS</a>
-    </nav>
-        <header class="banner-wrapper">
-    <video autoplay muted loop playsinline class="banner-video">
-        <source src="GALERY/prensa-video.mp4" type="video/mp4">
-    </video>
+        <nav class="nav-banner">
+            <a href="index.html">INICIO</a>
+            <a href="prensa.html" style="color: #f37021; border-bottom: 2px solid #f37021;">PRENSA</a>
+        </nav>
 
-    <nav class="nav-banner">
-        <a href="index.html">INICIO</a>
-        <a href="prensa.html" style="color: #f37021; border-bottom: 2px solid #f37021;">PRENSA</a>
-    </nav>
-
-    <div class="banner-agradecimiento">
-        <h1>Gracias a cada medio y periodista que hizo eco de nuestra voz.</h1>
-        <p>Su labor es fundamental para que el relato del conurbano siga creciendo.</p>
-    </div>
-</header>
-</header>  
+        <div class="banner-agradecimiento">
+            <h1>Gracias a cada medio y periodista que hizo eco de nuestra voz.</h1>
+            <p>Su labor es fundamental para que el relato del conurbano siga creciendo.</p>
+        </div>
+    </header>
 
     <main class="logros-container">
-        <h2 style="font-size: 2.5rem; margin-bottom: 50px;">EL RELATO EN LOS MEDIOS</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px; text-align: center;">EL RELATO EN LOS MEDIOS</h2>
         
         <div class="grid-videos" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
             
