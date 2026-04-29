@@ -484,3 +484,17 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     color: #fff;
     border-color: #000;
 } 
+
+.banner-agradecimiento {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 5%; /* Separado del borde izquierdo */
+    width: 40%; /* Solo ocupa el 40% del ancho */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado verticalmente */
+    text-align: left; /* Texto alineado a la izquierda */
+    padding: 20px;
+}
