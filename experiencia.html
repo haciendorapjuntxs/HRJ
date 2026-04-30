@@ -15,7 +15,7 @@
             overflow: hidden;
         }
 
-        /* Navegación Lateral */
+        
         .nav-side {
             position: fixed;
             right: 30px;
@@ -42,14 +42,14 @@
             scroll-behavior: smooth;
         }
 
-        /* LOGO: Más grande y presente */
+        
         #main-logo {
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1500;
             transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
-            width: 50vw; /* Aumentado de 30vw a 50vw */
+            width: 50vw; 
             pointer-events: none;
             filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
         }
@@ -57,10 +57,10 @@
         #main-logo.mini { 
             top: 40px; 
             transform: translate(-50%, 0); 
-            width: 150px; /* Tamaño reducido más visible */
+            width: 150px; 
         }
 
-        /* Secciones y Efecto Sticky */
+        
         section { position: relative; min-height: 300vh; scroll-snap-align: start; }
         .sticky-box {
             position: sticky; top: 0; height: 100vh;
@@ -73,7 +73,7 @@
             object-fit: cover; z-index: -1; filter: brightness(45%);
         }
 
-        /* Texto flotante sin cuadros */
+       
         .content-scroll {
             position: relative; z-index: 10; width: 100%;
             padding: 150vh 10% 100vh 10%;
@@ -87,7 +87,7 @@
 
         .align-right { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
 
-        /* Botones Discretos y Esparcidos */
+       
         .btn-ghost {
             display: inline-block;
             padding: 10px 20px;
