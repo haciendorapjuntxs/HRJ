@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haciendo Rap Juntxs | Experiencia</title>
+    <link rel="stylesheet" href="style.css"> <!-- Tu CSS actual -->
+    <style>
+        /* --- ESTILOS DE LA EXPERIENCIA (TIPO DUKI) --- */
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            /* Activamos el "autofrenado" */
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        /* Logo Inteligente */
+        #main-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 60vw; /* Grande al inicio */
+            text-align: center;
+            pointer-events: none;
+        }
+
+        #main-logo.scrolled {
+            top: 30px;
+            transform: translate(-50%, 0) scale(0.3); /* Se achica y sube */
+            width: auto;
+        }
+
+        #main-logo h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        /* Secciones */
+        section {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Video de fondo con filtro oscuro */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(30%); /* Oscurecemos el video */
+        }
+
+        /* Actividades con efecto "Sticky" */
+        .actividad {
+            display: block; /* Para que el contenido fluya hacia abajo */
+        }
+
+        .sticky-photo {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            z-index: -2;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .content-overlay {
+            position: relative;
+            z-index: 5;
+            padding: 100px 5%;
+            min-height: 150vh; /* Más alto que la pantalla para que haya scroll interno */
+        }
+
+        .text-box {
+            max-width: 600px;
+            margin-top: 50vh;
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-left: 5px solid #f37021;
+        }
+
+        .img-detalle {
+            width: 300px;
+            margin-top: 100px;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Botón estilo Duki */
+        .btn-scroll {
+            border: 2px solid #fff;
+            padding: 15px 30px;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .btn-scroll:hover {
+            background: #fff;
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- LOGO QUE CAMBIA -->
+    <div id="main-logo">
+        <h1>Haciendo Rap Juntxs</h1>
+    </div>
+
+    <!-- SECCIÓN 1: VIDEO INICIAL -->
+    <section>
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="video-fondo.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div style="text-align: center; margin-top: 20vh;">
+            <a href="#actividad1" class="btn-scroll">Ver Actividades</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: ACTIVIDAD 1 (Ejemplo CCK) -->
+    <section id="actividad1" class="actividad">
+        <img src="foto-fondo-cck.jpg" class="sticky-photo" alt="CCK Fondo">
+        <div class="content-overlay">
+            <div class="text-box">
+                <h2>Presentación en el CCK</h2>
+                <p>El colectivo tomó el escenario para demostrar el poder del rap comunitario. Más de 20 artistas en vivo.</p>
+            </div>
+            <img src="foto-detalle-cck.jpg" class="img-detalle" alt="Detalle CCK">
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: ACTIVIDAD 2 (Ejemplo Taller) -->
+    <section id="actividad2" class="actividad">
+        <img src="foto-fondo-taller.jpg" class="sticky-photo" alt="Taller Fondo">
+        <div class="content-overlay">
+            <div class="text-box">
+                <h2>Talleres de Rima</h2>
+                <p>Formación y creación colectiva en los barrios. El proceso detrás de la letra.</p>
+            </div>
+            <img src="foto-detalle-taller.jpg" class="img-detalle" alt="Detalle Taller">
+        </div>
+    </section>
+
+    <!-- JS PARA EL LOGO -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const logo = document.getElementById('main-logo');
+            // Si el scroll baja más de 100px, achicamos el logo
+            if (window.scrollY > 100) {
+                logo.classList.add('scrolled');
+            } else {
+                logo.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
