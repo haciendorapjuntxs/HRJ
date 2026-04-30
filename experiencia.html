@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRJ | Experiencia Inmersiva Total</title>
     <style>
-        :root { --naranja: #f37021; --negro: #000; --blanco: #fff; --azul-prensa: #2196f3; }
+        :root { --naranja: #f37021; --negro: #000; --blanco: #fff; --azul-prensa: #2196f3; --insta: #e1306c; }
         
         body, html {
             margin: 0; padding: 0;
@@ -65,11 +65,23 @@
         }
 
         section { position: relative; height: 180vh; scroll-snap-align: start; }
+        section.long-scroll { height: 350vh; } 
+
         .sticky-box { position: sticky; top: 0; height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; }
         .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(40%); }
 
         .content-scroll { position: relative; z-index: 10; width: 100%; padding: 0 8%; display: flex; flex-direction: column; }
-        .text-card { max-width: 500px; padding: 25px; background: rgba(0,0,0,0.7); backdrop-filter: blur(15px); border-left: 4px solid var(--naranja); margin-bottom: 70vh; }
+        
+        .text-card { 
+            max-width: 550px; 
+            padding: 30px; 
+            background: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(15px); 
+            border-left: 4px solid var(--naranja); 
+            margin-bottom: 80vh; 
+        }
+        
+        .text-card:last-child { margin-bottom: 20vh; }
         .align-right { align-items: flex-end; text-align: right; }
         
         .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
@@ -85,7 +97,11 @@
         .btn-prensa { border-color: var(--azul-prensa); background: rgba(33, 150, 243, 0.1); }
         .btn-prensa:hover { background: var(--azul-prensa); box-shadow: 0 0 20px var(--azul-prensa); }
 
+        .btn-insta { border-color: var(--insta); background: rgba(225, 48, 108, 0.1); }
+        .btn-insta:hover { background: var(--insta); box-shadow: 0 0 20px var(--insta); }
+
         h2 { font-size: 2.2rem; margin: 0 0 10px 0; text-transform: uppercase; color: var(--naranja); line-height: 1; }
+        p { line-height: 1.6; font-size: 1rem; }
     </style>
 </head>
 <body>
@@ -96,9 +112,8 @@
 
     <nav class="side-nav">
         <a href="#v-inicio" class="nav-item">Inicio</a>
-        <a href="#prensa-1" class="nav-item">Medios I</a>
+        <a href="#prensa-1" class="nav-item">El Proyecto</a>
         <a href="#libro" class="nav-item">Libro</a>
-        <a href="#prensa-2" class="nav-item">Medios II</a>
         <a href="#musica" class="nav-item">Música</a>
         <a href="#territorio" class="nav-item">Territorio</a>
         <a href="#contacto" class="nav-item">Contacto</a>
@@ -118,11 +133,20 @@
             </div>
         </section>
 
-        <!-- IMAGEN 1: PRENSA I -->
-        <section id="prensa-1">
+        <!-- PROYECTO CONGELADO CON INSTAGRAM -->
+        <section id="prensa-1" class="long-scroll">
             <div class="sticky-box">
-                <img src="RECORRIDO/enc-1.jpg" class="bg-img">
+                <img src="RECORRIDO/perfil_echu.png" class="bg-img">
                 <div class="content-scroll">
+                    <div class="text-card">
+                        <h2>Haciendo Rap Juntxs</h2>
+                        <p>El proyecto de la Universidad Nacional Arturo Jauretche (UNAJ) consolida el rap del Conurbano Bonaerense como una herramienta pedagógica y de transformación social.</p>
+                        <p>Bajo la dirección de Martín Biaggini y Lucía Calvi, el programa abarca desde la producción musical hasta la gestión de redes sociales y antologías de letras.</p>
+                        <div class="btn-group">
+                            <a href="https://www.unaj.edu.ar" class="btn-link" target="_blank">Web UNAJ</a>
+                            <a href="https://www.instagram.com/haciendorapjuntxs/" class="btn-link btn-insta" target="_blank">Instagram HRJ</a>
+                        </div>
+                    </div>
                     <div class="text-card">
                         <h2>El eco del barrio</h2>
                         <p>Nuestra voz en los medios nacionales y populares.</p>
@@ -135,12 +159,39 @@
             </div>
         </section>
 
-        <!-- TRANSICIÓN (2-4) -->
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-2.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-3.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-4.jpg" class="bg-img"></div></section>
+        <!-- CANCIÓN 1 -->
+        <section>
+            <div class="sticky-box">
+                <img src="RECORRIDO/pinta-ruido1.jpg" class="bg-img">
+                <div class="content-scroll align-right">
+                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
+                        <h2>Sonidos del Conurbano</h2>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="https://www.youtube.com/watch?v=9YYNLzb9i-g" class="btn-link" target="_blank">Escuchar Track</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- IMAGEN 5: EL LIBRO -->
+        <section><div class="sticky-box"><img src="RECORRIDO/perfil_tatylaterraza.jpg" class="bg-img"></div></section>
+
+        <!-- CANCIÓN 2 -->
+        <section>
+            <div class="sticky-box">
+                <img src="RECORRIDO/perfil_ramdas.jpg" class="bg-img">
+                <div class="content-scroll">
+                    <div class="text-card">
+                        <h2>Identidad y Rima</h2>
+                        <div class="btn-group">
+                            <a href="https://www.youtube.com/watch?v=MpYa0bPlMHA" class="btn-link" target="_blank">Reproducir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIBRO -->
         <section id="libro">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-5.jpg" class="bg-img">
@@ -156,14 +207,40 @@
             </div>
         </section>
 
-        <!-- TRANSICIÓN (6-10) -->
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-6.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/IMG_3285.JPG" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-7.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-8.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-9.jpg" class="bg-img"></div></section>
+        <!-- CANCIÓN 3 -->
+        <section>
+            <div class="sticky-box">
+                <img src="RECORRIDO/perfil_negroroke.jpg" class="bg-img">
+                <div class="content-scroll">
+                    <div class="text-card">
+                        <h2>Crónica Cantada</h2>
+                        <div class="btn-group">
+                            <a href="https://www.youtube.com/watch?v=WQKzsCVjRM4" class="btn-link" target="_blank">Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- IMAGEN 11: DISCO -->
+        <section><div class="sticky-box"><img src="RECORRIDO/IMG_3285.JPG" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/perfil_dany-rap.jpg" class="bg-img"></div></section>
+
+        <!-- CANCIÓN 4 -->
+        <section>
+            <div class="sticky-box">
+                <img src="RECORRIDO/enc-8.jpg" class="bg-img">
+                <div class="content-scroll align-right">
+                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
+                        <h2>Flow Territorial</h2>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="https://www.youtube.com/watch?v=TGmSBw9QE9k" class="btn-link" target="_blank">Escuchar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCO -->
         <section id="prensa-2">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-11.jpg" class="bg-img">
@@ -178,12 +255,23 @@
             </div>
         </section>
 
-        <!-- TRANSICIÓN (12-14) -->
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-12.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-13.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-14.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/negroroke-2.jpg" class="bg-img"></div></section>
 
-        <!-- IMAGEN 15: MUSICA -->
+        <!-- CANCIÓN 5 -->
+        <section>
+            <div class="sticky-box">
+                <img src="RECORRIDO/perfil_brujah.jpg" class="bg-img">
+                <div class="content-scroll align-right">
+                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
+                        <h2>Sesiones HRJ</h2>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="https://www.youtube.com/watch?v=ZBf0I_WiXiM&t=101s" class="btn-link" target="_blank">Ver Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="musica">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-15.jpg" class="bg-img">
@@ -198,12 +286,6 @@
             </div>
         </section>
 
-        <!-- TRANSICIÓN (16-18) -->
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-16.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-17.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-18.jpg" class="bg-img"></div></section>
-
-        <!-- IMAGEN 19: TERRITORIO -->
         <section id="territorio">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-19.jpg" class="bg-img">
@@ -216,19 +298,19 @@
             </div>
         </section>
 
-        <!-- TRANSICIÓN (20-22) -->
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-20.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-21.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-22.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/portada_hrj.jpg" class="bg-img"></div></section>
 
-        <!-- IMAGEN 23: CONTACTO -->
+        <!-- CONTACTO FINAL -->
         <section id="contacto">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-23.jpg" class="bg-img">
                 <div class="content-scroll align-right">
                     <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
                         <h2>Sumate</h2>
-                        <a href="mailto:pec.unaj@gmail.com" class="btn-link">Email</a>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="https://www.instagram.com/haciendorapjuntxs/" class="btn-link btn-insta" target="_blank">Instagram</a>
+                            <a href="mailto:pec.unaj@gmail.com" class="btn-link">Email</a>
+                        </div>
                     </div>
                 </div>
             </div>
