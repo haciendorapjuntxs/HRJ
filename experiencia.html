@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRJ | Experiencia Inmersiva</title>
+    <title>HRJ | Experiencia Inmersiva Total</title>
     <style>
         :root { --naranja: #f37021; --negro: #000; --blanco: #fff; }
         
@@ -12,10 +12,35 @@
             background-color: var(--negro);
             color: var(--blanco);
             font-family: 'Inter', sans-serif;
-            overflow: hidden; /* El scroll lo maneja el wrapper */
+            overflow: hidden;
         }
 
-        /* Contenedor principal con autofrenado */
+        /* MENU LATERAL */
+        .side-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        .nav-item {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.4;
+            transition: 0.3s;
+            border-right: 2px solid transparent;
+            padding-right: 10px;
+        }
+        .nav-item:hover { opacity: 1; border-right: 2px solid var(--naranja); }
+
         .main-wrapper {
             height: 100vh;
             overflow-y: auto;
@@ -23,7 +48,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Logo Morphing Estilo Duki */
         #main-logo {
             position: fixed;
             top: 50%; left: 50%;
@@ -34,211 +58,183 @@
             width: 100%;
             pointer-events: none;
         }
-        #main-logo.mini {
-            top: 40px;
-            transform: translate(-50%, 0) scale(0.25);
-        }
-        #main-logo h1 { 
-            font-size: 8vw; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            margin: 0; 
-            letter-spacing: -5px;
-            line-height: 0.8;
-        }
+        #main-logo.mini { top: 40px; transform: translate(-50%, 0) scale(0.25); }
+        #main-logo h1 { font-size: 8vw; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -5px; line-height: 0.8;}
 
-        /* Secciones con efecto Sticky */
-        section {
-            position: relative;
-            height: 180vh; /* Altura extra para permitir el desplazamiento del texto sobre la foto fija */
-            scroll-snap-align: start;
-        }
+        section { position: relative; height: 180vh; scroll-snap-align: start; }
+        .sticky-box { position: sticky; top: 0; height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; }
+        .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(45%); }
 
-        .sticky-box {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .bg-img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(40%);
-        }
-
-        /* Contenido Flotante */
-        .content-scroll {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            padding: 0 8%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .text-card {
-            max-width: 450px;
-            padding: 30px;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            border-left: 4px solid var(--naranja);
-            margin-bottom: 80vh;
-        }
-
+        .content-scroll { position: relative; z-index: 10; width: 100%; padding: 0 8%; display: flex; flex-direction: column; }
+        .text-card { max-width: 450px; padding: 30px; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border-left: 4px solid var(--naranja); margin-bottom: 70vh; }
         .align-right { align-items: flex-end; text-align: right; }
-        .align-left { align-items: flex-start; text-align: left; }
-
-        /* Botones de Alto Contraste */
+        
         .btn-link {
-            padding: 15px 30px;
-            border: 2px solid var(--naranja);
-            color: var(--blanco);
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(243, 112, 33, 0.4);
-            transition: 0.3s;
-            display: inline-block;
-            margin-top: 15px;
+            padding: 12px 25px; border: 2px solid var(--naranja); color: var(--blanco);
+            text-decoration: none; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(243, 112, 33, 0.3); transition: 0.3s; display: inline-block; margin-top: 15px; font-size: 0.8rem;
         }
-        .btn-link:hover { 
-            background: var(--naranja); 
-            box-shadow: 0 0 35px var(--naranja);
-            transform: scale(1.05);
-        }
+        .btn-link:hover { background: var(--naranja); box-shadow: 0 0 35px var(--naranja); transform: scale(1.05); }
 
-        h2 { font-size: 3rem; margin: 0 0 10px 0; text-transform: uppercase; color: var(--naranja); }
+        h2 { font-size: 2.5rem; margin: 0 0 10px 0; text-transform: uppercase; color: var(--naranja); line-height: 1; }
     </style>
 </head>
 <body>
+
+    <nav class="side-nav">
+        <a href="#v-inicio" class="nav-item">Inicio</a>
+        <a href="#bio" class="nav-item">Biografía</a>
+        <a href="#redes" class="nav-item">Redes</a>
+        <a href="#libro" class="nav-item">Libro</a>
+        <a href="#prensa" class="nav-item">Prensa</a>
+        <a href="#staff" class="nav-item">Staff</a>
+        <a href="#musica" class="nav-item">Música</a>
+        <a href="#contacto" class="nav-item">Contacto</a>
+    </nav>
 
     <div id="main-logo"><h1>Haciendo<br>Rap Juntxs</h1></div>
 
     <div class="main-wrapper" id="scroll-container">
         
-        <!-- INICIO: VIDEO -->
-        <section>
+        <!-- VIDEO INICIAL -->
+        <section id="v-inicio">
             <div class="sticky-box">
                 <video autoplay muted loop playsinline class="bg-img" style="filter: brightness(30%);">
                     <source src="video-fondo.mp4" type="video/mp4">
                 </video>
                 <div class="content-scroll" style="align-items: center; margin-top: 20vh;">
-                    <a href="#inicio" class="btn-link">Empezar Recorrido</a>
+                    <a href="#bio" class="btn-link">Entrar a la experiencia</a>
                 </div>
             </div>
         </section>
 
-        <!-- NARRATIVA CON LAS 23 IMÁGENES INTERCALADAS -->
-        
-        <!-- ESTACIÓN 1: ORIGEN -->
-        <section id="inicio">
+        <!-- FOTO 1: BIOGRAFIA -->
+        <section id="bio">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-1.jpg" class="bg-img">
-                <div class="content-scroll align-left">
+                <div class="content-scroll">
                     <div class="text-card">
                         <h2>Desde 2020</h2>
-                        <p>El inicio de una construcción colectiva en el barro y la rima.</p>
-                        <a href="https://www.youtube.com/@HRJHaciendoRapJuntxs" class="btn-link">Canal YouTube</a>
+                        <p>Nacimos en el barro para transformar la rima en relato colectivo. El recorrido que nos trajo hasta acá.</p>
+                        <a href="https://www.youtube.com/@HRJHaciendoRapJuntxs" class="btn-link">Canal Oficial</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ESTACIÓN 2: REDES -->
-        <section>
+        <!-- FOTO 2: REDES -->
+        <section id="redes">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-2.jpg" class="bg-img">
                 <div class="content-scroll align-right">
                     <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
-                        <h2>Instagram</h2>
-                        <p>Seguí nuestra rima diaria.</p>
-                        <a href="https://www.instagram.com/haciendorapjuntxs/" class="btn-link">Seguinos</a>
+                        <h2>Conexión</h2>
+                        <p>Seguinos en Instagram para ver el día a día de nuestros talleres y presentaciones.</p>
+                        <a href="https://www.instagram.com/haciendorapjuntxs/" class="btn-link">Instagram</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIONES DE IMAGEN PURA (TRANSICIÓN HERMOSA) -->
+        <!-- FOTOS 3 A 10: TRANSICIONES PURAS -->
         <section><div class="sticky-box"><img src="RECORRIDO/enc-3.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/img_3301.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-4.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-5.jpg" class="bg-img"></div></section>
-
-        <!-- ESTACIÓN 3: LIBRO -->
-        <section>
-            <div class="sticky-box">
-                <img src="RECORRIDO/enc-11.jpg" class="bg-img">
-                <div class="content-scroll align-left">
-                    <div class="text-card">
-                        <h2>El Libro</h2>
-                        <p>Nuestra experiencia hecha palabra y papel.</p>
-                        <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" class="btn-link">Saber más</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIONES DE IMAGEN PURA -->
         <section><div class="sticky-box"><img src="RECORRIDO/enc-6.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-7.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-8.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-9.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-10.jpg" class="bg-img"></div></section>
 
-        <!-- ESTACIÓN 4: PRENSA -->
-        <section>
+        <!-- FOTO 11: EL LIBRO -->
+        <section id="libro">
+            <div class="sticky-box">
+                <img src="RECORRIDO/enc-11.jpg" class="bg-img">
+                <div class="content-scroll">
+                    <div class="text-card">
+                        <h2>El Libro</h2>
+                        <p>Nuestra experiencia pedagógica y artística plasmada en papel por Editorial Leviatán.</p>
+                        <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" class="btn-link">Conseguilo acá</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOTOS 12 A 18: MAS RECORRIDO VISUAL -->
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-12.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-13.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-14.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-15.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-16.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-17.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-18.jpg" class="bg-img"></div></section>
+
+        <!-- FOTO 19: PRENSA -->
+        <section id="prensa">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-19.jpg" class="bg-img">
                 <div class="content-scroll align-right">
                     <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
                         <h2>Página 12</h2>
-                        <p>El rap como relato genuino del conurbano bonaerense.</p>
-                        <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano/" class="btn-link">Leer Nota</a>
+                        <p>Los medios nos dan voz porque el rap es el relato real del conurbano.</p>
+                        <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano/" class="btn-link">Ver Artículo</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIONES DE IMAGEN PURA -->
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-12.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-13.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-14.jpg" class="bg-img"></div></section>
+        <!-- FOTO 20: STAFF -->
+        <section id="staff">
+            <div class="sticky-box">
+                <img src="RECORRIDO/enc-20.jpg" class="bg-img">
+                <div class="content-scroll">
+                    <div class="text-card">
+                        <h2>El Staff</h2>
+                        <p>Artistas, gestores y talleristas que ponen el cuerpo cada día.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- ESTACIÓN 5: MÚSICA -->
+        <!-- FOTO 21: MUSICA -->
+        <section id="musica">
+            <div class="sticky-box">
+                <img src="RECORRIDO/enc-21.jpg" class="bg-img">
+                <div class="content-scroll align-right">
+                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
+                        <h2>Sentimientos</h2>
+                        <p>Escuchá nuestra música en YouTube y sentí el mensaje.</p>
+                        <a href="https://www.youtube.com/watch?v=9YYNLzb9i-g" class="btn-link">Oír "Un día a la vez"</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOTO 22: CYPHER -->
         <section>
             <div class="sticky-box">
-                <img src="RECORRIDO/enc-15.jpg" class="bg-img">
-                <div class="content-scroll align-left">
+                <img src="RECORRIDO/enc-22.jpg" class="bg-img">
+                <div class="content-scroll">
                     <div class="text-card">
-                        <h2>Fluye</h2>
-                        <p>Sentimientos sobre el mic en cada presentación.</p>
-                        <a href="https://www.youtube.com/watch?v=MpYa0bPlMHA" class="btn-link">Escuchar</a>
+                        <h2>Cypher HRJ</h2>
+                        <p>La unión hace la rima. Mirá nuestro Cypher colectivo.</p>
+                        <a href="https://www.youtube.com/watch?v=Nt9W1jBXWFo" class="btn-link">Ver Cypher</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIONES RESTANTES HASTA COMPLETAR LAS 23 -->
-        <section><div class="sticky-box"><img src="RECORRIDO/img_3285.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-17.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-18.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-20.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-21.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-22.jpg" class="bg-img"></div></section>
-
-        <!-- FINAL: RESISTENCIA -->
-        <section>
+        <!-- FOTO 23: CONTACTO -->
+        <section id="contacto">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-23.jpg" class="bg-img">
                 <div class="content-scroll align-right">
                     <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
-                        <h2>Resistencia</h2>
-                        <p>Desde el conocimiento y la autogestión.</p>
-                        <a href="https://www.youtube.com/watch?v=Nt9W1jBXWFo" class="btn-link">Cypher Final</a>
+                        <h2>Contacto</h2>
+                        <p>¿Querés llevar HRJ a tu barrio o sumarte?</p>
+                        <a href="mailto:haciendorapjuntxs@gmail.com" class="btn-link">Enviar Mail</a>
+                        <br><br>
+                        <a href="#v-inicio" class="btn-link" style="border-color: #fff; box-shadow: none;">↑ Volver al inicio</a>
                     </div>
                 </div>
             </div>
@@ -251,7 +247,6 @@
         const logo = document.getElementById('main-logo');
 
         container.addEventListener('scroll', () => {
-            // El logo se achica apenas empezamos a scrollear
             if (container.scrollTop > 100) {
                 logo.classList.add('mini');
             } else {
@@ -260,4 +255,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
