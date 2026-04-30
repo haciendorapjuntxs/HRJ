@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRJ | Experiencia Inmersiva Total</title>
     <style>
-        :root { --naranja: #f37021; --negro: #000; --blanco: #fff; }
+        :root { --naranja: #f37021; --negro: #000; --blanco: #fff; --azul-prensa: #2196f3; }
         
         body, html {
             margin: 0; padding: 0;
@@ -15,31 +15,49 @@
             overflow: hidden;
         }
 
+        /* LOGO QUE SE COMPORTA COMO EL TITULO */
+        #main-logo {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+            width: 60vw; /* Tamaño inicial grande */
+            max-width: 800px;
+            pointer-events: none;
+        }
+        #main-logo img { width: 100%; height: auto; display: block; }
+        
+        #main-logo.mini {
+            top: 40px;
+            transform: translate(-50%, 0) scale(0.2); /* Se achica y sube igual que el texto */
+        }
+
         /* MENU LATERAL */
         .side-nav {
             position: fixed;
-            right: 30px;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 2000;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            align-items: flex-end;
+            gap: 10px;
         }
         .nav-item {
             color: var(--blanco);
             text-decoration: none;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             opacity: 0.4;
             transition: 0.3s;
-            border-right: 2px solid transparent;
-            padding-right: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-right: 3px solid transparent;
         }
-        .nav-item:hover { opacity: 1; border-right: 2px solid var(--naranja); }
+        .nav-item:hover { opacity: 1; border-right: 3px solid var(--naranja); }
 
         .main-wrapper {
             height: 100vh;
@@ -48,51 +66,47 @@
             scroll-behavior: smooth;
         }
 
-        #main-logo {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
-            text-align: center;
-            width: 100%;
-            pointer-events: none;
-        }
-        #main-logo.mini { top: 40px; transform: translate(-50%, 0) scale(0.25); }
-        #main-logo h1 { font-size: 8vw; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -5px; line-height: 0.8;}
-
         section { position: relative; height: 180vh; scroll-snap-align: start; }
         .sticky-box { position: sticky; top: 0; height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; }
-        .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(45%); }
+        .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(40%); }
 
         .content-scroll { position: relative; z-index: 10; width: 100%; padding: 0 8%; display: flex; flex-direction: column; }
-        .text-card { max-width: 450px; padding: 30px; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border-left: 4px solid var(--naranja); margin-bottom: 70vh; }
+        .text-card { max-width: 500px; padding: 25px; background: rgba(0,0,0,0.7); backdrop-filter: blur(15px); border-left: 4px solid var(--naranja); margin-bottom: 70vh; }
         .align-right { align-items: flex-end; text-align: right; }
         
+        /* BOTONES LLAMATIVOS */
+        .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        
         .btn-link {
-            padding: 12px 25px; border: 2px solid var(--naranja); color: var(--blanco);
+            padding: 10px 18px; border: 2px solid var(--naranja); color: var(--blanco);
             text-decoration: none; font-weight: 900; text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(243, 112, 33, 0.3); transition: 0.3s; display: inline-block; margin-top: 15px; font-size: 0.8rem;
+            transition: 0.3s; font-size: 0.7rem; letter-spacing: 1px;
+            background: rgba(243, 112, 33, 0.1);
         }
-        .btn-link:hover { background: var(--naranja); box-shadow: 0 0 35px var(--naranja); transform: scale(1.05); }
+        .btn-link:hover { background: var(--naranja); box-shadow: 0 0 20px var(--naranja); transform: translateY(-2px); }
+        
+        .btn-prensa { border-color: var(--azul-prensa); background: rgba(33, 150, 243, 0.1); }
+        .btn-prensa:hover { background: var(--azul-prensa); box-shadow: 0 0 20px var(--azul-prensa); }
 
-        h2 { font-size: 2.5rem; margin: 0 0 10px 0; text-transform: uppercase; color: var(--naranja); line-height: 1; }
+        h2 { font-size: 2.2rem; margin: 0 0 10px 0; text-transform: uppercase; color: var(--naranja); line-height: 1; }
     </style>
 </head>
 <body>
 
+    <!-- REEMPLAZO DE TEXTO POR LOGO -->
+    <div id="main-logo">
+        <img src="logo-hrj.png" alt="Haciendo Rap Juntxs Logo"> <!-- Asegúrate de que el archivo se llame logo.png -->
+    </div>
+
     <nav class="side-nav">
         <a href="#v-inicio" class="nav-item">Inicio</a>
-        <a href="#bio" class="nav-item">Biografía</a>
-        <a href="#redes" class="nav-item">Redes</a>
+        <a href="#prensa-1" class="nav-item">Medios I</a>
         <a href="#libro" class="nav-item">Libro</a>
-        <a href="#prensa" class="nav-item">Prensa</a>
-        <a href="#staff" class="nav-item">Staff</a>
+        <a href="#prensa-2" class="nav-item">Medios II</a>
         <a href="#musica" class="nav-item">Música</a>
+        <a href="#territorio" class="nav-item">Territorio</a>
         <a href="#contacto" class="nav-item">Contacto</a>
     </nav>
-
-    <div id="main-logo"><h1>Haciendo<br>Rap Juntxs</h1></div>
 
     <div class="main-wrapper" id="scroll-container">
         
@@ -100,141 +114,143 @@
         <section id="v-inicio">
             <div class="sticky-box">
                 <video autoplay muted loop playsinline class="bg-img" style="filter: brightness(30%);">
-                    <source src="video-fondo.mp4" type="video/mp4">
+                    <source src="prensa-video.mp4" type="video/mp4">
                 </video>
-                <div class="content-scroll" style="align-items: center; margin-top: 20vh;">
-                    <a href="#bio" class="btn-link">Entrar a la experiencia</a>
+                <div class="content-scroll" style="align-items: center; margin-top: 25vh;">
+                    <a href="#prensa-1" class="btn-link">Ver Recorrido</a>
                 </div>
             </div>
         </section>
 
-        <!-- FOTO 1: BIOGRAFIA -->
-        <section id="bio">
+        <!-- IMAGEN 1: PRENSA I -->
+        <section id="prensa-1">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-1.jpg" class="bg-img">
                 <div class="content-scroll">
                     <div class="text-card">
-                        <h2>Desde 2020</h2>
-                        <p>Nacimos en el barro para transformar la rima en relato colectivo. El recorrido que nos trajo hasta acá.</p>
-                        <a href="https://www.youtube.com/@HRJHaciendoRapJuntxs" class="btn-link">Canal Oficial</a>
+                        <h2>El eco del barrio</h2>
+                        <p>Nuestra voz en los medios nacionales y populares.</p>
+                        <div class="btn-group">
+                            <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano" class="btn-link btn-prensa" target="_blank">Página 12</a>
+                            <a href="https://www.tiempoar.com.ar/ta_article/haciendo-rap-juntxs-una-muestra-de-confianza-en-la-potencia-transformadora-de-la-palabra/" class="btn-link btn-prensa" target="_blank">Tiempo Arg.</a>
+                            <a href="https://desdeelconocimiento.com.ar/un-libro-de-rap-y-la-identidad-del-conurbano/" class="btn-link btn-prensa" target="_blank">Desde el Conocimiento</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FOTO 2: REDES -->
-        <section id="redes">
-            <div class="sticky-box">
-                <img src="RECORRIDO/enc-2.jpg" class="bg-img">
-                <div class="content-scroll align-right">
-                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
-                        <h2>Conexión</h2>
-                        <p>Seguinos en Instagram para ver el día a día de nuestros talleres y presentaciones.</p>
-                        <a href="https://www.instagram.com/haciendorapjuntxs/" class="btn-link">Instagram</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOTOS 3 A 10: TRANSICIONES PURAS -->
+        <!-- FOTOS TRANSICIÓN (2-4) -->
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-2.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-3.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-4.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-5.jpg" class="bg-img"></div></section>
+
+        <!-- IMAGEN 5: EL LIBRO E INDIE HOY -->
+        <section id="libro">
+            <div class="sticky-box">
+                <img src="RECORRIDO/enc-5.jpg" class="bg-img">
+                <div class="content-scroll align-right">
+                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
+                        <h2>Literatura & Rap</h2>
+                        <p>El libro que recorre nuestra pedagogía y rimas.</p>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="https://indiehoy.com/libros/4-nuevos-libros-musicales-de-autores-argentinos/" class="btn-link" target="_blank">Reseña Indie Hoy</a>
+                            <a href="https://losmuros.org/4975/%C2%A8haciendo-rap-juntxs%C2%A8/" class="btn-link" target="_blank">Los Muros</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOTOS TRANSICIÓN (6-10) -->
         <section><div class="sticky-box"><img src="RECORRIDO/enc-6.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-7.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/img_3285.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-8.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-9.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-10.jpg" class="bg-img"></div></section>
 
-        <!-- FOTO 11: EL LIBRO -->
-        <section id="libro">
+        <!-- IMAGEN 11: DISCO Y CULTURA -->
+        <section id="prensa-2">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-11.jpg" class="bg-img">
                 <div class="content-scroll">
                     <div class="text-card">
-                        <h2>El Libro</h2>
-                        <p>Nuestra experiencia pedagógica y artística plasmada en papel por Editorial Leviatán.</p>
-                        <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" class="btn-link">Conseguilo acá</a>
+                        <h2>Poesía & Discos</h2>
+                        <p>Lanzamientos y pensamiento crítico sobre el presente.</p>
+                        <div class="btn-group">
+                            <a href="https://www.pagina12.com.ar/738332-pensar-el-presente-de-la-provincia" class="btn-link btn-prensa" target="_blank">Página 12 (Provincia)</a>
+                            <a href="https://www.pagina12.com.ar/734819-un-disco-con-poesia-del-conurbano" class="btn-link btn-prensa" target="_blank">Página 12 (Disco)</a>
+                            <a href="https://conadu.org.ar/haciendo-rap-juntxs-conadu-es-cultura/" class="btn-link btn-prensa" target="_blank">CONADU Cultura</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FOTOS 12 A 18: MAS RECORRIDO VISUAL -->
+        <!-- FOTOS TRANSICIÓN (12-14) -->
         <section><div class="sticky-box"><img src="RECORRIDO/enc-12.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-13.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-14.jpg" class="bg-img"></div></section>
-        <section><div class="sticky-box"><img src="RECORRIDO/enc-15.jpg" class="bg-img"></div></section>
+
+        <!-- IMAGEN 15: MUSICA Y CYPHER -->
+        <section id="musica">
+            <div class="sticky-box">
+                <img src="RECORRIDO/enc-15.jpg" class="bg-img">
+                <div class="content-scroll align-right">
+                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
+                        <h2>El Mic Encendido</h2>
+                        <p>Nuestras canciones y la unión en el Cypher.</p>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="https://www.youtube.com/watch?v=Nt9W1jBXWFo" class="btn-link" target="_blank">Cypher HRJ</a>
+                            <a href="https://www.youtube.com/watch?v=9YYNLzb9i-g" class="btn-link" target="_blank">"Un día a la vez"</a>
+                            <a href="https://www.instagram.com/haciendorapjuntxs/" class="btn-link" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOTOS TRANSICIÓN (16-18) -->
         <section><div class="sticky-box"><img src="RECORRIDO/enc-16.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-17.jpg" class="bg-img"></div></section>
         <section><div class="sticky-box"><img src="RECORRIDO/enc-18.jpg" class="bg-img"></div></section>
 
-        <!-- FOTO 19: PRENSA -->
-        <section id="prensa">
+        <!-- IMAGEN 19: TERRITORIO UNAJ -->
+        <section id="territorio">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-19.jpg" class="bg-img">
-                <div class="content-scroll align-right">
-                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
-                        <h2>Página 12</h2>
-                        <p>Los medios nos dan voz porque el rap es el relato real del conurbano.</p>
-                        <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano/" class="btn-link">Ver Artículo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOTO 20: STAFF -->
-        <section id="staff">
-            <div class="sticky-box">
-                <img src="RECORRIDO/enc-20.jpg" class="bg-img">
                 <div class="content-scroll">
                     <div class="text-card">
-                        <h2>El Staff</h2>
-                        <p>Artistas, gestores y talleristas que ponen el cuerpo cada día.</p>
+                        <h2>Universidad & Calle</h2>
+                        <p>Vinculación territorial en la UNAJ y Florencio Varela.</p>
+                        <div class="btn-group">
+                            <a href="https://radio.unaj.edu.ar/rap-inclusivo-en-la-unaj/" class="btn-link" target="_blank">Radio UNAJ</a>
+                            <a href="https://territorio.unaj.edu.ar/haciendo-rap-juntxs-una-experiencia-de-vinculacion-territorial/" class="btn-link" target="_blank">UNAJ Territorio</a>
+                            <a href="https://lacolmenaenred.com.ar/2024/05/02/haciendo-rap-juntxs-presenta-su-disco-en-la-unaj/" class="btn-link" target="_blank">La Colmena</a>
+                            <a href="https://www.cuatromedios.com.ar/articulo/florencio-varela/florencio-varela-presentaran-disco-haciendo-rap-juntxs-unaj/20240506102700022079.html" class="btn-link" target="_blank">Cuatro Medios</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FOTO 21: MUSICA -->
-        <section id="musica">
-            <div class="sticky-box">
-                <img src="RECORRIDO/enc-21.jpg" class="bg-img">
-                <div class="content-scroll align-right">
-                    <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
-                        <h2>Sentimientos</h2>
-                        <p>Escuchá nuestra música en YouTube y sentí el mensaje.</p>
-                        <a href="https://www.youtube.com/watch?v=9YYNLzb9i-g" class="btn-link">Oír "Un día a la vez"</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- FOTOS TRANSICIÓN (20-22) -->
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-20.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/enc-21.jpg" class="bg-img"></div></section>
+        <section><div class="sticky-box"><img src="RECORRIDO/img_3301.jpg" class="bg-img"></div></section>
 
-        <!-- FOTO 22: CYPHER -->
-        <section>
-            <div class="sticky-box">
-                <img src="RECORRIDO/enc-22.jpg" class="bg-img">
-                <div class="content-scroll">
-                    <div class="text-card">
-                        <h2>Cypher HRJ</h2>
-                        <p>La unión hace la rima. Mirá nuestro Cypher colectivo.</p>
-                        <a href="https://www.youtube.com/watch?v=Nt9W1jBXWFo" class="btn-link">Ver Cypher</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOTO 23: CONTACTO -->
+        <!-- IMAGEN 23: CIERRE Y CONTACTO -->
         <section id="contacto">
             <div class="sticky-box">
                 <img src="RECORRIDO/enc-23.jpg" class="bg-img">
                 <div class="content-scroll align-right">
                     <div class="text-card" style="border-left:none; border-right:4px solid var(--naranja);">
-                        <h2>Contacto</h2>
-                        <p>¿Querés llevar HRJ a tu barrio o sumarte?</p>
-                        <a href="mailto:haciendorapjuntxs@gmail.com" class="btn-link">Enviar Mail</a>
-                        <br><br>
-                        <a href="#v-inicio" class="btn-link" style="border-color: #fff; box-shadow: none;">↑ Volver al inicio</a>
+                        <h2>Sumate</h2>
+                        <p>Organización digital, talleres y presentaciones.</p>
+                        <div class="btn-group" style="justify-content: flex-end;">
+                            <a href="mailto:haciendorapjuntxs@gmail.com" class="btn-link">Email</a>
+                            <a href="#v-inicio" class="btn-link" style="border-color: #fff;">↑ Volver al inicio</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -255,4 +271,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
