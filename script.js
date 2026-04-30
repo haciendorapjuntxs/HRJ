@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentIndex = 0;
     
-    // Aseguramos que solo el primero sea visible al inicio
+    
     slides.forEach((slide, index) => {
         slide.style.opacity = (index === 0) ? '1' : '0';
     });
