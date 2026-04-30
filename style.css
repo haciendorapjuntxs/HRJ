@@ -1,4 +1,3 @@
-/* --- RESET Y FUENTE GLOBAL --- */
 
 * { box-sizing: border-box; }
 
@@ -24,7 +23,7 @@ h1, h2, h3, a, p, .logo-brand, .boton-logro {
 
 }
 
-/* --- CURSOR PERSONALIZADO: PUÑO Y MICRO --- */
+
 
 body {
 
@@ -36,7 +35,7 @@ body {
 
 
 
-/* Aplicar a elementos interactivos */
+
 
 a, button, .boton-logro, .nav-banner a, .imagen-proyecto {
 
@@ -114,7 +113,7 @@ a, button, .boton-logro, .nav-banner a, .imagen-proyecto {
 
 
 
-/* --- NAVEGACIÓN EN EL BANNER --- */
+/* --- NAV --- */
 
 .nav-banner {
 
@@ -363,7 +362,7 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 
 /* Estilo para el nuevo banner carrusel */
 .carousel-destacados {
-    height: 350px !important; /* Ajusta la altura a tu gusto */
+    height: 350px !important; 
     position: relative;
     overflow: hidden;
     margin: 20px auto;
@@ -391,21 +390,21 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
 .carousel-destacados .banner-slide.active {
     opacity: 1;
 }
-/* Ocultamos el bloque de texto antiguo que solía tapar el banner */
+
 .banner-text {
     display: none !important;
 }
 
-/* Aseguramos que el banner no sea empujado por elementos antiguos */
+
 .banner-wrapper {
-    height: 70vh !important; /* Altura más imponente */
+    height: 70vh !important; 
     min-height: 450px;
 } 
-/* Botón Ver Más de alto impacto */
+
 .btn-destacado {
     display: inline-block;
     padding: 18px 45px;
-    background-color: #f37021; /* Tu naranja */
+    background-color: #f37021; 
     color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
@@ -424,7 +423,7 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(243, 112, 33, 0.4);
 }
-/* --- ESTILO URBANO AGRESIVO PARA PRENSA --- */
+
 
 /* Contenedor principal */
 .prensa-container { 
@@ -434,24 +433,24 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     background-color: #000; 
 }
 
-/* Las tarjetas de las notas */
+
 .tarjeta-prensa {
     background: #111;
-    border: 3px solid #f37021; /* Naranja eléctrico */
+    border: 3px solid #f37021; 
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 8px 8px 0px #f37021; /* El efecto sombra "stencil" */
+    box-shadow: 8px 8px 0px #f37021; 
     transition: 0.3s;
 }
 
-/* Efecto al pasar el mouse por encima (Interacción urbana) */
+
 .tarjeta-prensa:hover {
     transform: translate(-5px, -5px);
     box-shadow: 12px 12px 0px #fff;
     background: #f37021;
 }
 
-/* Texto dentro de las tarjetas */
+
 .tarjeta-prensa h3 { 
     font-size: 2rem; 
     text-transform: uppercase; 
@@ -464,7 +463,7 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     font-size: 1.1rem; 
 }
 
-/* Botón de cada tarjeta */
+
 .btn-leer {
     display: inline-block;
     margin-top: 20px;
@@ -489,12 +488,12 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     position: absolute;
     z-index: 3;
     top: 0;
-    left: 5%; /* Separado del borde izquierdo */
-    width: 40%; /* Solo ocupa el 40% del ancho */
+    left: 5%; 
+    width: 40%; 
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrado verticalmente */
-    text-align: left; /* Texto alineado a la izquierda */
+    justify-content: center; 
+    text-align: left; 
     padding: 20px;
 }
