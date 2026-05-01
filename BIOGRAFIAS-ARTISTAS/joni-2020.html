@@ -2,58 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Joni 2020</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joni 2020 | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/joni2020-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/joni2020-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/joni2020-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/joni2020-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/joni2020-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/el_joni_2020" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/joni2020-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">JONI 2020</h1>
+            <p>Barrio 22 de Enero, La Matanza</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>JONI 2020</h1>
-            <p>Barrio 22 De Enero, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/joni2020-2.jpg');">
+        <div class="bio-content">
+            <h2>PULSO Y IDENTIDAD</h2>
+            <p>Jonathan Ariel Gallo, el "Joni 2020", es una de las voces más auténticas de Ciudad Evita. Para él, la música no es un pasatiempo, sino el pulso constante de su vida cotidiana.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Jonathan Ariel Gallo, conocido en la escena urbana como "El Joni 2020", es una de las voces más auténticas del barrio 22 de Enero, en Ciudad Evita, partido de La Matanza. Para Jonathan, la música no es solo un pasatiempo, sino una parte fundamental de su existencia: "Desde que tengo memoria, me levanto y me acuesto con música", asegura, definiendo el ritmo como el pulso constante de su vida cotidiana.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/joni2020-3.jpg');">
+        <div class="bio-content">
+            <h2>DEL 22 PAL' MUNDO</h2>
+            <p>Motor del movimiento "Del 22 Pal' Mundo Entero", un colectivo que busca proyectar el talento de su barrio hacia afuera, promoviendo la inclusión y la diversidad como pilares.</p>
+        </div>
+    </section>
 
-            <p><strong>Identidad y trayectoria</strong><br>
-            Su camino en la composición comenzó formalmente en 2018, año en el que encontró en el rap el vehículo necesario para canalizar sus vivencias y la realidad del conurbano bonaerense. Su estilo se distingue por una lírica honesta, que busca reflejar la identidad de su entorno sin perder de vista la ambición de trascender fronteras.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/joni2020-4.jpg');">
+        <div class="bio-content">
+            <h2>LEGADO SONORO</h2>
+            <p>"Pensares" explora la profundidad de la mente en el entorno urbano, mientras que "A mi estilo" reafirma su sello personal y su pertenencia inquebrantable al barrio.</p>
+        </div>
+    </section>
 
-            <p><strong>"Del 22 Pal' Mundo Entero"</strong><br>
-            Más allá de su faceta como solista, el Joni es un gestor cultural y un actor social comprometido. Es el principal portavoz y motor del movimiento "Del 22 Pal' Mundo Entero", un colectivo que busca visibilizar el talento de su barrio y proyectarlo hacia afuera. Bajo esta premisa, organiza eventos urbanos donde la música funciona como una herramienta de cohesión, destacándose por su firme propósito de inculcar la diversidad de género y la inclusión como pilares fundamentales de la expresión artística actual.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/joni2020-5.jpg');">
+        <div class="bio-content">
+            <h2>ACTOR SOCIAL</h2>
+            <p>Más que un solista, el Joni es un gestor cultural que utiliza la música como herramienta de cohesión, logrando que el rap sea una voz que trasciende fronteras.</p>
+        </div>
+    </section>
+</main>
 
-            <p><strong>Legado musical</strong><br>
-            En su participación dentro de proyectos editoriales y antologías de rap, el artista ha seleccionado dos de sus composiciones más significativas:</p>
-            
-            <p>"Pensares": Un tema introspectivo donde el Joni explora la profundidad de la reflexión y la complejidad de la mente en el entorno urbano.</p>
-            
-            <p>"A mi estilo": Una pieza que define su sello personal y su autenticidad, reafirmando su pertenencia al barrio mientras impone su propio ritmo y visión del mundo.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
