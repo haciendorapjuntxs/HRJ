@@ -2,58 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Ram Das</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ram Das | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/ramdas-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/ramdas-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/ramdas-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/ramdas-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/ramdas-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/ram_xprez" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/ramdas-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">RAM DAS</h1>
+            <p>Quilmes, Buenos Aires</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>RAM DAS</h1>
-            <p>Quilmes, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/ramdas-2.jpg');">
+        <div class="bio-content">
+            <h2>PILAR HISTÓRICO</h2>
+            <p>Maximiliano Ruggiero es una figura fundamental del rap argentino. Con tres décadas de trayectoria, su nombre está ligado al proceso de consolidación y profesionalización del género en el país.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Maximiliano Ruggiero, conocido en el ambiente del hip hop como "Ram Das", es una figura fundamental y un pilar histórico de la escena del rap en Argentina. Con una trayectoria que se extiende a lo largo de tres décadas, su nombre está intrínsecamente ligado al proceso de consolidación y profesionalización de nuestra cultura urbana.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/ramdas-3.jpg');">
+        <div class="bio-content">
+            <h2>PIONERO DE LOS 90</h2>
+            <p>Integrante de la emblemática <em>Encontra del Hombre</em> y participante de hitos como los compilados "Slam" y "Nación Hip Hop", documentos arqueológicos del rap local.</p>
+        </div>
+    </section>
 
-            <p><strong>Un pionero de los años 90</strong><br>
-            La historia de Ram Das es la historia del rap local. Durante la década de 1990, formó parte de la emblemática agrupación "Encontra del Hombre", una formación clave para entender el desarrollo del género en el país. Su participación en los compilados "Slam" (1996) y el histórico "Nación Hip Hop" (BMG, 1997) —materiales que funcionan hoy como verdaderos documentos arqueológicos de la cultura urbana argentina— lo posicionaron como una voz referente para quienes comenzaban a trazar el camino del hip hop nacional.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/ramdas-4.jpg');">
+        <div class="bio-content">
+            <h2>PRESENTE Y EVOLUCIÓN</h2>
+            <p>Actualmente lidera el grupo "Sana", explorando nuevas texturas sonoras y sirviendo como puente entre las raíces del rap nacional y las nuevas generaciones.</p>
+        </div>
+    </section>
 
-            <p><strong>Presente y evolución</strong><br>
-            Lejos de vivir solo del legado, Maximiliano ha mantenido su vigencia a través de la reinvención constante. En la actualidad, lidera su visión artística desde el grupo "Sana", donde continúa explorando nuevas texturas sonoras y temáticas, demostrando que su compromiso con la rima y el mensaje se ha mantenido intacto con el paso del tiempo. Ram Das es, en esencia, un puente entre las raíces del rap local y las nuevas sonoridades contemporáneas.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/ramdas-5.jpg');">
+        <div class="bio-content">
+            <h2>CATARSIS Y TIEMPO</h2>
+            <p>A través de temas como "Catarsis" y "20 abriles", Ram Das despliega una madurez creativa que transforma la honestidad brutal y el paso del tiempo en el motor de sus rimas actuales.</p>
+        </div>
+    </section>
+</main>
 
-            <p><strong>Selección para la antología</strong><br>
-            Para esta obra, Ram Das ha seleccionado dos piezas que recorren su madurez creativa:</p>
-
-            <p>"Catarsis": Un tema que, como su nombre indica, funciona como un desahogo profundo. En esta pieza, el MC pone en juego la honestidad brutal que lo caracteriza, utilizando la escritura como un proceso de sanación y liberación de cargas.</p>
-
-            <p>"20 abriles": Una mirada retrospectiva y nostálgica. A través de este track, el artista hace un balance de su vida, los años recorridos y la experiencia acumulada, transformando el paso del tiempo en el motor de sus rimas actuales.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
