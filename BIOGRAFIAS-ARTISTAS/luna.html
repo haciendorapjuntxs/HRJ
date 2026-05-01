@@ -2,58 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Luna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/luna-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/luna-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/luna-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/luna-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/luna-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/luna_lizarraga_" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/luna-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">LUNA</h1>
+            <p>Virrey del Pino, La Matanza</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>LUNA</h1>
-            <p>Virrey Del Pino, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/luna-2.jpg');">
+        <div class="bio-content">
+            <h2>REFERENTE INTEGRAL</h2>
+            <p>Luna Lizarraga es una figura clave del hip hop en Virrey del Pino. Su arte abarca tanto el micrófono como el graffiti, interviniendo el espacio público para dar voz a las paredes de su barrio.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p><strong>Luna Lizarraga | "Luna"</strong><br>
-            Luna Lizarraga, reconocida en la cultura urbana simplemente como "Luna", es una referente indiscutible del hip hop en Virrey del Pino, La Matanza. Su trayectoria es un claro ejemplo de cómo el arte se puede convertir en una herramienta integral de vida: Luna no solo domina el micrófono como rapera, sino que también despliega su mirada crítica a través del graffiti, interviniendo el espacio público y otorgándole voz a las paredes de su barrio.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/luna-3.jpg');">
+        <div class="bio-content">
+            <h2>CLIKA MÍSTICA</h2>
+            <p>Como madre y activista, entiende el hip hop como un terreno de resistencia. Su identidad artística se consolida en la <em>Clika Mística</em>, donde sus inquietudes sociales encuentran un eco colectivo.</p>
+        </div>
+    </section>
 
-            <p><strong>Militancia y creación colectiva</strong><br>
-            La vida de Luna está marcada por el compromiso. Como madre y firme activista, entiende que la cultura hip hop es un terreno de resistencia y construcción comunitaria. Gran parte de su identidad artística se ha consolidado bajo el ala de la Clika Mística, una agrupación donde sus inquietudes sociales y artísticas encuentran un eco colectivo.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/luna-4.jpg');">
+        <div class="bio-content">
+            <h2>TEJIENDO REDES</h2>
+            <p>Apuesta por el trabajo colaborativo, fomentando el empoderamiento femenino en el rap y explorando nuevas fronteras sonoras junto a su pareja, Mr. Hyde.</p>
+        </div>
+    </section>
 
-            <p>Su proceso creativo es profundamente colaborativo; lejos de limitar su expresión al solismo, Luna apuesta por el tejido de redes. Compone habitualmente junto a otras compañeras de la escena, fomentando el empoderamiento femenino en el rap, y mantiene un proyecto artístico creativo junto a su pareja, Mr. Hyde, con quien fusiona sus visiones para explorar nuevas fronteras sonoras.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/luna-5.jpg');">
+        <div class="bio-content">
+            <h2>"PENSAMIENTOS" Y "DESPEGÓ"</h2>
+            <p>A través de temas como "Pensamientos" (reflexión introspectiva) y "Despegó" (manifiesto de madurez artística), Luna se consolida como una voz que no puede ser ignorada.</p>
+        </div>
+    </section>
+</main>
 
-            <p><strong>Selección para la antología</strong><br>
-            Para esta obra, Luna nos abre las puertas de su mundo íntimo y profesional a través de dos canciones que definen su capacidad de introspección y su proyección:</p>
-
-            <p>"Pensamientos": Un ejercicio de escritura profunda donde Luna se sumerge en su propia psiquis. Es un tema que invita a la reflexión, explorando cómo la maternidad, el activismo y la realidad del barrio moldean la forma en que percibimos el mundo.</p>
-
-            <p>"Despegó": Esta pieza funciona como un manifiesto de superación. Con un tono más enérgico, "Despegó" simboliza el momento en que el esfuerzo, la constancia y la madurez artística se traducen en un vuelo propio, consolidando su posición como una voz que ya no puede ser ignorada.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
