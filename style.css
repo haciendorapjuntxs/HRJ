@@ -524,40 +524,32 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     max-width: 800px;
 } 
 
-/* --- GRILLA DE FIGURITAS (TAMAÑO FIJO) --- */
+/* --- GRILLA FORZADA DE FIGURITAS --- */
 .bio-grid-mejorada {
-    display: flex;             /* Usamos flex para centrar la grilla */
-    flex-wrap: wrap;           /* Permite que bajen a la siguiente fila */
-    justify-content: center;   /* Centra las tarjetas */
-    gap: 25px;                 /* Espacio entre tarjetas */
-    padding: 40px 20px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    padding: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
 }
 
 .bio-grid-mejorada .bio-card {
-    width: 250px;              /* Tamaño fijo para que sean miniaturas */
-    border: 1px solid #333;
-    padding: 10px;
-    background: #111;
-    transition: 0.3s;
-    text-align: center;
+    display: block !important;
+    width: 280px !important; /* Ancho fijo para que no se estire */
+    min-width: 280px !important;
+    border: 1px solid #333 !important;
+    padding: 15px !important;
+    background: #111 !important;
+    text-align: center !important;
+    transition: 0.3s !important;
 }
 
-.bio-grid-mejorada .bio-card:hover {
-    border-color: #f37021;
-    transform: scale(1.05);    /* Efecto figurita al pasar el mouse */
-}
-
-/* Control estricto de la imagen */
 .bio-grid-mejorada .bio-card img {
-    width: 230px;              /* Un poco menos que el ancho de la tarjeta */
-    height: 230px;             /* Altura fija para que sea cuadrada */
-    object-fit: cover;         /* Recorta la foto sin deformarla */
-    display: block;
-    margin: 0 auto 10px auto;  /* Centra la imagen */
-}
-
-/* Texto del artista */
-.bio-grid-mejorada .bio-card h3 {
-    margin: 10px 0 5px 0;
-    font-size: 1.1rem;
+    display: block !important;
+    width: 250px !important; /* Imagen fija */
+    height: 250px !important; /* Imagen fija cuadrada */
+    object-fit: cover !important;
+    margin: 0 auto 15px auto !important;
 } 
