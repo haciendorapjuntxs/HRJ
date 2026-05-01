@@ -2,57 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Shhu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shhu | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/shhu-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/shhu-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/perfil_shhu.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/shhu-3.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/shhu_li" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/shhu-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">SHHU</h1>
+            <p>Laferrere, Buenos Aires</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>SHHU</h1>
-            <p>Laferrere, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/shhu-2.jpg');">
+        <div class="bio-content">
+            <h2>TRANSFORMACIÓN URBANA</h2>
+            <p>Julieta Roldán, "Shhu", es una figura integral de la cultura hip hop en Laferrere. Su obra, donde convergen el graffiti y la rima, transforma el paisaje urbano en una voz propia.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Julieta Roldán, conocida en el circuito del arte callejero y el rap bajo el alias de "Shhu", es una figura integral de la cultura hip hop en Laferrere, zona oeste del conurbano bonaerense. Su obra es un reflejo de una vida atravesada por la militancia artística, donde el graffiti y la rima convergen para transformar el paisaje urbano en una voz propia.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/perfil_shhu.jpg');">
+        <div class="bio-content">
+            <h2>ARTE COMO MILITANCIA</h2>
+            <p>Mujer, madre y artista, Shhu defiende la equidad y abre camino para nuevas generaciones en un entorno históricamente dominado por hombres, entendiendo el hip hop como herramienta de transformación.</p>
+        </div>
+    </section>
 
-            <p><strong>El arte como militancia</strong><br>
-            La trayectoria de Shhu no se entiende sin su compromiso inquebrantable con la cultura hip hop, a la que considera no solo un género musical, sino un estilo de vida y una herramienta de transformación social. Como mujer, madre y artista, Julieta ha logrado tejer un camino propio en un entorno históricamente dominado por hombres, defendiendo siempre la equidad y el espacio para las nuevas generaciones.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/shhu-3.jpg');">
+        <div class="bio-content">
+            <h2>SOUNDSISTA CREW</h2>
+            <p>Bajo el ala de Soundsista Crew, Shhu manifiesta su estética cruda y una lírica cargada de conciencia, consolidándose como un referente clave para el activismo en el Oeste.</p>
+        </div>
+    </section>
 
-            <p><strong>Soundsista Crew</strong><br>
-            Gran parte de su potencia creativa se desarrolla bajo el ala de Soundsista Crew, agrupación donde manifiesta su arte y donde sus letras encuentran un eco colectivo. En el seno de este colectivo, Shhu ha perfeccionado su estilo, manteniendo siempre una estética cruda y una lírica cargada de conciencia social. Su labor dentro de la crew trasciende lo musical, convirtiéndose en un punto de referencia para el activismo en el Oeste.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/shhu-1.jpg');">
+        <div class="bio-content">
+            <h2>BOMBO, CAJA Y SEMILLA</h2>
+            <p>"Bombo caja en el mando" es su declaración de principios sobre la técnica y el respeto; mientras que "Semilla" simboliza su faceta de activismo y esperanza por un futuro con más conciencia.</p>
+        </div>
+    </section>
+</main>
 
-            <p><strong>Selección para la antología</strong><br>
-            Para esta obra, Shhu ha seleccionado dos temas fundamentales que sintetizan su búsqueda y su potencia:</p>
-
-            <p>"Bombo caja en el mando": Una declaración de principios sobre la vieja escuela, la técnica y el respeto por los pilares fundamentales del rap. Aquí, Shhu reivindica el control de la escena y el peso de la rima pura.</p>
-
-            <p>"Semilla": Una pieza cargada de simbolismo y esperanza. En esta canción, la artista explora su faceta como madre y activista, plantando en sus letras la semilla de un cambio social necesario y la construcción de un futuro con más arte y conciencia en los barrios.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
