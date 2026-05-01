@@ -2,54 +2,89 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Mr Hyde</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr Hyde | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        /* Botón Instagram preparado: añadir enlace en el href */
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/mr-hyde-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/mr-hyde-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/mr-hyde-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/perfil_mrhyde.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="#" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/mr-hyde-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">MR HYDE</h1>
+            <p>Virrey del Pino, La Matanza</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>MR HYDE</h1>
-            <p>Virrey Del Pino, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/mr-hyde-2.jpg');">
+        <div class="bio-content">
+            <h2>TRAYECTORIA</h2>
+            <p>Marcos Duarte, "Mr Hyde", es una figura consolidada en el rap de La Matanza. Con 29 años, lleva más de la mitad de su vida dedicado al hip hop, habiendo comenzado a los 13 años.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>A sus 29 años, Marcos Duarte —quien ha forjado su identidad artística bajo el nombre de "Mr Hyde"— es una figura consolidada en la escena del rap del partido de La Matanza. Su vínculo con la música no es reciente: lleva más de la mitad de su vida dedicado a este oficio, habiendo comenzado su camino en el hip hop a los 13 años. Lo que nació como una forma de expresión adolescente se transformó con el tiempo en una carrera definida por la perseverancia y la búsqueda de una sonoridad propia.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/mr-hyde-3.jpg');">
+        <div class="bio-content">
+            <h2>VISIÓN ARTÍSTICA</h2>
+            <p>Cuenta con dos EPs como solista y un trabajo conjunto con Luna SSC, donde fusiona la intimidad del vínculo personal con la fuerza del compromiso musical.</p>
+        </div>
+    </section>
 
-            <p><strong>Trayectoria y discografía</strong><br>
-            La carrera de Mr Hyde se caracteriza por un crecimiento constante. A lo largo de los años, ha logrado plasmar su visión artística en dos EPs como solista, trabajos que le permitieron explorar sus propias capacidades técnicas y líricas.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/perfil_mrhyde.jpg');">
+        <div class="bio-content">
+            <h2>"INTRODUCCIÓN"</h2>
+            <p>Su tema "Introducción" funciona como un manifiesto: presenta sus credenciales, establece su posición frente a la escena urbana y abre la puerta a su universo sonoro.</p>
+        </div>
+    </section>
+</main>
 
-            <p>Más allá de su faceta individual, Marcos entiende el rap como un terreno de construcción compartida. Junto a su pareja, Luna SSC, ha desarrollado un proyecto conjunto que fusiona la intimidad del vínculo personal con la fuerza del compromiso musical, sumando un EP más a su discografía que refleja una estética compartida y una complicidad única en la escena.</p>
-
-            <p><strong>Selección para la antología</strong><br>
-            Para este libro, Mr Hyde ha optado por un enfoque conceptual y directo: "Introducción".</p>
-
-            <p>"Introducción": Lejos de ser solo un comienzo, esta pieza funciona como un manifiesto. En ella, el rapero presenta sus credenciales, establece su posición frente a la escena urbana y abre la puerta a su universo sonoro, invitando al lector y al oyente a recorrer el camino que ha transitado desde sus inicios en La Matanza hasta la actualidad.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
