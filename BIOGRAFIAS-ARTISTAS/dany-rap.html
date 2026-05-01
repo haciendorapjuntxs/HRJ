@@ -2,51 +2,190 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Dany Rap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dany Rap | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/danyrap-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/danyrap-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/danyrap-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/danyrap-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/danyrap-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/danyrap.f" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">DANY RAP</h1>
+            <p>Gerli, Buenos Aires</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>DANY RAP</h1>
-            <p>Gerli, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-2.jpg');">
+        <div class="bio-content">
+            <h2>REFERENTE Y ACTIVISTA</h2>
+            <p>Dany Rap es un referente ineludible del hip hop en el AMBA y pieza clave en <em>Haciendo Rap Juntxs</em>. Su labor trasciende la música, actuando como comunicador que busca democratizar el acceso al arte desde el barrio.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Dany Rap es un referente ineludible de la escena hip hop en el Área Metropolitana de Buenos Aires y una pieza clave en el tejido cultural del proyecto "Haciendo Rap Juntxs" (HRJ) de la Universidad Nacional Arturo Jauretche (UNAJ). Su labor trasciende la creación musical, consolidándose como un comunicador y activista que busca democratizar el acceso al arte desde y para el barrio.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-3.jpg');">
+        <div class="bio-content">
+            <h2>RAPEANDO LA POSTA</h2>
+            <p>Como conductor de espacios de difusión, tiende puentes entre artistas de todo el territorio, compartiendo saberes técnicos para la producción con dispositivos móviles, fomentando la autogestión y la soberanía tecnológica.</p>
+        </div>
+    </section>
 
-            <p>Como conductor de espacios de difusión como <em>Rapeando la Posta</em>, Dany Rap se ha dedicado a tender puentes entre historias, temas y artistas de diversos rincones del territorio, compartiendo recomendaciones técnicas para la producción de música, imagen y video desde dispositivos móviles. Este enfoque busca romper las barreras de acceso, fomentando la autogestión y la soberanía tecnológica de las y los artistas.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-4.jpg');">
+        <div class="bio-content">
+            <h2>EL RAP COMO HERRAMIENTA</h2>
+            <p>Su aporte es integral: no solo pone su voz, sino que impulsa la asociatividad cultural. Para él, el rap es una herramienta pedagógica que permite a los jóvenes narrar sus realidades con dignidad.</p>
+        </div>
+    </section>
 
-            <p>Su aporte a HRJ es integral: Dany no solo pone su voz y su lírica al servicio del colectivo, sino que es un impulsor constante de la asociatividad cultural. Para él, el rap es una herramienta pedagógica y de identidad que permite a los jóvenes narrar sus propias realidades con dignidad.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-5.jpg');">
+        <div class="bio-content">
+            <h2>ESTILO DE VIDA</h2>
+            <p>Su trayectoria refleja un compromiso genuino con la cultura hip hop, entendida como un estilo de vida basado en la colaboración, el intercambio de saberes y la construcción de espacios de pertenencia.</p>
+        </div>
+    </section>
+</main>
 
-            <p>Su trayectoria es el reflejo de un compromiso genuino con la cultura hip hop, entendida no solo como género musical, sino como un estilo de vida basado en la colaboración, el intercambio de saberes y la construcción de espacios de pertenencia. Dany Rap sigue trabajando en el territorio, convencido de que, a través de la comunicación y el arte, es posible transformar la realidad y darle voz a quienes tienen mucho por contar.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dany Rap | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/danyrap.f" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
+        </div>
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">DANY RAP</h1>
+            <p>Gerli, Buenos Aires</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-2.jpg');">
+        <div class="bio-content">
+            <h2>REFERENTE Y ACTIVISTA</h2>
+            <p>Dany Rap es un referente ineludible del hip hop en el AMBA y pieza clave en <em>Haciendo Rap Juntxs</em>. Su labor trasciende la música, actuando como comunicador que busca democratizar el acceso al arte desde el barrio.</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-3.jpg');">
+        <div class="bio-content">
+            <h2>RAPEANDO LA POSTA</h2>
+            <p>Como conductor de espacios de difusión, tiende puentes entre artistas de todo el territorio, compartiendo saberes técnicos para la producción con dispositivos móviles, fomentando la autogestión y la soberanía tecnológica.</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-4.jpg');">
+        <div class="bio-content">
+            <h2>EL RAP COMO HERRAMIENTA</h2>
+            <p>Su aporte es integral: no solo pone su voz, sino que impulsa la asociatividad cultural. Para él, el rap es una herramienta pedagógica que permite a los jóvenes narrar sus realidades con dignidad.</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/danyrap-5.jpg');">
+        <div class="bio-content">
+            <h2>ESTILO DE VIDA</h2>
+            <p>Su trayectoria refleja un compromiso genuino con la cultura hip hop, entendida como un estilo de vida basado en la colaboración, el intercambio de saberes y la construcción de espacios de pertenencia.</p>
+        </div>
+    </section>
+</main>
+
+</body>
+</html> 
