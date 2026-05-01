@@ -2,56 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Brujah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brujah | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/brujah-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/brujah-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/brujah-3.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/laah_brujaah" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/brujah-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">BRUJAH</h1>
+            <p>Carlos Spegazzini, Ezeiza</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>BRUJAH</h1>
-            <p>Spegazzini, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/brujah-2.jpg');">
+        <div class="bio-content">
+            <h2>LA BRUJA</h2>
+            <p>Erika Belén Córdoba emerge desde el barrio La Flecha. A los 11 años, el hallazgo de un pendrive con rap marcó su destino.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Erika Belén Córdoba | "La Brujah"
-            Erika Belén Córdoba, conocida en la escena del rap como "La Brujah", es una voz incisiva que emerge desde el barrio La Flecha, en Carlos Spegazzini (Ezeiza), en la zona sur del conurbano bonaerense. Su historia es un claro ejemplo de cómo el destino puede encontrarse en los objetos más inesperados: a los once años, el hallazgo de un pendrive olvidado —que resultó ser una biblioteca sonora cargada de rap— se convirtió en su iniciación y en el punto de partida de un vínculo inquebrantable con la cultura hip hop.</p>
-            
-            <p><strong>El Rap como herramienta de denuncia</strong><br>
-            Para Erika, el rap nunca fue un mero ejercicio de estilo, sino un mecanismo de defensa y visibilización. Su lírica es el eco de las calles que transita; una crónica social donde transforma en canciones las injusticias, las desigualdades y las violencias cotidianas que observa en su entorno. La Brujah utiliza su arte como un lente que amplifica lo que muchos prefieren ignorar, convirtiendo su poesía en un acto de resistencia y denuncia.</p>
-            
-            <p>Su nombre artístico, "La Brujah", no es casual: representa su capacidad de transformar la realidad a través de la palabra, conjurando verdades que golpean y movilizan a quien las escucha.</p>
-            
-            <p><strong>Selección para la antología</strong><br>
-            Para este libro, La Brujah nos abre una ventana a su universo lírico con dos piezas que contrastan la lucha social con la identidad territorial:</p>
-            
-            <p>"24/siempre": Una pieza que captura la intensidad de su militancia y la constancia de su mensaje. Es un grito que se sostiene a lo largo del tiempo, reafirmando que su compromiso con la cultura y con su barrio no descansa, es una constante vital.</p>
-            
-            <p>"Aroma silvestre": Una canción que nos permite ver su costado más sensible y arraigado a su tierra. Aquí, la artista conecta la crudeza del rap con la esencia de su propio territorio, logrando un equilibrio entre la denuncia social y la conexión profunda con sus raíces en Ezeiza.</p>
-        </section>
-    </main>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/brujah-3.jpg');">
+        <div class="bio-content">
+            <h2>EL ARTE COMO RESISTENCIA</h2>
+            <p>Su lírica es una crónica social que transforma desigualdades y violencias en poesía necesaria. No es solo estilo, es defensa.</p>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/brujah-4.jpg');">
+        <div class="bio-content">
+            <h2>ANTOLOGÍA</h2>
+            <p>"24/siempre" y "Aroma silvestre" son las piezas elegidas. La lucha social conectada con la esencia profunda de su territorio.</p>
+        </div>
+    </section>
+</main>
+
 </body>
-</html>
+</html> 
