@@ -2,49 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Libreta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreta | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/libreta-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/libreta-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/libreta-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/libreta-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/libreta-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/dc_libreta" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
-        </div>
-
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>LIBRETA</h1>
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">LIBRETA</h1>
             <p>Presidente Derqui, Pilar</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Libreta es la voz del barrio de Presidente Derqui. Desde 2011 viene grabando de manera casera, hasta que en 2020 luego de unos años lejos del Mic, graba sus primeros sencillos en un Estudio Profesional. Desde ese año Libreta viene aportando mucho de él para su cultura, manteniendo viva la esencia callejera del hip hop.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-2.jpg');">
+        <div class="bio-content">
+            <h2>LA VOZ DE DERQUI</h2>
+            <p>Libreta es la voz del barrio de Presidente Derqui. Desde 2011, su trayectoria ha sido una evolución constante, manteniendo viva la esencia callejera del hip hop y aportando su visión al movimiento.</p>
+        </div>
+    </section>
 
-            <p>Su base es el boombap crudo y real, aunque no le escapa al reggaetón cuando la pista pide diversión propia. Las influencias marcan el camino: la lírica de 2Pac, el flow de Snoop Dogg, la conciencia de Bob Marley y el estilo local de XXL Irione, entre otros.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-3.jpg');">
+        <div class="bio-content">
+            <h2>BOOMBAP Y COLORES</h2>
+            <p>Su base es el boombap crudo y real, aunque no le escapa al reggaetón cuando la pista pide diversión. Su estilo se nutre de influencias como 2Pac, Snoop Dogg, Bob Marley y XXL Irione.</p>
+        </div>
+    </section>
 
-            <p>Con temáticas variadas que van de la esquina al corazón, Libreta no se encasilla. Su lema lo dice todo: "Mándale colores no te quedes en lo oscuro". Porque el barrio también brilla.</p>
-        </section>
-    </main>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-4.jpg');">
+        <div class="bio-content">
+            <h2>MÁNDALE COLORES</h2>
+            <p>Con temáticas que van desde la esquina al corazón, Libreta no se encasilla. Su lema es claro: "Mándale colores, no te quedes en lo oscuro", porque el barrio también brilla.</p>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-5.jpg');">
+        <div class="bio-content">
+            <h2>CONECTATE</h2>
+            <p>Sigue su camino y sus nuevos lanzamientos a través de su Instagram oficial: <strong>@dc_libreta</strong>.</p>
+        </div>
+    </section>
+</main>
+
 </body>
 </html> 
