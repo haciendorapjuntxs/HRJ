@@ -2,62 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Doble H | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-    /* PRUEBA */
-    @media (max-width: 768px) {
-        .banner-wrapper { height: 60vh !important; border: 5px solid yellow !important; }
-    }
-</style>
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Juan Doble H</title>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-4.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/parte_del_artehh" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">JUAN DOBLE H</h1>
+            <p>Villa Palito, La Matanza</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>JUAN DOBLE H</h1>
-            <p>Villa Palito, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-2.jpg');">
+        <div class="bio-content">
+            <h2>MOTOR DEL OESTE</h2>
+            <p>Juan José Bataglia es un referente incansable en Villa Palito. Desde 2012, vive el hip hop como una herramienta de cohesión y transformación territorial, fusionando el rap y el b-boying.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p>Juan José Bataglia, conocido en toda la escena del Oeste como "Juan Doble H", es uno de los motores más incansables del movimiento hip hop en Villa Palito, La Matanza. Desde 2012, no solo ha transitado la cultura, sino que la ha vivido como una herramienta de cohesión y transformación territorial. Su identidad se desdobla con maestría entre el b-boying (break dance) y el rap, disciplinas que entiende como partes inseparables de una misma lucha.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-3.jpg');">
+        <div class="bio-content">
+            <h2>TEJIDO SOCIAL</h2>
+            <p>Organizador de "La Palito Arde" y "Fluye Style", eventos que son espacios de resistencia y encuentro donde se fortalece el barrio a través de la danza y la música.</p>
+        </div>
+    </section>
 
-            <p><strong>El Hip Hop como tejido social</strong><br>
-            La labor de Juan Doble H trasciende el escenario. Es uno de los principales organizadores de "La Palito Arde" y el evento "Fluye Style", puntos neurálgicos donde convergen activistas, artistas y vecinos. Estas fiestas no son solo eventos culturales; son espacios de resistencia y encuentro donde se fortalece el tejido social del barrio a través de la danza y la música.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/juandobleh-4.jpg');">
+        <div class="bio-content">
+            <h2>EL CAMINO ELEGIDO</h2>
+            <p>Para él, el break dance es una forma de vida. A través de sus talleres, transmite valores de disciplina y expresión, alejando a los pibes de los peligros de la calle mediante el arte.</p>
+        </div>
+    </section>
+</main>
 
-            <p>Para Juan, el break dance no es solo una disciplina técnica; es, ante todo, una forma de vida. Esta filosofía lo ha llevado a dictar talleres en los que transmite los valores del hip hop a las nuevas generaciones, utilizando el movimiento como una vía para la disciplina, la expresión y el desarrollo personal, alejando a los pibes de los peligros de la calle mediante el arte.</p>
-
-            <p><strong>Selección para la antología</strong><br>
-            Para este libro, Juan Doble H ha seleccionado dos composiciones que resumen su recorrido y su visión reflexiva:</p>
-
-            <p>"Este es mi camino": Una declaración de principios que marca la dirección de su vida. En este track, el artista narra la elección consciente de seguir los valores del hip hop, entendiendo que el sendero elegido es, a la vez, una misión y un refugio.</p>
-
-            <p>"Yo me pregunto": Una pieza introspectiva y crítica. Aquí, Juan se detiene a cuestionar la realidad que lo rodea, las injusticias sociales y el papel de la cultura urbana como espejo de una sociedad que necesita ser repensada. Es, en esencia, una invitación a la duda constructiva y al despertar de la conciencia colectiva.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
