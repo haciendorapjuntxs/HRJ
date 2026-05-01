@@ -2,59 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Taty La Terraza</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taty La Terraza | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/taty-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/taty-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/taty-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/taty-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/taty-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/eltatygram" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/taty-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">TATY LA TERRAZA</h1>
+            <p>Villa Soldati, Buenos Aires</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>TATY LA TERRAZA</h1>
-            <p>Villa Soldati, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/taty-2.jpg');">
+        <div class="bio-content">
+            <h2>BOLETO DE SALIDA</h2>
+            <p>Alan Fernández representa la voz de Villa Soldati. Define al rap como su "boleto de salida", utilizando el arte como una vía legítima de superación y movilidad social.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p><strong>Alan Fernández | "Taty la Terraza"</strong><br>
-            Alan Fernández, el rapero conocido en el circuito urbano como "Taty la Terraza", representa la voz y el ingenio de Villa Soldati. Con una habilidad innata para la rima improvisada y una visión clara sobre su futuro, Alan ha definido al rap como su "boleto de salida de la villa en la que vive". Esta frase, más que un eslogan, es el motor que impulsa cada una de sus presentaciones y composiciones: el arte como una vía legítima de superación y movilidad.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/taty-3.jpg');">
+        <div class="bio-content">
+            <h2>GUERRERO DEL FREESTYLE</h2>
+            <p>Destacado competidor en plazas y escenarios de CABA y el conurbano, donde ha forjado su agilidad mental y una lírica afilada que conecta directamente con la realidad sin filtros.</p>
+        </div>
+    </section>
 
-            <p><strong>El dominio del Freestyle</strong><br>
-            Taty la Terraza no es solo un compositor de estudio; es un guerrero del freestyle. Su nombre ha ganado respeto en las batallas de plazas y escenarios de todo CABA y el conurbano bonaerense, donde ha demostrado una agilidad mental y una lírica afilada que lo han llevado a coronarse campeón en múltiples competiciones. Este entrenamiento intensivo en el "cara a cara" le ha dotado de una capacidad única para conectar con la audiencia y expresar su realidad sin filtros.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/taty-4.jpg');">
+        <div class="bio-content">
+            <h2>DEL BARRIO A LA ACADEMIA</h2>
+            <p>En 2022 formó parte del proyecto "Locus in Urbia" (UNA), profesionalizando su discurso y dialogando con diversos lenguajes artísticos para consolidarse como un artista integral.</p>
+        </div>
+    </section>
 
-            <p><strong>Trayectoria académica y artística</strong><br>
-            Su compromiso con el rap trasciende la improvisación y el entretenimiento. En 2022, fue parte fundamental del proyecto "Locus in Urbia", desarrollado en la Universidad Nacional de las Artes (UNA). Esta experiencia le permitió cruzar fronteras, profesionalizar su discurso y explorar el rap como una disciplina estética y de investigación, integrándose con otros lenguajes artísticos y consolidándose como un artista integral que busca el diálogo entre el barrio y la academia.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/taty-5.jpg');">
+        <div class="bio-content">
+            <h2>IDENTIDAD Y PROPÓSITO</h2>
+            <p>A través de temas como "Yo no me olvido" y "Es para mí", Taty reafirma su pertenencia a Soldati y la convicción de que el rap es su destino y herramienta de transformación.</p>
+        </div>
+    </section>
+</main>
 
-            <p><strong>Selección para la antología</strong><br>
-            En esta obra, Taty la Terraza presenta dos tracks que muestran su versatilidad y su sentido de pertenencia:</p>
-
-            <p>"Yo no me olvido": Una pieza cargada de memoria y gratitud. En este tema, el rapero reafirma su identidad, asegurando que, sin importar a dónde llegue o cuánto crezca su carrera, sus raíces en Soldati y las lecciones aprendidas en la calle son la base de su camino.</p>
-
-            <p>"Es para mí": Una canción que funciona como un recordatorio personal y una afirmación de propósitos. Aquí, el artista reflexiona sobre su carrera, la lucha diaria por el éxito y la convicción de que el rap es, definitivamente, su destino y su herramienta de transformación.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
