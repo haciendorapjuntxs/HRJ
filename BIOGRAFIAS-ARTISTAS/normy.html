@@ -2,54 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Normy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normy | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-        <div class="banner-carousel">
-            <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/normy-1.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/normy-2.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/normy-3.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/normy-4.jpg');"></div>
-            <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/normy-5.jpg');"></div>
+
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/normy_unalineabasica" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/normy-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
         </div>
-
-        <div class="logo-area">
-            <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-            <img src="../logounaj.png" alt="Logo" class="logo-unaj">
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">NORMY</h1>
+            <p>Laferrere, Buenos Aires</p>
         </div>
+    </section>
 
-        <ul class="nav-banner">
-            <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-        </ul>
-
-        <div class="banner-text">
-            <h1>NORMY</h1>
-            <p>Laferrere, Bs.As.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/normy-2.jpg');">
+        <div class="bio-content">
+            <h2>REFERENTE DE LA CULTURA</h2>
+            <p>Norma Emilse Trejo, "Normy", es una BGirl y MC con años de trayectoria. Integrante de la <em>Familia Trenzadora Argentina</em>, su labor es fundamental para la identidad del hip hop en Laferrere.</p>
         </div>
-    </div>
+    </section>
 
-    <main class="detalle-artista">
-        <section class="bio-completa">
-            <p><strong>Norma Emilse Trejo, aka Normy</strong> (35 años) es integrante de la crew "Familia Trenzadora Argentina", del Barrio La Loma Don Juan en Gregorio de Laferrere. BGirl en formación y MC con años de trayectoria en la cultura hip hop.</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/normy-3.jpg');">
+        <div class="bio-content">
+            <h2>DISCOGRAFÍA</h2>
+            <p>Ha integrado agrupaciones fundamentales como G Squad Crew y Escuadrón G. Su discografía incluye hitos como "Rosa Negra", "Transitando" y su reciente material "Una línea básica" (2024).</p>
+        </div>
+    </section>
 
-            <p><strong>Trayectoria Musical:</strong><br>
-            A lo largo de los años ha formado parte de agrupaciones fundamentales como G Squad Crew, Sweet N y Escuadrón G. Ha editado diversos materiales, destacándose álbumes como "Rosa Negra" (2006), "Transitando" (2011) y su lanzamiento más reciente, "Una línea básica" (2024).</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/normy-4.jpg');">
+        <div class="bio-content">
+            <h2>PIONERA</h2>
+            <p>Conductora radial, pionera en la organización de eventos de trenzado como resistencia cultural y co-organizadora de grandes encuentros como "Far West".</p>
+        </div>
+    </section>
 
-            <p><strong>Gestión y Activismo:</strong><br>
-            Su aporte a la cultura es integral. Ha sido conductora radial en programas como "Algo del Ghetto" y "Rapeando la Posta". Además, es una pionera en la organización de eventos de trenzado como forma de resistencia cultural en el Conurbano, y co-organizadora de grandes encuentros de la cultura Hip Hop como "Far West".</p>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/normy-5.jpg');">
+        <div class="bio-content">
+            <h2>CONSTRUCCIÓN COLECTIVA</h2>
+            <p>Parte de "Bitácora de Barrio" y <em>Haciendo Rap Juntxs</em>. Su práctica artística es un modelo de acompañamiento familiar, desafiando modelos tradicionales mediante la construcción concienzuda.</p>
+        </div>
+    </section>
+</main>
 
-            <p><strong>Actualidad y Comunidad:</strong><br>
-            Actualmente forma parte de "Bitácora de Barrio" e integra el colectivo "Haciendo Rap Juntxs". Su participación destaca por una perspectiva comunitaria: suele asistir a los eventos junto a su familia (su esposo, el DJ Mor3b3atz, y sus 5 hijos), desafiando modelos tradicionales y demostrando que la práctica artística puede ser un modelo de acompañamiento y construcción colectiva, emocional y concienzuda.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
 </body>
 </html> 
