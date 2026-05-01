@@ -4,90 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discografía | Haciendo Rap Juntxs</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        .banner-wrapper { position: relative; width: 100%; height: 300px; background: #000; overflow: hidden; }
-        .banner-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-        .nav-banner { position: absolute; top: 20px; width: 100%; display: flex; justify-content: center; gap: 20px; z-index: 10; }
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
-        .discografia-container { padding: 50px 20px; max-width: 900px; margin: auto; color: #fff; }
-        .tarjeta-disco { background: #1a1a1a; padding: 40px; border-radius: 20px; border: 2px solid #f37021; }
-        
-        .btn-escuchar { 
-            display: inline-block; padding: 10px 25px; background: #f37021; color: #000; 
-            text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 10px;
-            transition: transform 0.3s;
+        .section-disco { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
         }
-        .btn-escuchar:hover { background: #ff8c4a; transform: scale(1.05); }
 
-        .cita-agradecimiento {
-            font-style: italic; border-left: 4px solid #f37021; padding-left: 20px;
-            margin: 30px 0; color: #ddd; line-height: 1.6; font-size: 0.95rem;
+        .content-card { 
+            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(15px);
+            border-left: 4px solid #f37021; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
         }
-        .info-tecnica { margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.85rem; color: #999; }
+
+        .btn-escuchar { 
+            display: inline-block; padding: 10px 20px; background: #f37021; color: #000; 
+            text-decoration: none; font-weight: bold; margin-top: 10px; font-family: 'Anton';
+        }
+
+        #btn-volver {
+            position: fixed; top: 20px; left: 20px; z-index: 1000;
+            background: rgba(0,0,0,0.7); color: #fff; padding: 10px 20px;
+            text-decoration: none; border: 1px solid #fff; font-family: 'Anton';
+        }
+
+        h2 { font-family: 'Anton'; color: #f37021; font-size: 3rem; margin: 0; }
     </style>
 </head>
 <body>
 
-    <header class="banner-wrapper">
-        <video autoplay muted loop playsinline class="banner-video">
-            <source src="GALERY/prensa-video.mp4" type="video/mp4">
-        </video>
-        <nav class="nav-banner">
-            <a href="index.html">INICIO</a>
-            <a href="medios.html">PRENSA</a>
-            <a href="discografia.html" style="color: #f37021; border-bottom: 2px solid #f37021;">DISCOGRAFÍA</a>
-        </nav>
-    </header>
+<a href="index.html" id="btn-volver">← VOLVER</a>
 
-    <main class="discografia-container">
-        <h2 style="text-align: center; color: #f37021; font-size: 2.5rem;">HACIENDO RAP JUNTXS (2024)</h2>
-        
-        <div class="tarjeta-disco">
-            <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
-                <img src="GALERY/tapa-1.jpg" style="width: 300px; border-radius: 15px; border: 2px solid #fff;">
-                <img src="GALERY/trapa-2.jpg" style="width: 300px; border-radius: 15px; border: 2px solid #fff;">
-            </div>
+<main class="main-wrapper">
+    
+    <section class="section-disco" style="background-image: url('GALERY/tapa-1.jpg');">
+        <div class="content-card" style="text-align: center;">
+            <h2>HACIENDO RAP JUNTXS</h2>
+            <p>(2024)</p>
+        </div>
+    </section>
 
-            <h3 style="color: #f37021; border-bottom: 1px solid #444; padding-bottom: 10px;">TRACKLIST</h3>
-            
-            <div class="track" style="margin-bottom: 25px;">
+    <section class="section-disco" style="background-image: url('GALERY/trapa-2.jpg');">
+        <div class="content-card">
+            <h3>TRACKLIST (I)</h3>
+            <div style="margin-bottom: 20px;">
                 <h4>1. CARA A CARA, NO LES DA LA CARA</h4>
-                <p style="font-size: 0.9rem;">Beat: Jail Beats | Letra: Marcos J. Duarte, R. Daniel Bravo y Facundo Chamorro | Intérpretes: Mr. Hyde, Dany de Caraza y El Chamo MC</p>
-                <a href="https://www.youtube.com/watch?v=TGmSBw9QE9k" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
+                <p style="font-size: 0.85rem;">Intérpretes: Mr. Hyde, Dany de Caraza y El Chamo MC</p>
+                <a href="https://www.youtube.com/watch?v=TGmSBw9QE9k" target="_blank" class="btn-escuchar">ESCUCHAR</a>
             </div>
-
-            <div class="track" style="margin-bottom: 25px;">
+            <div>
                 <h4>2. SENTIMIENTOS SOBRE EL MIC</h4>
-                <p style="font-size: 0.9rem;">Beat: Elliot Gann | Letra: M. Eugenia Lizarraga, Jonathan Gallo y Mariano Velázquez | Intérpretes: Luna, El Joni2020, Pinta Ruido</p>
-                <a href="https://www.youtube.com/watch?v=WQKzsCVjRM4" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
-            </div>
-
-            <div class="track" style="margin-bottom: 25px;">
-                <h4>3. UN DÍA A LA VEZ</h4>
-                <p style="font-size: 0.9rem;">Beat: Edi B | Letra: Julieta Roldan, Norma Emilse Trejo y Juan José Bataglia | Intérpretes: Shhu, Normy y Juan Doble H</p>
-                <a href="https://youtu.be/9YYNLzb9i-g" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
-            </div>
-
-            <div class="track">
-                <h4>4. FLUYE</h4>
-                <p style="font-size: 0.9rem;">Beat: Brown Jewel | Letra: Maximiliano Ruggiero y Erika Belén Córdoba | Intérpretes: Ram Das y la Brujah</p>
-                <a href="https://www.youtube.com/watch?v=MpYa0bPlMHA" target="_blank" class="btn-escuchar">ESCUCHAR EN YOUTUBE</a>
-            </div>
-
-            <div class="info-tecnica">
-                <p><strong>Producción y contexto:</strong> El presente disco es resultado del proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche "Haciendo rap juntxs", realizado con el apoyo económico de la SPyT-UNAJ y el subsidio "Culturas Colectivas" del Instituto de Cultura de la Provincia de Buenos Aires. Grabado en estudios "D-Kllao" por Mauro González, mezclado y masterizado en CBM DISCOS por El Cubano (2024). Diseño de portada: Suburbio Estudios.</p>
-                
-                <div class="cita-agradecimiento">
-                    <p><strong>Proyecto de Vinculación Territorial UNAJ 2025/6 “Haciendo rap juntxs”.</strong></p>
-                    <p>Integrantes: Lucia Calvi y Martin Biaggini (dirección), Marisa Pignolo, María Marino, Gisela Longobuco, Mercedes Sánchez y Leo Rueda (docentes), Brenda Jara y Analia Moreff (alumnas).</p>
-                    <p>Agradecemos a Arnaldo Medina (rector de la UNAJ), Ernesto Villanueva (rector emérito de la UNAJ), a Julián Dercoli, y a las y los compañeros de la Secretaria de Políticas y Territorio, a Carolina González Velazco y Mauricio Shutemberg (directores del Instituto de Estudios Iniciales), a Laura Itchart y Juan Donati, coordinadores de la materia Prácticas Culturales, y a todas y todos los y las compañeros/as docentes y no docentes que nos acompañaron.</p>
-                    <p>Un agradecimiento especial a las y los raperos hermanos latinoamericanos que sumaron su arte en estos temas, y especialmente al Cubano y Martes13 por su invalorable trabajo.</p>
-                </div>
+                <p style="font-size: 0.85rem;">Intérpretes: Luna, El Joni2020, Pinta Ruido</p>
+                <a href="https://www.youtube.com/watch?v=WQKzsCVjRM4" target="_blank" class="btn-escuchar">ESCUCHAR</a>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="section-disco" style="background: #111;">
+        <div class="content-card">
+            <h3>TRACKLIST (II)</h3>
+            <div style="margin-bottom: 20px;">
+                <h4>3. UN DÍA A LA VEZ</h4>
+                <p style="font-size: 0.85rem;">Intérpretes: Shhu, Normy y Juan Doble H</p>
+                <a href="https://youtu.be/9YYNLzb9i-g" target="_blank" class="btn-escuchar">ESCUCHAR</a>
+            </div>
+            <div>
+                <h4>4. FLUYE</h4>
+                <p style="font-size: 0.85rem;">Intérpretes: Ram Das y la Brujah</p>
+                <a href="https://www.youtube.com/watch?v=MpYa0bPlMHA" target="_blank" class="btn-escuchar">ESCUCHAR</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-disco" style="background: #000;">
+        <div class="content-card">
+            <h3>PRODUCCIÓN Y CONTEXTO</h3>
+            <p style="font-size: 0.9rem;">El presente disco es resultado del proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche "Haciendo rap juntxs", realizado con el apoyo económico de la SPyT-UNAJ y el subsidio "Culturas Colectivas" del Instituto de Cultura de la Provincia de Buenos Aires. Grabado en estudios "D-Kllao" por Mauro González, mezclado y masterizado en CBM DISCOS por El Cubano (2024). Diseño de portada: Suburbio Estudios.</p>
+        </div>
+    </section>
+
+    <section class="section-disco" style="background: #111;">
+        <div class="content-card">
+            <h3 style="font-size: 0.9rem;">PROYECTO DE VINCULACIÓN TERRITORIAL UNAJ 2025/6 “HACIENDO RAP JUNTXS”</h3>
+            <p style="font-size: 0.8rem;">Integrantes: Lucia Calvi y Martin Biaggini (dirección), Marisa Pignolo, María Marino, Gisela Longobuco, Mercedes Sánchez y Leo Rueda (docentes), Brenda Jara y Analia Moreff (alumnas).</p>
+            <p style="font-size: 0.8rem;">Agradecemos a Arnaldo Medina, Ernesto Villanueva, Julián Dercoli, la Secretaria de Políticas y Territorio, Instituto de Estudios Iniciales, Laura Itchart, Juan Donati y a todos los docentes/no docentes que nos acompañaron. Agradecimiento especial a los raperos latinoamericanos que sumaron su arte, al Cubano y Martes13.</p>
+        </div>
+    </section>
+
+</main>
 
 </body>
 </html>
