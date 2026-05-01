@@ -8,7 +8,7 @@
     <style>
         :root { --naranja: #ff4500; --negro: #000; }
         
-        /* Reset y Scroll Inmersivo */
+        
         body, html { 
             margin: 0; padding: 0; 
             background: var(--negro); 
@@ -23,7 +23,7 @@
             scroll-snap-type: y mandatory; 
         }
 
-        /* Navegación Estilo Duki (Impactante) */
+        
         nav {
             position: fixed;
             top: 30px;
@@ -64,7 +64,7 @@
             overflow: hidden;
         }
 
-        /* Cuadros de Información Estilo Callejero */
+        
         .content {
             background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(12px);
@@ -96,7 +96,7 @@
 
         .btn-ver-aca:hover { background: #fff; transform: translateY(-5px); }
 
-        /* Carousel y Logos */
+        
         .banner-slide { 
             position: absolute; top:0; left:0; width: 100%; height: 100%; 
             background-size: cover; background-position: center; 
@@ -110,7 +110,7 @@
             z-index: 10; width: 250px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
         }
 
-        /* Videos Grid */
+        
         .grid-videos { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -118,18 +118,55 @@
             margin-top: 20px;
         }
 
-        @media (max-width: 768px) {
-            .grid-videos { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
-            nav { top: 20px; right: 20px; }
-            .btn-nav-prensa { font-size: 1.2rem; }
-        }
+       /* --- AJUSTES PARA CELULARES (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    /* 1. Transforma el menú en una barra compacta o cuadrícula */
+    nav {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        padding: 5px;
+        background: rgba(0,0,0,0.9);
+        border: none;
+        border-top: 2px solid var(--naranja);
+    }
+
+    .btn-nav-prensa {
+        font-size: 0.7rem !important; 
+        padding: 8px 5px !important;
+        border: 1px solid var(--naranja) !important;
+        text-align: center;
+    }
+
+    
+    .content {
+        width: 85%;
+        padding: 20px;
+        margin: 10px auto;
+        box-shadow: 5px 5px 0px var(--naranja);
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+
+    
+    .grid-videos {
+        grid-template-columns: 1fr; 
+        gap: 10px;
+    }
+
+    iframe { height: 180px !important; }
+} 
     </style>
 </head>
 <body>
 
 <nav>
     <a href="experiencia.html" class="btn-nav-prensa">CONOCE MAS</a>
+    <a href="biografias.html" class="btn-nav-prensa">ARTISTAS</a>
     <a href="staff.html" class="btn-nav-prensa">NUESTRO STAFF</a>
     <a href="medios.html" class="btn-nav-prensa">PRENSA</a>
     <a href="contacto.html" class="btn-nav-prensa">CONTACTO</a>
@@ -184,16 +221,26 @@
             <div class="grid-videos">
                 <iframe src="https://www.youtube.com/embed/Nt9W1jBXWFo" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/9YYNLzb9i-g" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/MpYa0bPlMHA" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="full-screen-section" style="background-image: url('RECORRIDO/chamomc-5.jpg');">
+        <div class="content">
+            <h2>HRJ</h2>
+            <div class="grid-videos">
+               <iframe src="https://www.youtube.com/embed/MpYa0bPlMHA" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/WQKzsCVjRM4" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/TGmSBw9QE9k" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/TGmSBw9QE9k" height="150" width="100%" frameborder="0" allowfullscreen></iframe> 
+  
             </div>
         </div>
     </section>
 </main>
 
 <script>
-    // Sistema de Carrusel Suave
+   
     let slides = document.querySelectorAll('.banner-slide');
     let currentSlide = 0;
 
