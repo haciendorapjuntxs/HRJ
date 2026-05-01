@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRJ | Prensa Inmersiva</title>
+    <style>
+        :root { --naranja: #f37021; --negro: #000; --blanco: #fff; }
+        
+        body, html { 
+            margin: 0; padding: 0; 
+            background-color: var(--negro); 
+            color: var(--blanco); 
+            font-family: 'Inter', sans-serif; 
+            overflow: hidden; 
+        }
+
+        /* Contenedor principal con el efecto de "trabado" (snap) */
+        .main-wrapper { 
+            height: 100vh; 
+            overflow-y: scroll; 
+            scroll-snap-type: y mandatory; 
+            scroll-behavior: smooth; 
+        }
+
+        section { 
+            position: relative; 
+            min-height: 100vh; 
+            scroll-snap-align: start; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        /* Imagen de fondo de la nota */
+        .bg-img { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; z-index: -1; filter: brightness(35%); 
+        }
+
+        /* Contenido de la nota */
+        .content { 
+            position: relative; z-index: 10; width: 80%; max-width: 600px; 
+            padding: 40px; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            border-left: 5px solid var(--naranja);
+        }
+
+        h2 { font-size: 2.5rem; color: var(--naranja); margin: 0 0 20px 0; text-transform: uppercase; }
+        p { font-size: 1.1rem; line-height: 1.6; color: #eee; margin-bottom: 30px; }
+
+        .btn-ver-aca { 
+            display: inline-block; padding: 12px 30px; border: 1px solid var(--naranja);
+            color: var(--blanco); text-decoration: none; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.3s; font-size: 0.8rem; font-weight: bold;
+        }
+        .btn-ver-aca:hover { background: var(--naranja); color: var(--negro); }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota1.jpg" class="bg-img">
+            <div class="content">
+                <h2>Desde el Conocimiento</h2>
+                <p>Un libro de rap y la identidad del conurbano. Una mirada profunda sobre cómo la palabra escrita transforma la realidad de los jóvenes en la universidad pública.</p>
+                <p>La Universidad Nacional Arturo Jauretche presentó un libro sobre rap en el Conurbano y charlamos con sus protagonistas: el coordinador Martín Biaggini y los raperos Dany de Caraza y Shuu (Julieta). Qué es e movimiento haciendo @haciendorapjuntxs</p>
+                <h2>¿Qué aborda este libro “Jóvenes, identidad y territorios”?</h2>
+                <p>MB: Es un libro de letras de rap, se discute mucho sobre el rap y la cultura popular si es literatura, si no es literatura, etcétera. Así que gracias a un proyecto de vinculación que está anclado en la Universidad Nacional Arturo Jauretche, decidimos armar un colectivo de distintas raperas y raperos de barrios muy disímiles que a veces también por cuestiones territoriales no se llevaban tan bien, a veces sí. Empezamos a armar un colectivo, empezamos a trabajar el tema de armar una red de que pudieran trabajar juntas y juntos, y entre todos los proyectos (porque no fue el único), decidimos sacar una antología de esas letras. Que son letras testimoniales, cuentan sus sueños, cómo viven sus reclamos, sus ansias.</p>
+              <h2>Un libro con mucha variedad entonces…</h2>
+              <p>Se van a encontrar con un libro muy heterogéneo, son 17 raperas y raperos de todo el Conurbano: zona norte, zona oeste y zona sur. Se van a encontrar con su biografía y -para respetar la cultura digital de la que ellos son parte- en cada biografía, abajo hay un pequeño código QR para poder (con el celular) ir a sus canales de YouTube: ellos tienen sus propias plataformas, así que es un libro bastante completo.</p>
+              <h2>Dany de Caraza, contanos de dónde venís..</h2>
+              <p>Dany: Yo tengo 21 años más o menos haciendo rap porque era una manera de expresarme: empecé a escribir, me acuerdo mi primera letra que fue un desamor y como digo “una persona no es robot, tiene sentimientos” y bueno empecé a escribir y escucho una pista y empecé. Estaba con un grupo de amigos y amigas en Lanús, en el Velódromo, y arrancó así, después de un día para otro me dieron una mano, un muchacho de Berazategui, que fui a la casa y grabé cuatro temas de la primera vez y ahí arranqué y de ahí no paré.
+
+Tuve un amigo que me nombró en un lugar muy muy popular también y ahí arranqué. El primer canal que a mí me dio una mano fue C5N en una entrevista y la verdad que yo estoy recontra agradecido a C5N por siempre.
+
+En lo que es a mí, en lo personal, en lo individual, siempre me dieron una mano y estoy agradecido. En los últimos dos años fue tremendo el crecimiento, he llegado a firmar autógrafos, he llegado a sacar una foto, tener una bandera que me hicieron y he llegado a ir a un cumpleaños de un fan mío que invitaron a los padres de cumpleaños, son cositas lindas que nos están pasando el último dos años. Y ahora este proyecto que es enorme de raperos de todo Conurbano donde teníamos mucha desigualdad, donde nosotros más que nada por los barrios (porque nosotros los barrios bajos), distintas ideologías, hay muchos aspectos de la vida pero bueno, acá se tuvo que dejar todo de lado y sólo una misma dirección todos juntos.</p>
+              <h2>Y vos Shuu, ¿qué buscas con este camino?</h2>
+              <p>Shuu: Cuando te gusta transmitir no hay tiempo, no hay límites. A mí me gusta mucho escribir, y en el momento de plasmar eso, depende mucho el estado de ánimo que uno tenga, qué es lo que quiere decir, si tiene muchas cosas acumuladas o no. Entonces es también como un cable a tierra que te ayuda a desahogar y a transmitir también tus pensamientos desde otro punto de vista. En mi caso, yo empecé cuando era también muy adolescente, en la primaria prácticamente, me pasaron ahí los primeros CDs de rap de gente también de la zona, de allá de zona oeste.
+
+Fue como la primera orientación, no sabía que el día de hoy iba a ser rapera, sí me gustaba mucho pero venía de una familia que tenía distintos gustos musicales hasta que me pude orientar en esto y la vida me fue llevando a conocer gente, que también está en el mismo camino: organizamos eventos, empezamos a rapear por las plazas, por hacer graffitis, a transmitir un poco todo esto.
+
+Tengo mi hijo de 6 años y él -desde la panza- está también en el tema del Rap: apenas aprendió a hablar y ya estaba rapeando. Entonces son cosas que uno puede llegar a transmitir en la familia, eso de llegar a los chicos siendo tan chiquitos y poder transmitir la libertad de expresión es muy lindo.</p>
+              <h2>¿Qué se recogió en este conurbano de raperos?</h2>
+              <p>MB: Hay muchos testimonios. Hay una letra que se llama “Partido de La Matanza”, que el rapero es su autor y describe lo que pasó en su barrio en el 2001, que para mí es un documento histórico, o sea es la visión de un rapero de un momento muy particular de nuestro país. Después hay letras de desamores, el libro es bastante heterogéneo con Josefina Heine, que es la compiladora junto a mí del libro, lo que hicimos fue también respetar las formas de escrituras porque las raperas y los raperos escriben muy particularmente y no estamos hablando de faltas ortográficas sino de formas de escritura con respecto a la letra, a cómo organizar las barras. Así que se respetó mucho y bueno, estamos muy contentos.</p>
+              <a href="https://desdeelconocimiento.com.ar/un-libro-de-rap-y-la-identidad-del-conurbano/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota2.jpg" class="bg-img">
+            <div class="content">
+                <h2>Página 12</h2>
+                <p>Pensar el presente de la Provincia. El impacto de Haciendo Rap Juntxs en la configuración de las nuevas narrativas territoriales.</p>
+              <p>El Proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche (UNAJ) “Haciendo Rap Juntxs” no tiene muchos años de historia. O por lo menos, parecen pocos cuando sus participantes describen el impacto que éste tuvo, y tiene, en sus vidas. Surgido en 2022 con la premisa de que el rap es la narrativa del conurbano, abrió las puertas de la institución a raperos de toda la provincia, la mayoría de ellos provenientes de barrios carenciados que nunca habían tenido acceso a la universidad, y les dio herramientas para que cuenten sus vivencias a través de la música. En solo dos años creó un colectivo de artistas que llevaron adelante un programa de radio, editaron un libro de letras de raperos bonaerenses y grabaron su primer disco, que será presentado el próximo 8 de junio en el Auditorio Leonardo Favio de la UNAJ.</p>
+              <h2>Un encuentro colectivo</h2>
+              <p>“Haciendo Rap Juntxs” es el nombre del primer disco del grupo de raperos coordinado por el equipo de docentes de la UNAJ a cargo del investigador Martín Biaggini. Al igual que su libro editado en 2023 por Leviatán, “Haciendo Rap Juntxs: antología de letras de raperos y raperas del conurbano de Buenos Aires”, éste lleva el nombre del Proyecto de Vinculación Territorial que los unió en un primer momento. “Todo lo que logramos lo hicimos juntos, uniendo fuerzas”, reflexionan emocionados los integrantes del colectivo, que reconocen en el disco un cierre de ciclo.</p>
+              <p>Realizado con el apoyo de la UNAJ y el subsidio del programa “Culturas Colectivas” del Instituto Cultural de la provincia de Buenos Aires, este disco presenta cuatro canciones compuestas colectivamente por raperos que, a partir del programa, dejaron de lado sus diferencias territoriales para reflexionar sobre las problemáticas e injusticias que los movilizan a expresarse. “Cara a Cara, no les da la cara” de Mr. Hyde, Dany de Caraza y Chamo MC; “Sentimientos sobre el mic” de Luna, Joni2020, y Pinta Ruido; “Un día a la vez” de Shhu, Normy y Juan Doble H; y “Fluye” de Ram Das y Brujah, proponen cada una a su manera un recorrido por el conurbano bonaerense desde la mirada situada de sus compositores.</p>
+              <p>Coautor de “Un día a la vez”, Juan José Bataglia es el artista oriundo de Villa Palito detrás del pseudónimo “Juan Doble H”. Rapero y militante del Hip Hop, dice sobre el programa “Haciendo Rap juntxs” que “el mensaje que nos dio Martín desde el principio es que la salida de nuestros problemas es colectiva. Gran parte del grupo vivimos en barrios carenciados, pero no dejamos de meterle. Mis letras hablan de las cosas que vivimos cotidianamente, de las adversidades, de cosas en contra que pasan y que son miles en esta actualidad del país”.</p>
+              <h2>Narrar el conurbano</h2>
+              <p>Según cuenta el director del proyecto, el disco no formaba parte de los objetivos del grupo. Era más bien un deseo lejano separado de ellos por barreras técnicas y económicas. “El punto de inflexión sucedió cuando se contactó con nosotros Elliot Gann, un beatmaker de Estados Unidos, para decirnos que le encantaba nuestro proyecto y quería venir a darnos un curso. Era algo que veíamos imposible, pero sucedió. Vino a la universidad con un equipo de artistas de todo el mundo”, cuenta Biaggini sobre este evento que abrió nuevos horizontes para el colectivo de raperos.</p>
+              <p>Con este horizonte en mente, el grupo emprendió la grabación de su primer disco y el rodaje de cuatro videoclips. “Después de presentar el libro en la Feria Internacional del Libro de Buenos Aires tuvimos un entusiasmo importante. El proyecto se organizó de una manera en la que todos teníamos voz y voto. La universidad nos apoyó en todo y eso nos dio un gran impulso. Nos permitimos soñar a pesar de la realidad que estamos viviendo, haciéndola juntos”, dice Maximiliano Ruggiero, o “Ram Das”, coautor de “Fluye” y un referente indiscutido de la vieja escuela del rap nacional de la década del noventa, en la que participó con su agrupación “Encontra del Hombre”.</p>
+              <p>El próximo 8 de junio, a las 12 horas, el colectivo de raperos presentará su disco en el Auditorio Leonardo Favio de la UNAJ, en un encuentro abierto que contará con la participación de los estudiantes de la materia Prácticas Culturales. Así, se cerrará el circuito educativo propuesto por la Secretaría de Política y Territorio, en el cual lo generado por la apertura de la universidad amplía los programas educativos de la institución. Sin embargo, “Haciendo Rap Juntxs” no deja de crecer. “A partir de estas experiencias, se fueron enterando en otros países de nuestro proyecto y empezamos a hacer conectas. Ya grabamos con artistas de México y Colombia”, adelanta con entusiasmo el director del proyecto. </p>
+                <a href="https://www.pagina12.com.ar/738332-pensar-el-presente-de-la-provincia" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota3.jpg" class="bg-img">
+            <div class="content">
+                <h2>Tiempo Argentino</h2>
+                <p>Una muestra de confianza en la potencia transformadora de la palabra. El proyecto que reescribe la historia desde el aula al escenario.</p>
+              <p>«La pobreza aumenta el ingenio y en mi tierra abunda la originalidad, piecitos sucios, sinfonía de barriguitas, los malos tiempos llegan y no se quieren marchar…», canta Érika Córdoba, una de las raperas que integran el volumen Haciendo rap juntxs (Leviatán). Érika tenía once años cuando descubrió que quería dedicarse a la música. «Estaba caminando por Constitución y encontré un pendrive. Cuando llegué a casa, descubrí lo que tenía adentro: música de rap de todas partes del mundo. Ahí, fui conociendo diferentes artistas y empecé a adentrarme en la cultura del rap. No sé a quién perteneció ese pendrive, pero había artistas del under y no cualquiera escucha esos exponentes. Se me abrió un mundo por azar«, le dice a Tiempo.</p>
+              <p>Haciendo rap juntxs, una antología de letras de raperos y raperas del conurbano bonaerense, compilada por Martín Biaggini y Josefina Heine en el marco del Proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche, está lleno de este tipo de historias. El rap llega casi por casualidad y cambia el curso de las cosas, genera sentido de pertenencia y una confianza plena en la potencia de la palabra para contar diversas realidades. </p>
+                <a href="https://www.tiempoar.com.ar/ta_article/haciendo-rap-juntxs-una-muestra-de-confianza-en-la-potencia-transformadora-de-la-palabra/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota4.jpg" class="bg-img">
+            <div class="content">
+                <h2>Indie Hoy</h2>
+                <p>4 nuevos libros musicales de autores argentinos. Destacando la importancia de la antología de nuestro colectivo en la escena editorial.</p>
+              <h2>Haciendo rap juntxs de Martín Biaggini y Josefina Heine</h2>
+              <p>"Yo no vivo del rap, pero el rap sí vive en mí", retumba una de las letras que integra Haciendo rap juntxs, un proyecto académico y artístico que recoge rimas escritas y cantadas en el conurbano por artistas que desde el comienzo del siglo le ponen el cuerpo a la contracultura. En su propia composición multiautoral, esta iniciativa de la Universidad Nacional Arturo Jauretche expresa una de las esencias de este género: su potencia colectiva que siente naturalmente el pulso de la calle porque crece desde allí.</p>
+              <p>Un cancionero de rimas callejeras, una antología de biografías de raperos, un ensayo sociológico del conurbano, pero finalmente un posicionamiento político: la universidad tiene que estar cerca del sentimiento de los barrios, que reverbera a través del rap su orgullo por el ritmo que tienen sus ritos, luchas y pasiones. Un modo de vivir el género que no reniega de la necesidad del dinero pero no lo convierte en su principal anhelo, porque continúa privilegiando la estética de barrio que los configuró como una comunidad con identidad.</p>
+              <p>Revitalizando la idea del rap conciencia, los artistas seleccionados sostienen una tradición contestataria que mantiene su llama encendida detrás de los millones de reproducciones y los estadios llenos que logran las rimas del glamour. Son de zona norte, oeste y sur, allí donde la cultura hip hop sobrevivió cuando se los desplazó hasta del under y siguió fluyendo entre vías del tren y el apremio de la madrugada. Son del conurbano, allí donde la poesía de la calle es un fin en sí mismo porque celebra la expresión y la escucha, pero principalmente el encuentro.</p>
+                <a href="https://indiehoy.com/libros/4-nuevos-libros-musicales-de-autores-argentinos/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota5.jpg" class="bg-img">
+            <div class="content">
+                <h2>Página 12</h2>
+                <p>El rap como relato del conurbano. La crónica de un fenómeno que trasciende la música y se convierte en pedagogía.</p>
+              <h2>El barrio son ellos</h2>
+              <p>En 2015 Martín Biaggini, un investigador y docente de la UNAJ, comenzó un proyecto de investigación dedicado al rap bonaerense. Su hipótesis era que el “rap era la poesía del conurbano”, la forma en que las nuevas juventudes se expresaban. Este no solo era un tema desconocido en la academia, sino que en muchos casos se miraba con desprecio. “Cuando armé el proyecto me miraban raro.”, afirmó el investigador.</p>
+              <p>Biaggini entró en contacto con distintas crews, familias o raperos independientes de la provincia de Buenos Aires. Así, conoció a Elena LNA, Dany Rap, Taty La Terraza y muchos otros raperos jóvenes de distintos barrios del conurbano. “Nosotros les llamamos los raperos 2.0. Nacieron con internet y el plan Conectar Igualdad. A la mayoría le faltaban recursos y, no sé si profesionalización, pero sí disciplina”, explicó Biaggini. A pesar de su falta de medios, todos estos jóvenes habían encontrado en el rap una forma de expresar sus vivencias. Biaggini comentó: “De todos las letras que analizamos vimos muchos testimonios.” Esto modificó su hipótesis inicial, ya no se trataba la poesía del conurbano, sino de su narrativa.</p>
+              <p>“Creo que hay estética del conurbano. Dany de Caraza es de Villa Caraza, la F10rito Family son de Villa Fiorito…Hay una inscripción territorial muy fuerte no sólo en sus nombres, sino también en sus letras y lo que narran”, afirmó el investigador. Así, Pinta Ruido, un músico oriundo de Casanova y miembro de la red, tiene una canción dedicada al partido de La Matanza en el que describe su experiencia en el barrio durante el 2001: “Con el país en crisis/Más drogas, más delito/Pilchas Kappa, zapas fila/Corte hongo los pibitos/En el puente de Liniers/Polis que me paraban/No sé si era por la cara/o por la ropa que usaba”. Como él, cada rapero de Haciendo Rap Juntxs narra sus vivencias en los barrios y estas, a su vez, construyen una historia soterrada de la provincia de Buenos Aires.</p>
+              <h2>Unir y legitimar</h2>
+              <p>A pesar de la unión narrativa y la falta de recursos generalizada que vinculaba a estos jóvenes músicos, “muchos de los grupos trabajan por separado y tenían pequeñas disputas territoriales por los barrios”. Esto motivó al investigador a formar en 2020 un Proyecto de Vinculación Territorial en la UNAJ junto a Lucia Calvi, Josefina Heine, María Marino y Mario Tronfino. “Presentamos la propuesta de hacer una red de raperos. Si vos tenés un estudio y vos tenés un boliche, juntémonos y compartámos los recursos”, afirmó Biaggini.</p>
+              <p>“Fue difícil, pero el primer año logramos conformar la red”, explicó el investigador. A partir de este hecho, la agrupación comenzó a crecer abruptamente. “Ellos empezaron a entender que haciendo un colectivo eran mucho más fuertes. Llegó un momento en el que la red empezó a funcionar sola”. El colectivo cuenta hoy con diecisiete raperos de todo el conurbano bonaerense que organizan shows, tienen su programa de radio y se reúnen regularmente para compartir sus dificultades y pensar en conjunto soluciones. El Proyecto de Vinculación Territorial de la UNAJ les aporta herramientas para formalizar su trabajo como capacitaciones sobre derechos de autor, charlas dedicadas a producción musical o clases de composición fotográfica para sus videoclips.</p>
+              <p>Su último proyecto fue editar un libro junto a Leviatán que compila letras de todos los integrantes de la red. “Para mí es muy importante legitimar al rap desde la universidad. En general siempre estuvo dejado de lado, a veces se le llama era una poesía subalterna. Nosotros empezamos a trabajar en la revista Mestiza, que es una revista digital de la UNAJ, a publicar raperos como si fuesen poetas. De ahí surge la idea de hacer un libro de letras de rap como si fuese poesía.”, afirmó Biaggini. “Haciendo Rap Juntxs: antología de letras de raperos y raperas del conurbano de Buenos Aires” se publicó recientemente e incluye más de treinta letras con las biografías de sus autores.</p>
+              <p>La publicación reciente del libro, y el impacto de sus shows colectivos, fortaleció a la red de raperos del conurbano que no deja de crecer. El éxito de esta primera experiencia fue validado con la renovación del proyecto de Vinculación Territorial de la UNAJ, que en los próximos dos años buscará grabar su primer disco. El entusiasmo de los integrantes les permite soñar en grande: “Los productores no los quieren, son demasiado under. Entonces, está la idea de hacer una productora propia que se llame Haciendo Rap Juntxs y grabar sus propios temas ahí. Trabajan mucho y todo va muy rápido. Ellos están tan acelerados que hasta la universidad está sorprendida ", concluyó Martín Biaggini</p>
+                <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota6.jpg" class="bg-img">
+            <div class="content">
+                <h2>Página 12</h2>
+                <h2>Un disco con poesía del conurbano. El lanzamiento que consolida nuestra identidad artística y el trabajo de producción integral.</h2>
+                <p>Luego de tres años construyendo una red de raperos bonaerenses y divulgando el arte producido en el conurbano, el Proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche (UNAJ) “Haciendo Rap Juntxs” lanzará su primer trabajo discográfico. Éste será presentado el 18 de mayo, a las 12 horas, en el Auditorio Leonardo Favio de la UNAJ.</p>
+              <p>“Haciendo Rap Juntxs” viene trabajando con raperos de la provincia de Buenos Aires desde 2022. Su objetivo final es utilizar la academia para legitimar el rap como forma de expresión popular, reconocerlo como “la narrativa del conurbano” y difundirlo más allá del under en el que se encuentra.</p>
+              <p>En 2015 Martín Biaggini, un investigador y docente de la UNAJ, comenzó un proyecto de investigación dedicado al rap bonaerense. Su hipótesis era que el “rap era la poesía del conurbano”, la forma en que las nuevas juventudes se expresaban. Este no solo era un tema desconocido en la academia, sino que en muchos casos se miraba con desprecio. “Cuando armé el proyecto me miraban raro.”, afirmó el investigador.</p>
+              <p>El proyecto abrió la institución bonaerense a artistas excluidos del sistema universitario. Dany de Caraza de Villa Caraza, Chamo MC de Florencio Varela, Ram Das de Florencio Varela, Mr. Hyde de Virrey del Pino, Normy de González Catán, Luna de Virrey del Pino, Shhu de Laferrere, Pinta Ruido de La Matanza, Juan Doble H de La Palito o Joni2020 del Barrio 22 de enero son algunos de los músicos que encontraron en la UNAJ un espacio de validación para pensar su lugar como trabajadores de la cultura y dar voz a sus vivencias.</p>
+              <p>Según cuenta su director, a pesar de la unión narrativa y la falta de recursos generalizada que vinculaba a estos jóvenes músicos bonaerenses, “muchos de los grupos trabajan por separado y tenían pequeñas disputas territoriales por los barrios”. Si bien tenían muchas carencias materiales, lo que nunca les faltó fue disciplina. “Presentamos la propuesta de hacer una red de raperos. Si vos tenés un estudio y vos tenés un boliche, juntémonos y compartámos los recursos”, afirmó Biaggini.</p>
+              <p>“Haciendo Rap Juntxs” creció notablemente en los últimos años. Creó el programa de radio “Rapeando la posta”, que se emite desde la Cooperativa de Trabajo Radio Sur 88.3, y en 2023 publicó “Haciendo Rap Juntxs: antología de letras de raperos y raperas del conurbano de Buenos Aires”, el libro editado por Editorial Leviatán y presentado en la Feria Internacional del Libro que compila letras de raperos bonaerenses dedicadas a narrar el presente en la provincia. </p>
+              <p>“Para mí es muy importante legitimar al rap desde la universidad. En general siempre estuvo dejado de lado, a veces se le llama era una poesía subalterna. Nosotros empezamos a trabajar en la revista Mestiza, que es una revista digital de la UNAJ, a publicar raperos como si fuesen poetas. De ahí surge la idea de hacer un libro de letras de rap como si fuese poesía”, afirmó el director.</p>
+              <p>El sábado 18 de mayo, “Haciendo Rap Juntxs” lanzará su primer trabajo discográfico, que lleva el nombre del proyecto de la UNAJ y que está compuesto por cuatro canciones: “Cara a cara. No les da la cara”, “Sentimientos sobre el MC”, “Un día a la vez " y "Fluye". Durante la presentación del disco en el Auditorio Leonardo Favio de la UNAJ los involucrados contarán sobre el proceso de trabajo y responderán preguntas del público. </p>
+                <a href="https://www.pagina12.com.ar/734819-un-disco-con-poesia-del-conurbano" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota7.jpg" class="bg-img">
+            <div class="content">
+                <h2>Los Muros</h2>
+                <h2>Reseña sobre la experiencia Haciendo Rap Juntxs. Un análisis sobre la integración del arte en espacios de formación.</h2>
+                <p>La antología es resultado del trabajo de distintas raperas y raperos del conurbano de Buenos Aires con quienes integramos el Proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche “Haciendo rap juntxs”. En cuanto al criterio de selección de las letras partimos de una premisa que hace foco en la narración, en el poder de la palabra y en la importancia de pensarse en términos de grupo. Y no se trata solo de narrar realidades cotidianas, el barrio, historias comunes, sino de formas de ver el mundo, de modos de pensarse, de estrategias de posición frente a la realidad y la coyuntura. El rap, muchas/muchos cuentan esto en sus letras, abre caminos, ayuda a contar lo que a veces no se puede, pone de manifiesto lo que se calla y transforma todo en literatura.
+Tras un período desde el mes de Diciembre del año 2022, tras charlas informativas con Bernabé Cantlon, presidente de Inamu pudieron llevar a Cabo el libro «Haciendo Rap Juntxs» con la ayuda de una Compilación realizada por Josefina Heine y Martin Biaggini.</p>
+              <h2>Cómo comenzó el proyecto??</h2>
+              <p>El proyecto comenzó con una convocatoria abierta en el cuál se inscribieron muchísimos Raperos y Raperas de Argentina,</p>
+              <h2>Quienes son los co-autores??</h2>
+              <p>Elena LNA, Echu, Dany Rap, Shhu, El Portador, Mr. Hyde, Pinta Ruido, Lucale, Luna, El Joni2020, Dany de Caraza, Ram Das, La Brujah, Taty La Terraza, Dey, El Versátil y Juan Doble H.</p>
+              <h2>Cuál es la editorial que los publicó?</h2>
+              <p>Leviatán Libros</p>
+              <h2>Cuánto tiempo tardaron en publicarlo?</h2>
+              <p>5 Meses tras varios encuentros y talleres de diversas actividades, talleres de fotografías, talleres de escritura, un encuentro en el centro de escritura, un show en vivo en la Universidad Nacional Arturo Jauretche (UNAJ) fuimos trabajando las letras ayudándonos entre todos, en el cuál se eligieron solamente 2 letras por Artista. Los compiladores decidieron respetar la gramática y el tipo de escritura que tenemos nosotros y éso nos pareció una forma sublime de respetar nuestra ideología.</p>
+              <h2>Quienes son los editores??</h2>
+              <p>Martin Biaggini y Josefina Heine</p>
+              <h2>De que trata el libro?</h2>
+              <p>El libro narra cómo chicos con pocos recursos son creadorxs de Poesías, tras situaciones vividas en distintos/as raperas y Raperos del conurbano bonaerense cuentan historias de superación, de violencia en los barrios, de sueños y poder salir adelante mediante su música y vivir de su Arte.</p>
+              <h2>Dónde va estar publicado el libro?</h2>
+              <p>En primera instancia en Amazon internacionalmente , luego en la feria del libro de argentina, ubicada en la Rural y para terminar en todas las librerías del País.</p>
+              <h2>Tienen más proyectos después de éste?</h2>
+              <p>Si, en el mes de Julio vienen unos produo de Estados Unidos a darnos unas clases de producción Musical, tenemos proyectado un disco en conjunto con todos los Raperos y Raperas que conforman este libro y posiblemente una segunda parte de ésta antología publicada.</p>
+              <a href="https://losmuros.org/4975/%C2%A8haciendo-rap-juntxs%C2%A8/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota8.jpg" class="bg-img">
+            <div class="content">
+                <h2>La Colmena</h2>
+                <h2>Presentación de disco en la UNAJ. Crónica de una jornada histórica donde el barrio tomó la universidad.</h2>
+              <p>El sábado 18 de mayo a las 12 hs, en el Auditorio Leonardo Fabio de la Universidad Nacional Arturo Jauretche, se llevará adelante la presentación del disco Haciendo Rap Juntos compuesto por 4 temas musicales. El mismo es fruto del trabajo de jóvenes raperos que integran el proyecto universitario de vinculación territorial Haciendo Rap Juntxs (2022-2023): Dany de Caraza (Villa Caraza, Lanús), Chamo MC (Florencio Varela), Ram Das (Florencio Varela), Mr. Hyde (Virrey del Pino), Normy (González Catán), Luna (Virrey del Pino), Shhu (Laferrere), Pinta Ruido (La Matanza), Juan Doble H (La Palito), Joni2020 (barrio 22 de enero), Brujah (zona sur), entre otros. El proyecto se desprende del trabajo de campo etnográfico realizado en la investigación “Identidad y representación territorial en el conurbano: la participación de jóvenes en las prácticas de rap” (UNAJ 2021-2023) dirigida por Martín A. Biaggini y busca afianzar el vínculo entre la universidad y su entorno ampliando oportunidades en pos de una transformación social. En este sentido, hace 3 años que, desde el equipo interdisciplinario de docentes y jóvenes del conurbano que integran el proyecto, se ha trabajado en post de lo que se mencionaba anteriormente. Como consecuencia de ello, en 2023, se publicó el libro: “Haciendo Rap Juntxs: antología de letras de raperos y raperas del conurbano de Buenos Aires”, editado por Editorial Leviatán y presentado en la Feria Internacional del Libro 2023. Además, se creó el programa de radio “Rapeando la posta” que se emite desde la Cooperativa de Trabajo Radio Sur 88.3 LTD. Durante el evento se podrá disfrutar de los temas musicales titulados Cara a cara. No les da la cara; Sentimientos sobre el MC; Un día a la vez y Fluye. Además se podrá charlas con los protagonistas.
+NUESTRAS REDES IG. @haciendorapjuntxs Facebook: Haciendo rap juntxs email: pec.unaj@gmail.com</p>
+                <a href="https://lacolmenaenred.com.ar/2024/05/02/haciendo-rap-juntxs-presenta-su-disco-en-la-unaj" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota9.jpg" class="bg-img">
+            <div class="content">
+                <h2>Cuatro Medios</h2>
+                <h2>Florencio Varela: Presentarán disco Haciendo Rap Juntxs en la UNAJ. Cobertura regional de un evento que marcó la agenda cultural.</h2>
+              <p>Se trata del fruto del trabajo de jóvenes raperos que integran el proyecto universitario de vinculación territorial Haciendo Rap Juntxs (2022-2023): Dany de Caraza (Villa Caraza, Lanus), Chamo MC (Florencio Varela), Lucale (Don Torcuato, Tigre), Ram Das (Florencio Varela), Mr. Hyde (Virrey del Pino), Normy (González Catán), Luna (Virrey del Pino), Shhu (Laferrere), Pinta Ruido (La Matanza), Juan Doble H (La Palito), Joni2020 (barrio 22 de enero), y Brujah (zona sur), entre otrxs.</p>
+              <p>El proyecto se desprende del trabajo de campo etnográfico realizado en la investigación “Identidad y representación territorial en el conurbano: la participación de jóvenes en las prácticas de rap” (UNAJ 2021-2023) dirigida por el docente e investigador Martín Biaggini. 
+
+</p>
+              <h2>RAP, UNAJ Y TERRITORIO </h2>
+              <p>En este sentido, hace 3 años que, desde el equipo interdisciplinario de docentes y jóvenes del conurbano que integran el proyecto, se ha trabajado en afianzar el vínculo entre la universidad y su entorno, ampliando oportunidades en pos de una transformación social.</p>
+              <p>Como consecuencia de ello, en 2023, se publicó el libro “Haciendo Rap Juntxs: antología de letras de raperos y raperas del conurbano de Buenos Aires”, editado por Editorial Leviatán y presentado en la Feria Internacional del Libro 2023. Además, se creó el programa de radio “Rapeando la posta” que se emite desde la Cooperativa de Trabajo Radio Sur 88.3 LTD.</p>
+              <p>El evento presentación incluirá una charla con los protagonistas, y podrán escucharse los temas musicales titulados “Cara a cara, no les da la cara”; “Sentimientos sobre el MC”; “Un día a la vez” y “Fluye”. </p>
+              
+                <a href="https://www.cuatromedios.com.ar/articulo/florencio-varela/florencio-varela-presentaran-disco-haciendo-rap-juntxs-unaj/20240506102700022079.html" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota10.jpg" class="bg-img">
+            <div class="content">
+                <h2>CONADU</h2>
+                <h2>Haciendo Rap Juntxs - CONADU es cultura. La validación nacional de una práctica pedagógica innovadora.</h2>
+              <p>El martes 15 de agosto en el Auditorio de CONADU, entre las 09 y las 16 horas, se llevará adelante el Taller de Producción Musical, organizado por Martín Biaggini -Coordinador General del Programa de Estudios de la Cultura- y Lucía Calvi, docentes ambos de la Universidad Nacional Arturo Jauretche. El Taller será dictado por Elliot Gann, productor musical de Estados Unidos, y estará destinado a un grupo de 20 jóvenes raperos y raperas del conurbano, en el marco del Proyecto de Vinculación Territorial “Haciendo rap juntxs”.</p>
+              <p>El proyecto tuvo su origen en una investigación de Biaggini que sostenía que “el rap era la poesía del conurbano”. Entró en contacto con distintas crews, “familias raperas” del conurbano. “Nosotros los llamamos los raperos 2.0. Nacieron con internet y el plan Conectar Igualdad”, dice Biaggini.</p>
+              <p>Con la iniciativa de obtener más recursos y más técnica nació la Red de Raperos, para reunir esfuerzos de producción creativa: equipos musicales, salas, espacios donde tocar, etc.</p>
+              <p>A la par, la investigación fue descubriendo una estética identitaria y compleja que articula lo poético y lo narrativo. ¿Cómo se cuenta y cómo se canta la identidad del conurbano? El rap da respuesta, desde la visión colectiva de estos jóvenes.</p>
+              <p>Del trabajo de docentes en el Proyecto y del de los integrantes de la Red surgió la publicación de un libro: “Haciendo Rap Juntxs: antología de letras de raperos y raperas del conurbano de Buenos Aires”, editado recientemente por Editorial Leviatán, que incluye más de treinta letras con las biografías de sus autores.</p>
+              <p>La Secretaría de Cultura de CONADU presentará la Jornada y cerrará con una entrevista a sus protagonistas.</p>
+                <a href="https://conadu.org.ar/haciendo-rap-juntxs-conadu-es-cultura/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota11.jpg" class="bg-img">
+            <div class="content">
+                <h2>Territorio UNAJ</h2>
+                <h2>Una experiencia de vinculación territorial. Cómo el rap se convirtió en la herramienta de conexión más efectiva con el conurbano.</h2>
+              <h2>Por Lucía Calvi</h2>
+              <p>“Seguimos marcando la diferencia, seguimos llenando cabezas huecas, seguimos tranquilos sin competencia, las manos arriba, resistencia”. Así dice el estribillo del cypher realizado por raperxs del conurbano que participan del proyecto de vinculación territorial llamado “Haciendo rap juntxs” (HRJ). </p>
+              <p>El objetivo de este artículo es contar una experiencia de vinculación territorial como un aporte a la producción de conocimiento a la extensión universitaria. Entendemos que poder narrar y compartir con otrxs la experiencia implica un enriquecimiento del saber académico en la producción de conocimiento y resolución de problemáticas en el ámbito comunitario. En esta oportunidad presentaremos, de forma acotada, una experiencia donde el rap y el territorio confluyen en un proyecto en común. </p>
+              <h2>La génesis es la investigación </h2>
+              <p>HRJ se desprende de la investigación titulada “Identidad y representación territorial en el conurbano: la participación de jóvenes en las prácticas de rap” (UNAJ 2021-2023) dirigida por Martín A. Biaggini y surge como respuesta al trabajo de campo etnográfico realizado y a la escucha atenta de lxs entrevistadxs que participaron de la muestra. Entre los datos relevados se identificó que había una necesidad muy grande por parte de lxs raperxs de fortalecer sus trayectorias musicales a efectos de ampliar el alcance de su música, compartir saberes y optimizar capacidades de expresión a través de la práctica del rap y su difusión en el territorio. En este sentido, uno de los principales objetivos fue abordar las cuestiones señaladas y fortalecer la práctica del rap en el territorio.</p>
+              <p>Para el desarrollo del proyecto HRJ se conformó un equipo interdisciplinario integrado por docentes y estudiantes de la Universidad Nacional Arturo Jauretche y se realizó, por distintos medios, una convocatoria abierta invitando a participar a raperxs del conurbano de Buenos Aires. Una vez cerrada la convocatoria se realizaron varios encuentros vía zoom con la finalidad de presentarse y pensar de forma conjunta los temas que a lxs participantes les gustaría desarrollar. De allí surgieron los siguientes ejes de trabajo: escritura creativa de letras, legislación de la actividad musical, lenguaje fotográfico y utilización de plataformas y redes sociales. Una vez establecido los ejes de trabajo se comenzaron a diagramar los encuentros con formato bimodal (presencial y virtual) dar respuesta a las temáticas propuestas. </p>
+              <h2>La importancia de tejer una red</h2>
+              <p>Comenzó a tejerse la red de raperxs del conurbano desde el momento que se conformó un grupo de WhatsApp. En este espacio comenzaron a pasar cosas que iban más allá de los contenidos a trabajar en los encuentros del proyecto. Lxs participantes lograron construir un espacio de trabajo, contención y acompañamiento que excede la premisa que los y las convocó. Tal como dice Castells, casi todo es una red, ya que las redes son la forma de organización de las prácticas más relevantes en la actualidad. (2011, p. 5). En este sentido, HRJ es una práctica relevante ya que se sostiene gracias a la conformación de un entramado de lazos que lograron establecer el colectivo de raperxs del conurbano a partir de conocerse en el proyecto. </p>
+              <h2>El trabajo en equipo da sus frutos</h2>
+              <p>Luego de un año intenso de trabajo se han logrado varios objetivos y superado ampliamente las expectativas del proyecto. No solo que se conformó una red de trabajo colaborativo, sino que lxs raperxs pusieron en marcha el programa de radio “Rapeando la posta”. El mismo se emite todos los martes de 20 a 21 hs. por Radio Sur 88.3 y está producido y conducido por Dany rap, Shuu y xxx. Por otro lado, el grupo participó de la escritura del libro de antología de letras de rap titulado “Haciendo rap juntxs” con edición de Leviatán. Cabe destacar que dicho libro fue presentado en la Feria del libro 2023 y en el auditorio Leonardo Fabio de la Universidad Nacional Arturo Jauretche. Además, han realizado el cypher “Resistencia” y  un documental sobre el proyecto. El mismo se puede visualizar a través de las redes sociales de haciendo rap juntxs o de lxs raperxs. Para coronar el cierre del proyecto se ha organizado el Festival “Haciendo rap juntxs” en Rimas Rebeldes (Av. Regimiento de Patricios, 1er piso, CABA). </p>
+              <h2>ara conocer más pueden seguir las redes oficiales de HRJ o la de lxs raperxs que integran el proyecto: </h2>
+              <p>–Facebook / Instagram:  @haciendorapjuntxs </p>
+              <p>@suburbioestudio_crew, @dey12eze, @shhu_li, @luna_lizarraga_ , dany_de_caraza, @pinta_ruido, @jonathan.gallo.374, @elversatil22, @echu_22, @parte_del_arte__doble_h, @laah_brujaah, @portador_90, @ruggieromaximiliano_ramdas, @elena_Ina_, @lucale.music, @normy_unalineabasica, @hyde_inthehouse, @eltatygram</p>
+              
+                <a href="https://territorio.unaj.edu.ar/haciendo-rap-juntxs-una-experiencia-de-vinculacion-territorial/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="ASSETS-MEDIOS/nota12.jpg" class="bg-img">
+            <div class="content">
+                <h2>Radio UNAJ</h2>
+                <h2>Rap inclusivo en la universidad. Entrevista sobre los procesos de taller y la voz de los estudiantes protagonistas.</h2>
+              <p>Conversamos con Dina Flow, rapera, sobre el proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche titulado “Haciendo rap juntxs”.</p>
+              <p>El tema de rap “Rap Autista”, surge de un proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche titulado “Haciendo rap juntxs”. Fue escrito e interpretado por la rapera Dina Flow y el rapero Libreta, ambos habitantes del Conurbano de Buenos Aires. El beat (base musical) fue compuesto por Cythrux Beat Maker (de CBM Disco). El tema se grabó en estudios D-Kllao (Villegas, La Matanza), y el video clip lo realizo Judaez.</p>
+              <p>Estreno 15 de agosto de 2024 a las 21 hs en el Canal de YouTube Dina Flow Chanel</p>
+                <a href="https://radio.unaj.edu.ar/rap-inclusivo-en-la-unaj/" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
