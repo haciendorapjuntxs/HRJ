@@ -497,3 +497,29 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     text-align: left; 
     padding: 20px;
 }
+
+.main-wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.full-screen-section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.content {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-left: 5px solid #f37021;
+    max-width: 800px;
+} 
