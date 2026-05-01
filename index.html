@@ -7,92 +7,200 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         :root { --naranja: #ff4500; --negro: #000; }
-        body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; }
-
         
-        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
-        .full-screen-section { 
-            height: 100vh; width: 100%; scroll-snap-align: start; 
-            display: flex; align-items: center; justify-content: center; 
-            position: relative; background-size: cover; background-position: center;
+        /* Reset y Scroll Inmersivo */
+        body, html { 
+            margin: 0; padding: 0; 
+            background: var(--negro); 
+            color: #fff; 
+            font-family: 'Courier Prime', monospace;
+            scroll-behavior: smooth;
         }
 
-       
+        .main-wrapper { 
+            height: 100vh; 
+            overflow-y: auto; 
+            scroll-snap-type: y mandatory; 
+        }
+
+        /* Navegación Estilo Duki (Impactante) */
+        nav {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 100;
+        }
+
+        .btn-nav-prensa {
+            font-family: 'Anton', sans-serif;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            border: 2px solid var(--naranja);
+            padding: 10px 25px;
+            background: rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-nav-prensa:hover {
+            background: var(--naranja);
+            color: #000;
+            letter-spacing: 6px;
+            transform: scale(1.1);
+        }
+
+        /* Secciones de Pantalla Completa */
+        .full-screen-section, .banner-wrapper { 
+            height: 100vh; width: 100%; 
+            scroll-snap-align: start; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+            background-size: cover; 
+            background-position: center;
+            overflow: hidden;
+        }
+
+        /* Cuadros de Información Estilo Callejero */
         .content {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 2px solid var(--naranja);
             padding: 40px;
-            box-shadow: 10px 10px 0px var(--naranja);
-            max-width: 700px;
+            box-shadow: 15px 15px 0px var(--naranja);
+            max-width: 800px;
             text-align: center;
             z-index: 2;
+            margin: 20px;
         }
 
-        h1, h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; color: #fff; }
+        h1, h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; color: #fff; margin: 0; }
+        h1 { font-size: 3.5rem; line-height: 1; }
+        
         .btn-ver-aca { 
-            display: inline-block; background: var(--naranja); color: #000; 
-            padding: 15px 30px; text-decoration: none; font-weight: bold; margin-top: 20px;
+            display: inline-block; 
+            background: var(--naranja); 
+            color: #000; 
+            padding: 15px 35px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-top: 25px;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        .banner-wrapper { height: 100vh; width: 100%; scroll-snap-align: start; position: relative; }
-        .banner-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 0; }
+        .btn-ver-aca:hover { background: #fff; transform: translateY(-5px); }
+
+        /* Carousel y Logos */
+        .banner-slide { 
+            position: absolute; top:0; left:0; width: 100%; height: 100%; 
+            background-size: cover; background-position: center; 
+            opacity: 0; transition: opacity 1.5s ease-in-out; 
+            z-index: 0; 
+        }
+        .banner-slide.active { opacity: 1; }
+
+        .logo-header {
+            position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+            z-index: 10; width: 250px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+        }
+
+        /* Videos Grid */
+        .grid-videos { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-videos { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+            nav { top: 20px; right: 20px; }
+            .btn-nav-prensa { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
+<nav>
+    <a href="medios.html" class="btn-nav-prensa">PRENSA</a>
+</nav>
+
 <main class="main-wrapper">
     <section class="banner-wrapper">
+        <img src="logo-hrj.png" class="logo-header" alt="Logo HRJ">
         <div class="banner-carousel">
-            <div class="banner-slide" style="background-image: url('GALERY/portada_hrj.jpg');"></div>
-            </div>
-        <div style="position: absolute; top: 20px; width: 100%; z-index: 10; text-align: center;">
-            <img src="logo-hrj.png" width="200">
-            <ul style="list-style: none; display: flex; justify-content: center; gap: 20px;">
-                <li><a href="medios.html" style="color: #fff; text-decoration: none;">PRENSA</a></li>
-            </ul>
+            <div class="banner-slide active" style="background-image: url('GALERY/portada_hrj.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('GALERY/hrj-2.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('GALERY/hrj-4.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_brujah.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_chamo.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_dany-rap.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_dinaflow.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_echu.png');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_joni2020.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_libreta.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/lucale-3.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_luna.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_mrhyde.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_normy.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_ramdas.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_shhu.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_tatylaterraza.jpg');"></div>
+            
         </div>
     </section>
 
     <section class="full-screen-section" style="background-image: url('GALERY/hrj-2.jpg');">
         <div class="content">
             <h1>HACIENDO RAP JUNTXS</h1>
-            <p>Donde la calle y la academia se encuentran.</p>
-            <a href="medios.html" class="btn-ver-aca">VER TODAS LAS NOTAS</a>
+            <p>Donde la calle y la academia se encuentran para transformar el silencio en rima.</p>
+            <a href="medios.html" class="btn-ver-aca">EXPLORAR NOTAS</a>
         </div>
     </section>
 
     <section class="full-screen-section" style="background-image: url('GALERY/hrj-3.jpg');">
         <div class="content">
             <h2>LO QUE YA ESTÁ PASANDO</h2>
-            <p>Libro antología y colectivo territorial de la UNAJ.</p>
-            <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" class="btn-ver-aca">VER MÁS</a>
+            <p>Libro antología que reúne las voces del conurbano bonaerense.</p>
+            <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" target="_blank" class="btn-ver-aca">COMPRAR LIBRO</a>
         </div>
     </section>
 
     <section class="full-screen-section" style="background-image: url('GALERY/hrj-9.jpg');">
         <div class="content">
-            <h2>RÍMAS EN VIDEO</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <iframe src="https://www.youtube.com/embed/Nt9W1jBXWFo" height="150" width="100%"></iframe>
-                <iframe src="https://www.youtube.com/embed/9YYNLzb9i-g" height="150" width="100%"></iframe>
-                <iframe src="https://www.youtube.com/watch?v=MpYa0bPlMHA" height="150" width="100%"></iframe>
-                <iframe src="https://www.youtube.com/watch?v=WQKzsCVjRM4" height="150" width="100%"></iframe>
-                <iframe src="https://www.youtube.com/watch?v=TGmSBw9QE9k&pp=0gcJCd4KAYcqIYzv" height="150" width="100%"></iframe>
+            <h2>NUESTRAS RÍMAS</h2>
+            <div class="grid-videos">
+                <iframe src="https://www.youtube.com/embed/Nt9W1jBXWFo" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/9YYNLzb9i-g" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/MpYa0bPlMHA" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/WQKzsCVjRM4" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/TGmSBw9QE9k" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 </main>
 
 <script>
-   
+    // Sistema de Carrusel Suave
     let slides = document.querySelectorAll('.banner-slide');
-    let i = 0;
-    setInterval(() => {
-        slides[i].style.opacity = 0;
-        i = (i + 1) % slides.length;
-        slides[i].style.opacity = 1;
-    }, 4000);
+    let currentSlide = 0;
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(nextSlide, 6000);
 </script>
 
 </body>
