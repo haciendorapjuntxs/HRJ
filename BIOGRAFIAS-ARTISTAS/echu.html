@@ -2,52 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <title>Biografía | Echu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echu | HRJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base inmersivos */
+        body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
+        
+        .section-bio { 
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .bio-content { 
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
+            margin: 20px; z-index: 2;
+        }
+
+        /* Botones Flotantes */
+        .btn-nav-fixed {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Anton';
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+        
+        #btn-volver { top: 20px; left: 20px; }
+        #btn-ig { bottom: 20px; right: 20px; }
+
+        .logo-container {
+            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner-wrapper">
-    <div class="banner-carousel">
-        <div class="banner-slide active" style="background-image: url('../ASSETS-ARTISTAS/echu-1.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/echu-2.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/echu-3.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/echu-4.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('../ASSETS-ARTISTAS/echu-5.jpg');"></div>
-    </div>
 
-    <div class="logo-area">
-        <img src="../logo-hrj.png" alt="Logo" class="logo-hrj-pequeno">
-        <img src="../logounaj.png" alt="Logo" class="logo-unaj">
-    </div>
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+<a href="https://www.instagram.com/echu_22" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
-    <ul class="nav-banner">
-        <li><a href="../biografias.html">← VOLVER A BIOGRAFÍAS</a></li>
-    </ul>
-
-    <div class="banner-text">
-        <h1>ECHU</h1>
-        <p>Rafael Calzada, Bs.As.</p>
-    </div>
-</div>
-
-<main class="detalle-artista">
-    <section class="bio-completa">
-        <p>Ezequiel Alberto Iglesias, conocido artísticamente como "ECHU", es un rapero argentino originario del barrio de Villa Rafael Calzada, en la zona sur del conurbano de Buenos Aires. Desde los 9 años, ECHU ha sido un oyente apasionado del rap, rock nacional y folklore, y a partir de 2017 comenzó a expresarse a través de este género musical.</p>
-
-        <p>Su música se caracteriza por un estilo callejero y letras basadas en vivencias reales, con un fuerte enfoque en la inclusión social. ECHU es un participante clave del colectivo "Haciendo Rap Juntxs", una iniciativa de vinculación territorial impulsada por la Universidad Nacional Arturo Jauretche (UNAJ).</p>
-
-        <p><strong>Colaboraciones y trayectoria:</strong> Ha trabajado con figuras como Massi Nada Mas (ex F.A.) y Frost MC (ex Sindicato Argentino del Hip Hop). Entre sus producciones se destacan videos como "Rapero de zona sur", "Sanata", "Cómo Fluyo" y el desarrollo de "Barrios Session".</p>
-
-        <p><strong>Contacto:</strong><br>
-        Instagram: <a href="https://www.instagram.com/echu_22" target="_blank">@echu_22</a> | TikTok: Echu rap | Spotify/YouTube: echu | Mail: echu220707@gmail.com</p>
+<main class="main-wrapper">
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/echu-1.jpg');">
+        <div class="logo-container">
+            <img src="../logo-hrj.png" width="80" style="display:block;">
+            <img src="../logounaj.png" width="80" style="display:block;">
+        </div>
+        <div class="bio-content" style="text-align: center;">
+            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">ECHU</h1>
+            <p>Rafael Calzada, Buenos Aires</p>
+        </div>
     </section>
-</main> 
 
-    <footer>
-        <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
-    </footer>
-    
-    <script src="../script.js"></script>
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/echu-2.jpg');">
+        <div class="bio-content">
+            <h2>RAÍCES Y SONIDO</h2>
+            <p>Ezequiel Alberto Iglesias, "ECHU", es un rapero de Villa Rafael Calzada. Desde los 9 años absorbió rap, rock y folklore, comenzando a expresarse a través del hip hop en 2017.</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/echu-3.jpg');">
+        <div class="bio-content">
+            <h2>MÚSICA Y TERRITORIO</h2>
+            <p>Su música se define por un estilo callejero y letras de vivencias reales con un fuerte enfoque en la inclusión social. Es un participante clave de <em>Haciendo Rap Juntxs</em> (UNAJ).</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/echu-4.jpg');">
+        <div class="bio-content">
+            <h2>TRAYECTORIA</h2>
+            <p>Ha colaborado con figuras como Massi Nada Mas y Frost MC. Sus producciones incluyen temas como "Rapero de zona sur", "Sanata", "Cómo Fluyo" y el proyecto "Barrios Session".</p>
+        </div>
+    </section>
+
+    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/echu-5.jpg');">
+        <div class="bio-content">
+            <h2>SEGUÍ SU CAMINO</h2>
+            <p>Puedes seguir sus novedades en Instagram <strong>@echu_22</strong>, en TikTok como "Echu rap", y escuchar sus producciones en Spotify y YouTube bajo el nombre "echu".</p>
+        </div>
+    </section>
+</main>
+
 </body>
-</html>
+</html> 
