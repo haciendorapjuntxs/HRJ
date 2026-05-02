@@ -7,7 +7,30 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
     <style>
-        
+        /* Estilos Globales de Navegación */
+.nav-global { 
+    position: fixed; top: 20px; right: 20px; z-index: 9999; 
+    display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
+    padding: 10px; border: 1px solid #ff4500; border-radius: 5px;
+}
+
+.btn-nav {
+    font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
+    font-size: 1rem; padding: 5px 15px; transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
+
+/* Responsive: Se ajusta abajo en celulares */
+@media (max-width: 768px) {
+    .nav-global { 
+        top: auto; bottom: 0; left: 0; right: 0; 
+        flex-wrap: wrap; justify-content: center; gap: 5px;
+        background: #000; border: none; border-top: 1px solid #ff4500;
+    }
+    .btn-nav { font-size: 0.7rem; padding: 5px; }
+}
         .banner-wrapper {
             position: relative;
             width: 100%;
