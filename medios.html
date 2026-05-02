@@ -82,97 +82,62 @@
     <a href="contacto.html" class="btn-nav">CONTACTO</a>
 </nav>
 
-    <div class="main-wrapper">
-        <section style="background-image: url('ASSETS-MEDIOS/desde-el-conocimiento.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Desde el Conocimiento</h2>
-                <p>Un libro de rap y la identidad del conurbano.</p>
-                <a href="https://desdeelconocimiento.com.ar/un-libro-de-rap-y-la-identidad-del-conurbano/" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
+    <div class="main-wrapper" id="contenedor-prensa">
+    </div>
 
-        <section style="background-image: url('ASSETS-MEDIOS/pagina-12.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Página 12</h2>
-                <p>Pensar el presente de la Provincia. El impacto de Haciendo Rap Juntxs.</p>
-                <a href="https://www.pagina12.com.ar/738332-pensar-el-presente-de-la-provincia" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-        <section style="background-image: url('ASSETS-MEDIOS/tiempo-argentino.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Tiempo Argentino</h2>
-                <p>Haciendo rap Juntxs, una muestra de confianza en la potencia transformadora de la palabra</p>
-                <a href="https://www.tiempoar.com.ar/ta_article/haciendo-rap-juntxs-una-muestra-de-confianza-en-la-potencia-transformadora-de-la-palabra/" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-        <section style="background-image: url('ASSETS-MEDIOS/rap-inclusivo.jpeg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Radio Unaj</h2>
-                <p>Rap inclusivo en la UNAJ</p>
-                <a href="https://radio.unaj.edu.ar/rap-inclusivo-en-la-unaj/" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-        <section style="background-image: url('ASSETS-MEDIOS/indie-hoy.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Indie Hoy</h2>
-                <p>4 nuevos libros musicales de autores argentinos</p>
-                <a href="https://indiehoy.com/libros/4-nuevos-libros-musicales-de-autores-argentinos/" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-        <section style="background-image: url('ASSETS-MEDIOS/pagina-12.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Pagina 12</h2>
-                <p>El rap como relato del conurbano</p>
-                <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano/" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-         <section style="background-image: url('ASSETS-MEDIOS/territorio.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Territorio</h2>
-                <p>una experiencia de vinculación territorial</p>
-                <a href="https://territorio.unaj.edu.ar/haciendo-rap-juntxs-una-experiencia-de-vinculacion-territorial/" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-          <section style="background-image: url('ASSETS-MEDIOS/la-colmena.jpg');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>Cuatro Medios</h2>
-                <p>presentarán el disco "Haciendo Rap Juntxs" en la UNAJ</p>
-                <a href="https://www.cuatromedios.com.ar/articulo/florencio-varela/florencio-varela-presentaran-disco-haciendo-rap-juntxs-unaj/20240506102700022079.html" target="_blank" class="btn-ver-aca">Ver acá</a>
-            </div>
-        </section>
-
-        <section style="background-image: url('logo-hrj.png');">
-            <div class="overlay"></div>
-            <div class="content">
-                <h2>VOLVE AL INICIO</h2>
-                
-                <a href="index.html" target="_blank" class="btn-ver-aca">Inicio</a>
-            </div>
-        </section>
-
-        
-        
+<section style="background-image: url('logo-hrj.png');">
+    <div class="overlay"></div>
+    <div class="content">
+        <h2>VOLVE AL INICIO</h2>
+        <a href="index.html" class="btn-ver-aca">Inicio</a>
+    </div>
+</section>
+    
         </div>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) { document.body.classList.add('shrink'); }
-            else { document.body.classList.remove('shrink'); }
-        });
-    </script>
+   <script>
+    // 1. Aquí definimos la lista de datos (noticias)
+    const noticias = [
+        { 
+            titulo: "Desde el Conocimiento", 
+            desc: "Un libro de rap y la identidad del conurbano.", 
+            link: "https://desdeelconocimiento.com.ar/un-libro-de-rap-y-la-identidad-del-conurbano/", 
+            img: "ASSETS-MEDIOS/desde-el-conocimiento.jpg" 
+        },
+        { 
+            titulo: "Página 12", 
+            desc: "Pensar el presente de la Provincia. El impacto de Haciendo Rap Juntxs.", 
+            link: "https://www.pagina12.com.ar/738332-pensar-el-presente-de-la-provincia", 
+            img: "ASSETS-MEDIOS/pagina-12.jpg" 
+        },
+        { 
+            titulo: "Página 12", 
+            desc: "El rap como relato del conurbano", 
+            link: "https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano/", 
+            img: "ASSETS-MEDIOS/pagina-12.jpg" 
+        }
+        // Puedes seguir agregando aquí el resto de tus notas siguiendo este formato
+    ];
+
+    // 2. Aquí recorremos la lista e inyectamos el HTML
+    const container = document.getElementById('contenedor-prensa');
+
+    noticias.forEach(item => {
+        const section = document.createElement('section');
+        
+        // Aplicamos la imagen desde la propiedad "img" del objeto actual
+        section.style.backgroundImage = `url('${item.img}')`;
+        
+        section.innerHTML = `
+            <div class="overlay"></div>
+            <div class="content">
+                <h2>${item.titulo}</h2>
+                <p>${item.desc}</p>
+                <a href="${item.link}" target="_blank" class="btn-ver-aca">Ver acá</a>
+            </div>
+        `;
+        container.appendChild(section);
+    });
+</script> 
 </body>
 </html> 
