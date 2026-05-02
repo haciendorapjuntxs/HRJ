@@ -12,42 +12,64 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     
     <style>
-        /* Estilos Globales de Navegación */
-.nav-global { 
-    position: fixed; top: 20px; right: 20px; z-index: 9999; 
-    display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
-    padding: 10px; border: 1px solid #ff4500; border-radius: 5px;
+       /* --- NAVEGACIÓN GLOBAL --- */
+:root { 
+    --naranja: #ff4500; 
+    --negro: #000; 
 }
 
+/* Contenedor principal de navegación */
+nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border: 1px solid var(--naranja);
+    border-radius: 5px;
+}
+
+/* Botones de navegación */
 .btn-nav {
-    font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
-    font-size: 1rem; padding: 5px 15px; transition: 0.3s;
-    border: 1px solid transparent;
+    font-family: 'Anton', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 15px;
+    border: 2px solid transparent; /* Transparente por defecto */
+    transition: all 0.3s ease;
 }
 
-.btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
+.btn-nav:hover {
+    color: var(--negro);
+    background-color: var(--naranja);
+    border-color: var(--naranja);
+}
 
-/* Responsive: Se ajusta abajo en celulares */
+/* --- ADAPTACIÓN RESPONSIVA (Celulares) --- */
 @media (max-width: 768px) {
-    .nav-global { 
-        top: auto; bottom: 0; left: 0; right: 0; 
-        flex-wrap: wrap; justify-content: center; gap: 5px;
-        background: #000; border: none; border-top: 1px solid #ff4500;
+    nav {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        background: #000;
+        border: none;
+        border-top: 2px solid var(--naranja);
+        padding: 5px;
+        border-radius: 0;
     }
-    .btn-nav { font-size: 0.7rem; padding: 5px; }
+    .btn-nav {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
 } 
-        :root { --naranja: #ff4500; --negro: #000; }
-        body { margin: 0; background-color: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; }
-        
-        /* Navegación estilo Index */
-        nav { position: fixed; top: 10px; right: 20px; z-index: 3000; display: flex; gap: 10px; }
-        .btn-nav {
-            font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; font-size: 1.2rem;
-            border: 2px solid var(--naranja); padding: 8px 15px; background: rgba(0,0,0,0.8);
-            transition: all 0.3s;
-        }
-        .btn-nav:hover { background: var(--naranja); color: #000; }
-
         /* Mapa */
         #map { height: 85vh; width: 95%; margin: 80px auto 20px auto; border: 2px solid var(--naranja); }
         .leaflet-tile { filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(100%); }
