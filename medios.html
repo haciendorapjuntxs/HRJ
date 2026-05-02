@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRJ | Medios</title>
     <style>
-        /* Estilos Globales de Navegación */
+   
 .nav-global { 
     position: fixed; top: 20px; right: 20px; z-index: 9999; 
     display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
@@ -20,7 +20,7 @@
 
 .btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
 
-/* Responsive: Se ajusta abajo en celulares */
+
 @media (max-width: 768px) {
     .nav-global { 
         top: auto; bottom: 0; left: 0; right: 0; 
@@ -96,7 +96,7 @@
         </div>
 
   <script>
-    // 1. Definimos la lista de datos
+  
     const noticias = [
         { titulo: "Desde el Conocimiento", desc: "Un libro de rap y la identidad del conurbano.", link: "https://desdeelconocimiento.com.ar/un-libro-de-rap-y-la-identidad-del-conurbano/", img: "ASSETS-MEDIOS/desde-el-conocimiento.jpg" },
         { titulo: "Página 12", desc: "Pensar el presente de la Provincia. El impacto de Haciendo Rap Juntxs.", link: "https://www.pagina12.com.ar/738332-pensar-el-presente-de-la-provincia", img: "ASSETS-MEDIOS/pagina-12.jpg" },
@@ -110,14 +110,14 @@
         { titulo: "Conadu", desc: "Haciendo rap juntxs – Conadu es cultura", link: "https://conadu.org.ar/haciendo-rap-juntxs-conadu-es-cultura/", img: "ASSETS-MEDIOS/conadu.jpg" },
         { titulo: "Territorio", desc: "Haciendo rap juntxs: una experiencia de vinculación territorial", link: "https://territorio.unaj.edu.ar/haciendo-rap-juntxs-una-experiencia-de-vinculacion-territorial/", img: "ASSETS-MEDIOS/territorio.jpg" },
         { titulo: "Conadu", desc: "Rap inclusivo en la UNAJ", link: "https://radio.unaj.edu.ar/rap-inclusivo-en-la-unaj/", img: "ASSETS-MEDIOS/rap-inclusivo.jpeg" },
-        { titulo: "Alma Fuerte Noticias", desc: "“Haciendo Rap Juntxs”: un proyecto con raperas y raperos del conurbano que sigue creciendo", link: "https://almafuertenoticias.com.ar/haciendo-rap-juntxs-un-proyecto-con-raperas-y-raperos-del-conurbano-que-sigue-creciendo/", img: "ASSETS-MEDIOS/almafuerte.jpg" },
+        { titulo: "Alma Fuerte Noticias", desc: "Haciendo Rap Juntxs: un proyecto con raperas y raperos del conurbano que sigue creciendo", link: "https://almafuertenoticias.com.ar/haciendo-rap-juntxs-un-proyecto-con-raperas-y-raperos-del-conurbano-que-sigue-creciendo/", img: "ASSETS-MEDIOS/almafuerte.jpg" },
         { titulo: "Periodico Para Todos", desc: "El rap, la educación y el conurbano se unen en el Festival Potencia Conurbana", link: "https://periodicoparatodos.com.ar/2025/11/09/el-rap-la-educacion-y-el-conurbano-se-unen-en-el-festival-potencia-conurbana/", img: "ASSETS-MEDIOS/periodico-paratodos.jpg" },
         { titulo: "Diario Conurbano", desc: "UNAJ: Presentarán el libro « Haciendo Rap Juntxs » una antología con letras del conurbano bonaerense", link: "https://diarioconurbano.com.ar/cultura/unaj-presentaran-el-libro-haciendo-rap-juntxs-una-antologia-con-letras-del-conurbano-bonaerense/", img: "ASSETS-MEDIOS/diario-conurbano.jpg" },
-        { titulo: "Diario A Primera Hora", desc: "El colectivo cultural "Haciendo Rap Juntxs" se presenta en la UNPAZ", link: "https://diarioaprimerahora.com.ar/nota/7211/el-colectivo-cultural-haciendo-rap-juntxs-se-presenta-en-la-unpaz/", img: "ASSETS-MEDIOS/diario-primerahora.jpg" },
+        { titulo: "Diario A Primera Hora", desc: "El colectivo cultural Haciendo Rap Juntxs se presenta en la UNPAZ", link: "https://diarioaprimerahora.com.ar/nota/7211/el-colectivo-cultural-haciendo-rap-juntxs-se-presenta-en-la-unpaz/", img: "ASSETS-MEDIOS/diario-primerahora.jpg" },
         { titulo: "Diario Conurbano", desc: "UNAJ: Realizarán un festival de rap y trap abierto a la comunidad", link: "https://diarioconurbano.com.ar/sociedad/unaj-realizaran-un-festival-de-rap-y-trap-abierto-a-la-comunidad/", img: "ASSETS-MEDIOS/diario-conurbano2.jpeg" }
     ];
 
-    // 2. Inyectar noticias (UNA SOLA VEZ)
+   
     const container = document.getElementById('contenedor-prensa');
     noticias.forEach(item => {
         const section = document.createElement('section');
@@ -133,7 +133,7 @@
         container.appendChild(section);
     });
 
-    // 3. Lógica para el Título (Scroll)
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             document.body.classList.add('shrink');
