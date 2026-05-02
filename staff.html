@@ -6,43 +6,59 @@
     <title>Staff | Haciendo Rap Juntxs</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
-        
-        .header { text-align: center; margin-bottom: 50px; }
-        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -2px; }
-        .sub { letter-spacing: 3px; opacity: 0.6; font-size: 0.8rem; text-transform: uppercase; }
+    /* --- IMPORTACIONES Y BASE --- */
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap');
+    
+    :root { --naranja: #f37021; --negro: #000; }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--negro); color: #fff; font-family: 'Inter', sans-serif; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+    
+    /* --- NAVEGACIÓN GLOBAL UNIFICADA --- */
+    .nav-global { 
+        position: fixed; top: 20px; right: 20px; z-index: 9999; 
+        display: flex; gap: 15px; background: rgba(0, 0, 0, 0.7); 
+        padding: 10px 20px; border: 1px solid var(--naranja); border-radius: 5px;
+        backdrop-filter: blur(5px);
+    }
+    .btn-nav {
+        font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
+        font-size: 1rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .btn-nav:hover { color: var(--naranja); }
 
-        .staff-container { width: 100%; max-width: 800px; }
-        .grupo-staff { margin-bottom: 50px; }
-        .cat-title { font-size: 0.7rem; color: #666; margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    /* --- ESTILOS ESPECÍFICOS DE STAFF --- */
+    .header { text-align: center; margin-bottom: 50px; margin-top: 60px; }
+    h1 { font-size: 3rem; font-weight: 900; letter-spacing: -2px; }
+    .sub { letter-spacing: 3px; opacity: 0.6; font-size: 0.8rem; text-transform: uppercase; }
 
-        .grid-staff { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        
-        .staff-card { border: 1px solid #333; padding: 30px 20px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; align-items: center; }
-        .staff-card:hover { border-color: #fff; background: #111; }
-        
-        .staff-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid #333; }
-        .staff-card h3 { font-size: 0.9rem; text-transform: uppercase; }
-        .staff-card p { font-size: 0.7rem; opacity: 0.5; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+    .staff-container { width: 100%; max-width: 800px; }
+    .grupo-staff { margin-bottom: 50px; }
+    .cat-title { font-size: 0.7rem; color: #666; margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
 
-        
-        .staff-card-estudiante { justify-content: center; min-height: 140px; }
-        .staff-card-estudiante h3 { color: #f37021; }
+    .grid-staff { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    
+    .staff-card { border: 1px solid #333; padding: 30px 20px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; align-items: center; }
+    .staff-card:hover { border-color: #fff; background: #111; }
+    
+    .staff-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid #333; transition: transform 0.3s, opacity 0.3s; }
+    .staff-card a:hover img { opacity: 0.7; transform: scale(1.05); }
+    
+    .staff-card h3 { font-size: 0.9rem; text-transform: uppercase; }
+    .staff-card p { font-size: 0.7rem; opacity: 0.5; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .btn-volver { display: block; width: 100%; max-width: 200px; margin: 40px auto; padding: 15px; border: 1px solid #333; color: #fff; text-decoration: none; text-align: center; font-size: 0.8rem; transition: 0.3s; }
-        .btn-volver:hover { background: #fff; color: #000; }
-        
-        footer { margin-top: 50px; opacity: 0.3; font-size: 0.7rem; }
-       
-.staff-card a img {
-    transition: transform 0.3s, opacity 0.3s;
-}
-.staff-card a:hover img {
-    opacity: 0.7;
-    transform: scale(1.05);
-}
-    </style>
+    .btn-volver { display: block; width: 100%; max-width: 200px; margin: 40px auto; padding: 15px; border: 1px solid #333; color: #fff; text-decoration: none; text-align: center; font-size: 0.8rem; transition: 0.3s; }
+    .btn-volver:hover { background: #fff; color: #000; }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+        .nav-global { 
+            top: auto; bottom: 0; left: 0; right: 0; flex-wrap: wrap; justify-content: center; gap: 10px;
+            background: #000; border: none; border-top: 2px solid var(--naranja); border-radius: 0; padding: 10px;
+        }
+        .btn-nav { font-size: 0.8rem; }
+    }
+</style> 
 </head>
 <body>
 <nav class="nav-global">
