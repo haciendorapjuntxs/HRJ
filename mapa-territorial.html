@@ -12,22 +12,14 @@
     
     <style>
         body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; }
-        
         #map { height: 75vh; width: 95%; margin: 80px auto 20px auto; border: 2px solid #f37021; }
         .leaflet-tile { filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(100%); }
-        
         .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #f37021; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         .popup-img:hover { transform: scale(1.1); }
         .marker-text { color: #f37021; font-weight: bold; text-align: center; }
         .custom-tooltip { background: rgba(0, 0, 0, 0.8) !important; color: #f37021 !important; border: 1px solid #f37021 !important; font-weight: bold; border-radius: 5px; }
-    
-        .nav-banner {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
-            margin: 0; padding: 10px 0; background: #000; list-style: none;
-            display: flex; justify-content: center; gap: 20px; border-bottom: 1px solid #f37021;
-        }
+        .nav-banner { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; margin: 0; padding: 10px 0; background: #000; list-style: none; display: flex; justify-content: center; gap: 20px; border-bottom: 1px solid #f37021; }
         .nav-banner li a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        
         .leaflet-control-search { z-index: 1000 !important; margin-top: 70px !important; }
     </style>
 </head>
@@ -58,9 +50,9 @@
         fetch('artistas.json')
             .then(response => response.json())
             .then(artistas => {
+                // El Cluster principal
                 var markersCluster = L.markerClusterGroup();
-                var layersPorBarrio = {};
-
+                
                 artistas.forEach(a => {
                     var marker = L.marker([a.lat, a.lng], {title: a.nombre});
                     
@@ -73,28 +65,19 @@
                     `);
 
                     markersCluster.addLayer(marker);
-
-                    if (!layersPorBarrio[a.barrio]) {
-                        layersPorBarrio[a.barrio] = L.layerGroup();
-                    }
-                    layersPorBarrio[a.barrio].addLayer(marker);
                 });
 
                 map.addLayer(markersCluster);
 
-                // Control de Capas (Filtros por zona)
-                var overlays = {
-                    "Todos los artistas": markersCluster,
-                    ...layersPorBarrio
-                };
-                L.control.layers(null, overlays).addTo(map);
-
-                // Buscador
+                // Buscador (ahora busca dentro del cluster)
                 var searchControl = new L.Control.Search({
                     layer: markersCluster,
                     propertyName: 'title',
                     marker: false,
-                    moveToLocation: function(latlng, title, map) { map.setView(latlng, 15); }
+                    moveToLocation: function(latlng, title, map) { 
+                        map.setView(latlng, 15);
+                        markersCluster.zoomToShowLayer(latlng, function() { marker.openPopup(); }); 
+                    }
                 });
                 map.addControl(searchControl);
             });
