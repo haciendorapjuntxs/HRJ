@@ -15,5 +15,5 @@
     { "nombre": "PINTA RUIDO", "barrio": "Isidro Casanova", "lat": -34.7050, "lng": -58.5700, "img": "ASSETS-ARTISTAS/perfil_pinta-ruido.jpg", "url": "BIOGRAFIAS-ARTISTAS/pinta-ruido.html" },
     { "nombre": "LIBRETA", "barrio": "Pte. Derqui", "lat": -34.4600, "lng": -58.8500, "img": "ASSETS-ARTISTAS/perfil_libreta.jpg", "url": "BIOGRAFIAS-ARTISTAS/libreta.html" },
     { "nombre": "TATY LA TERRAZA", "barrio": "Villa Soldati", "lat": -34.6700, "lng": -58.4500, "img": "ASSETS-ARTISTAS/perfil_tatylaterraza.jpg", "url": "BIOGRAFIAS-ARTISTAS/taty-la-terraza.html" },
-    { "nombre": "EL NEGRO ROKE", "barrio": "Gonzalez Catan", "lat": -34.7700, lng: -58.6300, "img": "ASSETS-ARTISTAS/perfil_negroroke.jpg", "url": "BIOGRAFIAS-ARTISTAS/el-negro-roke.html" }
+    { "nombre": "EL NEGRO ROKE", "barrio": "Gonzalez Catan", "lat": -34.7700, "lng": -58.6300, "img": "ASSETS-ARTISTAS/perfil_negroroke.jpg", "url": "BIOGRAFIAS-ARTISTAS/el-negro-roke.html" }
 ]
