@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRJ | Experiencia Hrj</title>
     <style>
-        /* Estilos Globales de Navegación */
-.nav-global { 
-    position: fixed; top: 20px; right: 20px; z-index: 9999; 
-    display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
-    padding: 10px; border: 1px solid #ff4500; border-radius: 5px;
-}
+        /* Estilos Globales de Navegación - Actualizados */
+        .nav-global { 
+            position: fixed; top: 20px; right: 20px; z-index: 9999; 
+            display: flex; gap: 20px; background: rgba(0,0,0,0.5); 
+            padding: 15px 25px; border: 1px solid #ff4500; border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
 
-.btn-nav {
-    font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
-    font-size: 1rem; padding: 5px 15px; transition: 0.3s;
-    border: 1px solid transparent;
-}
+        .btn-nav {
+            font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
+            font-size: 0.9rem; transition: 0.3s; letter-spacing: 1px;
+        }
 
-.btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
+        .btn-nav:hover { color: #ff4500; }
 
-/* Responsive: Se ajusta abajo en celulares */
-@media (max-width: 768px) {
-    .nav-global { 
-        top: auto; bottom: 0; left: 0; right: 0; 
-        flex-wrap: wrap; justify-content: center; gap: 5px;
-        background: #000; border: none; border-top: 1px solid #ff4500;
-    }
-    .btn-nav { font-size: 0.7rem; padding: 5px; }
-}
+        /* Responsive: Se ajusta abajo en celulares */
+        @media (max-width: 768px) {
+            .nav-global { 
+                top: auto; bottom: 0; left: 0; right: 0; 
+                flex-wrap: wrap; justify-content: center; gap: 10px;
+                background: #000; border: none; border-top: 1px solid #ff4500;
+                border-radius: 0; padding: 10px;
+            }
+            .btn-nav { font-size: 0.7rem; }
+        }
         
         :root { --naranja: #f37021; --negro: #000; --blanco: #fff; }
         
@@ -40,7 +41,6 @@
             overflow: hidden;
         }
 
-        
         .nav-side {
             position: fixed;
             right: 30px;
@@ -66,7 +66,6 @@
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
         }
-
         
         #main-logo {
             position: fixed;
@@ -84,7 +83,6 @@
             transform: translate(-50%, 0); 
             width: 150px; 
         }
-
         
         section { position: relative; min-height: 300vh; scroll-snap-align: start; }
         .sticky-box {
@@ -97,8 +95,7 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: -1; filter: brightness(45%);
         }
-
-       
+        
         .content-scroll {
             position: relative; z-index: 10; width: 100%;
             padding: 150vh 10% 100vh 10%;
@@ -111,8 +108,7 @@
         }
 
         .align-right { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
-
-       
+        
         .btn-ghost {
             display: inline-block;
             padding: 10px 20px;
@@ -143,18 +139,16 @@
     <div id="main-logo"><img src="logo-hrj.png" alt="HRJ Logo"></div>
 
     <nav class="nav-global">
-    <a href="index.html" class="btn-nav">INICIO</a>
-    <a href="mapa-territorial.html" class="btn-nav">MAPA</a>
-    <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
-    <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
-    <a href="staff.html" class="btn-nav">STAFF</a>
-    <a href="medios.html" class="btn-nav">PRENSA</a>
-    <a href="contacto.html" class="btn-nav">CONTACTO</a>
-</nav> 
+        <a href="index.html" class="btn-nav">INICIO</a>
+        <a href="mapa-territorial.html" class="btn-nav">MAPA</a>
+        <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
+        <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
+        <a href="staff.html" class="btn-nav">STAFF</a>
+        <a href="medios.html" class="btn-nav">PRENSA</a>
+        <a href="contacto.html" class="btn-nav">CONTACTO</a>
+    </nav> 
 
     <div class="main-wrapper" id="scroll-container">
-        
-        <!-- 1. INTRO: Video con fix de reproducción -->
         <section id="intro">
             <div class="sticky-box">
                 <video autoplay muted loop playsinline preload="auto" class="bg-video">
@@ -166,150 +160,25 @@
             </div>
         </section>
 
-        <!-- 2. INSTITUCIONAL: Texto a la izquierda -->
-        <section id="unaj">
-            <div class="sticky-box">
-                <img src="GALERY/hrj-7.jpg" class="bg-img">
-                <div class="content-scroll">
-                    <div class="floating-text">
-                        <h2>U<span>NAJ</span></h2>
-                        <p>Puente entre la academia y la cultura popular del Conurbano.</p>
-                        <a href="https://hrj.com.ar/biografias.html" target="_blank" class="btn-ghost">Sitio Web</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. TERRITORIO: Texto a la derecha -->
-        <section id="territorio">
-            <div class="sticky-box">
-                <img src="RECORRIDO/negroroke-2.jpg" class="bg-img">
-                <div class="content-scroll align-right">
-                    <div class="floating-text">
-                        <h2>BARRIO</h2>
-                        <p>Habitamos el territorio transformando realidades a través del ritmo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. REDES: Texto a la izquierda -->
-        <section id="insta">
-            <div class="sticky-box">
-                <img src="RECORRIDO/IMG_3285.JPG" class="bg-img">
-                <div class="content-scroll">
-                    <div class="floating-text">
-                        <h2>UNIÓN</h2>
-                        <p>Nuestra comunidad crece en cada rima compartida.</p>
-                        <a href="https://www.instagram.com/haciendorapjuntxs/" target="_blank" class="btn-ghost">Instagram</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. LIBRO: Texto a la derecha -->
-        <section id="libro">
-            <div class="sticky-box">
-                <img src="RECORRIDO/hrj-18.jpg" class="bg-img">
-                <div class="content-scroll align-right">
-                    <div class="floating-text">
-                        <h2>LETRAS</h2>
-                        <p>La palabra escrita como registro de nuestra lucha colectiva.</p>
-                        <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" target="_blank" class="btn-ghost">Ver Antología</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. PRENSA: Texto a la izquierda -->
-        <section id="prensa1">
-            <div class="sticky-box">
-                <img src="RECORRIDO/pinta-ruido1.jpg" class="bg-img">
-                <div class="content-scroll">
-                    <div class="floating-text">
-                        <h2>MEDIOS</h2>
-                        <p>"El rap como relato genuino del conurbano." - Página 12</p>
-                        <a href="https://www.pagina12.com.ar/569517-el-rap-como-relato-del-conurbano/" target="_blank" class="btn-ghost">Nota Completa</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. DISCO: Texto a la derecha -->
-        <section id="disco">
-            <div class="sticky-box">
-                <img src="ASSETS-ARTISTAS/ramdas-1.jpg" class="bg-img">
-                <div class="content-scroll align-right">
-                    <div class="floating-text">
-                        <h2>DISCO</h2>
-                        <p>Producción profesional con la esencia pura de nuestras calles.</p>
-                        <a href="https://www.youtube.com/watch?v=MpYa0bPlMHA" target="_blank" class="btn-ghost">Escuchar Álbum</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. CYPHER: Texto a la izquierda -->
-        <section id="cypher">
-            <div class="sticky-box">
-                <img src="RECORRIDO/enc-22.jpg" class="bg-img">
-                <div class="content-scroll">
-                    <div class="floating-text">
-                        <h2>RITMO</h2>
-                        <p>La rima no se detiene, el conocimiento se comparte en el círculo.</p>
-                        <a href="https://www.youtube.com/watch?v=Nt9W1jBXWFo" target="_blank" class="btn-ghost">Ver Cypher</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. CONTACTO: Centro -->
-        <section id="contacto">
-            <div class="sticky-box">
-                <img src="RECORRIDO/perfil_brujah.jpg" class="bg-img" style="filter: brightness(20%);">
-                <div class="content-scroll" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                    <div class="floating-text">
-                        <h2 style="font-size: 3rem;">HACIENDO<br>RAP JUNTXS</h2>
-                        <a href="mailto:pec.unaj@gmail.com" class="btn-ghost" style="border-color: var(--naranja);">Contacto Directo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="inicio">
-            <div class="sticky-box">
-                <img src="logo-hrj.png" class="bg-img" style="filter: brightness(20%);">
-                <div class="content-scroll" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                    <div class="floating-text">
-                        <h2 style="font-size: 3rem;">VOLVER<br>AL INICIO</h2>
-                        <a href="index.html" class="btn-ghost" style="border-color: var(--naranja);">Haciendo Rap Juntxs</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </div>
+        </div>
 
     <script>
         const container = document.getElementById('scroll-container');
         const logo = document.getElementById('main-logo');
         const navLinks = document.querySelectorAll('.nav-side a');
 
-        // Forzar play de video por si el navegador lo pausa
         document.addEventListener('DOMContentLoaded', () => {
             const vids = document.querySelectorAll('video');
             vids.forEach(v => v.play().catch(e => console.log("Auto-play prevenido")));
         });
 
         container.addEventListener('scroll', () => {
-            // Animación Logo
             if (container.scrollTop > window.innerHeight * 0.5) {
                 logo.classList.add('mini');
             } else {
                 logo.classList.remove('mini');
             }
 
-            // Update Nav
             let current = "";
             document.querySelectorAll('section').forEach(section => {
                 if (container.scrollTop >= section.offsetTop - 500) {
