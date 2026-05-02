@@ -17,6 +17,28 @@
         .popup-img:hover { transform: scale(1.1); }
         .marker-text { color: #f37021; font-weight: bold; text-align: center; }
         .custom-tooltip { background: rgba(0, 0, 0, 0.8) !important; color: #f37021 !important; border: 1px solid #f37021 !important; font-weight: bold; border-radius: 5px; }
+    
+        /* Aseguramos que la barra esté siempre arriba y fija */
+.nav-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000; /* Un número mayor que el del mapa */
+    margin: 0;
+    padding: 0;
+    background: #000; /* Aseguramos que tenga fondo sólido para no ver el mapa por debajo */
+}
+
+/* Ajustamos el margen del mapa para que no se oculte detrás de la barra */
+#map { 
+    margin-top: 80px; /* Ajustá este valor según la altura de tu barra */
+    height: 70vh; 
+    width: 95%; 
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #f37021; 
+}     
     </style>
 </head>
 <body>
