@@ -2,43 +2,60 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raperxs | Haciendo Rap Juntxs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { --naranja: #ff4500; --negro: #000; }
+        body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; }
+
+        /* Navegación Global */
+        .nav-global { position: fixed; top: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; }
+        .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.2rem; transition: 0.3s; display: block; }
+        .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
+
+        /* Banner Carrusel */
+        .banner-wrapper { height: 100vh; width: 100%; position: relative; overflow: hidden; }
+        .banner-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .banner-slide.active { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .nav-global { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; display: grid; grid-template-columns: repeat(4, 1fr); padding: 5px; background: rgba(0,0,0,0.95); border-top: 2px solid var(--naranja); z-index: 9999; text-align: center; }
+            .btn-nav { font-size: 0.65rem; padding: 5px 0; border: 1px solid #333; }
+        }
+    </style>
 </head>
 <body>
-  <div class="banner-wrapper">
-    <div class="banner-carousel">
-        <div class="banner-slide active" style="background-image: url('ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('RECORRIDO/IMG_3285.JPG');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_brujah.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_dany-rap.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_dinaflow.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_echu.png');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_joni2020.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_libreta.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_luna.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_mrhyde.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_normy.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_ramdas.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_shhu.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_tatylaterraza.jpg');"></div>
-        <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/chamomc-5.jpg');"></div>
-    </div>
 
-    <nav class="nav-global">
-    <a href="index.html" class="btn-nav">INICIO</a>
-    <a href="mapa-territorial.html" class="btn-nav">MAPA</a>
-    <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
-    <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
-    <a href="staff.html" class="btn-nav">STAFF</a>
-    <a href="medios.html" class="btn-nav">PRENSA</a>
-    <a href="contacto.html" class="btn-nav">CONTACTO</a>
-</nav>
+    <div class="banner-wrapper">
+        <div class="banner-carousel">
+            <div class="banner-slide active" style="background-image: url('ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('RECORRIDO/IMG_3285.JPG');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_brujah.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_dany-rap.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_dinaflow.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_echu.png');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_joni2020.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_libreta.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_luna.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_mrhyde.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_normy.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_ramdas.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_shhu.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_tatylaterraza.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/chamomc-5.jpg');"></div>
+        </div>
+
+        <nav class="nav-global">
+            <a href="index.html" class="btn-nav">INICIO</a>
+            <a href="mapa-territorial.html" class="btn-nav">MAPA</a>
+            <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
+            <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
+            <a href="staff.html" class="btn-nav">STAFF</a>
+            <a href="medios.html" class="btn-nav">PRENSA</a>
+            <a href="contacto.html" class="btn-nav">CONTACTO</a>
+        </nav>
 
     <div class="banner-text">
         <h1>BIOGRAFÍAS</h1> 
@@ -205,6 +222,15 @@
     <footer>
         <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        let slides = document.querySelectorAll('.banner-slide');
+        let currentSlide = 0;
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 6000);
+    </script> 
 </body>
 </html>
