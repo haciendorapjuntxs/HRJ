@@ -63,20 +63,18 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.control.locate().addTo(map);
 
-    // 1. Definir la ubicación de la UNAJ
-    var unajCoords = [-34.8095, -58.2678]; // Coordenadas aproximadas de Av. Calchaquí 6200
+    // 1. Coordenadas exactas de la UNAJ
+    var unajCoords = [-34.7751535, -58.2678955]; 
     
-    // Crear el ícono de la UNAJ (puedes usar un marcador estándar o personalizarlo)
+    // Marcador especial para la UNAJ
     var unajMarker = L.marker(unajCoords, {
-        title: "UNAJ - Av. Calchaquí 6200",
-        icon: L.divIcon({
-            html: '<div style="background-color: #ff4500; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff;"></div>',
-            className: ''
-        })
+        title: "UNAJ - Av. Calchaquí 6200"
     }).addTo(map);
-    unajMarker.bindPopup("<b>UNAJ</b><br>Av. Calchaquí 6200, Florencio Varela");
+    
+    // Popup personalizado para la UNAJ
+    unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Av. Calchaquí 6200, Florencio Varela");
 
-    // Capa para los lazos (líneas)
+    // Capa para los lazos (líneas que conectan la universidad con el artista)
     var layerLazos = L.layerGroup().addTo(map);
 
     fetch('artistas.json')
@@ -89,12 +87,13 @@
                 marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
                 marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
                 
-                // 2. Evento al hacer clic en el marcador del artista
+                // Evento al hacer clic: limpia la línea vieja y dibuja una nueva hacia la UNAJ
                 marker.on('click', function() {
-                    layerLazos.clearLayers(); // Limpia la línea anterior
+                    layerLazos.clearLayers(); 
                     L.polyline([unajCoords, [a.lat, a.lng]], {
                         color: '#ff4500',
-                        weight: 3,
+                        weight: 4,
+                        opacity: 0.7,
                         dashArray: '10, 10'
                     }).addTo(layerLazos);
                 });
@@ -106,5 +105,6 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 </script> 
+    
 </body>
 </html>
