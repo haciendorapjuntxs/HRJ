@@ -7,187 +7,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         :root { --naranja: #ff4500; --negro: #000; }
+        body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         
+        /* Contenedor principal con scroll snap */
+        .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
-        body, html { 
-            margin: 0; padding: 0; 
-            background: var(--negro); 
-            color: #fff; 
-            font-family: 'Courier Prime', monospace;
-            scroll-behavior: smooth;
-        }
-
-        .main-wrapper { 
-            height: 100vh; 
-            overflow-y: auto; 
-            scroll-snap-type: y mandatory; 
-        }
-
-        
-       :root { --naranja: #ff4500; --negro: #000; }
-
-/* --- NAVEGACIÓN --- */
-.nav-global {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: right;
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-}
-
-.btn-nav {
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Anton', sans-serif;
-    font-size: 1.2rem;
-    transition: 0.3s;
-    display: block;
-}
-
-.btn-nav:hover { 
-    color: var(--naranja); 
-    letter-spacing: 2px; 
-}
-
-/* --- ADAPTACIÓN RESPONSIVA (Móvil) --- */
-@media (max-width: 768px) {
-    .nav-global {
-        top: auto;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        flex-direction: row; 
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Ajusta las columnas según necesites */
-        padding: 5px;
-        background: rgba(0,0,0,0.95);
-        border-top: 2px solid var(--naranja);
-        text-align: center;
-        z-index: 9999;
-    }
-
-    .btn-nav {
-        font-size: 0.65rem;
-        padding: 5px 0;
-        border: 1px solid #333; /* Opcional: añade borde para separar botones */
-    }
-}
-
-/* Resto de tus estilos (full-screen-section, content, etc.) se mantienen igual... */
-
+        /* Secciones */
         .full-screen-section, .banner-wrapper { 
-            height: 100vh; width: 100%; 
-            scroll-snap-align: start; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: relative; 
-            background-size: cover; 
-            background-position: center;
-            overflow: hidden;
+            height: 100vh; width: 100%; scroll-snap-align: start; 
+            display: flex; align-items: center; justify-content: center; 
+            position: relative; background-size: cover; background-position: center; overflow: hidden;
         }
 
-        
-        .content {
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--naranja);
-            padding: 40px;
-            box-shadow: 15px 15px 0px var(--naranja);
-            max-width: 800px;
-            text-align: center;
-            z-index: 2;
-            margin: 20px;
-        }
+        /* Navegación Global */
+        .nav-global { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; }
+        .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.2rem; transition: 0.3s; display: block; }
+        .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
 
+        /* Contenido y Estilos */
+        .content { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(12px); border: 2px solid var(--naranja); padding: 40px; box-shadow: 15px 15px 0px var(--naranja); max-width: 800px; text-align: center; z-index: 2; margin: 20px; }
         h1, h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; color: #fff; margin: 0; }
-        h1 { font-size: 3.5rem; line-height: 1; }
-        
-        .btn-ver-aca { 
-            display: inline-block; 
-            background: var(--naranja); 
-            color: #000; 
-            padding: 15px 35px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            margin-top: 25px;
-            font-family: 'Anton', sans-serif;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
+        .btn-ver-aca { display: inline-block; background: var(--naranja); color: #000; padding: 15px 35px; text-decoration: none; font-weight: bold; margin-top: 25px; font-family: 'Anton', sans-serif; transition: 0.3s; }
         .btn-ver-aca:hover { background: #fff; transform: translateY(-5px); }
+        .grid-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .logo-container { position: absolute; top: 20px; z-index: 10; display: flex; gap: 20px; }
+        .logo-img { height: 80px; }
 
-        
-        .banner-slide { 
-            position: absolute; top:0; left:0; width: 100%; height: 100%; 
-            background-size: cover; background-position: center; 
-            opacity: 0; transition: opacity 1.5s ease-in-out; 
-            z-index: 0; 
-        }
+        /* Carrusel */
+        .banner-carousel { position: absolute; top:0; left:0; width: 100%; height: 100%; }
+        .banner-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
         .banner-slide.active { opacity: 1; }
 
-        .logo-header {
-            position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
-            z-index: 10; width: 250px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+        @media (max-width: 768px) {
+            .nav-global { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; grid-template-columns: repeat(4, 1fr); padding: 5px; background: rgba(0,0,0,0.9); }
+            .btn-nav { font-size: 0.6rem; }
+            .content { width: 85%; padding: 20px; }
         }
-
-        
-        .grid-videos { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-            margin-top: 20px;
-        }
-
-       
-@media (max-width: 768px) {
-    
-    nav {
-        top: auto;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        padding: 5px;
-        background: rgba(0,0,0,0.9);
-        border: none;
-        border-top: 2px solid var(--naranja);
-    }
-
-    .btn-nav-prensa {
-        font-size: 0.7rem !important; 
-        padding: 8px 5px !important;
-        border: 1px solid var(--naranja) !important;
-        text-align: center;
-    }
-
-    
-    .content {
-        width: 85%;
-        padding: 20px;
-        margin: 10px auto;
-        box-shadow: 5px 5px 0px var(--naranja);
-    }
-
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-
-    
-    .grid-videos {
-        grid-template-columns: 1fr; 
-        gap: 10px;
-    }
-
-    iframe { height: 180px !important; }
-} 
     </style>
 </head>
 <body>
@@ -208,8 +63,7 @@
             <img src="logo-hrj.png" class="logo-img" alt="Logo HRJ">
             <img src="logounaj.png" class="logo-img" alt="Logo UNAJ">
         </div> 
-
-<div class="banner-carousel">
+        <div class="banner-carousel">
             <div class="banner-slide active" style="background-image: url('GALERY/portada_hrj.jpg');"></div>
             <div class="banner-slide" style="background-image: url('GALERY/hrj-2.jpg');"></div>
             <div class="banner-slide" style="background-image: url('GALERY/hrj-4.jpg');"></div>
@@ -229,11 +83,11 @@
             <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_ramdas.jpg');"></div>
             <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_shhu.jpg');"></div>
             <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_tatylaterraza.jpg');"></div>
-            
-        </div>
+
+            </div>
     </section>
 
-    <section class="full-screen-section" style="background-video: url('GALERY/prensa-video.mp4');">
+    <section class="full-screen-section" style="background: #000;">
         <div class="content">
             <h1>HACIENDO RAP JUNTXS</h1>
             <p>Donde la calle y la academia se encuentran para <strong>transformar el silencio en rima.</strong></p>
@@ -241,26 +95,27 @@
         </div>
     </section>
 
-    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/pinta-ruido1.jpg');">
-        <div class="content">
-            <h2>QUIENES SOMOS?</h2>
+    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/pinta-ruido1.jpg'');">
+    <div class="content">
+        <h2>QUIENES SOMOS?</</h2>
             <p><strong>Haciendo Rap Juntxs</strong> es un proyecto que nació en la <strong>UNAJ</strong> para unir a las pibas y los pibes que rapean en los <strong>barrios del Conurbano.</strong> </p>
             <p>No somos una clase de música tradicional; <strong>somos un espacio de vinculación territorial</strong> donde usamos el rap para <strong>contar nuestra realidad y fortalecer nuestra identidad.</strong></p>
             <a href="https://www.instagram.com/haciendorapjuntxs" target="_blank" class="btn-ver-aca">NUESTRO INSTAGRAM</a>
-        </div>
-    </section>
-    
-    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg');">
-        <div class="content">
-            <h2>LO QUE YA ESTÁ PASANDO</h2>
-            <p>Haciendo Rap Juntxs es un <strong>libro de antología que recopila letras y biografías</strong> de raperos y raperas del <strong>Conurbano Bonaerense.</strong></p> 
-              <p>La obra es el resultado de un <strong>Proyecto de Vinculación Territorial</strong> de la <strong>Universidad Nacional Arturo Jauretche (UNAJ)</strong> y fue editada por la <strong>Editorial Leviatán.</strong></p>
-            <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" target="_blank" class="btn-ver-aca">COMPRAR LIBRO</a>
-        </div>
-    </section>
-    
 
-    <section class="full-screen-section" style="background-image: url('GALERY/hrj-9.jpg');">
+    </div>
+</section>
+
+    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg'');">
+    <div class="content">
+        <h2>LO QUE YA ESTÁ PASANDO</h2>
+        <p>Haciendo Rap Juntxs es un <strong>libro de antología que recopila letras y biografías</strong> de raperos y raperas del <strong>Conurbano Bonaerense.</strong></p> 
+        <p>La obra es el resultado de un <strong>Proyecto de Vinculación Territorial</strong> de la <strong>Universidad Nacional Arturo Jauretche (UNAJ)</strong> y fue editada por la <strong>Editorial Leviatán.</strong></p>
+        <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" target="_blank" class="btn-ver-aca">COMPRAR LIBRO</a>
+
+    </div>
+</section>
+
+   <section class="full-screen-section" style="background-image: url('GALERY/hrj-9.jpg');">
         <div class="content">
             <h2>NUESTRAS RÍMAS</h2>
             <div class="grid-videos">
@@ -350,22 +205,18 @@ invalorable trabajo.  </p>
             <a href="mapa-territorial.html" target="_blank" class="btn-ver-aca">MAPA TERRITORIAL</a>
         </div>
     </section> 
-    
-</main>
+
+    </main>
 
 <script>
-   
+    // Script carrusel
     let slides = document.querySelectorAll('.banner-slide');
     let currentSlide = 0;
-
-    function nextSlide() {
+    setInterval(() => {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
-    }
-
-    setInterval(nextSlide, 6000);
+    }, 6000);
 </script>
-
 </body>
-</html> 
+</html>
