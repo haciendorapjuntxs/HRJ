@@ -1,0 +1,19 @@
+[
+    { "nombre": "DANY RAP", "barrio": "Gerli", "lat": -34.6850, "lng": -58.3650, "img": "ASSETS-ARTISTAS/perfil_dany-rap.jpg", "url": "BIOGRAFIAS-ARTISTAS/dany-rap.html" },
+    { "nombre": "ECHU", "barrio": "R. Calzada", "lat": -34.7950, "lng": -58.3750, "img": "ASSETS-ARTISTAS/perfil_echu.png", "url": "BIOGRAFIAS-ARTISTAS/echu.html" },
+    { "nombre": "JUAN DOBLE H", "barrio": "La Palito", "lat": -34.6750, "lng": -58.5750, "img": "ASSETS-ARTISTAS/juandobleh-1.jpg", "url": "BIOGRAFIAS-ARTISTAS/juan-doble-h.html" },
+    { "nombre": "LA BRUJAH", "barrio": "Spegazzini", "lat": -34.9100, "lng": -58.5500, "img": "ASSETS-ARTISTAS/perfil_brujah.jpg", "url": "BIOGRAFIAS-ARTISTAS/brujah.html" },
+    { "nombre": "RAM DAS", "barrio": "Quilmes", "lat": -34.7200, "lng": -58.2600, "img": "ASSETS-ARTISTAS/perfil_ramdas.jpg", "url": "BIOGRAFIAS-ARTISTAS/ram-das.html" },
+    { "nombre": "DINA FLOW", "barrio": "Berazategui", "lat": -34.7600, "lng": -58.2100, "img": "ASSETS-ARTISTAS/perfil_dinaflow.jpg", "url": "BIOGRAFIAS-ARTISTAS/dina-flow.html" },
+    { "nombre": "SHHU", "barrio": "Laferrere", "lat": -34.7450, "lng": -58.5850, "img": "ASSETS-ARTISTAS/perfil_shhu.jpg", "url": "BIOGRAFIAS-ARTISTAS/shhu.html" },
+    { "nombre": "LUCALE", "barrio": "Don Torcuato", "lat": -34.4850, "lng": -58.6150, "img": "ASSETS-ARTISTAS/perfil_lucale.jpg", "url": "BIOGRAFIAS-ARTISTAS/lucale.html" },
+    { "nombre": "JONI 2020", "barrio": "Barrio 22 de enero", "lat": -34.7300, "lng": -58.6200, "img": "ASSETS-ARTISTAS/perfil_joni2020.jpg", "url": "BIOGRAFIAS-ARTISTAS/joni-2020.html" },
+    { "nombre": "LUNA", "barrio": "Virrey del Pino", "lat": -34.8350, "lng": -58.6300, "img": "ASSETS-ARTISTAS/perfil_luna.jpg", "url": "BIOGRAFIAS-ARTISTAS/luna.html" },
+    { "nombre": "NORMY", "barrio": "Laferrere", "lat": -34.7470, "lng": -58.5870, "img": "ASSETS-ARTISTAS/perfil_normy.jpg", "url": "BIOGRAFIAS-ARTISTAS/normy.html" },
+    { "nombre": "CHAMO MC", "barrio": "Florencio Varela", "lat": -34.8160, "lng": -58.2830, "img": "ASSETS-ARTISTAS/perfil_chamo.jpg", "url": "BIOGRAFIAS-ARTISTAS/chamomc.html" },
+    { "nombre": "MR HYDE", "barrio": "Virrey del Pino", "lat": -34.8320, "lng": -58.6320, "img": "ASSETS-ARTISTAS/perfil_mrhyde.jpg", "url": "BIOGRAFIAS-ARTISTAS/mr-hyde.html" },
+    { "nombre": "PINTA RUIDO", "barrio": "Isidro Casanova", "lat": -34.7050, "lng": -58.5700, "img": "ASSETS-ARTISTAS/perfil_pinta-ruido.jpg", "url": "BIOGRAFIAS-ARTISTAS/pinta-ruido.html" },
+    { "nombre": "LIBRETA", "barrio": "Pte. Derqui", "lat": -34.4600, "lng": -58.8500, "img": "ASSETS-ARTISTAS/perfil_libreta.jpg", "url": "BIOGRAFIAS-ARTISTAS/libreta.html" },
+    { "nombre": "TATY LA TERRAZA", "barrio": "Villa Soldati", "lat": -34.6700, "lng": -58.4500, "img": "ASSETS-ARTISTAS/perfil_tatylaterraza.jpg", "url": "BIOGRAFIAS-ARTISTAS/taty-la-terraza.html" },
+    { "nombre": "EL NEGRO ROKE", "barrio": "Gonzalez Catan", "lat": -34.7700, lng: -58.6300, "img": "ASSETS-ARTISTAS/perfil_negroroke.jpg", "url": "BIOGRAFIAS-ARTISTAS/el-negro-roke.html" }
+]
