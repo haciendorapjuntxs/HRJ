@@ -9,22 +9,18 @@
         :root { --naranja: #ff4500; --negro: #000; }
         body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         
-        /* Contenedor principal con scroll snap */
         .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
-        /* Secciones */
         .full-screen-section, .banner-wrapper { 
             height: 100vh; width: 100%; scroll-snap-align: start; 
             display: flex; align-items: center; justify-content: center; 
             position: relative; background-size: cover; background-position: center; overflow: hidden;
         }
 
-        /* Navegación Global */
         .nav-global { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; }
         .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.2rem; transition: 0.3s; display: block; }
         .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
 
-        /* Contenido y Estilos */
         .content { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(12px); border: 2px solid var(--naranja); padding: 40px; box-shadow: 15px 15px 0px var(--naranja); max-width: 800px; text-align: center; z-index: 2; margin: 20px; }
         h1, h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; color: #fff; margin: 0; }
         .btn-ver-aca { display: inline-block; background: var(--naranja); color: #000; padding: 15px 35px; text-decoration: none; font-weight: bold; margin-top: 25px; font-family: 'Anton', sans-serif; transition: 0.3s; }
@@ -33,7 +29,6 @@
         .logo-container { position: absolute; top: 20px; z-index: 10; display: flex; gap: 20px; }
         .logo-img { height: 80px; }
 
-        /* Carrusel */
         .banner-carousel { position: absolute; top:0; left:0; width: 100%; height: 100%; }
         .banner-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
         .banner-slide.active { opacity: 1; }
@@ -83,8 +78,7 @@
             <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_ramdas.jpg');"></div>
             <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_shhu.jpg');"></div>
             <div class="banner-slide" style="background-image: url('ASSETS-ARTISTAS/perfil_tatylaterraza.jpg');"></div>
-
-            </div>
+        </div>
     </section>
 
     <section class="full-screen-section" style="background: #000;">
@@ -95,25 +89,23 @@
         </div>
     </section>
 
-    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/pinta-ruido1.jpg'');">
-    <div class="content">
-        <h2>QUIENES SOMOS?</</h2>
+    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/pinta-ruido1.jpg');">
+        <div class="content">
+            <h2>QUIENES SOMOS?</h2>
             <p><strong>Haciendo Rap Juntxs</strong> es un proyecto que nació en la <strong>UNAJ</strong> para unir a las pibas y los pibes que rapean en los <strong>barrios del Conurbano.</strong> </p>
             <p>No somos una clase de música tradicional; <strong>somos un espacio de vinculación territorial</strong> donde usamos el rap para <strong>contar nuestra realidad y fortalecer nuestra identidad.</strong></p>
             <a href="https://www.instagram.com/haciendorapjuntxs" target="_blank" class="btn-ver-aca">NUESTRO INSTAGRAM</a>
+        </div>
+    </section>
 
-    </div>
-</section>
-
-    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg'');">
-    <div class="content">
-        <h2>LO QUE YA ESTÁ PASANDO</h2>
-        <p>Haciendo Rap Juntxs es un <strong>libro de antología que recopila letras y biografías</strong> de raperos y raperas del <strong>Conurbano Bonaerense.</strong></p> 
-        <p>La obra es el resultado de un <strong>Proyecto de Vinculación Territorial</strong> de la <strong>Universidad Nacional Arturo Jauretche (UNAJ)</strong> y fue editada por la <strong>Editorial Leviatán.</strong></p>
-        <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" target="_blank" class="btn-ver-aca">COMPRAR LIBRO</a>
-
-    </div>
-</section>
+    <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/perfil_negroroke.jpg');">
+        <div class="content">
+            <h2>LO QUE YA ESTÁ PASANDO</h2>
+            <p>Haciendo Rap Juntxs es un <strong>libro de antología que recopila letras y biografías</strong> de raperos y raperas del <strong>Conurbano Bonaerense.</strong></p> 
+            <p>La obra es el resultado de un <strong>Proyecto de Vinculación Territorial</strong> de la <strong>Universidad Nacional Arturo Jauretche (UNAJ)</strong> y fue editada por la <strong>Editorial Leviatán.</strong></p>
+            <a href="https://editleviatan.wordpress.com/2023/05/10/haciendo-rap-juntxs/" target="_blank" class="btn-ver-aca">COMPRAR LIBRO</a>
+        </div>
+    </section>
 
    <section class="full-screen-section" style="background-image: url('GALERY/hrj-9.jpg');">
         <div class="content">
@@ -121,7 +113,6 @@
             <div class="grid-videos">
                 <iframe src="https://www.youtube.com/embed/Nt9W1jBXWFo" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/9YYNLzb9i-g" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
-                
             </div>
         </div>
     </section>
@@ -133,7 +124,6 @@
                <iframe src="https://www.youtube.com/embed/MpYa0bPlMHA" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/WQKzsCVjRM4" height="150" width="100%" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/TGmSBw9QE9k" height="150" width="100%" frameborder="0" allowfullscreen></iframe> 
-  
             </div>
         </div>
     </section>
@@ -142,7 +132,7 @@
         <div class="content">
             <h2>CONOCE AL EQUIPO</h2>
             <p>Somos un colectivo que no para de crecer.</p>
-                <p>Dirección:</p> 
+            <p>Dirección:</p> 
             <p>Martín Biaggini y Lucía Calvi</p>
             <p>Equipo Docente: </p>
             <p> Marisa Pignolo, María Marino, Josefina Heine, Gisela Longobuco, Mercedes Sánchez y Leo Rueda</p>
@@ -155,17 +145,10 @@
     <section class="full-screen-section" style="background-image: url('ASSETS-STAFF/institucion-unaj.jpg');">
         <div class="content">
             <h2>AGRADECIMIENTOS</h2>
-            <p>Gracias a <strong>Arnaldo Medina </strong>(rector de la UNAJ), <strong>Ernesto Villanueva</strong> (rector emérito de la 
-UNAJ), a <strong>Julián Dercoli</strong>, y a las y los <strong>compañeros</strong> de la <strong>Secretaria de Políticas y Territorio</strong>, a 
-<strong>Carolina González Velazco</strong> y <strong>Mauricio Shutemberg</strong> (directores del Instituto de Estudios 
-Iniciales), a <strong>Laura Itchart</strong> y <strong>Juan Donati</strong>, coordinadores de la materia <strong>Prácticas Culturales</strong>, y 
-a todas y todos los y las <strong>compañeros/as docentes y no docentes que nos acompañaron.</strong></p>
-                <p>Un agradecimiento especial a las y los <strong>raperos hermanos latinoamericanos</strong> que 
-sumaron su arte en estos temas, y especialmente al <strong>Cubano y Martes13</strong> por su 
-invalorable trabajo.  </p> 
+            <p>Gracias a <strong>Arnaldo Medina </strong>(rector de la UNAJ), <strong>Ernesto Villanueva</strong> (rector emérito de la UNAJ), a <strong>Julián Dercoli</strong>, y a las y los <strong>compañeros</strong> de la <strong>Secretaria de Políticas y Territorio</strong>, a <strong>Carolina González Velazco</strong> y <strong>Mauricio Shutemberg</strong> (directores del Instituto de Estudios Iniciales), a <strong>Laura Itchart</strong> y <strong>Juan Donati</strong>, coordinadores de la materia <strong>Prácticas Culturales</strong>, y a todas y todos los y las <strong>compañeros/as docentes y no docentes que nos acompañaron.</strong></p>
+            <p>Un agradecimiento especial a las y los <strong>raperos hermanos latinoamericanos</strong> que sumaron su arte en estos temas, y especialmente al <strong>Cubano y Martes13</strong> por su invalorable trabajo. </p> 
             <h4>HACIENDO RAP</h4>
             <h4>JUNTXS</h4>
-            
             <a href="https://www.unaj.edu.ar/autoridades/" target="_blank" class="btn-ver-aca">AUTORIDADES</a>
         </div>
     </section>
@@ -174,8 +157,7 @@ invalorable trabajo.  </p>
         <div class="content">
             <h2>NUESTRO SISTEMA</h2>
             <p>Nuestra red de raperxs es un mapa real del talento bonaerense</p>
-                <p>Estamos en todos lados</p>
-        
+            <p>Estamos en todos lados</p>
             <a href="discografia.html" target="_blank" class="btn-ver-aca">DISCOS</a>
         </div>
     </section>
@@ -184,8 +166,7 @@ invalorable trabajo.  </p>
         <div class="content">
             <h2>VER NOTAS</h2>
             <p>Gracias a los <strong>Diarios y Periodistas</strong> que hacen eco a nuestra voz.</p>
-                <p>Su labor es fundamental para extender nuestro objetivo.</p>
-        
+            <p>Su labor es fundamental para extender nuestro objetivo.</p>
             <a href="medios.html" target="_blank" class="btn-ver-aca">PRENSA</a>
         </div>
     </section>
@@ -193,7 +174,6 @@ invalorable trabajo.  </p>
      <section class="full-screen-section" style="background-image: url('ASSETS-ARTISTAS/perfil_ramdas.jpg');">
         <div class="content">
             <h2>SUMERGITE</h2>
-        
             <a href="experiencia.html" target="_blank" class="btn-ver-aca">EXPERIENCIA HRJ</a>
         </div>
     </section> 
@@ -201,15 +181,13 @@ invalorable trabajo.  </p>
     <section class="full-screen-section" style="background-image: url('RECORRIDO/mapa-territorial.JPG');">
         <div class="content">
             <h2>EL MAPA DE LOS RAPERXS</h2>
-        
             <a href="mapa-territorial.html" target="_blank" class="btn-ver-aca">MAPA TERRITORIAL</a>
         </div>
     </section> 
 
-    </main>
+</main>
 
 <script>
-    // Script carrusel
     let slides = document.querySelectorAll('.banner-slide');
     let currentSlide = 0;
     setInterval(() => {
