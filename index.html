@@ -24,32 +24,27 @@
         }
 
         
+        /* BARRA DE NAVEGACIÓN CORREGIDA */
         nav {
             position: fixed;
-            top: 30px;
-            right: 40px;
-            z-index: 100;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: right;
         }
 
-        .btn-nav-prensa {
-            font-family: 'Anton', sans-serif;
+        .btn-nav {
             color: #fff;
             text-decoration: none;
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            border: 2px solid var(--naranja);
-            padding: 10px 25px;
-            background: rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.2rem;
+            transition: 0.3s;
         }
 
-        .btn-nav-prensa:hover {
-            background: var(--naranja);
-            color: #000;
-            letter-spacing: 6px;
-            transform: scale(1.1);
-        }
+        .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
 
         .full-screen-section, .banner-wrapper { 
             height: 100vh; width: 100%; 
