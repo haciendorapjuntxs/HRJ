@@ -12,78 +12,81 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     
     <style>
-       /* --- NAVEGACIÓN GLOBAL --- */
-:root { 
-    --naranja: #ff4500; 
-    --negro: #000; 
-}
+        /* --- RESET GLOBAL --- */
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
 
-/* Contenedor principal de navegación */
-nav {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    gap: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border: 1px solid var(--naranja);
-    border-radius: 5px;
-}
+        :root { --naranja: #ff4500; --negro: #000; }
 
-/* Botones de navegación */
-.btn-nav {
-    font-family: 'Anton', sans-serif;
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 5px 15px;
-    border: 2px solid transparent; /* Transparente por defecto */
-    transition: all 0.3s ease;
-}
+        /* Contenedor principal de navegación */
+        nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border: 1px solid var(--naranja);
+            border-radius: 5px;
+        }
 
-.btn-nav:hover {
-    color: var(--negro);
-    background-color: var(--naranja);
-    border-color: var(--naranja);
-}
+        .btn-nav {
+            font-family: 'Anton', sans-serif;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
 
-/* --- ADAPTACIÓN RESPONSIVA (Celulares) --- */
-@media (max-width: 768px) {
-    nav {
-        top: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-        background: #000;
-        border: none;
-        border-top: 2px solid var(--naranja);
-        padding: 5px;
-        border-radius: 0;
-    }
-    .btn-nav {
-        font-size: 0.7rem;
-        padding: 5px 8px;
-    }
-} 
-        /* Mapa */
-        #map { height: 85vh; width: 95%; margin: 80px auto 20px auto; border: 2px solid var(--naranja); }
+        .btn-nav:hover {
+            color: var(--negro);
+            background-color: var(--naranja);
+            border-color: var(--naranja);
+        }
+
+        /* Mapa a pantalla completa */
+        #map { 
+            height: 100vh; 
+            width: 100vw; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1;
+        }
+
         .leaflet-tile { filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(100%); }
         
         .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--naranja); }
         .marker-text { color: var(--naranja); font-weight: bold; text-align: center; font-family: 'Anton', sans-serif; }
         .custom-tooltip { background: rgba(0,0,0,0.8) !important; color: var(--naranja) !important; border: 1px solid var(--naranja) !important; font-family: 'Anton', sans-serif; }
 
-        /* Responsive Mobile */
+        /* --- ADAPTACIÓN RESPONSIVA (Celulares) --- */
         @media (max-width: 768px) {
-            nav { top: auto; bottom: 0; right: 0; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-top: 2px solid var(--naranja); background: #000; }
-            .btn-nav { font-size: 0.65rem; padding: 10px 2px; text-align: center; border: 1px solid var(--naranja); }
-            #map { margin-top: 10px; height: 70vh; }
-        }
+            nav {
+                top: auto;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2px;
+                border-top: 2px solid var(--naranja);
+                background: #000;
+                border-radius: 0;
+                padding: 5px;
+            }
+            .btn-nav {
+                font-size: 0.65rem;
+                padding: 10px 2px;
+                text-align: center;
+                border: 1px solid var(--naranja);
+            }
+            #map { height: 100vh; width: 100vw; }
+        } 
     </style>
 </head>
 <body>
@@ -109,18 +112,14 @@ nav {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.control.locate().addTo(map);
 
-    // 1. Coordenadas exactas de la UNAJ
     var unajCoords = [-34.7751535, -58.2678955]; 
     
-    // Marcador especial para la UNAJ
     var unajMarker = L.marker(unajCoords, {
         title: "UNAJ - Av. Calchaquí 6200"
     }).addTo(map);
     
-    // Popup personalizado para la UNAJ
     unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Av. Calchaquí 6200, Florencio Varela");
 
-    // Capa para los lazos (líneas que conectan la universidad con el artista)
     var layerLazos = L.layerGroup().addTo(map);
 
     fetch('artistas.json')
@@ -133,7 +132,6 @@ nav {
                 marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
                 marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
                 
-                // Evento al hacer clic: limpia la línea vieja y dibuja una nueva hacia la UNAJ
                 marker.on('click', function() {
                     layerLazos.clearLayers(); 
                     L.polyline([unajCoords, [a.lat, a.lng]], {
@@ -153,4 +151,4 @@ nav {
 </script> 
     
 </body>
-</html>
+</html> 
