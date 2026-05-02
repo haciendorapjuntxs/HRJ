@@ -63,19 +63,48 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.control.locate().addTo(map);
 
+    // 1. Definir la ubicación de la UNAJ
+    var unajCoords = [-34.8095, -58.2678]; // Coordenadas aproximadas de Av. Calchaquí 6200
+    
+    // Crear el ícono de la UNAJ (puedes usar un marcador estándar o personalizarlo)
+    var unajMarker = L.marker(unajCoords, {
+        title: "UNAJ - Av. Calchaquí 6200",
+        icon: L.divIcon({
+            html: '<div style="background-color: #ff4500; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff;"></div>',
+            className: ''
+        })
+    }).addTo(map);
+    unajMarker.bindPopup("<b>UNAJ</b><br>Av. Calchaquí 6200, Florencio Varela");
+
+    // Capa para los lazos (líneas)
+    var layerLazos = L.layerGroup().addTo(map);
+
     fetch('artistas.json')
         .then(res => res.json())
         .then(artistas => {
             var markersCluster = L.markerClusterGroup();
+            
             artistas.forEach(a => {
                 var marker = L.marker([a.lat, a.lng], {title: a.nombre});
                 marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
                 marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
+                
+                // 2. Evento al hacer clic en el marcador del artista
+                marker.on('click', function() {
+                    layerLazos.clearLayers(); // Limpia la línea anterior
+                    L.polyline([unajCoords, [a.lat, a.lng]], {
+                        color: '#ff4500',
+                        weight: 3,
+                        dashArray: '10, 10'
+                    }).addTo(layerLazos);
+                });
+
                 markersCluster.addLayer(marker);
             });
+            
             map.addLayer(markersCluster);
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
-</script>
+</script> 
 </body>
 </html>
