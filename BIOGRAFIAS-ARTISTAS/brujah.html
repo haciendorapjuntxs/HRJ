@@ -49,6 +49,24 @@
     #btn-mapa { top: 20px; right: 120px; } /* Ajustá el 'right' si se enciman con otra cosa */
     #btn-volver { top: 20px; left: 20px; }
     #btn-ig { bottom: 20px; right: 20px; }
+
+        /* Estilo para celulares (pantallas menores a 600px) */
+@media (max-width: 600px) {
+    .btn-nav-fixed {
+        padding: 6px 10px !important; /* Más pequeños */
+        font-size: 0.7rem !important;  /* Fuente más chica */
+    }
+
+    #btn-volver { 
+        top: 10px; 
+        left: 10px; 
+    }
+
+    #btn-mapa { 
+        top: 45px; /* Lo bajamos para que quede debajo de VOLVER */
+        left: 10px; /* Alineado a la izquierda como el otro */
+    }
+}
         
     </style>
 </head>
