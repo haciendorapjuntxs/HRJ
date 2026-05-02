@@ -23,6 +23,32 @@
             .nav-global { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; display: grid; grid-template-columns: repeat(4, 1fr); padding: 5px; background: rgba(0,0,0,0.95); border-top: 2px solid var(--naranja); z-index: 9999; text-align: center; }
             .btn-nav { font-size: 0.65rem; padding: 5px 0; border: 1px solid #333; }
         }
+
+        /* Estilos específicos para la grilla de biografías */
+        .bio-grid-mejorada { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            padding: 40px; 
+            max-width: 1200px; 
+            margin: auto; 
+        }
+        .bio-card { 
+            background: #1a1a1a; 
+            border: 2px solid #333; 
+            padding: 15px; 
+            text-align: center; 
+            transition: 0.3s; 
+        }
+        .bio-card:hover { border-color: var(--naranja); transform: translateY(-10px); }
+        .bio-card img { width: 100%; height: 250px; object-fit: cover; }
+        .bio-card h3 { font-family: 'Anton'; margin: 10px 0; color: var(--naranja); }
+        .bio-card .barrio { font-size: 0.8rem; opacity: 0.7; }
+        .bio-text { font-size: 0.7rem; color: #888; }
+        .banner-text { position: absolute; top: 40%; width: 100%; text-align: center; z-index: 2; pointer-events: none; }
+        .banner-text h1 { font-family: 'Anton'; font-size: 4rem; }
+        footer { text-align: center; padding: 20px; color: #555; }
+        
     </style>
 </head>
 <body>
