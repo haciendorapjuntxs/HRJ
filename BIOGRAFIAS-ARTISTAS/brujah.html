@@ -44,18 +44,21 @@
         .logo-container {
             position: absolute; top: 20px; right: 20px; z-index: 5;
         }
+        
+        /* Nueva regla para el botón del mapa */
+    #btn-mapa { top: 20px; right: 120px; } /* Ajustá el 'right' si se enciman con otra cosa */
+    #btn-volver { top: 20px; left: 20px; }
+    #btn-ig { bottom: 20px; right: 20px; }
+        
     </style>
 </head>
 <body>
-    <div style="margin-bottom: 20px; display: flex; gap: 10px;">
-        
-        <a href="../mapa-territorial.html" style="color: #f37021; text-decoration: none; border: 1px solid #f37021; padding: 5px 10px;">← MAPA</a>
-        
-        <a href="../biografias.html" class="btn-nav-fixed">← VOLVER</a>
-        
-    </div> <a href="https://www.instagram.com/laah_brujaah" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
+    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+    
+    <a href="https://www.instagram.com/laah_brujaah" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
-<main class="main-wrapper">
+    <main class="main-wrapper">
     <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/brujah-1.jpg');">
         <div class="logo-container">
             <img src="../logo-hrj.png" width="80" style="display:block;">
