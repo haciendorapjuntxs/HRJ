@@ -554,59 +554,65 @@ h2 { color: #f37021; border-bottom: 2px solid #f37021; display: inline-block; ma
     margin: 0 auto 15px auto !important;
 } 
 
-:root { --naranja: #ff4500; --negro: #000; }
-
-nav { 
-    position: fixed; top: 10px; right: 20px; z-index: 3000; 
-    display: flex; gap: 10px; 
+/* --- Variables y Reset --- */
+:root { 
+    --naranja: #ff4500; 
+    --negro: #000; 
 }
 
-.btn-nav {
-    font-family: 'Anton', sans-serif; /* Asegúrate de importar Anton */
-    color: #fff; text-decoration: none; font-size: 1.2rem;
-    border: 2px solid var(--naranja); padding: 8px 15px; 
-    background: rgba(0,0,0,0.8);
-    transition: all 0.3s;
-}
-
-.btn-nav:hover { background: var(--naranja); color: #000; }
-
-/* Responsive para celulares */
-@media (max-width: 768px) {
-    nav { 
-        top: auto; bottom: 0; right: 0; width: 100%; 
-        display: grid; grid-template-columns: repeat(3, 1fr); 
-        gap: 2px; border-top: 2px solid var(--naranja); 
-        background: #000; 
-    }
-    .btn-nav { 
-        font-size: 0.65rem; padding: 10px 2px; 
-        text-align: center; border: 1px solid var(--naranja); 
-    }
-}
-
-/* Estilos Globales de Navegación */
+/* --- Navegación Principal --- */
 .nav-global { 
-    position: fixed; top: 20px; right: 20px; z-index: 9999; 
-    display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
-    padding: 10px; border: 1px solid #ff4500; border-radius: 5px;
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 9999; 
+    display: flex; 
+    gap: 10px; 
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 10px 15px; 
+    border: 1px solid var(--naranja); 
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
 }
 
+/* --- Botones --- */
 .btn-nav {
-    font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
-    font-size: 1rem; padding: 5px 15px; transition: 0.3s;
-    border: 1px solid transparent;
+    font-family: 'Anton', sans-serif; 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1rem; 
+    padding: 5px 10px; 
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent; /* Efecto elegante */
 }
 
-.btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
+.btn-nav:hover { 
+    color: var(--naranja); 
+    border-bottom: 2px solid var(--naranja); 
+}
 
-/* Responsive: Se ajusta abajo en celulares */
+/* --- Adaptación Móvil (Responsive) --- */
 @media (max-width: 768px) {
     .nav-global { 
-        top: auto; bottom: 0; left: 0; right: 0; 
-        flex-wrap: wrap; justify-content: center; gap: 5px;
-        background: #000; border: none; border-top: 1px solid #ff4500;
+        top: auto; 
+        bottom: 0; 
+        left: 0; 
+        right: 0; 
+        display: grid; 
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas para que no se amontonen */
+        gap: 5px;
+        background: #000; 
+        border: none; 
+        border-top: 2px solid var(--naranja);
+        border-radius: 0;
+        padding: 5px;
     }
-    .btn-nav { font-size: 0.7rem; padding: 5px; }
-}
-
+    
+    .btn-nav { 
+        font-size: 0.65rem; 
+        padding: 8px 2px; 
+        text-align: center;
+        border: none; /* Quitamos bordes en mobile para limpieza */
+    }
+} 
