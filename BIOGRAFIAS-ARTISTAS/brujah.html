@@ -50,11 +50,15 @@
     #btn-volver { top: 20px; left: 20px; }
     #btn-ig { bottom: 20px; right: 20px; }
 
-        /* Estilo para celulares (pantallas menores a 600px) */
-@media (max-width: 600px) {
+       @media (max-width: 600px) {
     .btn-nav-fixed {
-        padding: 6px 10px !important; /* Más pequeños */
-        font-size: 0.7rem !important;  /* Fuente más chica */
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        
+        /* ESTA ES LA CLAVE PARA QUE MIDAN LO MISMO */
+        width: 70px;            /* Definimos un ancho fijo */
+        text-align: center;    /* Centramos el texto dentro de ese ancho */
+        display: block;        /* Aseguramos que se comporten como bloque */
     }
 
     #btn-volver { 
@@ -63,8 +67,8 @@
     }
 
     #btn-mapa { 
-        top: 45px; /* Lo bajamos para que quede debajo de VOLVER */
-        left: 10px; /* Alineado a la izquierda como el otro */
+        top: 45px; 
+        left: 10px; 
     }
 }
         
