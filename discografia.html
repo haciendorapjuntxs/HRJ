@@ -6,33 +6,24 @@
     <title>Discografía | Haciendo Rap Juntxs</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Globales de Navegación */
-.nav-global { 
-    position: fixed; top: 20px; right: 20px; z-index: 9999; 
-    display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
-    padding: 10px; border: 1px solid #ff4500; border-radius: 5px;
-}
-
-.btn-nav {
-    font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
-    font-size: 1rem; padding: 5px 15px; transition: 0.3s;
-    border: 1px solid transparent;
-}
-
-.btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
-
-/* Responsive: Se ajusta abajo en celulares */
-@media (max-width: 768px) {
-    .nav-global { 
-        top: auto; bottom: 0; left: 0; right: 0; 
-        flex-wrap: wrap; justify-content: center; gap: 5px;
-        background: #000; border: none; border-top: 1px solid #ff4500;
-    }
-    .btn-nav { font-size: 0.7rem; padding: 5px; }
-}  
+        /* Estilos Globales */
         body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
+        /* Navegación Unificada */
+        .nav-global { 
+            position: fixed; top: 20px; right: 20px; z-index: 9999; 
+            display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
+            padding: 10px; border: 1px solid #ff4500; border-radius: 5px;
+        }
+        .btn-nav {
+            font-family: 'Anton', sans-serif; color: #fff; text-decoration: none; 
+            font-size: 1rem; padding: 5px 15px; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
+
+        /* Secciones de Discografía */
         .section-disco { 
             height: 100vh; width: 100%; scroll-snap-align: start; 
             display: flex; align-items: center; justify-content: center; 
@@ -41,22 +32,25 @@
 
         .content-card { 
             background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(15px);
-            border-left: 4px solid #f37021; padding: 40px; max-width: 700px;
+            border-left: 4px solid #ff4500; padding: 40px; max-width: 700px;
             margin: 20px; z-index: 2;
         }
 
         .btn-escuchar { 
-            display: inline-block; padding: 10px 20px; background: #f37021; color: #000; 
+            display: inline-block; padding: 10px 20px; background: #ff4500; color: #000; 
             text-decoration: none; font-weight: bold; margin-top: 10px; font-family: 'Anton';
+            transition: 0.3s;
         }
+        .btn-escuchar:hover { background: #fff; }
 
-        #btn-volver {
-            position: fixed; top: 20px; left: 20px; z-index: 1000;
-            background: rgba(0,0,0,0.7); color: #fff; padding: 10px 20px;
-            text-decoration: none; border: 1px solid #fff; font-family: 'Anton';
+        h2 { font-family: 'Anton'; color: #ff4500; font-size: 3rem; margin: 0; }
+        h3 { font-family: 'Anton'; color: #ff4500; margin-top: 0; }
+
+        @media (max-width: 768px) {
+            .nav-global { top: auto; bottom: 0; left: 0; right: 0; flex-wrap: wrap; justify-content: center; gap: 5px; background: #000; border: none; border-top: 1px solid #ff4500; }
+            .btn-nav { font-size: 0.7rem; padding: 5px; }
+            h2 { font-size: 2rem; }
         }
-
-        h2 { font-family: 'Anton'; color: #f37021; font-size: 3rem; margin: 0; }
     </style>
 </head>
 <body>
@@ -65,7 +59,7 @@
     <a href="index.html" class="btn-nav">INICIO</a>
     <a href="mapa-territorial.html" class="btn-nav">MAPA</a>
     <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
-    <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
+    <a href="discografia.html" class="btn-nav" style="border-bottom: 1px solid #ff4500;">DISCOGRAFÍA</a>
     <a href="staff.html" class="btn-nav">STAFF</a>
     <a href="medios.html" class="btn-nav">PRENSA</a>
     <a href="contacto.html" class="btn-nav">CONTACTO</a>
@@ -115,15 +109,7 @@
     <section class="section-disco" style="background-image: url('GALERY/portada_hrj.jpg');">
         <div class="content-card">
             <h3>PRODUCCIÓN Y CONTEXTO</h3>
-            <p style="font-size: 0.9rem;">El presente disco es resultado del proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche "Haciendo rap juntxs", realizado con el apoyo económico de la SPyT-UNAJ y el subsidio "Culturas Colectivas" del Instituto de Cultura de la Provincia de Buenos Aires. Grabado en estudios "D-Kllao" por Mauro González, mezclado y masterizado en CBM DISCOS por El Cubano (2024). Diseño de portada: Suburbio Estudios.</p>
-        </div>
-    </section>
-
-    <section class="section-disco" style="background-image: url('GALERY/hrj-7.jpg');">
-        <div class="content-card">
-            <h3 style="font-size: 0.9rem;">PROYECTO DE VINCULACIÓN TERRITORIAL UNAJ 2025/6 “HACIENDO RAP JUNTXS”</h3>
-            <p style="font-size: 0.8rem;">Integrantes: Lucia Calvi y Martin Biaggini (dirección), Marisa Pignolo, María Marino, Gisela Longobuco, Mercedes Sánchez y Leo Rueda (docentes), Brenda Jara y Analia Moreff (alumnas).</p>
-            <p style="font-size: 0.8rem;">Agradecemos a Arnaldo Medina, Ernesto Villanueva, Julián Dercoli, la Secretaria de Políticas y Territorio, Instituto de Estudios Iniciales, Laura Itchart, Juan Donati y a todos los docentes/no docentes que nos acompañaron. Agradecimiento especial a los raperos latinoamericanos que sumaron su arte, al Cubano y Martes13.</p>
+            <p style="font-size: 0.9rem;">El presente disco es resultado del proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche "Haciendo rap juntxs". Grabado en estudios "D-Kllao" por Mauro González, mezclado y masterizado en CBM DISCOS por El Cubano (2024). Diseño de portada: Suburbio Estudios.</p>
         </div>
     </section>
 
