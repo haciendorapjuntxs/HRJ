@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dany Rap | HRJ</title>
+    <title>Brujah | HRJ</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        /* Estilos base inmersivos */
+        
         body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
@@ -22,7 +22,7 @@
             margin: 20px; z-index: 2;
         }
 
-        /* Botones Flotantes */
+        
         .btn-nav-fixed {
             position: fixed;
             z-index: 1000;
@@ -42,13 +42,41 @@
         #btn-ig { bottom: 20px; right: 20px; }
 
         .logo-container {
-            position: absolute; top: 20px; right: 20px; z-index: 5; text-align: right;
+            position: absolute; top: 20px; right: 20px; z-index: 5;
         }
+        
+        /* Nueva regla para el botón del mapa */
+    #btn-mapa { top: 20px; right: 120px; } /* Ajustá el 'right' si se enciman con otra cosa */
+    #btn-volver { top: 20px; left: 20px; }
+    #btn-ig { bottom: 20px; right: 20px; }
+
+       @media (max-width: 600px) {
+    .btn-nav-fixed {
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        
+        /* ESTA ES LA CLAVE PARA QUE MIDAN LO MISMO */
+        width: 70px;            /* Definimos un ancho fijo */
+        text-align: center;    /* Centramos el texto dentro de ese ancho */
+        display: block;        /* Aseguramos que se comporten como bloque */
+    }
+
+    #btn-volver { 
+        top: 10px; 
+        left: 10px; 
+    }
+
+    #btn-mapa { 
+        top: 45px; 
+        left: 10px; 
+    }
+}
+        
     </style>
 </head>
 <body>
-
-<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
+    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
 <a href="https://www.instagram.com/danyrap.f" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
 <main class="main-wrapper">
