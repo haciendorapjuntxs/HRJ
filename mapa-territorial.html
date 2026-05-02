@@ -5,40 +5,30 @@
     <title>Mapa Territorial | Haciendo Rap Juntxs</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    
     <style>
         body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; }
         
-        /* Ajuste del mapa */
-        #map { height: 75vh; width: 95%; margin: 20px auto; border: 2px solid #f37021; }
+        #map { height: 75vh; width: 95%; margin: 80px auto 20px auto; border: 2px solid #f37021; }
         .leaflet-tile { filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(100%); }
         
-        /* Popup y Tooltip */
         .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #f37021; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         .popup-img:hover { transform: scale(1.1); }
         .marker-text { color: #f37021; font-weight: bold; text-align: center; }
         .custom-tooltip { background: rgba(0, 0, 0, 0.8) !important; color: #f37021 !important; border: 1px solid #f37021 !important; font-weight: bold; border-radius: 5px; }
     
-        /* Aseguramos que la barra esté siempre arriba y fija */
-.nav-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2000; /* Un número mayor que el del mapa */
-    margin: 0;
-    padding: 0;
-    background: #000; /* Aseguramos que tenga fondo sólido para no ver el mapa por debajo */
-}
-
-/* Ajustamos el margen del mapa para que no se oculte detrás de la barra */
-#map { 
-    margin-top: 80px; /* Ajustá este valor según la altura de tu barra */
-    height: 70vh; 
-    width: 95%; 
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid #f37021; 
-}     
+        .nav-banner {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
+            margin: 0; padding: 10px 0; background: #000; list-style: none;
+            display: flex; justify-content: center; gap: 20px; border-bottom: 1px solid #f37021;
+        }
+        .nav-banner li a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        
+        .leaflet-control-search { z-index: 1000 !important; margin-top: 70px !important; }
     </style>
 </head>
 <body>
@@ -46,7 +36,7 @@
     <ul class="nav-banner">
         <li><a href="discografia.html">DISCOGRAFIA</a></li>
         <li><a href="staff.html">STAFF</a></li>
-        <li><a href="medios.html">prensa</a></li>
+        <li><a href="medios.html">PRENSA</a></li>
         <li><a href="contacto.html">CONTACTO</a></li>
         <li><a href="experiencia.html">NUESTRO RECORRIDO</a></li>
         <li><a href="index.html">INICIO</a></li>
@@ -55,42 +45,59 @@
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
     <script>
         var map = L.map('map').setView([-34.75, -58.55], 11);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-        var artistas = [
-            { nombre: "DANY RAP", barrio: "Gerli", lat: -34.6850, lng: -58.3650, img: "ASSETS-ARTISTAS/perfil_dany-rap.jpg", url: "BIOGRAFIAS-ARTISTAS/dany-rap.html" },
-            { nombre: "ECHU", barrio: "R. Calzada", lat: -34.7950, lng: -58.3750, img: "ASSETS-ARTISTAS/perfil_echu.png", url: "BIOGRAFIAS-ARTISTAS/echu.html" },
-            { nombre: "JUAN DOBLE H", barrio: "La Palito", lat: -34.6750, lng: -58.5750, img: "ASSETS-ARTISTAS/juandobleh-1.jpg", url: "BIOGRAFIAS-ARTISTAS/juan-doble-h.html" },
-            { nombre: "LA BRUJAH", barrio: "Spegazzini", lat: -34.9100, lng: -58.5500, img: "ASSETS-ARTISTAS/perfil_brujah.jpg", url: "BIOGRAFIAS-ARTISTAS/brujah.html" },
-            { nombre: "RAM DAS", barrio: "Quilmes", lat: -34.7200, lng: -58.2600, img: "ASSETS-ARTISTAS/perfil_ramdas.jpg", url: "BIOGRAFIAS-ARTISTAS/ram-das.html" },
-            { nombre: "DINA FLOW", barrio: "Berazategui", lat: -34.7600, lng: -58.2100, img: "ASSETS-ARTISTAS/perfil_dinaflow.jpg", url: "BIOGRAFIAS-ARTISTAS/dina-flow.html" },
-            { nombre: "SHHU", barrio: "Laferrere", lat: -34.7450, lng: -58.5850, img: "ASSETS-ARTISTAS/perfil_shhu.jpg", url: "BIOGRAFIAS-ARTISTAS/shhu.html" },
-            { nombre: "LUCALE", barrio: "Don Torcuato", lat: -34.4850, lng: -58.6150, img: "ASSETS-ARTISTAS/perfil_lucale.jpg", url: "BIOGRAFIAS-ARTISTAS/lucale.html" },
-            { nombre: "JONI 2020", barrio: "Barrio 22 de enero", lat: -34.7300, lng: -58.6200, img: "ASSETS-ARTISTAS/perfil_joni2020.jpg", url: "BIOGRAFIAS-ARTISTAS/joni-2020.html" },
-            { nombre: "LUNA", barrio: "Virrey del Pino", lat: -34.8350, lng: -58.6300, img: "ASSETS-ARTISTAS/perfil_luna.jpg", url: "BIOGRAFIAS-ARTISTAS/luna.html" },
-            { nombre: "NORMY", barrio: "Laferrere", lat: -34.7470, lng: -58.5870, img: "ASSETS-ARTISTAS/perfil_normy.jpg", url: "BIOGRAFIAS-ARTISTAS/normy.html" },
-            { nombre: "CHAMO MC", barrio: "Florencio Varela", lat: -34.8160, lng: -58.2830, img: "ASSETS-ARTISTAS/perfil_chamo.jpg", url: "BIOGRAFIAS-ARTISTAS/chamomc.html" },
-            { nombre: "MR HYDE", barrio: "Virrey del Pino", lat: -34.8320, lng: -58.6320, img: "ASSETS-ARTISTAS/perfil_mrhyde.jpg", url: "BIOGRAFIAS-ARTISTAS/mr-hyde.html" },
-            { nombre: "PINTA RUIDO", barrio: "Isidro Casanova", lat: -34.7050, lng: -58.5700, img: "ASSETS-ARTISTAS/perfil_pinta-ruido.jpg", url: "BIOGRAFIAS-ARTISTAS/pinta-ruido.html" },
-            { nombre: "LIBRETA", barrio: "Pte. Derqui", lat: -34.4600, lng: -58.8500, img: "ASSETS-ARTISTAS/perfil_libreta.jpg", url: "BIOGRAFIAS-ARTISTAS/libreta.html" },
-            { nombre: "TATY LA TERRAZA", barrio: "Villa Soldati", lat: -34.6700, lng: -58.4500, img: "ASSETS-ARTISTAS/perfil_tatylaterraza.jpg", url: "BIOGRAFIAS-ARTISTAS/taty-la-terraza.html" },
-            { nombre: "EL NEGRO ROKE", barrio: "Gonzalez Catan", lat: -34.7700, lng: -58.6300, img: "ASSETS-ARTISTAS/perfil_negroroke.jpg", url: "BIOGRAFIAS-ARTISTAS/el-negro-roke.html" }
-        ];
+        L.control.locate({strings: {title: "Mi ubicación"}}).addTo(map);
 
-        artistas.forEach(a => {
-            var marker = L.marker([a.lat, a.lng]).addTo(map);
-            marker.bindTooltip(`<b>${a.barrio}</b>`, { permanent: true, direction: 'top', className: 'custom-tooltip' });
-            marker.bindPopup(`
-                <div class="marker-text">
-                    ${a.nombre}<br>
-                    <a href="${a.url}">
-                        <img src="${a.img}" class="popup-img" alt="${a.nombre}">
-                    </a>
-                </div>
-            `);
-        });
+        fetch('artistas.json')
+            .then(response => response.json())
+            .then(artistas => {
+                var markersCluster = L.markerClusterGroup();
+                var layersPorBarrio = {};
+
+                artistas.forEach(a => {
+                    var marker = L.marker([a.lat, a.lng], {title: a.nombre});
+                    
+                    marker.bindTooltip(`<b>${a.barrio}</b>`, { permanent: true, direction: 'top', className: 'custom-tooltip' });
+                    marker.bindPopup(`
+                        <div class="marker-text">
+                            ${a.nombre}<br>
+                            <a href="${a.url}"><img src="${a.img}" class="popup-img" alt="${a.nombre}"></a>
+                        </div>
+                    `);
+
+                    markersCluster.addLayer(marker);
+
+                    if (!layersPorBarrio[a.barrio]) {
+                        layersPorBarrio[a.barrio] = L.layerGroup();
+                    }
+                    layersPorBarrio[a.barrio].addLayer(marker);
+                });
+
+                map.addLayer(markersCluster);
+
+                // Control de Capas (Filtros por zona)
+                var overlays = {
+                    "Todos los artistas": markersCluster,
+                    ...layersPorBarrio
+                };
+                L.control.layers(null, overlays).addTo(map);
+
+                // Buscador
+                var searchControl = new L.Control.Search({
+                    layer: markersCluster,
+                    propertyName: 'title',
+                    marker: false,
+                    moveToLocation: function(latlng, title, map) { map.setView(latlng, 15); }
+                });
+                map.addControl(searchControl);
+            });
     </script>
 </body>
-</html>
+</html> 
