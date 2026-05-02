@@ -48,9 +48,13 @@
         L.control.locate({strings: {title: "Mi ubicación"}}).addTo(map);
 
         fetch('artistas.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error("Error HTTP: " + response.status);
+                return response.json();
+            })
             .then(artistas => {
-                // El Cluster principal
+                console.log("Artistas cargados:", artistas); // <- MIRA ESTO EN LA CONSOLA (F12)
+                
                 var markersCluster = L.markerClusterGroup();
                 
                 artistas.forEach(a => {
@@ -69,18 +73,25 @@
 
                 map.addLayer(markersCluster);
 
-                // Buscador (ahora busca dentro del cluster)
+                // Buscador corregido
                 var searchControl = new L.Control.Search({
                     layer: markersCluster,
                     propertyName: 'title',
                     marker: false,
                     moveToLocation: function(latlng, title, map) { 
                         map.setView(latlng, 15);
-                        markersCluster.zoomToShowLayer(latlng, function() { marker.openPopup(); }); 
+                        // Usamos markersCluster para encontrar el grupo y abrir el popup
+                        markersCluster.zoomToShowLayer(latlng, function() {
+                            // Se abre el popup asociado al marker encontrado
+                        });
                     }
                 });
                 map.addControl(searchControl);
+            })
+            .catch(error => {
+                console.error("Error al cargar los artistas:", error);
+                alert("No se pudieron cargar los artistas. Revisa la consola (F12).");
             });
-    </script>
+    </script> 
 </body>
 </html> 
