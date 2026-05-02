@@ -48,6 +48,23 @@
         
         .content { width: 85%; padding: 20px; }
     } 
+
+        /* Organiza las capas para que el banner esté atrás y el contenido adelante */
+.banner-carousel { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
+}
+
+.banner-slide { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    background-size: cover; background-position: center; 
+    opacity: 0; transition: opacity 1.5s ease-in-out; 
+}
+
+.banner-slide.active { opacity: 1; }
+
+/* Asegura que logos y contenido floten sobre el banner */
+.logo-container, .content { z-index: 2; position: relative; }
+        
 </style>
 </head>
 <body>
@@ -204,7 +221,7 @@
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
-    }, 6000);
+    }, 3333);
 </script>
 </body>
 </html>
