@@ -215,50 +215,52 @@
     /* ... resto de tus estilos de título ... */
 }
 
-/* --- EFECTO DE TRAMA Y SELECCIÓN PARA TARJETAS --- */
+/* --- EFECTO TRAMA SÓLIDA --- */
 
 .bio-card {
     position: relative;
-    overflow: hidden; /* Esto es vital para que la trama no se salga de la tarjeta */
+    overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.3s ease;
+    border: 2px solid #333; /* Color inicial del borde */
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Capa de trama que se superpone a la imagen y contenido */
 .bio-card::after {
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    pointer-events: none; /* Esto permite que el clic pase al enlace */
+    pointer-events: none;
     z-index: 10;
+    /* Negro puro, sin transparencias */
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(0, 0, 0, 0) 0px,
-        rgba(0, 0, 0, 0,8) 1px,
-        transparent 1px,
-        transparent 6px 
+        #000 0px,
+        #000 2px,
+        transparent 2px,
+        transparent 8px
     );
-    background-size: 2px 2px;
-    opacity: 0.9; /* Trama sutil permanente */
-    transition: opacity 0.2s ease;
+    opacity: 0.4; /* Opacidad base para que se vea la foto */
+    transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el mouse */
+/* Al pasar el mouse: se oscurece más */
 .bio-card:hover::after {
-    opacity: 0.6; /* La trama se intensifica al pasar el mouse */
+    opacity: 0.7;
 }
 
-/* Efecto al hacer clic (quedan "seleccionadas") */
-.bio-card:active {
-    transform: scale(0.95); /* Se encoge un poco */
-    border-color: var(--naranja) !important; /* Resalta el borde */
+/* AL HACER CLIC: Se vuelve NEGRO CASI TOTAL */
+.bio-card:active,
+.bio-card.seleccionada {
+    transform: scale(0.95);
+    border-color: var(--naranja) !important;
 }
 
-.bio-card:active::after {
-    opacity: 0.8; /* La trama se vuelve casi sólida al hacer clic */
-}
-        
+.bio-card:active::after,
+.bio-card.seleccionada::after {
+    opacity: 0.95; /* Casi negro sólido */
+    background-size: 3px 3px; /* Trama más compacta */
+}     
         
     </style>
 </head>
