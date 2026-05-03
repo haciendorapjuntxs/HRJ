@@ -181,54 +181,40 @@
     }
 } 
 
-/* --- TRAMA NEGRA COMPACTA Y UNIFORME --- */
-/* Esta clase se encarga de que las líneas sean finas y constantes */
+/* --- TRAMA DIAGONAL DE PUNTOS (ESTILO MUEVA) --- */
+
+/* Aplicamos esto tanto a tarjetas como a banners */
 .bio-card, .banner-wrapper {
     position: relative;
     overflow: hidden;
 }
 
-/* Capa de trama negra para tarjetas y banner */
+/* La capa de puntos en diagonal */
 .bio-card::before, .banner-wrapper::after {
     content: "";
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0; left: 0; 
+    width: 200%; height: 200%; /* Tamaño doble para poder rotar */
     pointer-events: none;
     z-index: 10;
-    /* Trama NEGRA (rgba 0,0,0) y muy compacta (4px) */
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(0, 0, 0, 0.2) 0px,
-        rgba(0, 0, 0, 0.2) 1px,
-        transparent 1px,
-        transparent 4px
-    );
-    background-size: 4px 4px; 
+    
+    /* El truco del ángulo: rotamos el gradiente */
+    transform: rotate(45deg); 
+    transform-origin: top left;
+    
+    /* Puntos negros pequeños organizados */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.5) 1px, transparent 1px);
+    background-size: 8px 8px; /* Ajustá esto para separar más o menos los puntos */
+    
+    /* Efecto de mezcla de impresión */
+    mix-blend-mode: multiply;
+    opacity: 0.6;
 }
 
-/* Ajustes específicos para que las fotos se vean impecables */
-.bio-card {
-    background: #1a1a1a;
-    border: 2px solid #333;
-    padding: 15px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.bio-card img {
-    width: 100%; 
-    height: 250px; 
-    object-fit: cover;
-    /* Filtro leve para integrar la trama sin perder calidad */
-    filter: contrast(1.05) brightness(0.95);
-    image-rendering: crisp-edges;
-}
-
-/* Banner sin blur para mantener Full HD */
-.banner-slide {
-    filter: contrast(1.05) saturate(1.1) brightness(1); 
-    background-size: cover;
-    background-position: center;
+/* Ajuste para que las imágenes se vean "digitales/impresas" */
+.bio-card img, .banner-slide {
+    filter: contrast(1.1) brightness(0.95);
+    image-rendering: pixelated;
 }
         
     </style>
