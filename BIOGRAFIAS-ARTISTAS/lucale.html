@@ -101,15 +101,20 @@
     opacity: 0.5; /* Ajusta este valor si quieres más o menos oscuridad */
 }
 
-        /* Posicionamiento para los botones superiores */
-#btn-siguiente { top: 20px; left: 120px; }
+/* --- POSICIONAMIENTO DE BOTONES --- */
 #btn-volver { top: 20px; left: 20px; }
-#btn-mapa { top: 20px; right: 120px; }
+#btn-siguiente { top: 20px; left: 140px; } /* Desplazado a la derecha de VOLVER */
+#btn-mapa { top: 20px; right: 140px; }      /* A la derecha */
+#btn-ig { bottom: 20px; right: 20px; }
 
+/* Ajustes para móviles (para que no se amontonen) */
 @media (max-width: 600px) {
-    #btn-siguiente { top: 80px; left: 10px; } /* Ajuste para móvil */
-}
-        
+    .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; }
+    
+    #btn-volver { top: 10px; left: 10px; }
+    #btn-siguiente { top: 10px; left: 85px; } /* Debajo o al lado según espacio */
+    #btn-mapa { top: 45px; left: 10px; }      /* Movido para no tapar */
+}     
     </style>
 </head>
 <body>
