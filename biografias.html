@@ -214,6 +214,52 @@
     color: white;      /* O el color que uses */
     /* ... resto de tus estilos de título ... */
 }
+
+/* --- EFECTO DE TRAMA Y SELECCIÓN PARA TARJETAS --- */
+
+.bio-card {
+    position: relative;
+    overflow: hidden; /* Esto es vital para que la trama no se salga de la tarjeta */
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+/* Capa de trama que se superpone a la imagen y contenido */
+.bio-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; /* Esto permite que el clic pase al enlace */
+    z-index: 10;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.8) 0px,
+        rgba(0, 0, 0, 0.8) 1px,
+        transparent 1px,
+        transparent 6px 
+    );
+    background-size: 3px 3px;
+    opacity: 0.3; /* Trama sutil permanente */
+    transition: opacity 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+.bio-card:hover::after {
+    opacity: 0.6; /* La trama se intensifica al pasar el mouse */
+}
+
+/* Efecto al hacer clic (quedan "seleccionadas") */
+.bio-card:active {
+    transform: scale(0.95); /* Se encoge un poco */
+    border-color: var(--naranja) !important; /* Resalta el borde */
+}
+
+.bio-card:active::after {
+    opacity: 0.8; /* La trama se vuelve casi sólida al hacer clic */
+}
+        
+        
     </style>
 </head>
 <body>
