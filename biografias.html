@@ -181,32 +181,38 @@
     }
 } 
 
-/* --- TRAMA NEGRA ABSOLUTA (INTENSA) --- */
+/* 1. Mantenemos la trama en el banner */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+}
 
-.bio-card::before, .banner-wrapper::after {
+/* 2. La capa de trama (con un z-index bajo) */
+.banner-wrapper::after {
     content: "";
     position: absolute;
     top: 0; left: 0; 
-    width: 100%; height: 100%; 
+    width: 100%; height: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 1; /* La trama está en la capa 1 */
     
-    /* El negro aquí es 'rgba(0, 0, 0, 1)' para que sea 100% sólido */
     background-image: repeating-linear-gradient(
         45deg,
         rgba(0, 0, 0, 1) 0px,
         rgba(0, 0, 0, 1) 1px,
         transparent 1px,
-        transparent 2px 
+        transparent 6px 
     );
-    
-    /* Trama muy compacta */
-    background-size: 0px 2px; 
-    
-    /* ELIMINAMOS el mix-blend-mode para que el negro no se mezcle */
-    /* ELIMINAMOS la opacidad (o la ponemos en 1) */
-    opacity: 1; 
-} 
+    background-size: 0px 2px;
+}
+
+/* 3. El título del banner (aquí está el secreto) */
+.banner-title {
+    position: relative; /* Necesario para que el z-index funcione */
+    z-index: 2;        /* El título está en la capa 2, por encima de la trama */
+    color: white;      /* O el color que uses */
+    /* ... resto de tus estilos de título ... */
+}
     </style>
 </head>
 <body>
