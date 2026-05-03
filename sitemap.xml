@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://hrj.com.ar/</loc>
-    <lastmod>2026-04-29</lastmod>
-  </url>
-  <url>
-    <loc>https://hrj.com.ar/discografia.html</loc>
-    <lastmod>2026-04-29</lastmod>
-  </url>
-  <url>
-    <loc>https://hrj.com.ar/staff.html</loc>
-    <lastmod>2026-04-29</lastmod>
-  </url>
+  <url><loc>https://hrj.com.ar/index.html</loc></url>
+  <url><loc>https://hrj.com.ar/mapa-territorial.html</loc></url>
+  <url><loc>https://hrj.com.ar/biografias.html</loc></url>
+  <url><loc>https://hrj.com.ar/discografia.html</loc></url>
+  <url><loc>https://hrj.com.ar/staff.html</loc></url>
+  <url><loc>https://hrj.com.ar/medios.html</loc></url>
+  <url><loc>https://hrj.com.ar/contacto.html</loc></url>
+  <url><loc>https://hrj.com.ar/experiencia.html</loc></url>
 </urlset>
