@@ -218,6 +218,38 @@
     filter: blur(0.4px) contrast(1.1) brightness(0.95) saturate(0.8);
     image-rendering: crisp-edges; /* Mantiene bordes sin suavizado excesivo */
 } 
+   /* Trama Intensa para el Banner */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Esta capa va encima de TODAS las fotos del carrusel */
+.banner-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10; /* Encima de las imágenes */
+    
+    /* La trama más intensa: diagonales más gruesas y marcadas */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 0px,
+        rgba(255, 255, 255, 0.15) 2px,
+        transparent 2px,
+        transparent 8px
+    );
+    background-size: 10px 10px; /* Píxeles de trama más grandes */
+}
+
+/* Para mantener la nitidez Full HD */
+.banner-slide {
+    /* Quitamos cualquier blur para que se vea nítido */
+    filter: contrast(1.05) saturate(1.1) brightness(1); 
+    background-size: cover;
+    background-position: center;
+}
         
     </style>
 </head>
