@@ -213,6 +213,21 @@
     color: white;      /* O el color que uses */
     /* ... resto de tus estilos de título ... */
 }
+
+
+        /* Cuando el usuario hace clic o mantiene presionado sobre la tarjeta */
+.bio-card:active img {
+    /* Cambiamos el filtro para que la imagen se vea "seleccionada" */
+    filter: brightness(0.6) contrast(1.2);
+    /* Un pequeño toque de escala para dar feedback físico */
+    transform: scale(0.98); 
+}
+
+/* Para que la transición sea suave */
+.bio-card img {
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+        
     </style>
 </head>
 <body>
