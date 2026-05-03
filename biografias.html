@@ -90,6 +90,29 @@
         .banner-text { position: absolute; top: 40%; width: 100%; text-align: center; z-index: 2; pointer-events: none; }
         .banner-text h1 { font-family: 'Anton'; font-size: 4rem; }
         footer { text-align: center; padding: 20px; color: #555; }
+
+        /* --- BLOQUE PARA AGREGAR SOLO PARA CELULARES --- */
+@media (max-width: 768px) {
+    .bio-grid-mejorada {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 20px !important;
+        padding: 40px 10px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .bio-card {
+        min-width: 80vw !important; /* Cada tarjeta ocupa el 80% del ancho */
+        scroll-snap-align: center !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Oculta la barra de scroll en celulares */
+    .bio-grid-mejorada::-webkit-scrollbar { display: none !important; }
+}
+
+        
         
     </style>
 </head>
@@ -326,6 +349,31 @@
                 grid.scrollLeft = scrollLeft - walk;
             });
         }
-    </script> 
+
+        // --- BLOQUE PARA AGREGAR: GESTO TÁCTIL EN CELULARES ---
+if (window.innerWidth <= 768) {
+    const grid = document.querySelector('.bio-grid-mejorada');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    grid.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - grid.offsetLeft;
+        scrollLeft = grid.scrollLeft;
+    });
+    
+    grid.addEventListener('mouseleave', () => { isDown = false; });
+    grid.addEventListener('mouseup', () => { isDown = false; });
+    
+    grid.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - grid.offsetLeft;
+        const walk = (x - startX) * 1.5; 
+        grid.scrollLeft = scrollLeft - walk;
+    });
+}
+     </script> 
 </body>
 </html>
