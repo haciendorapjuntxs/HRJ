@@ -181,42 +181,44 @@
     }
 } 
 
-/* --- TRAMA DIAGONAL DE PUNTOS (ESTILO MUEVA) --- */
+/* --- TRAMA Densa y Unificada (Estilo Mueva Records) --- */
 
-/* Aplicamos esto tanto a tarjetas como a banners */
 .bio-card, .banner-wrapper {
     position: relative;
     overflow: hidden;
 }
 
-/* La capa de puntos en diagonal */
 .bio-card::before, .banner-wrapper::after {
     content: "";
     position: absolute;
-    top: 0; left: 0; 
-    width: 200%; height: 200%; /* Tamaño doble para poder rotar */
+    top: -50%; left: -50%; /* Asegura que cubra todo el área */
+    width: 200%; height: 200%; 
     pointer-events: none;
     z-index: 10;
     
-    /* El truco del ángulo: rotamos el gradiente */
-    transform: rotate(45deg); 
-    transform-origin: top left;
+    /* Trama de líneas muy finas y juntas (parecen puntos si los miras de lejos) */
+    /* El 45deg da la diagonal. 2px es el grosor del punto negro, 2px el total de la celda */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.4) 0px,
+        rgba(0, 0, 0, 0.4) 1px,
+        transparent 1px,
+        transparent 2px 
+    );
     
-    /* Puntos negros pequeños organizados */
-    background-image: radial-gradient(rgba(0, 0, 0, 0.5) 1px, transparent 1px);
-    background-size: 8px 8px; /* Ajustá esto para separar más o menos los puntos */
+    /* Si querés que los puntos estén más unidos, bajá este valor a 2px 2px */
+    background-size: 2px 2px; 
     
-    /* Efecto de mezcla de impresión */
+    /* Mezcla para que parezca impreso en la imagen */
     mix-blend-mode: multiply;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
-/* Ajuste para que las imágenes se vean "digitales/impresas" */
+/* Ajuste de nitidez para las imágenes */
 .bio-card img, .banner-slide {
     filter: contrast(1.1) brightness(0.95);
-    image-rendering: pixelated;
-}
-        
+    image-rendering: crisp-edges; /* Mejor que pixelated para HD */
+} 
     </style>
 </head>
 <body>
