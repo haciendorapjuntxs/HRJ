@@ -77,54 +77,87 @@
         left: 10px; 
     }
 }
+
+/* Clase que aplica la trama a cualquier elemento */
+.con-trama {
+    position: relative;
+}
+
+.con-trama::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; /* Esto es clave para que los botones sigan funcionando */
+    z-index: 1; /* Pone la trama encima de la foto pero debajo del contenido */
+    background-image: repeating-linear-gradient(
+        45deg,
+        #000 0px,
+        #000 1px,
+        transparent 1px,
+        transparent 6px
+    );
+    background-size: 3px 3px;
+    opacity: 0.5; /* Ajusta este valor si quieres más o menos oscuridad */
+}
+
+        /* Posicionamiento para los botones superiores */
+#btn-siguiente { top: 20px; left: 120px; }
+#btn-volver { top: 20px; left: 20px; }
+#btn-mapa { top: 20px; right: 120px; }
+
+@media (max-width: 600px) {
+    #btn-siguiente { top: 80px; left: 10px; } /* Ajuste para móvil */
+}
         
     </style>
 </head>
 <body>
-    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
-    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
-<a href="https://www.instagram.com/lucale.music" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+    <<a href="../BIOGRAFIAS-ARTISTAS/pinta-ruido.html" id="btn-siguiente" class="btn-nav-fixed">← SIGUIENTE</a>
+<a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
+<a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
+    
+    <a href="https://www.instagram.com/lucale.music" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
-<main class="main-wrapper">
-    <section class="section-bio" style="background-image: url('../RECORRIDO/IMG_3285.JPG');">
-        <div class="logo-container">
-            <img src="../logo-hrj.png" width="80" style="display:block;">
-            <img src="../logounaj.png" width="80" style="display:block;">
-        </div>
-        <div class="bio-content" style="text-align: center;">
-            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">LUCALE</h1>
-            <p>Don Torcuato, Buenos Aires</p>
-        </div>
-    </section>
+    <main class="main-wrapper">
+        <section class="section-bio con-trama" style="background-image: url('../RECORRIDO/IMG_3285.JPG');">
+            <div class="logo-container">
+                <img src="../logo-hrj.png" width="80" style="display:block;">
+                <img src="../logounaj.png" width="80" style="display:block;">
+            </div>
+            <div class="bio-content" style="text-align: center;">
+                <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">LUCALE</h1>
+                <p>Don Torcuato, Buenos Aires</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/lucale-2.jpg');">
-        <div class="bio-content">
-            <h2>RESISTENCIA EN EL NORTE</h2>
-            <p>Cristian Alexander Devincenzi Lemos, "Lucale", es una voz cruda de la resistencia social. Forjado en las calles de Don Torcuato, su rap es un fiel reflejo de la cotidianeidad del conurbano bonaerense.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/lucale-2.jpg');">
+            <div class="bio-content">
+                <h2>RESISTENCIA EN EL NORTE</h2>
+                <p>Cristian Alexander Devincenzi Lemos, "Lucale", es una voz cruda de la resistencia social. Forjado en las calles de Don Torcuato, su rap es un fiel reflejo de la cotidianeidad del conurbano bonaerense.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/lucale-3.jpg');">
-        <div class="bio-content">
-            <h2>ARTICULACIÓN Y GESTIÓN</h2>
-            <p>Lucale entiende que el rap es un vehículo de articulación territorial. Es pieza clave en el colectivo <em>Haciendo Rap Juntxs</em> (UNAJ), integrando su música en proyectos de alcance comunitario.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/lucale-3.jpg');">
+            <div class="bio-content">
+                <h2>ARTICULACIÓN Y GESTIÓN</h2>
+                <p>Lucale entiende que el rap es un vehículo de articulación territorial. Es pieza clave en el colectivo <em>Haciendo Rap Juntxs</em> (UNAJ), integrando su música en proyectos de alcance comunitario.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/lucale-4.jpg');">
-        <div class="bio-content">
-            <h2>NUEVA GENERACIÓN</h2>
-            <p>Representa a una generación que combina la pasión callejera con la rigurosidad profesional: desde el registro de marca hasta la gestión de derechos y la producción técnica.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/lucale-4.jpg');">
+            <div class="bio-content">
+                <h2>NUEVA GENERACIÓN</h2>
+                <p>Representa a una generación que combina la pasión callejera con la rigurosidad profesional: desde el registro de marca hasta la gestión de derechos y la producción técnica.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/lucale-5.jpg');">
-        <div class="bio-content">
-            <h2>MÁS ALLÁ DEL RAP</h2>
-            <p>Su búsqueda de perfeccionamiento se extiende más allá de la música, abarcando el diseño industrial y la fabricación de mobiliario, siempre bajo la misma visión de gestión integral.</p>
-        </div>
-    </section>
-</main>
-
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/lucale-5.jpg');">
+            <div class="bio-content">
+                <h2>MÁS ALLÁ DEL RAP</h2>
+                <p>Su búsqueda de perfeccionamiento se extiende más allá de la música, abarcando el diseño industrial y la fabricación de mobiliario, siempre bajo la misma visión de gestión integral.</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html> 
