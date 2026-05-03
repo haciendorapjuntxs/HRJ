@@ -229,13 +229,39 @@
 </main>
 
 <script>
-    let slides = document.querySelectorAll('.banner-slide');
-    let currentSlide = 0;
-    setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }, 3333);
-</script>
-</body>
+        // 1. Lógica del Banner (Aprobada)
+        let slides = document.querySelectorAll('.banner-slide');
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 3333);
+
+        // 2. Lógica del Carrusel Táctil (Solo para celulares)
+        if (window.innerWidth <= 768) {
+            const grid = document.querySelector('.bio-grid-mejorada');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            grid.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - grid.offsetLeft;
+                scrollLeft = grid.scrollLeft;
+            });
+            
+            grid.addEventListener('mouseleave', () => { isDown = false; });
+            grid.addEventListener('mouseup', () => { isDown = false; });
+            
+            grid.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - grid.offsetLeft;
+                const walk = (x - startX) * 1.5; 
+                grid.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
+</body> 
 </html>
