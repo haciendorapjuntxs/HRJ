@@ -181,43 +181,31 @@
     }
 } 
 
-/* --- TRAMA Densa y Unificada (Estilo Mueva Records) --- */
-
-.bio-card, .banner-wrapper {
-    position: relative;
-    overflow: hidden;
-}
+/* --- TRAMA NEGRA ABSOLUTA (INTENSA) --- */
 
 .bio-card::before, .banner-wrapper::after {
     content: "";
     position: absolute;
-    top: -50%; left: -50%; /* Asegura que cubra todo el área */
-    width: 200%; height: 200%; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
     pointer-events: none;
     z-index: 10;
     
-    /* Trama de líneas muy finas y juntas (parecen puntos si los miras de lejos) */
-    /* El 45deg da la diagonal. 2px es el grosor del punto negro, 2px el total de la celda */
+    /* El negro aquí es 'rgba(0, 0, 0, 1)' para que sea 100% sólido */
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(0, 0, 0, 0.4) 0px,
-        rgba(0, 0, 0, 0.4) 1px,
+        rgba(0, 0, 0, 1) 0px,
+        rgba(0, 0, 0, 1) 1px,
         transparent 1px,
         transparent 2px 
     );
     
-    /* Si querés que los puntos estén más unidos, bajá este valor a 2px 2px */
+    /* Trama muy compacta */
     background-size: 2px 2px; 
     
-    /* Mezcla para que parezca impreso en la imagen */
-    mix-blend-mode: multiply;
-    opacity: 0.5;
-}
-
-/* Ajuste de nitidez para las imágenes */
-.bio-card img, .banner-slide {
-    filter: contrast(1.1) brightness(0.95);
-    image-rendering: crisp-edges; /* Mejor que pixelated para HD */
+    /* ELIMINAMOS el mix-blend-mode para que el negro no se mezcle */
+    /* ELIMINAMOS la opacidad (o la ponemos en 1) */
+    opacity: 1; 
 } 
     </style>
 </head>
