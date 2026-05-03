@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /ASSETS-ARTISTAS/
+Disallow: /ASSETS-MEDIOS/
+Disallow: /ASSETS-STAFF/
+Disallow: /GALERY/
+Disallow: /RECORRIDO/
+Disallow: /BIOGRAFIAS-ARTISTAS/
+Disallow: /artistas.json
+Disallow: /prensa.json
+Allow: /
+
+Sitemap: https://hrj.com.ar/sitemap.xml
