@@ -17,99 +17,204 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-    :root { --naranja: #ff4500; --negro: #000; }
-    body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; }
+        :root { --naranja: #ff4500; --negro: #000; }
+        body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; }
 
-    /* Navegación Global */
-    .nav-global { position: fixed; top: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; }
-    .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.2rem; transition: 0.3s; display: block; }
-    .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
+        /* Navegación Global */
+        .nav-global { position: fixed; top: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; }
+        .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.2rem; transition: 0.3s; display: block; }
+        .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
 
-    @media (max-width: 768px) {
-        .nav-global { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; display: grid; grid-template-columns: repeat(4, 1fr); padding: 5px; background: rgba(0,0,0,0.95); border-top: 2px solid var(--naranja); z-index: 9999; text-align: center; }
-        .btn-nav { font-size: 0.65rem; padding: 5px 0; border: 1px solid #333; }
+        /* Banner Carrusel */
+        .banner-wrapper { height: 100vh; width: 100%; position: relative; overflow: hidden; }
+        .banner-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .banner-slide.active { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .nav-global { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; display: grid; grid-template-columns: repeat(4, 1fr); padding: 5px; background: rgba(0,0,0,0.95); border-top: 2px solid var(--naranja); z-index: 9999; text-align: center; }
+            .btn-nav { font-size: 0.65rem; padding: 5px 0; border: 1px solid #333; }
+        }
+
+        /* Esto asegura que el comportamiento de carrusel solo ocurra en celulares */
+@media (max-width: 768px) {
+    .bio-grid-mejorada {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 40px 10px;
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* Banner Carrusel */
-    .banner-wrapper { height: 100vh; width: 100%; position: relative; overflow: hidden; }
-    .banner-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
-    .banner-slide.active { opacity: 1; }
-
-    /* Estilos de Grilla y Cards (Globales) */
-    .bio-grid-mejorada { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-        gap: 20px; 
-        padding: 40px; 
-        max-width: 1200px; 
-        margin: auto; 
+    .bio-card {
+        min-width: 80vw; /* Ocupa el 80% de la pantalla para ver de a uno o dos */
+        scroll-snap-align: center;
+        flex-shrink: 0;
     }
 
-    .bio-card { 
-        position: relative; 
-        background: #1a1a1a; 
-        border: 2px solid #333; 
-        padding: 15px; 
-        text-align: center; 
-        overflow: hidden;
-        cursor: pointer;
-        transition: transform 0.2s ease, filter 0.2s ease, border-color 0.3s ease;
+    /* Ocultar barra de scroll en celulares */
+    .bio-grid-mejorada::-webkit-scrollbar { display: none; }
+}
+
+/* En pantallas grandes, mantiene tu estructura original intacta */
+@media (min-width: 769px) {
+    .bio-grid-mejorada {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 40px;
+    }
+} 
+
+        /* Estilos específicos para la grilla de biografías */
+        .bio-grid-mejorada { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            padding: 40px; 
+            max-width: 1200px; 
+            margin: auto; 
+        }
+        .bio-card { 
+            background: #1a1a1a; 
+            border: 2px solid #333; 
+            padding: 15px; 
+            text-align: center; 
+            transition: 0.3s; 
+        }
+        .bio-card:hover { border-color: var(--naranja); transform: translateY(-10px); }
+        .bio-card img { width: 100%; height: 250px; object-fit: cover; }
+        .bio-card h3 { font-family: 'Anton'; margin: 10px 0; color: var(--naranja); }
+        .bio-card .barrio { font-size: 0.8rem; opacity: 0.7; }
+        .bio-text { font-size: 0.7rem; color: #888; }
+        .banner-text { position: absolute; top: 40%; width: 100%; text-align: center; z-index: 2; pointer-events: none; }
+        .banner-text h1 { font-family: 'Anton'; font-size: 4rem; }
+        footer { text-align: center; padding: 20px; color: #555; }
+
+        /* --- BLOQUE PARA AGREGAR SOLO PARA CELULARES --- */
+@media (max-width: 768px) {
+    .bio-grid-mejorada {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 20px !important;
+        padding: 40px 10px !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
-    .bio-card a {
+    .bio-card {
+        min-width: 80vw !important; /* Cada tarjeta ocupa el 80% del ancho */
+        scroll-snap-align: center !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Oculta la barra de scroll en celulares */
+    .bio-grid-mejorada::-webkit-scrollbar { display: none !important; }
+}
+
+ .indicador-scroll {
+    display: none; /* Oculto por defecto en PC */
+    text-align: center;
+    color: var(--naranja);
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .indicador-scroll {
+        display: block; /* Solo se muestra en celular */
+    }
+}        
+
+        /* Oculto en PC, visible en celular */
+.intro-seo-mobile { display: none; }
+
+@media (max-width: 768px) {
+    .intro-seo-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh; /* Ocupa buena parte de la pantalla inicial */
+        padding: 40px 20px;
+        background: #000;
+        color: #fff;
+        text-align: center;
         position: relative;
-        z-index: 20;
-        text-decoration: none;
-        color: inherit;
-        display: block;
     }
 
-    .bio-card::after { 
+    /* Marca de agua del logo HRJ */
+    .intro-seo-mobile::before {
         content: "";
         position: absolute;
-        top: 0; left: 0; 
-        width: 100%; height: 100%;
-        pointer-events: none;
-        z-index: 10;
-        background-image: repeating-linear-gradient(
-            45deg,
-            rgba(0, 0, 0, 1) 0px,
-            rgba(0, 0, 0, 1) 1px,
-            transparent 1px,
-            transparent 6px 
-        );
-        background-size: 3px 3px;
-        opacity: 0.5;
-        transition: opacity 0.2s ease;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('logo-hrj.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 80%;
+        opacity: 0.08; /* Muy sutil */
     }
 
-    .bio-card:hover { border-color: var(--naranja); transform: translateY(-10px); }
-    .bio-card:active { transform: scale(0.97) translateY(-10px); filter: brightness(0.8); }
-    .bio-card:active::after { opacity: 0.8; }
+    .content { position: relative; z-index: 1; }
 
-    .bio-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
-    .bio-card h3 { font-family: 'Anton'; margin: 10px 0; color: var(--naranja); }
-    .bio-card .barrio { font-size: 0.8rem; opacity: 0.7; }
-    .bio-text { font-size: 0.7rem; color: #888; }
-
-    /* Ajuste solo para celulares */
-    @media (max-width: 768px) {
-        .bio-grid-mejorada {
-            display: flex !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory !important;
-            gap: 20px !important;
-            padding: 40px 10px !important;
-        }
-        .bio-card {
-            min-width: 80vw !important;
-            scroll-snap-align: center !important;
-            flex-shrink: 0 !important;
-        }
-        .bio-grid-mejorada::-webkit-scrollbar { display: none !important; }
-        .indicador-scroll { display: block !important; }
+    .intro-seo-mobile h1 { 
+        font-family: 'Anton', sans-serif; 
+        color: var(--naranja); 
+        font-size: 1.8rem;
     }
-</style> 
+
+    .intro-seo-mobile h2 { 
+        font-family: 'Anton', sans-serif; 
+        font-size: 1.3rem; 
+        margin-top: 20px;
+    }
+
+    .intro-seo-mobile p { 
+        font-family: 'Courier Prime', monospace;
+        font-size: 0.95rem; 
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+} 
+
+/* 1. Mantenemos la trama en el banner */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2. La capa de trama (con un z-index bajo) */
+.banner-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1; /* La trama está en la capa 1 */
+
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 1) 0px,
+        rgba(0, 0, 0, 1) 1px,
+        transparent 1px,
+        transparent 6px 
+    );
+    background-size: 2px 2px;
+    background-size: 3px 3px;
+}
+
+/* 3. El título del banner (aquí está el secreto) */
+.banner-title {
+    position: relative; /* Necesario para que el z-index funcione */
+    z-index: 2;        /* El título está en la capa 2, por encima de la trama */
+    color: white;      /* O el color que uses */
+    /* ... resto de tus estilos de título ... */
+}
+    </style>
 </head>
 <body>
 
