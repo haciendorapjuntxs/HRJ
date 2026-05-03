@@ -129,6 +129,57 @@
         display: block; /* Solo se muestra en celular */
     }
 }        
+
+        /* Oculto en PC, visible en celular */
+.intro-seo-mobile { display: none; }
+
+@media (max-width: 768px) {
+    .intro-seo-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh; /* Ocupa buena parte de la pantalla inicial */
+        padding: 40px 20px;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        position: relative;
+    }
+
+    /* Marca de agua del logo HRJ */
+    .intro-seo-mobile::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('logo-hrj.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 80%;
+        opacity: 0.08; /* Muy sutil */
+    }
+
+    .content { position: relative; z-index: 1; }
+
+    .intro-seo-mobile h1 { 
+        font-family: 'Anton', sans-serif; 
+        color: var(--naranja); 
+        font-size: 1.8rem;
+    }
+
+    .intro-seo-mobile h2 { 
+        font-family: 'Anton', sans-serif; 
+        font-size: 1.3rem; 
+        margin-top: 20px;
+    }
+
+    .intro-seo-mobile p { 
+        font-family: 'Courier Prime', monospace;
+        font-size: 0.95rem; 
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+} 
         
     </style>
 </head>
@@ -170,6 +221,16 @@
     </div> 
 </div>
 
+    <section class="intro-seo-mobile">
+    <div class="content">
+        <h1>Raperos del Conurbano: Haciendo Rap Juntxs</h1>
+        <p>Conocé a los artistas del colectivo <strong>Haciendo Rap Juntxs</strong>, un espacio de creación artística nacido en la <strong>UNAJ</strong>. </p>
+        
+        <h2>El Propósito de Nuestras Voces</h2>
+        <p>No solo hacemos música; retratamos la identidad de barrios Zona Oeste, Zona Sur y Zona Norte. Buscamos visibilizar historias reales a través del rap, el freestyle y la cultura urbana bonaerense.</p>
+    </div>
+</section>
+    
     <main class="bio-grid-mejorada">
     <article class="bio-card">
         <a href="BIOGRAFIAS-ARTISTAS/juan-doble-h.html" style="text-decoration: none; color: inherit;">
