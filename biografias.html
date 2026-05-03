@@ -112,7 +112,23 @@
     .bio-grid-mejorada::-webkit-scrollbar { display: none !important; }
 }
 
-        
+ .indicador-scroll {
+    display: none; /* Oculto por defecto en PC */
+    text-align: center;
+    color: var(--naranja);
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .indicador-scroll {
+        display: block; /* Solo se muestra en celular */
+    }
+}        
         
     </style>
 </head>
@@ -307,11 +323,11 @@
         </a>
         <p class="bio-text">Hace clic en la foto para ver más</p>
       </article> 
-
-        <div class="indicador-scroll">Deslizá para ver más &rarr;</div>
         
     </main>
 
+       <div class="indicador-scroll">Deslizá para ver más &rarr;</div>
+    
     <footer>
         <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
     </footer>
