@@ -41,14 +41,23 @@
         
         .logo-container { position: absolute; top: 20px; right: 20px; z-index: 5; }
 
-        /* Clase para la trama */
-        .con-trama { position: relative; }
-        .con-trama::after {
-            content: ""; position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; pointer-events: none; z-index: 1;
-            background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
-            background-size: 3px 3px; opacity: 0.5;
-        }
+       /* Clase para la trama */
+.con-trama { 
+    position: relative; 
+}
+.con-trama::after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    pointer-events: none; 
+    z-index: 1;
+    background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+    background-size: 3px 3px; 
+    opacity: 0.5; /* Esto regula qué tan oscuro se ve el patrón sobre la imagen */
+}
 
         /* Posicionamiento de botones */
         #btn-volver { top: 20px; left: 20px; }
