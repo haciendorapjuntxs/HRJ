@@ -34,7 +34,7 @@
             position: fixed; z-index: 1000; background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px); color: #fff; padding: 10px 20px;
             text-decoration: none; font-family: 'Anton'; border: 1px solid #fff;
-            transition: 0.3s;
+            transition: 0.3s; white-space: nowrap; min-width: 110px; text-align: center;
         }
 
         .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
@@ -57,7 +57,7 @@
         #btn-ig { bottom: 20px; right: 20px; }
 
         @media (max-width: 600px) {
-            .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; }
+            .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; min-width: 80px; }
             #btn-volver { top: 10px; left: 10px; }
             #btn-siguiente { top: 10px; left: 105px; }
             #btn-mapa { top: 45px; left: 10px; }
@@ -65,8 +65,9 @@
     </style>
 </head>
 <body>
-    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">MAPA</a>
     <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">⇜ BIOGRAFIAS</a>
+    <a href="../discografia.html" id="btn-siguiente" class="btn-nav-fixed">DISCOS</a>
+    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">MAPA</a>
     <a href="https://www.instagram.com/hermanhoschamorro" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
     <main class="main-wrapper">
