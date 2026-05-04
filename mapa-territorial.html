@@ -74,35 +74,39 @@
         .marker-text { color: var(--naranja); font-weight: bold; text-align: center; font-family: 'Anton', sans-serif; }
         .custom-tooltip { background: rgba(0,0,0,0.8) !important; color: var(--naranja) !important; border: 1px solid var(--naranja) !important; font-family: 'Anton', sans-serif; }
 
-        /* --- ADAPTACIÓN RESPONSIVA (Celulares) --- */
         @media (max-width: 768px) {
-            nav {
-                top: auto;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2px;
-                border-top: 2px solid var(--naranja);
-                background: #000;
-                border-radius: 0;
-                padding: 5px;
-            }
-            .btn-nav {
-                font-size: 0.65rem;
-                padding: 10px 2px;
-                text-align: center;
-                border: 1px solid var(--naranja);
-            }
-            #map { height: 100vh; width: 100vw; }
-        } 
+    nav {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        /* Usamos flex con wrap para que se acomoden solos */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        border-top: 2px solid var(--naranja);
+        background: #000;
+        border-radius: 0;
+        padding: 5px;
+        box-sizing: border-box; /* Importante para que no se desborde */
+    }
+    .btn-nav {
+        font-size: 0.6rem;
+        padding: 8px 4px;
+        flex: 1 1 30%; /* Esto hace que quepan 3 por fila, bien distribuidos */
+        text-align: center;
+        border: 1px solid var(--naranja);
+        white-space: nowrap;
+    }
+    #map { height: 100vh; width: 100vw; }
+} 
     </style>
 </head>
 <body>
 
-<nav class="nav-global">
+<nav>
     <a href="index.html" class="btn-nav">INICIO</a>
     <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
     <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
