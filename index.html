@@ -59,7 +59,7 @@
     .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.5rem; transition: 0.3s; }
     .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
 
-    /* Contenedor Logos - MÁS GRANDES */
+    /* Contenedor Logos  */
     .logo-container { position: absolute; top: 30px; left: 30px; z-index: 10; display: flex; gap: 30px; }
     .logo-img { height: 120px; width: auto; } 
 
@@ -83,7 +83,7 @@
         .content { width: 85%; padding: 20px; }
     } 
 
-        /* Organiza las capas para que el banner esté atrás y el contenido adelante */
+        /* banner  atrás  contenido adelante */
 .banner-carousel { 
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
 }
@@ -96,10 +96,10 @@
 
 .banner-slide.active { opacity: 1; }
 
-/* Asegura que logos y contenido floten sobre el banner */
+/* logos y contenido flotan sobre el banner */
 .logo-container, .content { z-index: 2; position: relative; }
 
-      /* Trama unificada y optimizada */
+      /* Trama */
 .con-trama { 
     position: relative; 
 }
@@ -109,10 +109,10 @@
     top: 0; left: 0;
     width: 100%; height: 100%; 
     pointer-events: none; 
-    z-index: 1; /* Permite que el contenido (.content) que está en z-index: 2 flote encima */
+    z-index: 1; 
     background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
     background-size: 3px 3px; 
-    opacity: 0.6; /* Ajustalo según prefieras: 0.4 para más sutil, 0.8 para más marcado */
+    opacity: 0.6; 
 }
         
 </style>
@@ -267,7 +267,7 @@
 </main>
 
 <script>
-        // 1. Lógica del Banner (Aprobada)
+        // 1. Lógica del Banner 
         let slides = document.querySelectorAll('.banner-slide');
         let currentSlide = 0;
         setInterval(() => {
