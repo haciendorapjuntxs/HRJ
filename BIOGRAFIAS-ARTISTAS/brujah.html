@@ -59,18 +59,42 @@
     opacity: 1; /* Esto regula qué tan oscuro se ve el patrón sobre la imagen */
 }
 
-        /* Posicionamiento de botones */
+        /* Botones unificados */
+        .btn-nav-fixed {
+            position: fixed; 
+            z-index: 1000; 
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px); 
+            color: #fff; 
+            padding: 10px 20px;
+            text-decoration: none; 
+            font-family: 'Anton', sans-serif; 
+            border: 1px solid #fff;
+            transition: 0.3s;
+            white-space: nowrap; /* Evita que el texto se rompa */
+            min-width: 100px;    /* Establece un ancho mínimo común */
+            text-align: center;  /* Centra el texto dentro del botón */
+        }
+
+        .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
+
+        /* Posicionamiento específico */
         #btn-volver { top: 20px; left: 20px; }
-        #btn-siguiente { top: 20px; left: 160px; }
-        #btn-mapa { top: 20px; right: 140px; }
+        #btn-siguiente { top: 20px; left: 140px; }
+        #btn-mapa { top: 20px; left: 260px; } /* Lo pasamos a la izquierda para mejor control */
         #btn-ig { bottom: 20px; right: 20px; }
 
+        /* Media Query mejorado */
         @media (max-width: 600px) {
-            .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; }
+            .btn-nav-fixed { 
+                padding: 8px 12px !important; 
+                font-size: 0.7rem !important; 
+                min-width: 70px; /* Tamaño menor para celular */
+            }
             #btn-volver { top: 10px; left: 10px; }
-            #btn-siguiente { top: 10px; left: 105px; }
-            #btn-mapa { top: 45px; left: 10px; }
-        }
+            #btn-siguiente { top: 10px; left: 90px; }
+            #btn-mapa { top: 10px; left: 170px; }
+        } 
     </style>
 </head>
 <body>
