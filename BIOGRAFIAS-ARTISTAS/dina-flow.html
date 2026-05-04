@@ -4,21 +4,17 @@
     <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Dina Flow | Haciendo Rap Juntxs</title>
     <meta name="description" content="Conocé la trayectoria, el estilo y la lírica de Dina Flow, rapera integrante de Haciendo Rap Juntxs. Arte y cultura desde el conurbano bonaerense en la UNAJ.">
     <meta name="keywords" content="Dina Flow, Haciendo Rap Juntxs, rapera, rap conurbano, UNAJ, cultura urbana, música argentina, hip hop">
-    
     <meta property="og:title" content="Dina Flow | Haciendo Rap Juntxs">
     <meta property="og:description" content="Descubrí el arte de Dina Flow. Parte del colectivo Haciendo Rap Juntxs, uniendo poesía y territorio.">
     <meta property="og:image" content="https://hrj.com.ar/ASSETS-ARTISTAS/perfil_dina_flow.jpg">
     <meta property="og:url" content="https://hrj.com.ar/BIOGRAFIAS-ARTISTAS/dina_flow.html">
     <meta property="og:type" content="profile">
     <meta property="profile:username" content="Dina Flow">
-
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        
         body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
@@ -34,81 +30,64 @@
             margin: 20px; z-index: 2;
         }
 
-        
         .btn-nav-fixed {
-            position: fixed;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-family: 'Anton';
-            border: 1px solid #fff;
+            position: fixed; z-index: 1000; background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px); color: #fff; padding: 10px 20px;
+            text-decoration: none; font-family: 'Anton'; border: 1px solid #fff;
             transition: 0.3s;
         }
 
         .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
         
+        .logo-container { position: absolute; top: 20px; right: 20px; z-index: 5; }
+
+        /* Clase para la trama */
+        .con-trama { position: relative; }
+        .con-trama::after {
+            content: ""; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; pointer-events: none; z-index: 1;
+            background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+            background-size: 3px 3px; opacity: 0.5;
+        }
+
+        /* Posicionamiento de botones */
         #btn-volver { top: 20px; left: 20px; }
+        #btn-siguiente { top: 20px; left: 160px; }
+        #btn-mapa { top: 20px; right: 140px; }
         #btn-ig { bottom: 20px; right: 20px; }
 
-        .logo-container {
-            position: absolute; top: 20px; right: 20px; z-index: 5;
+        @media (max-width: 600px) {
+            .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; }
+            #btn-volver { top: 10px; left: 10px; }
+            #btn-siguiente { top: 10px; left: 105px; }
+            #btn-mapa { top: 45px; left: 10px; }
         }
-        
-    #btn-mapa { top: 20px; right: 120px; } 
-    #btn-volver { top: 20px; left: 20px; }
-    #btn-ig { bottom: 20px; right: 20px; }
-
-       @media (max-width: 600px) {
-    .btn-nav-fixed {
-        padding: 6px 10px !important;
-        font-size: 0.7rem !important;
-        
-       
-        width: 70px;            
-        text-align: center;    
-        display: block;        
-    }
-
-    #btn-volver { 
-        top: 10px; 
-        left: 10px; 
-    }
-
-    #btn-mapa { 
-        top: 45px; 
-        left: 10px; 
-    }
-}
-        
     </style>
 </head>
 <body>
-    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
-    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a> 
-<a href="https://www.instagram.com/dinaflow87" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+    <a href="../BIOGRAFIAS/ARTISTAS/el-negro-roke.html" id="btn-siguiente" class="btn-nav-fixed">⇝ SIGUIENTE</a>
+    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">MAPA</a>
+    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">⇜ BIOGRAFIAS</a>
+    <a href="https://www.instagram.com/dinaflow87" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
-<main class="main-wrapper">
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/dinaflow-1.jpg');">
-        <div class="logo-container">
-            <img src="../logo-hrj.png" width="80" style="display:block;">
-            <img src="../logounaj.png" width="80" style="display:block;">
-        </div>
-        <div class="bio-content" style="text-align: center;">
-            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">DINA FLOW</h1>
-            <p>Berazategui, Buenos Aires</p>
-        </div>
-    </section>
+    <main class="main-wrapper">
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/dinaflow-1.jpg');">
+            <div class="logo-container">
+                <img src="../logo-hrj.png" width="80" style="display:block;">
+                <img src="../logounaj.png" width="80" style="display:block;">
+            </div>
+            <div class="bio-content" style="text-align: center;">
+                <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">DINA FLOW</h1>
+                <p>Berazategui, Buenos Aires</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/perfil_dinaflow.jpg');">
-        <div class="bio-content">
-            <h2>BIOGRAFÍA</h2>
-            <p>Dina Flow representa la fuerza del rap en Berazategui. Su propuesta artística se destaca por un estilo auténtico y una lírica que conecta profundamente con la realidad del territorio bonaerense, sumándose a la red de <em>Haciendo Rap Juntxs</em> para amplificar su voz.</p>
-        </div>
-    </section>
-</main>
-
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/perfil_dinaflow.jpg');">
+            <div class="bio-content">
+                <h2>BIOGRAFÍA</h2>
+                <p>Dina Flow representa la fuerza del rap en Berazategui. Su propuesta artística se destaca por un estilo auténtico y una lírica que conecta profundamente con la realidad del territorio bonaerense, sumándose a la red de <em>Haciendo Rap Juntxs</em> para amplificar su voz.</p>
+            </div>
+        </section>
+    </main>
 </body>
-</html> 
+</html>
