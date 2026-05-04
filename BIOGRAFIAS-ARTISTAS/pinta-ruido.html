@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
-   <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinta Ruido | Haciendo Rap Juntxs</title>
     <meta name="description" content="Conocé a Pinta Ruido, artista integrante de Haciendo Rap Juntxs. Arte y cultura desde el conurbano bonaerense en la UNAJ.">
@@ -12,7 +12,6 @@
     <meta property="og:type" content="profile">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        
         body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
@@ -28,96 +27,78 @@
             margin: 20px; z-index: 2;
         }
 
-        
         .btn-nav-fixed {
-            position: fixed;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-family: 'Anton';
-            border: 1px solid #fff;
+            position: fixed; z-index: 1000; background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px); color: #fff; padding: 10px 20px;
+            text-decoration: none; font-family: 'Anton'; border: 1px solid #fff;
             transition: 0.3s;
         }
 
         .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
         
+        .logo-container { position: absolute; top: 20px; right: 20px; z-index: 5; }
+
+        /* Clase para la trama */
+        .con-trama { position: relative; }
+        .con-trama::after {
+            content: ""; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; pointer-events: none; z-index: 1;
+            background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+            background-size: 3px 3px; opacity: 0.5;
+        }
+
+        /* Posicionamiento de botones */
         #btn-volver { top: 20px; left: 20px; }
+        #btn-siguiente { top: 20px; left: 160px; }
+        #btn-mapa { top: 20px; right: 140px; }
         #btn-ig { bottom: 20px; right: 20px; }
 
-        .logo-container {
-            position: absolute; top: 20px; right: 20px; z-index: 5;
+        @media (max-width: 600px) {
+            .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; }
+            #btn-volver { top: 10px; left: 10px; }
+            #btn-siguiente { top: 10px; left: 105px; }
+            #btn-mapa { top: 45px; left: 10px; }
         }
-        
-       
-    #btn-mapa { top: 20px; right: 120px; } 
-    #btn-volver { top: 20px; left: 20px; }
-    #btn-ig { bottom: 20px; right: 20px; }
-
-       @media (max-width: 600px) {
-    .btn-nav-fixed {
-        padding: 6px 10px !important;
-        font-size: 0.7rem !important;
-        
-        
-        width: 70px;            
-        text-align: center;    
-        display: block;        
-    }
-
-    #btn-volver { 
-        top: 10px; 
-        left: 10px; 
-    }
-
-    #btn-mapa { 
-        top: 45px; 
-        left: 10px; 
-    }
-}
-        
     </style>
 </head>
 <body>
-    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
-    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a>
-<a href="https://www.instagram.com/pinta_ruido" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+    <a href="BIOGRAFIAS-ARTISTAS/joni-2020.html" id="btn-siguiente" class="btn-nav-fixed">⇝ SIGUIENTE</a>
+    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">MAPA</a>
+    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">⇜ BIOGRAFIAS</a>
+    <a href="https://www.instagram.com/pinta_ruido" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
-<main class="main-wrapper">
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/pinta-ruido1.jpg');">
-        <div class="logo-container">
-            <img src="../logo-hrj.png" width="80" style="display:block;">
-            <img src="../logounaj.png" width="80" style="display:block;">
-        </div>
-        <div class="bio-content" style="text-align: center;">
-            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">PINTA RUIDO</h1>
-            <p>Barrio San José, La Matanza</p>
-        </div>
-    </section>
+    <main class="main-wrapper">
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/pinta-ruido1.jpg');">
+            <div class="logo-container">
+                <img src="../logo-hrj.png" width="80" style="display:block;">
+                <img src="../logounaj.png" width="80" style="display:block;">
+            </div>
+            <div class="bio-content" style="text-align: center;">
+                <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">PINTA RUIDO</h1>
+                <p>Barrio San José, La Matanza</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');">
-        <div class="bio-content">
-            <h2>CRÓNICA DE TRANSFORMACIÓN</h2>
-            <p>Mariano Alejandro Velázquez es una voz forjada en las entrañas de Isidro Casanova. Su vida es una crónica de transformación constante, marcada por los contrastes del Barrio San José.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');">
+            <div class="bio-content">
+                <h2>CRÓNICA DE TRANSFORMACIÓN</h2>
+                <p>Mariano Alejandro Velázquez es una voz forjada en las entrañas de Isidro Casanova. Su vida es una crónica de transformación constante, marcada por los contrastes del Barrio San José.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/pinta-ruido1.jpg');">
-        <div class="bio-content">
-            <h2>SALVACIÓN ARTÍSTICA</h2>
-            <p>Tras una juventud marcada por la promesa del fútbol y los códigos de la calle, encontró en el rap una epifanía. Escribir se convirtió en su válvula de escape y en su verdadera forma de salvarse.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/pinta-ruido1.jpg');">
+            <div class="bio-content">
+                <h2>SALVACIÓN ARTÍSTICA</h2>
+                <p>Tras una juventud marcada por la promesa del fútbol y los códigos de la calle, encontró en el rap una epifanía. Escribir se convirtió en su válvula de escape y en su verdadera forma de salvarse.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');">
-        <div class="bio-content">
-            <h2>IDENTIDAD MATANCERA</h2>
-            <p>"Turreo Yeso" y "Partido de la Matanza" resumen su dualidad: desde la crudeza del lenguaje barrial hasta la carta de amor y denuncia a su lugar de origen, reivindicando sus raíces.</p>
-        </div>
-    </section>
-</main>
-
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/perfil_pinta-ruido.jpg');">
+            <div class="bio-content">
+                <h2>IDENTIDAD MATANCERA</h2>
+                <p>"Turreo Yeso" y "Partido de la Matanza" resumen su dualidad: desde la crudeza del lenguaje barrial hasta la carta de amor y denuncia a su lugar de origen, reivindicando sus raíces.</p>
+            </div>
+        </section>
+    </main>
 </body>
-</html> 
+</html>
