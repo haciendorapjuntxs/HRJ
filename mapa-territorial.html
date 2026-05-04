@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     
     <style>
-        /* --- RESET GLOBAL --- */
+
         body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
 
         :root { --naranja: #ff4500; --negro: #000; }
@@ -81,7 +81,7 @@
         left: 0;
         right: 0;
         width: 100%;
-        /* Usamos flex con wrap para que se acomoden solos */
+        /* flex con wrap para que se acomoden solos */
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -90,12 +90,12 @@
         background: #000;
         border-radius: 0;
         padding: 5px;
-        box-sizing: border-box; /* Importante para que no se desborde */
+        box-sizing: border-box; /* no se desborda */
     }
     .btn-nav {
         font-size: 0.6rem;
         padding: 8px 4px;
-        flex: 1 1 30%; /* Esto hace que quepan 3 por fila, bien distribuidos */
+        flex: 1 1 30%; /* 3 por fila */
         text-align: center;
         border: 1px solid var(--naranja);
         white-space: nowrap;
