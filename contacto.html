@@ -17,10 +17,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Globales */
+       
         body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; height: 100%; }
 
-        /* Navegación Unificada */
+        
         .nav-global { 
             position: fixed; top: 20px; right: 20px; z-index: 9999; 
             display: flex; gap: 10px; background: rgba(0,0,0,0.7); 
@@ -33,7 +33,7 @@
         }
         .btn-nav:hover { color: #ff4500; border-bottom: 1px solid #ff4500; }
 
-        /* Pantalla Principal */
+        
         .full-screen { 
             height: 100vh; display: flex; flex-direction: column; 
             align-items: center; justify-content: center; text-align: center;
@@ -64,10 +64,10 @@
             h1 { font-size: 3rem; }
         }
 
-        /* Trama unificada para todo el sitio */
+        /* Trama  */
 .con-trama {
     position: relative;
-    overflow: hidden; /* Asegura que la trama no se salga de los bordes */
+    overflow: hidden; 
 }
 
 .con-trama::after {
@@ -77,8 +77,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Permite hacer clic en los botones de abajo */
-    z-index: 1; /* Se mantiene sobre la imagen pero debajo del contenido */
+    pointer-events: none; 
+    z-index: 1; 
     background-image: repeating-linear-gradient(
         45deg,
         #000 0px,
@@ -87,7 +87,7 @@
         transparent 6px
     );
     background-size: 3px 3px;
-    opacity: 0.6; /* Intensidad de la trama */
+    opacity: 0.6; 
 }
         
     </style>
