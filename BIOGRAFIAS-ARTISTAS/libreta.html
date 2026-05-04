@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
-   <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libreta | Haciendo Rap Juntxs</title>
     <meta name="description" content="Conocé a Libreta, artista integrante de Haciendo Rap Juntxs. Arte y cultura desde el conurbano bonaerense en la UNAJ.">
@@ -12,7 +12,6 @@
     <meta property="og:type" content="profile">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        
         body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Courier Prime', monospace; scroll-behavior: smooth; }
         .main-wrapper { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
         
@@ -28,103 +27,85 @@
             margin: 20px; z-index: 2;
         }
 
-        
         .btn-nav-fixed {
-            position: fixed;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-family: 'Anton';
-            border: 1px solid #fff;
+            position: fixed; z-index: 1000; background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px); color: #fff; padding: 10px 20px;
+            text-decoration: none; font-family: 'Anton'; border: 1px solid #fff;
             transition: 0.3s;
         }
 
         .btn-nav-fixed:hover { background: #ff4500; border-color: #ff4500; }
         
+        .logo-container { position: absolute; top: 20px; right: 20px; z-index: 5; }
+
+        /* Clase para la trama */
+        .con-trama { position: relative; }
+        .con-trama::after {
+            content: ""; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; pointer-events: none; z-index: 1;
+            background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+            background-size: 3px 3px; opacity: 0.5;
+        }
+
+        /* Posicionamiento de botones */
         #btn-volver { top: 20px; left: 20px; }
+        #btn-siguiente { top: 20px; left: 160px; }
+        #btn-mapa { top: 20px; right: 140px; }
         #btn-ig { bottom: 20px; right: 20px; }
 
-        .logo-container {
-            position: absolute; top: 20px; right: 20px; z-index: 5;
+        @media (max-width: 600px) {
+            .btn-nav-fixed { padding: 6px 10px !important; font-size: 0.65rem !important; }
+            #btn-volver { top: 10px; left: 10px; }
+            #btn-siguiente { top: 10px; left: 105px; }
+            #btn-mapa { top: 45px; left: 10px; }
         }
-        
-        
-    #btn-mapa { top: 20px; right: 120px; } 
-    #btn-volver { top: 20px; left: 20px; }
-    #btn-ig { bottom: 20px; right: 20px; }
-
-       @media (max-width: 600px) {
-    .btn-nav-fixed {
-        padding: 6px 10px !important;
-        font-size: 0.7rem !important;
-        
-       
-        width: 70px;            
-        text-align: center;    
-        display: block;        
-    }
-
-    #btn-volver { 
-        top: 10px; 
-        left: 10px; 
-    }
-
-    #btn-mapa { 
-        top: 45px; 
-        left: 10px; 
-    }
-}
-        
     </style>
 </head>
 <body>
-    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">← MAPA</a>
-    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">← VOLVER</a> 
-<a href="https://www.instagram.com/dc_libreta" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
+    <a href="../BIOGRAFIAS-ARTISTAS/chamomc.html" id="btn-siguiente" class="btn-nav-fixed">⇝ SIGUIENTE</a>
+    <a href="../mapa-territorial.html" id="btn-mapa" class="btn-nav-fixed">MAPA</a>
+    <a href="../biografias.html" id="btn-volver" class="btn-nav-fixed">⇜ BIOGRAFIAS</a>
+    <a href="https://www.instagram.com/dc_libreta" target="_blank" id="btn-ig" class="btn-nav-fixed">INSTAGRAM</a>
 
-<main class="main-wrapper">
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-1.jpg');">
-        <div class="logo-container">
-            <img src="../logo-hrj.png" width="80" style="display:block;">
-            <img src="../logounaj.png" width="80" style="display:block;">
-        </div>
-        <div class="bio-content" style="text-align: center;">
-            <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">LIBRETA</h1>
-            <p>Presidente Derqui, Pilar</p>
-        </div>
-    </section>
+    <main class="main-wrapper">
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/libreta-1.jpg');">
+            <div class="logo-container">
+                <img src="../logo-hrj.png" width="80" style="display:block;">
+                <img src="../logounaj.png" width="80" style="display:block;">
+            </div>
+            <div class="bio-content" style="text-align: center;">
+                <h1 style="font-size: 5rem; font-family: 'Anton'; margin: 0;">LIBRETA</h1>
+                <p>Presidente Derqui, Pilar</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-2.jpg');">
-        <div class="bio-content">
-            <h2>LA VOZ DE DERQUI</h2>
-            <p>Libreta es la voz del barrio de Presidente Derqui. Desde 2011, su trayectoria ha sido una evolución constante, manteniendo viva la esencia callejera del hip hop y aportando su visión al movimiento.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/libreta-2.jpg');">
+            <div class="bio-content">
+                <h2>LA VOZ DE DERQUI</h2>
+                <p>Libreta es la voz del barrio de Presidente Derqui. Desde 2011, su trayectoria ha sido una evolución constante, manteniendo viva la esencia callejera del hip hop y aportando su visión al movimiento.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-3.jpg');">
-        <div class="bio-content">
-            <h2>BOOMBAP Y COLORES</h2>
-            <p>Su base es el boombap crudo y real, aunque no le escapa al reggaetón cuando la pista pide diversión. Su estilo se nutre de influencias como 2Pac, Snoop Dogg, Bob Marley y XXL Irione.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/libreta-3.jpg');">
+            <div class="bio-content">
+                <h2>BOOMBAP Y COLORES</h2>
+                <p>Su base es el boombap crudo y real, aunque no le escapa al reggaetón cuando la pista pide diversión. Su estilo se nutre de influencias como 2Pac, Snoop Dogg, Bob Marley y XXL Irione.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-4.jpg');">
-        <div class="bio-content">
-            <h2>MÁNDALE COLORES</h2>
-            <p>Con temáticas que van desde la esquina al corazón, Libreta no se encasilla. Su lema es claro: "Mándale colores, no te quedes en lo oscuro", porque el barrio también brilla.</p>
-        </div>
-    </section>
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/libreta-4.jpg');">
+            <div class="bio-content">
+                <h2>MÁNDALE COLORES</h2>
+                <p>Con temáticas que van desde la esquina al corazón, Libreta no se encasilla. Su lema es claro: "Mándale colores, no te quedes en lo oscuro", porque el barrio también brilla.</p>
+            </div>
+        </section>
 
-    <section class="section-bio" style="background-image: url('../ASSETS-ARTISTAS/libreta-5.jpg');">
-        <div class="bio-content">
-            <h2>CONECTATE</h2>
-            <p>Sigue su camino y sus nuevos lanzamientos a través de su Instagram oficial: <strong>@dc_libreta</strong>.</p>
-        </div>
-    </section>
-</main>
-
+        <section class="section-bio con-trama" style="background-image: url('../ASSETS-ARTISTAS/libreta-5.jpg');">
+            <div class="bio-content">
+                <h2>CONECTATE</h2>
+                <p>Sigue su camino y sus nuevos lanzamientos a través de su Instagram oficial: <strong>@dc_libreta</strong>.</p>
+            </div>
+        </section>
+    </main>
 </body>
-</html> 
+</html>
