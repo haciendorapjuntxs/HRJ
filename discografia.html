@@ -63,7 +63,7 @@
             h2 { font-size: 2rem; }
         }
 
-       /* Trama de fondo uniforme */
+ /* Trama de fondo uniforme */
 .con-trama { 
     position: relative; 
 }
@@ -72,11 +72,17 @@
     position: absolute; 
     top: 0; left: 0;
     width: 100%; height: 100%; 
-    pointer-events: none; 
-    z-index: 1; /* Por debajo de tu contenido */
+    pointer-events: none; /* Esto permite que los clics pasen a los botones */
+    z-index: 1; 
     background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
     background-size: 3px 3px; 
     opacity: 0.6; 
+}
+
+/* Aseguramos que el contenido esté por encima de la trama */
+.content-card {
+    position: relative;
+    z-index: 2;
 } 
 
         
@@ -97,14 +103,14 @@
 
 <main class="main-wrapper">
     
-    <section class="section-disco" style="background-image: url('GALERY/redo.jpg');">
+    <section class="section-disco con-trama" style="background-image: url('GALERY/redo.jpg');">
         <div class="content-card" style="text-align: center;">
             <h2>HACIENDO RAP JUNTXS</h2>
             <p>(2024)</p>
         </div>
     </section>
 
-    <section class="section-disco" style="background-image: url('GALERY/tapa-1.jpg');">
+    <section class="section-disco con-trama" style="background-image: url('GALERY/tapa-1.jpg');">
         <div class="content-card">
             <h3>TRACKLIST (I)</h3>
             <div style="margin-bottom: 20px;">
@@ -120,7 +126,7 @@
         </div>
     </section>
 
-    <section class="section-disco" style="background-image: url('GALERY/trapa-2.jpg');">
+    <section class="section-disco con-trama" style="background-image: url('GALERY/trapa-2.jpg');">
         <div class="content-card">
             <h3>TRACKLIST (II)</h3>
             <div style="margin-bottom: 20px;">
@@ -136,7 +142,7 @@
         </div>
     </section>
 
-    <section class="section-disco" style="background-image: url('GALERY/portada_hrj.jpg');">
+    <section class="section-disco con-trama" style="background-image: url('GALERY/portada_hrj.jpg');">
         <div class="content-card">
             <h3>PRODUCCIÓN Y CONTEXTO</h3>
             <p style="font-size: 0.9rem;">El presente disco es resultado del proyecto de Vinculación Territorial de la Universidad Nacional Arturo Jauretche "Haciendo rap juntxs". Grabado en estudios "D-Kllao" por Mauro González, mezclado y masterizado en CBM DISCOS por El Cubano (2024). Diseño de portada: Suburbio Estudios.</p>
