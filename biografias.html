@@ -20,7 +20,7 @@
         :root { --naranja: #ff4500; --negro: #000; }
         body, html { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; }
 
-        /* Navegación Global */
+       
         .nav-global { position: fixed; top: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; }
         .btn-nav { color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; font-size: 1.2rem; transition: 0.3s; display: block; }
         .btn-nav:hover { color: var(--naranja); letter-spacing: 2px; }
@@ -35,7 +35,7 @@
             .btn-nav { font-size: 0.65rem; padding: 5px 0; border: 1px solid #333; }
         }
 
-        /* carrusel solo en celulares */
+        /* carrusel celulares */
 @media (max-width: 768px) {
     .bio-grid-mejorada {
         display: flex;
@@ -47,16 +47,16 @@
     }
 
     .bio-card {
-        min-width: 80vw; /* Ocupa el 80% de la pantalla */
+        min-width: 80vw; 
         scroll-snap-align: center;
         flex-shrink: 0;
     }
 
-    /* Ocultar barra de scroll en celulares */
+    
     .bio-grid-mejorada::-webkit-scrollbar { display: none; }
 }
 
-/* mantiene estructura original  */
+
 @media (min-width: 769px) {
     .bio-grid-mejorada {
         display: grid;
@@ -66,7 +66,7 @@
     }
 } 
 
-        /* Estilos grilla de biografías */
+        /* grilla biografías */
         .bio-grid-mejorada { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -91,7 +91,7 @@
         .banner-text h1 { font-family: 'Anton'; font-size: 4rem; }
         footer { text-align: center; padding: 20px; color: #555; }
 
-        /* --- SOLO PARA VERTICAL --- */
+        /* --- VERTICAL --- */
 @media (max-width: 768px) {
     .bio-grid-mejorada {
         display: flex !important;
@@ -103,7 +103,7 @@
     }
 
     .bio-card {
-        min-width: 80vw !important; /* Cada tarjeta ocupa el 80% del ancho */
+        min-width: 80vw !important; 
         scroll-snap-align: center !important;
         flex-shrink: 0 !important;
     }
@@ -113,7 +113,7 @@
 }
 
  .indicador-scroll {
-    display: none; /* Oculto en PC */
+    display: none; 
     text-align: center;
     color: var(--naranja);
     font-size: 1rem;
@@ -147,7 +147,7 @@
         position: relative;
     }
 
-    /* Marca de agua del logo HRJ */
+    /* logo HRJ */
     .intro-seo-mobile::before {
         content: "";
         position: absolute;
@@ -181,20 +181,20 @@
     }
 } 
 
-/* trama en el banner */
+/* tramaen el banner */
 .banner-wrapper {
     position: relative;
     overflow: hidden;
 }
 
-/* capa de trama (con un z-index bajo) */
+/* capa de trama  */
 .banner-wrapper::after {
     content: "";
     position: absolute;
     top: 0; left: 0; 
     width: 100%; height: 100%;
     pointer-events: none;
-    z-index: 1; /* La trama está en la capa 1 */
+    z-index: 1; 
 
     background-image: repeating-linear-gradient(
         45deg,
@@ -215,13 +215,13 @@
    
 }
 
-/* --- EFECTO TRAMA SÓLIDA --- */
+/* ---  TRAMA --- */
 
 .bio-card {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    border: 2px solid #333; /* Color inicial del borde */
+    border: 2px solid #333; 
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -232,7 +232,7 @@
     width: 100%; height: 100%;
     pointer-events: none;
     z-index: 10;
-    /* Negro puro, sin transparencias */
+    
     background-image: repeating-linear-gradient(
         45deg,
         #000 0px,
@@ -240,16 +240,16 @@
         transparent 3px,
         transparent 3px
     );
-    opacity: 0.4; /* Opacidad base para que se vea la foto */
+    opacity: 0.4; 
     transition: all 0.3s ease;
 }
 
-/* Al pasar el mouse: se oscurece más */
+
 .bio-card:hover::after {
     opacity: 0.7;
 }
 
-/* AL HACER CLIC: Se vuelve NEGRO CASI TOTAL */
+
 .bio-card:active,
 .bio-card.seleccionada {
     transform: scale(0.95);
@@ -258,8 +258,8 @@
 
 .bio-card:active::after,
 .bio-card.seleccionada::after {
-    opacity: 0.95; /* Casi negro sólido */
-    background-size: 3px 3px; /* Trama más compacta */
+    opacity: 0.95; 
+    background-size: 3px 3px;
 }     
         
     </style>
