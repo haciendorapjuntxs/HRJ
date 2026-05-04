@@ -63,6 +63,33 @@
             .btn-nav { font-size: 0.7rem; padding: 5px; }
             h1 { font-size: 3rem; }
         }
+
+        /* Trama unificada para todo el sitio */
+.con-trama {
+    position: relative;
+    overflow: hidden; /* Asegura que la trama no se salga de los bordes */
+}
+
+.con-trama::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite hacer clic en los botones de abajo */
+    z-index: 1; /* Se mantiene sobre la imagen pero debajo del contenido */
+    background-image: repeating-linear-gradient(
+        45deg,
+        #000 0px,
+        #000 1px,
+        transparent 1px,
+        transparent 6px
+    );
+    background-size: 3px 3px;
+    opacity: 0.6; /* Intensidad de la trama */
+}
+        
     </style>
 </head>
 <body>
