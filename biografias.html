@@ -35,7 +35,7 @@
             .btn-nav { font-size: 0.65rem; padding: 5px 0; border: 1px solid #333; }
         }
 
-        /* Esto asegura que el comportamiento de carrusel solo ocurra en celulares */
+        /* carrusel solo en celulares */
 @media (max-width: 768px) {
     .bio-grid-mejorada {
         display: flex;
@@ -47,7 +47,7 @@
     }
 
     .bio-card {
-        min-width: 80vw; /* Ocupa el 80% de la pantalla para ver de a uno o dos */
+        min-width: 80vw; /* Ocupa el 80% de la pantalla */
         scroll-snap-align: center;
         flex-shrink: 0;
     }
@@ -56,7 +56,7 @@
     .bio-grid-mejorada::-webkit-scrollbar { display: none; }
 }
 
-/* En pantallas grandes, mantiene tu estructura original intacta */
+/* mantiene estructura original  */
 @media (min-width: 769px) {
     .bio-grid-mejorada {
         display: grid;
@@ -66,7 +66,7 @@
     }
 } 
 
-        /* Estilos específicos para la grilla de biografías */
+        /* Estilos grilla de biografías */
         .bio-grid-mejorada { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -91,7 +91,7 @@
         .banner-text h1 { font-family: 'Anton'; font-size: 4rem; }
         footer { text-align: center; padding: 20px; color: #555; }
 
-        /* --- BLOQUE PARA AGREGAR SOLO PARA CELULARES --- */
+        /* --- SOLO PARA VERTICAL --- */
 @media (max-width: 768px) {
     .bio-grid-mejorada {
         display: flex !important;
@@ -108,12 +108,12 @@
         flex-shrink: 0 !important;
     }
 
-    /* Oculta la barra de scroll en celulares */
+    /* Oculta scroll en celulares */
     .bio-grid-mejorada::-webkit-scrollbar { display: none !important; }
 }
 
  .indicador-scroll {
-    display: none; /* Oculto por defecto en PC */
+    display: none; /* Oculto en PC */
     text-align: center;
     color: var(--naranja);
     font-size: 1rem;
@@ -126,7 +126,7 @@
 
 @media (max-width: 768px) {
     .indicador-scroll {
-        display: block; /* Solo se muestra en celular */
+        display: block; /* Solo en celular */
     }
 }        
 
@@ -139,7 +139,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 60vh; /* Ocupa buena parte de la pantalla inicial */
+        min-height: 60vh; 
         padding: 40px 20px;
         background: #000;
         color: #fff;
@@ -181,13 +181,13 @@
     }
 } 
 
-/* 1. Mantenemos la trama en el banner */
+/* trama en el banner */
 .banner-wrapper {
     position: relative;
     overflow: hidden;
 }
 
-/* 2. La capa de trama (con un z-index bajo) */
+/* capa de trama (con un z-index bajo) */
 .banner-wrapper::after {
     content: "";
     position: absolute;
@@ -207,12 +207,12 @@
     background-size: 2px 2px;
 }
 
-/* 3. El título del banner (aquí está el secreto) */
+/* título del banner 
 .banner-title {
-    position: relative; /* Necesario para que el z-index funcione */
-    z-index: 2;        /* El título está en la capa 2, por encima de la trama */
-    color: white;      /* O el color que uses */
-    /* ... resto de tus estilos de título ... */
+    position: relative; 
+    z-index: 2;       
+    color: white;      
+   
 }
 
 /* --- EFECTO TRAMA SÓLIDA --- */
@@ -474,7 +474,7 @@
         <p>&copy; 2026 - Haciendo Rap Juntxs | UNAJ</p>
     </footer>
     <script>
-        // 1. Lógica original: Carrusel del banner (Aprobada)
+        // Carrusel del banner
         let slides = document.querySelectorAll('.banner-slide');
         let currentSlide = 0;
         function nextSlide() {
@@ -484,8 +484,8 @@
         }
         setInterval(nextSlide, 4444);
 
-        // 2. Lógica nueva: Carrusel táctil (Solo para celulares)
-        // Esto no toca nada de lo anterior, solo añade interactividad táctil
+        // Carrusel táctil (Solo para celulares)
+       
         if (window.innerWidth <= 768) {
             const grid = document.querySelector('.bio-grid-mejorada');
             let isDown = false;
@@ -510,7 +510,7 @@
             });
         }
 
-        // --- BLOQUE PARA AGREGAR: GESTO TÁCTIL EN CELULARES ---
+    
 if (window.innerWidth <= 768) {
     const grid = document.querySelector('.bio-grid-mejorada');
     let isDown = false;
