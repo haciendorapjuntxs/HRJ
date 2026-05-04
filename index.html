@@ -93,20 +93,21 @@
 /* Asegura que logos y contenido floten sobre el banner */
 .logo-container, .content { z-index: 2; position: relative; }
 
-        /* Trama aplicada a las secciones */
-.con-trama {
-    position: relative;
+      /* Trama unificada y optimizada */
+.con-trama { 
+    position: relative; 
 }
 .con-trama::after {
-    content: "";
-    position: absolute;
+    content: ""; 
+    position: absolute; 
     top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 1px, transparent 1px, transparent 6px);
-    background-size: 4px 4px;
-} 
+    width: 100%; height: 100%; 
+    pointer-events: none; 
+    z-index: 1; /* Permite que el contenido (.content) que está en z-index: 2 flote encima */
+    background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+    background-size: 3px 3px; 
+    opacity: 0.6; /* Ajustalo según prefieras: 0.4 para más sutil, 0.8 para más marcado */
+}
         
 </style>
 </head>
