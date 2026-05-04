@@ -115,7 +115,7 @@
     <div class="main-wrapper" id="contenedor-prensa">
     </div>
 
-<section style="background-image: url('logo-hrj.png');">
+<section class="con-trama" style="background-image: url('logo-hrj.png');">
     <div class="overlay"></div>
     <div class="content">
         <h2>VOLVE AL INICIO</h2>
@@ -152,6 +152,7 @@
     const container = document.getElementById('contenedor-prensa');
     noticias.forEach(item => {
         const section = document.createElement('section');
+        section.classList.add('con-trama');
         section.style.backgroundImage = `url('${item.img}')`;
         section.innerHTML = `
             <div class="overlay"></div>
