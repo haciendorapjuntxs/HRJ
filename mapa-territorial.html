@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA TERRITORIAL (CORRECCIÓN FINAL) ---
+// --- MOTOR DE AGENDA TERRITORIAL (LIMPIO Y SIN ERRORES) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -205,27 +205,25 @@ fetch(urlCSV)
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             if (c.length < 11) continue;
 
-            // Limpieza de datos (Nombre, Fecha, Link)
-            const nombre = c[2] ? c[2].replace(/"/g, "").trim() : "EVENTO HRJ";
+            // Extraemos los datos según tu nueva planilla (B es columna 1)
+            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
             const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
             const linkOriginal = c[8] ? c[8].replace(/"/g, "").trim() : "";
-            
-            // Extractor de ID de Drive (Corregido: ahora usa ${} correctamente)
+            const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+
+            // Extractor de ID de Drive
             let linkFoto = "";
             if (linkOriginal.includes("drive.google.com")) {
                 const match = linkOriginal.match(/[-\w]{25,}/); 
                 if (match) {
-                    // El link corregido con el $ para que funcione:
-          linkFoto = `https://drive.google.com/uc?export=view&id=${match[0]}`;
+                    linkFoto = `https://drive.google.com/uc?export=view&id=${match[0]}`;
                 }
             }
 
-           // Limpieza de datos corregida
-const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
-const fechaRaw = c[5] ? c[5].replace(/^"|"$/g, "").trim() : "Fecha a confirmar"; 
-const linkOriginal = c[7] ? c[7].replace(/^"|"$/g, "").trim() : "";
-
-            if (estado === "OK" && !isNaN(lat)) {
+            // Dibujamos solo si está OK y tiene coordenadas válidas
+            if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
                     icon: L.divIcon({ 
                         className: 'pulse-green', 
@@ -255,7 +253,7 @@ const linkOriginal = c[7] ? c[7].replace(/^"|"$/g, "").trim() : "";
                 `, { maxWidth: 280 });
             }
         }
-    }); 
+    });
 </script>
     
 </body>
