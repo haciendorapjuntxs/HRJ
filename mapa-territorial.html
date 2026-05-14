@@ -165,6 +165,55 @@
             map.addLayer(markersCluster);
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
+
+
+    // --- LÓGICA DE AGENDA TERRITORIAL (VOY.COM.UY STYLE) ---
+const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+
+fetch(urlCSV)
+    .then(res => res.text())
+    .then(csvText => {
+        const filas = csvText.split('\n').slice(1);
+        // Obtenemos la fecha de hoy en formato AAAA-MM-DD para comparar
+        const hoy = new Date().toISOString().split('T')[0];
+
+        filas.forEach(fila => {
+            // Dividimos la fila por comas. Ojo: si los textos tienen comas dentro, 
+            // esto es una versión simple, pero para empezar funciona perfecto.
+            const c = fila.split(','); 
+            
+            const nombre = c[2];    // Nombre del evento
+            const flyer = c[3];     // URL del flyer
+            const fecha = c[6];     // Fecha del evento
+            const lat = parseFloat(c[9]);  // Columna J en tu Excel
+            const lng = parseFloat(c[10]); // Columna K en tu Excel
+            const estado = c[11] ? c[11].trim() : ""; // Columna L (Tu OK)
+
+            // FILTRADO: Solo si tiene tu "OK" y la fecha es igual o mayor a hoy
+            if (estado === "OK" && fecha >= hoy) {
+                
+                // Marcador circular que resalta (estilo evento)
+                var markerEvento = L.circleMarker([lat, lng], {
+                    radius: 12,
+                    fillColor: "#ff4500",
+                    color: "#ffffff",
+                    weight: 3,
+                    fillOpacity: 0.9
+                }).addTo(map);
+
+                markerEvento.bindPopup(`
+                    <div style="background:#ff4500; color:white; padding:5px; font-family:'Anton'; text-align:center;">AGENDA HRJ</div>
+                    <div style="text-align:center; font-family:'Courier Prime'; padding:10px;">
+                        <strong>${nombre}</strong><br>
+                        <span style="color:#666;">📅 ${fecha}</span><br><br>
+                        <a href="${c[8]}" target="_blank" style="background:#000; color:#fff; padding:5px 10px; text-decoration:none; border-radius:3px;">VER MÁS INFO</a>
+                    </div>
+                `);
+            }
+        });
+    })
+    .catch(err => console.error("Error cargando la agenda:", err));
+    
 </script> 
     
 </body>
