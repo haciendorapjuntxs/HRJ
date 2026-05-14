@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (CON FLYER LOCAL) ---
+// --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (EDICIÓN ALTO NIVEL) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -213,12 +213,11 @@ fetch(urlCSV)
             const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
             const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
 
-            // --- LÓGICA DE FLYER LOCAL ---
-            // Convierte nombres largos con tildes y mayúsculas en nombres de archivo seguros
+            // Generador de nombre de archivo seguro
             const nombreArchivo = nombre.toLowerCase()
-                .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Quita tildes
-                .replace(/\s+/g, '-')                            // Espacios por guiones
-                .replace(/[^\w-]/g, '');                         // Quita símbolos (!, ?, etc)
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, '-')
+                .replace(/[^\w-]/g, '');
             
             const rutaFlyer = `./flyer-territorial/${nombreArchivo}.jpg`;
 
@@ -230,20 +229,68 @@ fetch(urlCSV)
                         iconAnchor: [11, 11]
                     })
                 }).addTo(map).bindPopup(`
-                    <div style="text-align:center; font-family:'Anton', sans-serif; width:200px; color:#000;">
-                        <img src="${rutaFlyer}" onerror="this.style.display='none'" style="width:100%; border-radius:4px; margin-bottom:10px; border:1px solid #ccc;">
+                    <div style="
+                        text-align: center; 
+                        font-family: 'Anton', sans-serif; 
+                        width: 230px; 
+                        background: #111; 
+                        color: #fff; 
+                        padding: 15px; 
+                        border-radius: 8px; 
+                        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+                        border: 1px solid #222;
+                        box-sizing: border-box;
+                    ">
+                        <div style="position: relative; overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000;">
+                            <img src="${rutaFlyer}" 
+                                 onerror="this.style.display='none'" 
+                                 style="width: 100%; display: block; border-bottom: 3px solid #1fd655; min-height: 100px; object-fit: cover;">
+                        </div>
                         
-                        <h2 style="margin:0; font-size:18px; text-transform:uppercase; line-height:1.1;">${nombre}</h2>
+                        <h2 style="
+                            margin: 0 0 8px 0; 
+                            font-size: 20px; 
+                            text-transform: uppercase; 
+                            line-height: 1.2; 
+                            letter-spacing: 0.5px; 
+                            color: #fff;
+                        ">${nombre}</h2>
                         
-                        <div style="font-family:'Courier Prime', monospace; font-size:14px; margin:10px 0; background:#eee; padding:5px; border-radius:3px; border:1px solid #bbb;">
+                        <div style="
+                            font-family: 'Courier Prime', monospace; 
+                            font-size: 13px; 
+                            margin-bottom: 15px; 
+                            color: #1fd655; 
+                            background: rgba(31, 214, 85, 0.1); 
+                            padding: 6px; 
+                            border-radius: 4px; 
+                            display: inline-block;
+                            border: 1px dashed rgba(31, 214, 85, 0.3);
+                        ">
                             📅 ${fecha}
                         </div>
 
-                        <a href="${linkFB}" target="_blank" style="display:block; background:#000; color:#fff; padding:10px; text-decoration:none; font-weight:bold; border-radius:4px; border: 2px solid #1fd655; font-size:13px;">
+                        <a href="${linkFB}" target="_blank" class="btn-popup-agenda" style="
+                            display: block; 
+                            background: #1fd655; 
+                            color: #000; 
+                            padding: 12px; 
+                            text-decoration: none; 
+                            font-weight: bold; 
+                            border-radius: 5px; 
+                            font-size: 14px;
+                            letter-spacing: 1px;
+                            transition: all 0.2s ease-in-out;
+                            text-transform: uppercase;
+                        " onmouseover="this.style.background='#fff'; this.style.color='#000';" 
+                           onmouseout="this.style.background='#1fd655'; this.style.color='#000';">
                             MÁS INFO ACÁ
                         </a>
                     </div>
-                `, { maxWidth: 220 });
+                `, { 
+                    maxWidth: 260,
+                    className: 'custom-agenda-popup' // Clase limpia por si después querés meterle estilos globales
+                });
             }
         }
     });
