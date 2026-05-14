@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA TERRITORIAL (CORREGIDO Y MAPEADO) ---
+// --- MOTOR DE AGENDA TERRITORIAL (VERSIÓN FINAL SIN IMAGEN) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -202,28 +202,28 @@ fetch(urlCSV)
         const lineas = csvText.split('\n');
 
         for (let i = 1; i < lineas.length; i++) {
-            // Separador robusto para CSV
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 12) continue; // Necesitamos al menos hasta la columna L
+            
+            // Chequeo de seguridad: que la línea tenga datos
+            if (c.length < 10) continue; 
 
-            // Mapeo según tu Google Sheets actual:
-            const nombre = c[0] ? c[0].replace(/"/g, "").trim() : "EVENTO HRJ";
-            const fechaRaw = c[5] ? c[5].replace(/"/g, "").trim() : "Fecha a confirmar"; 
-            const linkOriginal = c[7] ? c[7].replace(/"/g, "").trim() : "";
-            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
+            // Mapeo según la línea que me pasaste:
+            // c[1]: Nombre (Mosca Fest)
+            // c[6]: Fecha (23/5/2026)
+            // c[8]: Link (Facebook)
+            // c[9]: Latitud (-34.7258)
+            // c[10]: Longitud (-58.2612)
+            // c[11]: Estado (OK)
 
-            // Extractor de ID de Drive
-            let linkFoto = "";
-            if (linkOriginal.includes("drive.google.com")) {
-                const match = linkOriginal.match(/[-\w]{25,}/); 
-                if (match) {
-                    linkFoto = `https://drive.google.com/uc?export=view&id=${match[0]}`;
-                }
-            }
+            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
+            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
+            const linkFlyer = c[8] ? c[8].replace(/"/g, "").trim() : "#";
+            
+            // Limpieza de coordenadas (volamos espacios y comillas)
+            const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
 
-            // IMPORTANTE: El punto solo aparece si el estado en Columna L es "OK"
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
                     icon: L.divIcon({ 
@@ -232,26 +232,20 @@ fetch(urlCSV)
                         iconAnchor: [11, 11] 
                     })
                 }).addTo(map).bindPopup(`
-                    <div style="text-align:center; font-family:'Anton', sans-serif; width:250px; color:#000; padding:5px;">
+                    <div style="text-align:center; font-family:'Anton', sans-serif; width:220px; color:#000; padding:5px;">
                         <div style="background:#1fd655; color:#000; padding:8px; font-size:14px; margin-bottom:12px; border-radius:4px;">AGENDA TERRITORIAL</div>
                         
-                        <h2 style="font-size:20px; margin:0 0 8px 0; text-transform:uppercase; line-height:1.1; color:#000;">${nombre}</h2>
+                        <h2 style="font-size:22px; margin:0 0 10px 0; text-transform:uppercase; line-height:1.1; color:#000;">${nombre}</h2>
                         
-                        <div style="font-family:'Courier Prime', monospace; font-size:14px; margin-bottom:15px; background:#e8e8e8; padding:5px 10px; border-radius:4px; display:inline-block; border:1px solid #ccc;">
+                        <div style="font-family:'Courier Prime', monospace; font-size:16px; margin-bottom:18px; background:#eee; padding:8px; border-radius:4px; border:1px solid #ccc;">
                             📅 ${fechaRaw}
                         </div>
-                        
-                        <div style="margin-bottom:12px; background:#f9f9f9; border-radius:8px; overflow:hidden; border:2px solid #1fd655; min-height:150px; display:flex; align-items:center; justify-content:center;">
-                            ${linkFoto ? 
-                                `<img src="${linkFoto}" style="width:100%; display:block;" 
-                                 onerror="this.src='https://hrj.com.ar/logo-hrj.png'; this.style.width='60%';">` : 
-                                `<img src="https://hrj.com.ar/logo-hrj.png" style="width:60%; opacity:0.4;">`
-                            }
-                        </div>
 
-                        <a href="${linkOriginal}" target="_blank" style="background:#000; color:#fff; padding:12px; text-decoration:none; border-radius:6px; font-size:13px; display:block; font-weight:bold;">VER FLYER COMPLETO</a>
+                        <a href="${linkFlyer}" target="_blank" style="background:#000; color:#fff; padding:12px; text-decoration:none; border-radius:6px; font-size:14px; display:block; font-weight:bold; letter-spacing:1px; border: 2px solid #1fd655;">
+                            MÁS INFO ACÁ
+                        </a>
                     </div>
-                `, { maxWidth: 280 });
+                `, { maxWidth: 250 });
             }
         }
     }); 
