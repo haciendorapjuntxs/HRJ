@@ -215,8 +215,8 @@ fetch(urlCSV)
             if (linkOriginal.includes("drive.google.com")) {
                 const match = linkOriginal.match(/[-\w]{25,}/); 
                 if (match) {
-                    // Este link es el que mejor funciona para embeber fotos de Drive
-                    linkFoto = `https://lh3.googleusercontent.com/u/0/d/${match[0]}`;
+                    // El link corregido con el $ para que funcione:
+             linkFoto = `http://googleusercontent.com/profile/picture/${match[0]}`;
                 }
             }
 
