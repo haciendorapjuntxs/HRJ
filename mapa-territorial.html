@@ -167,32 +167,39 @@
         });
 
 
-    // --- LÓGICA DE AGENDA TERRITORIAL (VOY.COM.UY STYLE) ---
+    // --- LÓGICA DE AGENDA (VERSIÓN ROBUSTA) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
     .then(res => res.text())
     .then(csvText => {
         const filas = csvText.split('\n').slice(1);
-        // Obtenemos la fecha de hoy en formato AAAA-MM-DD para comparar
-        const hoy = new Date().toISOString().split('T')[0];
+        
+        // Obtenemos la fecha de hoy y la normalizamos a medianoche para comparar
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
 
-        filas.forEach(fila => {
-            // Dividimos la fila por comas. Ojo: si los textos tienen comas dentro, 
-            // esto es una versión simple, pero para empezar funciona perfecto.
-            const c = fila.split(','); 
+        filas.forEach((fila, index) => {
+            const c = fila.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             
-            const nombre = c[2];    // Nombre del evento
-            const flyer = c[3];     // URL del flyer
-            const fecha = c[6];     // Fecha del evento
-            const lat = parseFloat(c[9]);  // Columna J en tu Excel
-            const lng = parseFloat(c[10]); // Columna K en tu Excel
-            const estado = c[11] ? c[11].trim() : ""; // Columna L (Tu OK)
+            if (c.length < 11) return; // Saltea filas vacías
 
-            // FILTRADO: Solo si tiene tu "OK" y la fecha es igual o mayor a hoy
-            if (estado === "OK" && fecha >= hoy) {
+            const nombre = c[2] ? c[2].replace(/"/g, "") : "Evento sin nombre";
+            const fechaRaw = c[6] ? c[6].trim() : ""; // El formato será DD/MM/AAAA
+            const lat = parseFloat(c[9]);
+            const lng = parseFloat(c[10]);
+            const estado = c[11] ? c[11].trim().toUpperCase() : "";
+
+            // Convertimos la fecha del Excel (DD/MM/AAAA) a un objeto de fecha real
+            const partes = fechaRaw.split('/');
+            const fechaEvento = new Date(partes[2], partes[1] - 1, partes[0]);
+
+            // DEBUG: Esto es para vos. Si apretás F12 en tu web, verás esto:
+            console.log(`Fila ${index + 1}: ${nombre} | Estado: ${estado} | Fecha: ${fechaRaw} | Lat: ${lat}`);
+
+            // REGLA: Estado OK, Fecha hoy o futura, y que la Latitud sea un número válido
+            if (estado === "OK" && fechaEvento >= hoy && !isNaN(lat)) {
                 
-                // Marcador circular que resalta (estilo evento)
                 var markerEvento = L.circleMarker([lat, lng], {
                     radius: 12,
                     fillColor: "#ff4500",
@@ -205,14 +212,14 @@ fetch(urlCSV)
                     <div style="background:#ff4500; color:white; padding:5px; font-family:'Anton'; text-align:center;">AGENDA HRJ</div>
                     <div style="text-align:center; font-family:'Courier Prime'; padding:10px;">
                         <strong>${nombre}</strong><br>
-                        <span style="color:#666;">📅 ${fecha}</span><br><br>
-                        <a href="${c[8]}" target="_blank" style="background:#000; color:#fff; padding:5px 10px; text-decoration:none; border-radius:3px;">VER MÁS INFO</a>
+                        <span style="color:#666;">📅 ${fechaRaw}</span><br><br>
+                        <a href="${c[8]}" target="_blank" style="background:#000; color:#fff; padding:5px 10px; text-decoration:none; border-radius:3px; font-size:12px;">VER MÁS INFO</a>
                     </div>
                 `);
             }
         });
     })
-    .catch(err => console.error("Error cargando la agenda:", err));
+    .catch(err => console.error("Error en la conexión con la planilla:", err));
     
 </script> 
     
