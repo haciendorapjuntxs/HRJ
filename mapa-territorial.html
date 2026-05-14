@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA TERRITORIAL (VERSIÓN DEFINITIVA) ---
+// --- MOTOR DE AGENDA TERRITORIAL (CORREGIDO Y MAPEADO) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -202,22 +202,19 @@ fetch(urlCSV)
         const lineas = csvText.split('\n');
 
         for (let i = 1; i < lineas.length; i++) {
-            // Esta línea separa las columnas ignorando las comas que están dentro de comillas
+            // Separador robusto para CSV
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 11) continue;
+            if (c.length < 12) continue; // Necesitamos al menos hasta la columna L
 
-            // Extraemos y limpiamos (Nombre en B, Fecha en G, Link en I, etc.)
+            // Mapeo según tu Google Sheets actual:
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
-            
-            // Si la fecha en el CSV viene con comillas, las volamos para que se vea completa
-            let fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar";
-            
+            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
             const linkOriginal = c[8] ? c[8].replace(/"/g, "").trim() : "";
             const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
             const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
             const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
 
-            // Extractor de ID de Drive con link de previsualización directa
+            // Extractor de ID de Drive
             let linkFoto = "";
             if (linkOriginal.includes("drive.google.com")) {
                 const match = linkOriginal.match(/[-\w]{25,}/); 
@@ -226,6 +223,7 @@ fetch(urlCSV)
                 }
             }
 
+            // IMPORTANTE: El punto solo aparece si el estado en Columna L es "OK"
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
                     icon: L.divIcon({ 
@@ -256,7 +254,7 @@ fetch(urlCSV)
                 `, { maxWidth: 280 });
             }
         }
-    });
+    }); 
 </script>
     
 </body>
