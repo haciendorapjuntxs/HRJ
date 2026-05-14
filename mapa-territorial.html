@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA TERRITORIAL (VERSIÓN FINAL SIN IMAGEN) ---
+// --- MOTOR DE AGENDA TERRITORIAL (AJUSTADO POR COLUMNA ELIMINADA) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -204,26 +204,26 @@ fetch(urlCSV)
         for (let i = 1; i < lineas.length; i++) {
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             
-            // Chequeo de seguridad: que la línea tenga datos
-            if (c.length < 10) continue; 
+            // Ahora necesitamos al menos 11 columnas (0 a 10)
+            if (c.length < 11) continue; 
 
-            // Mapeo según la línea que me pasaste:
-            // c[1]: Nombre (Mosca Fest)
-            // c[6]: Fecha (23/5/2026)
-            // c[8]: Link (Facebook)
-            // c[9]: Latitud (-34.7258)
-            // c[10]: Longitud (-58.2612)
-            // c[11]: Estado (OK)
+            // MAPEADO NUEVO (Uno atrás a partir de la fecha):
+            // c[1] = Nombre (Mosca Fest)
+            // c[6] = Fecha (Se mantiene o movió, ajustamos a 6)
+            // c[7] = Link Flyer (Antes era 8)
+            // c[8] = Latitud (Antes era 9)
+            // c[9] = Longitud (Antes era 10)
+            // c[10] = ESTADO OK (Antes era 11 - Columna K actual)
 
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
             const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
-            const linkFlyer = c[8] ? c[8].replace(/"/g, "").trim() : "#";
+            const linkFlyer = c[7] ? c[7].replace(/"/g, "").trim() : "#";
             
-            // Limpieza de coordenadas (volamos espacios y comillas)
-            const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
 
+            // Si el OK está en la columna K (índice 10), esto dispara el punto:
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
                     icon: L.divIcon({ 
