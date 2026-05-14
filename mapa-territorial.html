@@ -138,7 +138,18 @@
 } 
 
 
-        
+#map::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.04; /* Muy sutil */
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+}         
     </style>
 </head>
 <body>
@@ -164,7 +175,11 @@
 
 <script>
     var map = L.map('map').setView([-34.75, -58.55], 11);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
+}).addTo(map);
     L.control.locate().addTo(map);
 
     var unajCoords = [-34.7751535, -58.2678955]; 
