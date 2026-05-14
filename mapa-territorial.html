@@ -206,12 +206,12 @@ fetch(urlCSV)
             if (c.length < 10) continue; 
 
             // Datos limpios según tus columnas
-            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO";
-            const fecha = c[6] ? c[6].replace(/"/g, "").trim() : ""; 
-            const linkEvento = c[8] ? c[8].replace(/"/g, "").trim() : "#"; // El href directo
-            const lat = parseFloat(c[9]);
-            const lng = parseFloat(c[10]);
-            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+            const nombre = c[0] ? c[0].replace(/"/g, "").trim() : "EVENTO";
+            const fecha = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
+            const linkEvento = c[7] ? c[7].replace(/"/g, "").trim() : "#"; // El href directo
+            const lat = parseFloat(c[8]);
+            const lng = parseFloat(c[9]);
+            const estado = c[11] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
 
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
