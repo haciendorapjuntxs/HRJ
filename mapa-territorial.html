@@ -205,60 +205,63 @@
         });
 
 
-    // --- LÓGICA DE AGENDA (VERSIÓN ROBUSTA) ---
+// --- MOTOR DE AGENDA DEFCON 1 (ULTRA RESISTENTE) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
     .then(res => res.text())
     .then(csvText => {
-        const filas = csvText.split('\n').slice(1);
-        
-        // Obtenemos la fecha de hoy y la normalizamos a medianoche para comparar
+        const lineas = csvText.split('\n');
         const hoy = new Date();
         hoy.setHours(0, 0, 0, 0);
 
-        filas.forEach((fila, index) => {
-            const c = fila.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+        // Empezamos en 1 para saltar el encabezado
+        for (let i = 1; i < lineas.length; i++) {
+            // Esta línea separa las columnas aunque tengan comillas o comas internas
+            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+            if (c.length < 11) continue;
+
+            // --- LIMPIEZA DE DATOS ---
+            const nombre = c[2] ? c[2].replace(/"/g, "").trim() : "Evento";
+            const fechaRaw = c[6] ? c[6].trim() : ""; 
+            const linkInfo = c[8] ? c[8].replace(/"/g, "").trim() : "#";
             
-            if (c.length < 11) return; // Saltea filas vacías
+            // Extraemos números quitando comillas, espacios y cambiando coma por punto
+            const latStr = c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : "";
+            const lngStr = c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : "";
+            
+            const lat = parseFloat(latStr);
+            const lng = parseFloat(lngStr);
+            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
 
-            const nombre = c[2] ? c[2].replace(/"/g, "") : "Evento sin nombre";
-            const fechaRaw = c[6] ? c[6].trim() : ""; // El formato será DD/MM/AAAA
-            const lat = parseFloat(c[9]);
-            const lng = parseFloat(c[10]);
-            const estado = c[11] ? c[11].trim().toUpperCase() : "";
+            // --- LÓGICA DE FECHA ---
+            const p = fechaRaw.split('/');
+            const fechaEvento = new Date(p[2], p[1] - 1, p[0]);
 
-            // Convertimos la fecha del Excel (DD/MM/AAAA) a un objeto de fecha real
-            const partes = fechaRaw.split('/');
-            const fechaEvento = new Date(partes[2], partes[1] - 1, partes[0]);
-
-            // DEBUG: Esto es para vos. Si apretás F12 en tu web, verás esto:
-            console.log(`Fila ${index + 1}: ${nombre} | Estado: ${estado} | Fecha: ${fechaRaw} | Lat: ${lat}`);
-
-            // REGLA: Estado OK, Fecha hoy o futura, y que la Latitud sea un número válido
-            if (estado === "OK" && fechaEvento >= hoy && !isNaN(lat)) {
-                
-                var markerEvento = L.circleMarker([lat, lng], {
-                    radius: 12,
-                    fillColor: "#ff4500",
-                    color: "#ffffff",
-                    weight: 3,
-                    fillOpacity: 0.9
-                }).addTo(map);
-
-                markerEvento.bindPopup(`
-                    <div style="background:#ff4500; color:white; padding:5px; font-family:'Anton'; text-align:center;">AGENDA HRJ</div>
-                    <div style="text-align:center; font-family:'Courier Prime'; padding:10px;">
-                        <strong>${nombre}</strong><br>
-                        <span style="color:#666;">📅 ${fechaRaw}</span><br><br>
-                        <a href="${c[8]}" target="_blank" style="background:#000; color:#fff; padding:5px 10px; text-decoration:none; border-radius:3px; font-size:12px;">VER MÁS INFO</a>
-                    </div>
-                `);
+            // --- DIBUJAR SI TODO ESTÁ OK ---
+            if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
+                // Solo filtramos por fecha si la fecha es válida
+                if (fechaEvento >= hoy || isNaN(fechaEvento.getTime())) {
+                    
+                    L.marker([lat, lng], {
+                        icon: L.divIcon({
+                            className: 'pulse-green',
+                            iconSize: [16, 16],
+                            iconAnchor: [8, 8]
+                        })
+                    }).addTo(map).bindPopup(`
+                        <div style="text-align:center; font-family:'Anton';">
+                            <span style="color:#1fd655">EVENTO ACTIVO</span><br>
+                            <strong style="font-size:14px;">${nombre}</strong><br>
+                            <span style="font-family:'Courier Prime';">${fechaRaw}</span><br><br>
+                            <a href="${linkInfo}" target="_blank" style="background:#000; color:#fff; padding:5px 10px; text-decoration:none; border-radius:3px; font-size:10px;">VER INFO</a>
+                        </div>
+                    `);
+                }
             }
-        });
+        }
     })
-    .catch(err => console.error("Error en la conexión con la planilla:", err));
-    
+    .catch(err => console.error("Error en la conexión:", err)); 
 </script> 
     
 </body>
