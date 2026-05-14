@@ -104,6 +104,32 @@
     }
     #map { height: 100vh; width: 100vw; }
 } 
+
+
+
+        /* Marcador estilo Instagram Active (Verde) */
+        .pulse-green {
+            background: #1fd655; /* El verde brillante de IG */
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 rgba(31, 214, 85, 0.4);
+            animation: pulse-green-animation 2s infinite;
+        }
+
+        @keyframes pulse-green-animation {
+            0% {
+                box-shadow: 0 0 0 0 rgba(31, 214, 85, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(31, 214, 85, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(31, 214, 85, 0);
+            }
+        } 
+
+
+        
     </style>
 </head>
 <body>
