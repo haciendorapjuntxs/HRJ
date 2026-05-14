@@ -107,26 +107,35 @@
 
 
 
-        /* Marcador estilo Instagram Active (Verde) */
-        .pulse-green {
-            background: #1fd655; /* El verde brillante de IG */
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 0 rgba(31, 214, 85, 0.4);
-            animation: pulse-green-animation 2s infinite;
-        }
+       /* Botón de la Agenda */
+.agenda-promo {
+    position: fixed;
+    bottom: 80px; /* Arriba del nav de celular */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: #1fd655;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: 'Anton', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 2px solid #fff;
+}
+.agenda-promo p { margin: 0; font-size: 14px; color: #000; }
+.agenda-promo a { color: #000; text-decoration: underline; }
 
-        @keyframes pulse-green-animation {
-            0% {
-                box-shadow: 0 0 0 0 rgba(31, 214, 85, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(31, 214, 85, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(31, 214, 85, 0);
-            }
-        } 
+/* El Punto Verde estilo Instagram */
+.pulse-green {
+    background: #1fd655;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: pulse-green-animation 2s infinite;
+}
+@keyframes pulse-green-animation {
+    0% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(31, 214, 85, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0); }
+} 
 
 
         
