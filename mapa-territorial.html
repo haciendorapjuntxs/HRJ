@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA TERRITORIAL (CORRECCIÓN SEGÚN DRIVE) ---
+// --- MOTOR DE AGENDA TERRITORIAL (SIMPLE Y DIRECTO) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -203,46 +203,32 @@ fetch(urlCSV)
 
         for (let i = 1; i < lineas.length; i++) {
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 12) continue; 
+            if (c.length < 10) continue; 
 
-            // MAPEO SEGÚN TU ESTRUCTURA DE COLUMNAS:
+            // Datos limpios según tus columnas
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO";
-            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : ""; 
-            
-            // EL LINK DE FACEBOOK ESTÁ EN LA COLUMNA 8 (Columna I)
-            const linkFacebook = c[8] ? c[8].replace(/"/g, "").trim() : "#";
-            
-            const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            
-            // EL OK ESTÁ EN LA COLUMNA 11 (Columna L)
+            const fecha = c[6] ? c[6].replace(/"/g, "").trim() : ""; 
+            const linkEvento = c[8] ? c[8].replace(/"/g, "").trim() : "#"; // El href directo
+            const lat = parseFloat(c[9]);
+            const lng = parseFloat(c[10]);
             const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
 
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
-                    icon: L.divIcon({ 
-                        className: 'pulse-green', 
-                        iconSize: [22, 22], 
-                        iconAnchor: [11, 11] 
-                    })
+                    icon: L.divIcon({ className: 'pulse-green', iconSize: [20, 20] })
                 }).addTo(map).bindPopup(`
-                    <div style="text-align:center; font-family:'Anton', sans-serif; width:220px; color:#000; padding:5px;">
-                        <div style="background:#1fd655; color:#000; padding:8px; font-size:14px; margin-bottom:12px; border-radius:4px;">AGENDA TERRITORIAL</div>
-                        
-                        <h2 style="font-size:22px; margin:0 0 10px 0; text-transform:uppercase; line-height:1.1; color:#000;">${nombre}</h2>
-                        
-                        <div style="font-family:'Courier Prime', monospace; font-size:16px; margin-bottom:18px; background:#eee; padding:8px; border-radius:4px; border:1px solid #ccc;">
-                            📅 ${fechaRaw}
-                        </div>
-
-                        <a href="${linkFacebook}" target="_blank" style="background:#000; color:#fff; padding:12px; text-decoration:none; border-radius:6px; font-size:14px; display:block; font-weight:bold; letter-spacing:1px; border: 2px solid #1fd655;">
+                    <div style="text-align:center; font-family: sans-serif;">
+                        <h2 style="margin:0; font-size:18px;">${nombre}</h2>
+                        <p style="margin:5px 0;">📅 ${fecha}</p>
+                        <hr>
+                        <a href="${linkEvento}" target="_blank" style="color: blue; font-weight: bold; text-decoration: underline;">
                             MÁS INFO ACÁ
                         </a>
                     </div>
-                `, { maxWidth: 250 });
+                `);
             }
         }
-    }); 
+    });
 </script>
     
 </body>
