@@ -247,7 +247,7 @@ fetch(urlCSV)
                 .replace(/\s+/g, '-')
                 .replace(/[^\w-]/g, '');
             
-            const rutaFlyer = `./flyer-territorial/${nombreArchivo}.jpg`;
+            const rutaFlyer = `./flyer-territorial/${nombreArchivo}.jpg?v=${new Date().getTime()}`;
 
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
