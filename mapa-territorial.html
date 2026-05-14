@@ -207,12 +207,12 @@ fetch(urlCSV)
             if (c.length < 12) continue; // Necesitamos al menos hasta la columna L
 
             // Mapeo según tu Google Sheets actual:
-            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
-            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
-            const linkOriginal = c[8] ? c[8].replace(/"/g, "").trim() : "";
-            const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+            const nombre = c[0] ? c[0].replace(/"/g, "").trim() : "EVENTO HRJ";
+            const fechaRaw = c[5] ? c[5].replace(/"/g, "").trim() : "Fecha a confirmar"; 
+            const linkOriginal = c[7] ? c[7].replace(/"/g, "").trim() : "";
+            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
 
             // Extractor de ID de Drive
             let linkFoto = "";
