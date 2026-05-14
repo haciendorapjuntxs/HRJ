@@ -326,15 +326,14 @@ fetch(urlCSV)
 
 
 
-// --- CARGA DE ESTUDIOS (RADIO, TV Y GRABACIÓN) ---
-// Usamos el nombre del archivo que subiste
-fetch('export (1).geojson')
+// --- MOTOR DE CARGA FILTRADO: AMBA Y CAPITAL ---
+fetch('estudios.geojson')
     .then(res => res.json())
     .then(data => {
         data.features.forEach(feature => {
             let coords;
             
-            // Si el estudio es un edificio (Polygon), calculamos el centro exacto
+            // Gestión de geometría: Polígonos a Puntos
             if (feature.geometry.type === 'Polygon') {
                 const lats = feature.geometry.coordinates[0].map(c => c[1]);
                 const lngs = feature.geometry.coordinates[0].map(c => c[0]);
@@ -346,30 +345,39 @@ fetch('export (1).geojson')
             }
 
             if (coords) {
-                const nombre = feature.properties.name || "Estudio Profesional";
-                const tipo = feature.properties.studio || "Audio";
-                
-                // Marcador Violeta Neón para infraestructura
-                L.circleMarker(coords, {
-                    radius: 6,
-                    fillColor: '#8a2be2', // Violeta intenso
-                    color: '#fff',
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.8
-                }).addTo(map).bindPopup(`
-                    <div style="font-family: 'Anton', sans-serif; text-align: center; color: #fff; background: #111; padding: 10px; border-radius: 5px; border: 1px solid #8a2be2;">
-                        <span style="color: #8a2be2; font-size: 12px;">🎙️ ESTUDIO / MEDIO</span><br>
-                        <span style="font-size: 16px;">${nombre.toUpperCase()}</span><br>
-                        <small style="font-family: 'Courier Prime'; color: #aaa;">TIPO: ${tipo.toUpperCase()}</small>
-                    </div>
-                `);
+                const lat = coords[0];
+                const lng = coords[1];
+
+                // FILTRO TERRITORIAL ESTRICTO (ZONA NORTE, SUR, OESTE Y CABA)
+                // Latitudes: Entre Tigre/Pilar y La Plata
+                // Longitudes: Entre el Río y Luján/Rodríguez
+                const dentroDeRango = (lat < -34.35 && lat > -35.05) && (lng < -57.80 && lng > -59.10);
+
+                if (dentroDeRango) {
+                    const nombre = feature.properties.name || "Estudio de Grabación";
+                    const tipo = feature.properties.studio || "Audio";
+
+                    L.circleMarker(coords, {
+                        radius: 6,
+                        fillColor: '#8a2be2', 
+                        color: '#ffffff',
+                        weight: 1.5,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    }).addTo(map).bindPopup(`
+                        <div style="text-align: center; font-family: 'Anton', sans-serif; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid #8a2be2; min-width: 150px;">
+                            <div style="font-size: 9px; color: #8a2be2; letter-spacing: 1px; margin-bottom: 3px;">🎙️ INFRAESTRUCTURA</div>
+                            <div style="font-size: 14px; text-transform: uppercase;">${nombre}</div>
+                            <div style="font-family: 'Courier Prime', monospace; font-size: 11px; color: #aaa; margin-top: 5px;">
+                                ${tipo.toUpperCase()}
+                            </div>
+                        </div>
+                    `);
+                }
             }
         });
     })
-    .catch(err => console.log("Asegurate de que el archivo se llame export (1).geojson en tu carpeta"));
-
-
+    .catch(err => console.error("Error al cargar estudios.geojson", err)); 
     
 </script>
     
