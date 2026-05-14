@@ -1,0 +1,8499 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-05-14T18:41:57Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23651753",
+        "amenity": "studio",
+        "building": "industrial",
+        "name": "Telefé",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.40009,
+              -34.6262494
+            ],
+            [
+              -58.4000096,
+              -34.6271874
+            ],
+            [
+              -58.3999676,
+              -34.6272225
+            ],
+            [
+              -58.3989161,
+              -34.6271033
+            ],
+            [
+              -58.3988576,
+              -34.6270561
+            ],
+            [
+              -58.3990104,
+              -34.626063
+            ],
+            [
+              -58.3990328,
+              -34.6260284
+            ],
+            [
+              -58.4000239,
+              -34.6261896
+            ],
+            [
+              -58.40009,
+              -34.6262494
+            ]
+          ]
+        ]
+      },
+      "id": "way/23651753"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/185020524",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Canal 13 TV",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.3106413,
+              -33.2935546
+            ],
+            [
+              -66.3103858,
+              -33.2937475
+            ],
+            [
+              -66.3103025,
+              -33.2937473
+            ],
+            [
+              -66.3102604,
+              -33.2937084
+            ],
+            [
+              -66.3102987,
+              -33.2936794
+            ],
+            [
+              -66.3102615,
+              -33.293645
+            ],
+            [
+              -66.3100725,
+              -33.2937877
+            ],
+            [
+              -66.3098016,
+              -33.293537
+            ],
+            [
+              -66.3099187,
+              -33.2934485
+            ],
+            [
+              -66.3100404,
+              -33.2935611
+            ],
+            [
+              -66.3101248,
+              -33.2934974
+            ],
+            [
+              -66.3099977,
+              -33.2933797
+            ],
+            [
+              -66.3100633,
+              -33.2933302
+            ],
+            [
+              -66.3101249,
+              -33.2933872
+            ],
+            [
+              -66.3100915,
+              -33.2934123
+            ],
+            [
+              -66.310139,
+              -33.2934563
+            ],
+            [
+              -66.3101625,
+              -33.2934387
+            ],
+            [
+              -66.3101876,
+              -33.2934619
+            ],
+            [
+              -66.3103823,
+              -33.2933149
+            ],
+            [
+              -66.3106413,
+              -33.2935546
+            ]
+          ]
+        ]
+      },
+      "id": "way/185020524"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/187197928",
+        "amenity": "studio",
+        "building": "commercial",
+        "historic": "building",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.6272751,
+              -32.951524
+            ],
+            [
+              -60.6270421,
+              -32.951759
+            ],
+            [
+              -60.626887,
+              -32.9516506
+            ],
+            [
+              -60.6268314,
+              -32.9517067
+            ],
+            [
+              -60.6265573,
+              -32.9515152
+            ],
+            [
+              -60.6267385,
+              -32.9513326
+            ],
+            [
+              -60.6268476,
+              -32.9514088
+            ],
+            [
+              -60.6270111,
+              -32.951244
+            ],
+            [
+              -60.6271602,
+              -32.9513481
+            ],
+            [
+              -60.6271042,
+              -32.9514046
+            ],
+            [
+              -60.6272751,
+              -32.951524
+            ]
+          ]
+        ]
+      },
+      "id": "way/187197928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/207213397",
+        "addr:city": "Martínez",
+        "addr:housenumber": "1101",
+        "addr:postcode": "B1640",
+        "addr:street": "Avenida Sir Alexander Fleming",
+        "amenity": "studio",
+        "name": "Estudios Telefé",
+        "studio": "television",
+        "website": "http://www.telefe.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5249284,
+              -34.4943661
+            ],
+            [
+              -58.5237189,
+              -34.4937825
+            ],
+            [
+              -58.5241599,
+              -34.4931129
+            ],
+            [
+              -58.5231743,
+              -34.4926386
+            ],
+            [
+              -58.5234672,
+              -34.4921221
+            ],
+            [
+              -58.5235373,
+              -34.4921065
+            ],
+            [
+              -58.5254661,
+              -34.4930673
+            ],
+            [
+              -58.5250215,
+              -34.4937415
+            ],
+            [
+              -58.5250971,
+              -34.4937758
+            ],
+            [
+              -58.5249711,
+              -34.4939664
+            ],
+            [
+              -58.5251604,
+              -34.4940554
+            ],
+            [
+              -58.5249284,
+              -34.4943661
+            ]
+          ]
+        ]
+      },
+      "id": "way/207213397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/219732004",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:housenumber": "1151",
+        "addr:postcode": "1429",
+        "addr:street": "Comodoro Martín Rivadavia",
+        "amenity": "studio",
+        "building": "yes",
+        "building:levels": "2",
+        "name": "Contenidos Públicos Sociedad del Estado",
+        "old_name": "Pabellón Máquinas",
+        "studio": "television",
+        "website": "https://www.argentina.gob.ar/jefatura/contenidos-publicos"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4610919,
+              -34.538427
+            ],
+            [
+              -58.4609627,
+              -34.5383711
+            ],
+            [
+              -58.4609501,
+              -34.538391
+            ],
+            [
+              -58.4604359,
+              -34.538178
+            ],
+            [
+              -58.4605824,
+              -34.5379356
+            ],
+            [
+              -58.4603818,
+              -34.5378536
+            ],
+            [
+              -58.4602245,
+              -34.5381105
+            ],
+            [
+              -58.4600373,
+              -34.5379821
+            ],
+            [
+              -58.4603364,
+              -34.5374889
+            ],
+            [
+              -58.4604464,
+              -34.5375348
+            ],
+            [
+              -58.4604573,
+              -34.5375201
+            ],
+            [
+              -58.4605589,
+              -34.537564
+            ],
+            [
+              -58.4604908,
+              -34.5376786
+            ],
+            [
+              -58.4608079,
+              -34.537811
+            ],
+            [
+              -58.4607923,
+              -34.5378365
+            ],
+            [
+              -58.4610559,
+              -34.5379487
+            ],
+            [
+              -58.4610854,
+              -34.5378931
+            ],
+            [
+              -58.4613564,
+              -34.5380058
+            ],
+            [
+              -58.4612492,
+              -34.5381817
+            ],
+            [
+              -58.4612441,
+              -34.5381796
+            ],
+            [
+              -58.4610919,
+              -34.538427
+            ]
+          ]
+        ]
+      },
+      "id": "way/219732004"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/219732017",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Contenidos Públicos Sociedad del Estado",
+        "old_name": "Taller Electricidad",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4615152,
+              -34.5377935
+            ],
+            [
+              -58.4614031,
+              -34.537977
+            ],
+            [
+              -58.4612006,
+              -34.5378931
+            ],
+            [
+              -58.4613126,
+              -34.5377096
+            ],
+            [
+              -58.4615152,
+              -34.5377935
+            ]
+          ]
+        ]
+      },
+      "id": "way/219732017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/220989312",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Turner Argentina Sede Melián",
+        "operator": "Turner International Argentina",
+        "source": "survey",
+        "studio": "video",
+        "website": "http://www.turnermediaplus.com.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4735959,
+              -34.5631819
+            ],
+            [
+              -58.4736553,
+              -34.5631138
+            ],
+            [
+              -58.4739222,
+              -34.5632718
+            ],
+            [
+              -58.4738628,
+              -34.5633399
+            ],
+            [
+              -58.4735959,
+              -34.5631819
+            ]
+          ]
+        ]
+      },
+      "id": "way/220989312"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/237763483",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "TyC Sports",
+        "operator": "Telered Imagen SA",
+        "studio": "video",
+        "website": "https://www.tycsports.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.3702294,
+              -34.6136565
+            ],
+            [
+              -58.3705091,
+              -34.613657
+            ],
+            [
+              -58.3704957,
+              -34.6137261
+            ],
+            [
+              -58.370565,
+              -34.6137804
+            ],
+            [
+              -58.3706713,
+              -34.6137733
+            ],
+            [
+              -58.3706753,
+              -34.6140134
+            ],
+            [
+              -58.3702418,
+              -34.6140207
+            ],
+            [
+              -58.3702294,
+              -34.6136565
+            ]
+          ]
+        ]
+      },
+      "id": "way/237763483"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/259197788",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "2253",
+        "addr:postcode": "11800",
+        "addr:street": "Paraguay",
+        "amenity": "studio",
+        "building": "yes",
+        "check_date": "2026-03-07",
+        "fax": "+598 2924 7929",
+        "name": "Monte Carlo TV",
+        "phone": "+598 2924 4444",
+        "studio": "television",
+        "website": "http://www.montecarlotv.com.uy/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -56.1954278,
+              -34.88794
+            ],
+            [
+              -56.1953546,
+              -34.888642
+            ],
+            [
+              -56.1953009,
+              -34.8886723
+            ],
+            [
+              -56.1944259,
+              -34.8886136
+            ],
+            [
+              -56.1944622,
+              -34.8882664
+            ],
+            [
+              -56.1944992,
+              -34.8878764
+            ],
+            [
+              -56.194544,
+              -34.8878462
+            ],
+            [
+              -56.1953889,
+              -34.8879032
+            ],
+            [
+              -56.1954278,
+              -34.88794
+            ]
+          ]
+        ]
+      },
+      "id": "way/259197788"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/271004880",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "1647",
+        "addr:street": "Rambla Armenia",
+        "amenity": "studio",
+        "building": "commercial",
+        "building:levels": "2",
+        "check_date": "2025-09-07",
+        "name": "Océano FM",
+        "phone": "+598 2628 9626 ;+598 2628 9240",
+        "roof:shape": "flat",
+        "studio": "audio",
+        "website": "https://oceanofm.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -56.1345894,
+              -34.9089175
+            ],
+            [
+              -56.134535,
+              -34.909068
+            ],
+            [
+              -56.1343593,
+              -34.9090254
+            ],
+            [
+              -56.1344137,
+              -34.9088748
+            ],
+            [
+              -56.1345894,
+              -34.9089175
+            ]
+          ]
+        ]
+      },
+      "id": "way/271004880"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/290857074",
+        "amenity": "studio",
+        "name": "Canal 2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.9737796,
+              -35.4912136
+            ],
+            [
+              -62.9742425,
+              -35.491289
+            ],
+            [
+              -62.974206,
+              -35.4914199
+            ],
+            [
+              -62.9737455,
+              -35.4913505
+            ],
+            [
+              -62.9737796,
+              -35.4912136
+            ]
+          ]
+        ]
+      },
+      "id": "way/290857074"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/290857075",
+        "amenity": "studio",
+        "name": "Canal 3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.9752491,
+              -35.4916502
+            ],
+            [
+              -62.9751159,
+              -35.4921565
+            ],
+            [
+              -62.9749198,
+              -35.492122
+            ],
+            [
+              -62.9750533,
+              -35.4916169
+            ],
+            [
+              -62.9752491,
+              -35.4916502
+            ]
+          ]
+        ]
+      },
+      "id": "way/290857075"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/305582153",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "TRU - Televisora Regional Unimar",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.1049579,
+              -32.6971789
+            ],
+            [
+              -62.1049723,
+              -32.6972371
+            ],
+            [
+              -62.1047362,
+              -32.6972785
+            ],
+            [
+              -62.1047218,
+              -32.6972203
+            ],
+            [
+              -62.1049579,
+              -32.6971789
+            ]
+          ]
+        ]
+      },
+      "id": "way/305582153"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/313420512",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1457",
+        "addr:street": "Hipólito Irigoyen",
+        "amenity": "studio",
+        "building": "yes",
+        "contact:email": "dieztver@ciudad.com.ar",
+        "name": "Canal 10",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.3981119,
+              -32.1641999
+            ],
+            [
+              -58.3982027,
+              -32.1641263
+            ],
+            [
+              -58.3983356,
+              -32.1640188
+            ],
+            [
+              -58.398373,
+              -32.164052
+            ],
+            [
+              -58.3981493,
+              -32.164233
+            ],
+            [
+              -58.3981119,
+              -32.1641999
+            ]
+          ]
+        ]
+      },
+      "id": "way/313420512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/313420513",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1175",
+        "addr:street": "José Manuel Estrada",
+        "amenity": "studio",
+        "building": "yes",
+        "contact:email": "n5noticias@gmail.com",
+        "name": "Canal 5",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4037578,
+              -32.1640488
+            ],
+            [
+              -58.4038435,
+              -32.1639805
+            ],
+            [
+              -58.4039237,
+              -32.1640526
+            ],
+            [
+              -58.403838,
+              -32.1641209
+            ],
+            [
+              -58.4037578,
+              -32.1640488
+            ]
+          ]
+        ]
+      },
+      "id": "way/313420513"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/314410532",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "1276",
+        "addr:street": "Enriqueta Compte y Rique",
+        "amenity": "studio",
+        "name": "Teledoce",
+        "phone": "+598 2208 3555",
+        "studio": "video",
+        "wikidata": "Q123966293"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -56.1905074,
+              -34.8840516
+            ],
+            [
+              -56.1905978,
+              -34.8842467
+            ],
+            [
+              -56.1906874,
+              -34.8842506
+            ],
+            [
+              -56.1906459,
+              -34.8845966
+            ],
+            [
+              -56.1898322,
+              -34.8846039
+            ],
+            [
+              -56.1898076,
+              -34.8842759
+            ],
+            [
+              -56.1899845,
+              -34.8842194
+            ],
+            [
+              -56.1905074,
+              -34.8840516
+            ]
+          ]
+        ]
+      },
+      "id": "way/314410532"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/331591764",
+        "addr:city": "General Roca",
+        "addr:housenumber": "1090",
+        "addr:street": "Artigas",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio Show. FM 98.5",
+        "studio": "audio",
+        "website": "http://www.radioshowroca.com.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.5808518,
+              -39.0329575
+            ],
+            [
+              -67.5808766,
+              -39.0330746
+            ],
+            [
+              -67.5807665,
+              -39.0330886
+            ],
+            [
+              -67.5807418,
+              -39.0329716
+            ],
+            [
+              -67.5808518,
+              -39.0329575
+            ]
+          ]
+        ]
+      },
+      "id": "way/331591764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354218100",
+        "amenity": "studio",
+        "building": "yes",
+        "building:levels": "2",
+        "check_date": "2024-06-01",
+        "name": "Canal 9",
+        "roof:shape": "many",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4441276,
+              -34.5812077
+            ],
+            [
+              -58.4436808,
+              -34.5815289
+            ],
+            [
+              -58.4426353,
+              -34.5805432
+            ],
+            [
+              -58.4430821,
+              -34.580222
+            ],
+            [
+              -58.4441276,
+              -34.5812077
+            ]
+          ]
+        ]
+      },
+      "id": "way/354218100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/361301622",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "1250",
+        "addr:street": "Enriqueta Compte y Rique",
+        "amenity": "studio",
+        "name": "Sarandí 690",
+        "ref": "CX8",
+        "studio": "audio",
+        "website": "https://www.sarandi690.com.uy/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -56.1907063,
+              -34.884018
+            ],
+            [
+              -56.1906874,
+              -34.8842506
+            ],
+            [
+              -56.1905978,
+              -34.8842467
+            ],
+            [
+              -56.1905074,
+              -34.8840516
+            ],
+            [
+              -56.1906285,
+              -34.8840125
+            ],
+            [
+              -56.1907063,
+              -34.884018
+            ]
+          ]
+        ]
+      },
+      "id": "way/361301622"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/369340601",
+        "addr:city": "Firmat",
+        "addr:country": "AR",
+        "addr:housenumber": "463",
+        "addr:postcode": "2630",
+        "addr:state": "Santa Fe",
+        "addr:street": "Matias Mussetto",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "F.M. Arco Iris - LRI 829",
+        "note": "Radio FM - Director Norberto D. Pellegrini",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.4936054,
+              -33.4645853
+            ],
+            [
+              -61.4936895,
+              -33.4644678
+            ],
+            [
+              -61.4939151,
+              -33.4645802
+            ],
+            [
+              -61.493831,
+              -33.4646976
+            ],
+            [
+              -61.4936054,
+              -33.4645853
+            ]
+          ]
+        ]
+      },
+      "id": "way/369340601"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/383494517",
+        "addr:street": "San José",
+        "amenity": "studio",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "Cablevisión Funes",
+        "office": "it",
+        "roof:levels": "1",
+        "studio": "television",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.8061596,
+              -32.9207682
+            ],
+            [
+              -60.8061474,
+              -32.920722
+            ],
+            [
+              -60.8062341,
+              -32.9207059
+            ],
+            [
+              -60.8062422,
+              -32.9207366
+            ],
+            [
+              -60.8062234,
+              -32.9207401
+            ],
+            [
+              -60.8062275,
+              -32.9207556
+            ],
+            [
+              -60.8061596,
+              -32.9207682
+            ]
+          ]
+        ]
+      },
+      "id": "way/383494517"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/393047809",
+        "addr:housenumber": "1650",
+        "addr:street": "Fitz Roy",
+        "amenity": "studio",
+        "building": "commercial",
+        "check_date": "2025-03-01",
+        "contact:website": "http://www.americatv.com.ar/",
+        "name": "América TV",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4367564,
+              -34.584409
+            ],
+            [
+              -58.4371295,
+              -34.5841163
+            ],
+            [
+              -58.4373235,
+              -34.5842839
+            ],
+            [
+              -58.4371677,
+              -34.5844061
+            ],
+            [
+              -58.4372354,
+              -34.5844645
+            ],
+            [
+              -58.437018,
+              -34.584635
+            ],
+            [
+              -58.4367564,
+              -34.584409
+            ]
+          ]
+        ]
+      },
+      "id": "way/393047809"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/393047950",
+        "amenity": "studio",
+        "building": "commercial",
+        "contact:website": "http://www.americatv.com.ar/",
+        "name": "América TV",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.436867,
+              -34.5852427
+            ],
+            [
+              -58.4371517,
+              -34.5854985
+            ],
+            [
+              -58.4369569,
+              -34.5856454
+            ],
+            [
+              -58.4366723,
+              -34.5853896
+            ],
+            [
+              -58.436867,
+              -34.5852427
+            ]
+          ]
+        ]
+      },
+      "id": "way/393047950"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/398041812",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio Estación Qu",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -63.0022396,
+              -40.8108866
+            ],
+            [
+              -63.0021974,
+              -40.8108686
+            ],
+            [
+              -63.0022812,
+              -40.8107568
+            ],
+            [
+              -63.0023239,
+              -40.8107751
+            ],
+            [
+              -63.0022396,
+              -40.8108866
+            ]
+          ]
+        ]
+      },
+      "id": "way/398041812"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/403762159",
+        "amenity": "studio",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "Ex Radio Pueblo FM 89. 7",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -53.3990479,
+              -32.5992231
+            ],
+            [
+              -53.3990509,
+              -32.5992968
+            ],
+            [
+              -53.3988697,
+              -32.599302
+            ],
+            [
+              -53.3988667,
+              -32.5992284
+            ],
+            [
+              -53.3990479,
+              -32.5992231
+            ]
+          ]
+        ]
+      },
+      "id": "way/403762159"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/419533842",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio La Elegida 93.7",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -53.3963667,
+              -32.6062951
+            ],
+            [
+              -53.3964534,
+              -32.6063832
+            ],
+            [
+              -53.3963695,
+              -32.6064418
+            ],
+            [
+              -53.3962828,
+              -32.6063537
+            ],
+            [
+              -53.3963667,
+              -32.6062951
+            ]
+          ]
+        ]
+      },
+      "id": "way/419533842"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/442973235",
+        "addr:city": "Montevideo",
+        "addr:housenumber": "2552",
+        "addr:street": "Bulevar General Artigas",
+        "amenity": "studio",
+        "check_date": "2025-07-20",
+        "email": "contacto@tnu.com.uy",
+        "name": "TNU Canal 5",
+        "phone": "+598 2 19595",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -56.1658895,
+              -34.8781916
+            ],
+            [
+              -56.166547,
+              -34.8782323
+            ],
+            [
+              -56.1664513,
+              -34.8791527
+            ],
+            [
+              -56.1662898,
+              -34.8791393
+            ],
+            [
+              -56.1662313,
+              -34.879136
+            ],
+            [
+              -56.1659435,
+              -34.8791162
+            ],
+            [
+              -56.1658051,
+              -34.8791069
+            ],
+            [
+              -56.1658895,
+              -34.8781916
+            ]
+          ]
+        ]
+      },
+      "id": "way/442973235"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/457961125",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Punta Cable",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -54.9555532,
+              -34.9122618
+            ],
+            [
+              -54.9556677,
+              -34.9122636
+            ],
+            [
+              -54.9556641,
+              -34.9124127
+            ],
+            [
+              -54.9554842,
+              -34.9124097
+            ],
+            [
+              -54.955486,
+              -34.9123337
+            ],
+            [
+              -54.9555515,
+              -34.9123347
+            ],
+            [
+              -54.9555532,
+              -34.9122618
+            ]
+          ]
+        ]
+      },
+      "id": "way/457961125"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/461173050",
+        "amenity": "studio",
+        "building": "yes",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.9493095,
+              -34.9250765
+            ],
+            [
+              -57.9492265,
+              -34.9251358
+            ],
+            [
+              -57.9491045,
+              -34.9250212
+            ],
+            [
+              -57.9491875,
+              -34.9249618
+            ],
+            [
+              -57.9492021,
+              -34.9249755
+            ],
+            [
+              -57.9493095,
+              -34.9250765
+            ]
+          ]
+        ]
+      },
+      "id": "way/461173050"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/471266203",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:street": "Humboldt",
+        "addr:suburb": "Palermo",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Cinecolor Argentina",
+        "studio": "video",
+        "survey:date": "2022-09-05",
+        "website": "http://www.cinecolor.com.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.437989,
+              -34.5870368
+            ],
+            [
+              -58.4377531,
+              -34.5868065
+            ],
+            [
+              -58.4381362,
+              -34.5865407
+            ],
+            [
+              -58.438372,
+              -34.586771
+            ],
+            [
+              -58.437989,
+              -34.5870368
+            ]
+          ]
+        ]
+      },
+      "id": "way/471266203"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/472679732",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:street": "Avenida Córdoba",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Multiradio S.A."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4329916,
+              -34.592501
+            ],
+            [
+              -58.4330636,
+              -34.5924522
+            ],
+            [
+              -58.4331395,
+              -34.5925278
+            ],
+            [
+              -58.4331732,
+              -34.592562
+            ],
+            [
+              -58.4331008,
+              -34.5926108
+            ],
+            [
+              -58.4330515,
+              -34.5925611
+            ],
+            [
+              -58.4329916,
+              -34.592501
+            ]
+          ]
+        ]
+      },
+      "id": "way/472679732"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/472824395",
+        "addr:postcode": "3",
+        "addr:street": "San Martín",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Artestudio",
+        "source": "Reconocimiento terrestre 2016 por Kaart",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.3765243,
+              -34.9823538
+            ],
+            [
+              -58.3764385,
+              -34.9823101
+            ],
+            [
+              -58.3764889,
+              -34.982247
+            ],
+            [
+              -58.3765237,
+              -34.9821976
+            ],
+            [
+              -58.3765772,
+              -34.9822225
+            ],
+            [
+              -58.3766086,
+              -34.9822372
+            ],
+            [
+              -58.3765243,
+              -34.9823538
+            ]
+          ]
+        ]
+      },
+      "id": "way/472824395"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/508453870",
+        "addr:housenumber": "1810",
+        "addr:street": "Cuyo",
+        "amenity": "studio",
+        "check_date": "2024-10-30",
+        "name": "Estudios Telefé",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5250613,
+              -34.4945983
+            ],
+            [
+              -58.5247232,
+              -34.4951138
+            ],
+            [
+              -58.5235338,
+              -34.4945375
+            ],
+            [
+              -58.5238262,
+              -34.4939871
+            ],
+            [
+              -58.5250613,
+              -34.4945983
+            ]
+          ]
+        ]
+      },
+      "id": "way/508453870"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/508453879",
+        "addr:city": "Beccar",
+        "addr:housenumber": "1750",
+        "addr:postcode": "B1642",
+        "addr:street": "Intendente Tomkinson",
+        "amenity": "studio",
+        "landuse": "commercial",
+        "name": "ESPN",
+        "website": "https://www.espn.com.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5398038,
+              -34.4756013
+            ],
+            [
+              -58.5407802,
+              -34.4741717
+            ],
+            [
+              -58.5410061,
+              -34.4742766
+            ],
+            [
+              -58.5410249,
+              -34.4743485
+            ],
+            [
+              -58.5417404,
+              -34.4746759
+            ],
+            [
+              -58.5407587,
+              -34.4760523
+            ],
+            [
+              -58.5398038,
+              -34.4756013
+            ]
+          ]
+        ]
+      },
+      "id": "way/508453879"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/508737658",
+        "amenity": "studio",
+        "name": "Estudios Telefé",
+        "studio": "television",
+        "website": "https://www.telefe.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5260065,
+              -34.4914747
+            ],
+            [
+              -58.5260548,
+              -34.4914614
+            ],
+            [
+              -58.5267736,
+              -34.4918262
+            ],
+            [
+              -58.5268085,
+              -34.4918483
+            ],
+            [
+              -58.5268219,
+              -34.4918991
+            ],
+            [
+              -58.5268085,
+              -34.4919279
+            ],
+            [
+              -58.5262908,
+              -34.4925866
+            ],
+            [
+              -58.5262453,
+              -34.4925889
+            ],
+            [
+              -58.5255371,
+              -34.4922418
+            ],
+            [
+              -58.5255184,
+              -34.492202
+            ],
+            [
+              -58.5260065,
+              -34.4914747
+            ]
+          ]
+        ]
+      },
+      "id": "way/508737658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/515976957",
+        "addr:city": "General Pacheco",
+        "alt_name": "LRA Radio Nacional Buenos Aires",
+        "amenity": "studio",
+        "name": "Radio Nacional Argentina",
+        "studio": "radio",
+        "website": "https://www.radionacional.com.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.6181887,
+              -34.453343
+            ],
+            [
+              -58.6184294,
+              -34.4527824
+            ],
+            [
+              -58.6194651,
+              -34.4519071
+            ],
+            [
+              -58.6202904,
+              -34.4510394
+            ],
+            [
+              -58.6204577,
+              -34.4508923
+            ],
+            [
+              -58.6210278,
+              -34.4512816
+            ],
+            [
+              -58.6220313,
+              -34.4519726
+            ],
+            [
+              -58.6226133,
+              -34.4523539
+            ],
+            [
+              -58.6227315,
+              -34.4524484
+            ],
+            [
+              -58.6235541,
+              -34.4529899
+            ],
+            [
+              -58.6217495,
+              -34.4541004
+            ],
+            [
+              -58.6214491,
+              -34.4540562
+            ],
+            [
+              -58.6181887,
+              -34.453343
+            ]
+          ]
+        ]
+      },
+      "id": "way/515976957"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/516435515",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "1262",
+        "addr:postcode": "1427",
+        "addr:street": "Avenida Forest",
+        "amenity": "studio",
+        "building": "yes",
+        "building:levels": "2",
+        "contact:facebook": "https://www.facebook.com/bonaproducciones/",
+        "email": "info@bonaproducciones.com",
+        "name": "Bona Producciones",
+        "phone": "+54 11 5263-7489",
+        "website": "http://www.bonaproducciones.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4611419,
+              -34.5775074
+            ],
+            [
+              -58.4613369,
+              -34.5776311
+            ],
+            [
+              -58.4613303,
+              -34.5777215
+            ],
+            [
+              -58.4610864,
+              -34.5775667
+            ],
+            [
+              -58.4611419,
+              -34.5775074
+            ]
+          ]
+        ]
+      },
+      "id": "way/516435515"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/516435517",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "1236",
+        "addr:postcode": "1427",
+        "addr:street": "Avenida Forest",
+        "amenity": "studio",
+        "building": "yes",
+        "building:levels": "2",
+        "contact:facebook": "https://www.facebook.com/radioalacalle/",
+        "email": "comunicacion@radioalacalle.com",
+        "name": "Radio a la Calle",
+        "phone": "+54 11 4552-6853",
+        "studio": "radio",
+        "website": "http://www.radioalacalle.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4609108,
+              -34.5777429
+            ],
+            [
+              -58.4610667,
+              -34.5778433
+            ],
+            [
+              -58.4609639,
+              -34.5779
+            ],
+            [
+              -58.4608355,
+              -34.5778202
+            ],
+            [
+              -58.4609108,
+              -34.5777429
+            ]
+          ]
+        ]
+      },
+      "id": "way/516435517"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/518149970",
+        "addr:city": "Santa Rosa",
+        "addr:milestone": "322,2",
+        "addr:postcode": "L6300",
+        "addr:street": "Avenida Juan Manuel de Rosas",
+        "amenity": "studio",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/televisionpublicapampeana/",
+        "contact:instagram": "https://www.instagram.com/televisionpublicapampeana/",
+        "height": "3",
+        "name": "Televisión Pública Pampeana",
+        "old_name": "Canal 3 Santa Rosa",
+        "phone": "+54 295 441-5000;+54 295 445-4000",
+        "short_name": "TVPP",
+        "studio": "television",
+        "website": "https://tvpp.lapampa.gob.ar/",
+        "wikidata": "Q56606153",
+        "wikipedia": "es:Televisión Pública Pampeana"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.2848457,
+              -36.6644615
+            ],
+            [
+              -64.2849132,
+              -36.6644615
+            ],
+            [
+              -64.2850944,
+              -36.6644613
+            ],
+            [
+              -64.2850945,
+              -36.6645245
+            ],
+            [
+              -64.2852205,
+              -36.6645245
+            ],
+            [
+              -64.2852206,
+              -36.6646135
+            ],
+            [
+              -64.2851084,
+              -36.6646136
+            ],
+            [
+              -64.2851086,
+              -36.6648848
+            ],
+            [
+              -64.2850088,
+              -36.6648849
+            ],
+            [
+              -64.2849773,
+              -36.6648849
+            ],
+            [
+              -64.2849773,
+              -36.6649779
+            ],
+            [
+              -64.284892,
+              -36.6649779
+            ],
+            [
+              -64.284892,
+              -36.6648297
+            ],
+            [
+              -64.2847862,
+              -36.6648298
+            ],
+            [
+              -64.2847861,
+              -36.6647307
+            ],
+            [
+              -64.284846,
+              -36.6647307
+            ],
+            [
+              -64.2848457,
+              -36.6644615
+            ]
+          ]
+        ]
+      },
+      "id": "way/518149970"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/569344544",
+        "addr:city": "Santa Rosa",
+        "addr:housenumber": "955",
+        "addr:postcode": "L6300",
+        "addr:street": "Avenida Doctor Palacios",
+        "amenity": "studio",
+        "barrier": "fence",
+        "contact:instagram": "https://www.instagram.com/nacionalam730/",
+        "fence_type": "net",
+        "industrial": "communication",
+        "landuse": "forest",
+        "leaf_type": "broadleaved",
+        "name": "Radio Nacional Santa Rosa",
+        "operator": "Radio Nacional Argentina",
+        "operator:wikidata": "Q6459796",
+        "ref": "LRA 3",
+        "studio": "radio",
+        "website": "https://www.radionacional.com.ar/category/lra-3-santa-rosa/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.2700741,
+              -36.6228411
+            ],
+            [
+              -64.270078,
+              -36.6232543
+            ],
+            [
+              -64.2702278,
+              -36.6237085
+            ],
+            [
+              -64.2702454,
+              -36.6254321
+            ],
+            [
+              -64.2702015,
+              -36.6254746
+            ],
+            [
+              -64.2686795,
+              -36.6254937
+            ],
+            [
+              -64.26762,
+              -36.6255069
+            ],
+            [
+              -64.2675747,
+              -36.6254691
+            ],
+            [
+              -64.2675721,
+              -36.6229138
+            ],
+            [
+              -64.2676131,
+              -36.6228793
+            ],
+            [
+              -64.2700741,
+              -36.6228411
+            ]
+          ]
+        ]
+      },
+      "id": "way/569344544"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/667621536",
+        "addr:city": "Casilda",
+        "addr:country": "AR",
+        "addr:housenumber": "2080",
+        "addr:postcode": "S2170",
+        "addr:province": "Santa Fe",
+        "addr:street": "25 de Mayo",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio Sport 98.7 FM",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.1737182,
+              -33.0486761
+            ],
+            [
+              -61.1736964,
+              -33.0487041
+            ],
+            [
+              -61.1736396,
+              -33.0486765
+            ],
+            [
+              -61.1736622,
+              -33.0486478
+            ],
+            [
+              -61.1737182,
+              -33.0486761
+            ]
+          ]
+        ]
+      },
+      "id": "way/667621536"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/667954905",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio De La Candelaria FM 101.1",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.1654643,
+              -33.0435396
+            ],
+            [
+              -61.1653778,
+              -33.0436472
+            ],
+            [
+              -61.1653466,
+              -33.0436297
+            ],
+            [
+              -61.1654308,
+              -33.0435219
+            ],
+            [
+              -61.1654643,
+              -33.0435396
+            ]
+          ]
+        ]
+      },
+      "id": "way/667954905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/668791857",
+        "addr:city": "Bahía Blanca",
+        "addr:housenumber": "755",
+        "addr:street": "Manuel Molina",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Bahía Visión Color",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.2937786,
+              -38.7117157
+            ],
+            [
+              -62.2938687,
+              -38.711785
+            ],
+            [
+              -62.2938534,
+              -38.7117959
+            ],
+            [
+              -62.2939232,
+              -38.7118504
+            ],
+            [
+              -62.2937508,
+              -38.7119846
+            ],
+            [
+              -62.2935927,
+              -38.7118587
+            ],
+            [
+              -62.2937786,
+              -38.7117157
+            ]
+          ]
+        ]
+      },
+      "id": "way/668791857"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/719060480",
+        "addr:city": "Viedma",
+        "addr:housenumber": "651",
+        "addr:postcode": "8500",
+        "addr:street": "Pueyrredón",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "FM Raíces 91.7 MHz",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -63.0017984,
+              -40.8066246
+            ],
+            [
+              -63.0016755,
+              -40.806569
+            ],
+            [
+              -63.001604,
+              -40.8065367
+            ],
+            [
+              -63.00172,
+              -40.8063896
+            ],
+            [
+              -63.0019145,
+              -40.8064774
+            ],
+            [
+              -63.0017984,
+              -40.8066246
+            ]
+          ]
+        ]
+      },
+      "id": "way/719060480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/734558290",
+        "amenity": "studio",
+        "barrier": "wall"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.7155416,
+              -32.9781844
+            ],
+            [
+              -60.7155212,
+              -32.9784786
+            ],
+            [
+              -60.7153205,
+              -32.9784689
+            ],
+            [
+              -60.7153408,
+              -32.9781746
+            ],
+            [
+              -60.7155416,
+              -32.9781844
+            ]
+          ]
+        ]
+      },
+      "id": "way/734558290"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/740872234",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Casa de la Música",
+        "operator": "Gobierno de la Provincia de San Luis",
+        "website": "https://casadelamusica.sanluis.gov.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -65.4633257,
+              -33.6614316
+            ],
+            [
+              -65.463337,
+              -33.6614698
+            ],
+            [
+              -65.4633509,
+              -33.6615172
+            ],
+            [
+              -65.4633623,
+              -33.6615558
+            ],
+            [
+              -65.4633724,
+              -33.6615902
+            ],
+            [
+              -65.4634952,
+              -33.6615677
+            ],
+            [
+              -65.4636802,
+              -33.662203
+            ],
+            [
+              -65.4633386,
+              -33.6622723
+            ],
+            [
+              -65.4632716,
+              -33.6620448
+            ],
+            [
+              -65.4630509,
+              -33.6620898
+            ],
+            [
+              -65.4630075,
+              -33.6619426
+            ],
+            [
+              -65.4629637,
+              -33.6617938
+            ],
+            [
+              -65.4631902,
+              -33.6617475
+            ],
+            [
+              -65.463232,
+              -33.6618893
+            ],
+            [
+              -65.4632551,
+              -33.6618846
+            ],
+            [
+              -65.4631853,
+              -33.661648
+            ],
+            [
+              -65.4632561,
+              -33.6616336
+            ],
+            [
+              -65.4632406,
+              -33.6615811
+            ],
+            [
+              -65.46323,
+              -33.6615452
+            ],
+            [
+              -65.4632152,
+              -33.6614951
+            ],
+            [
+              -65.4632039,
+              -33.6614565
+            ],
+            [
+              -65.4633257,
+              -33.6614316
+            ]
+          ]
+        ]
+      },
+      "id": "way/740872234"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/766374922",
+        "addr:housenumber": "2901",
+        "addr:street": "Avenida Pedro Luro",
+        "amenity": "studio",
+        "building": "yes",
+        "check_date": "2026-04-08",
+        "name": "Telefe Mar de Plata",
+        "phone": "+54 (223) 499-2300",
+        "studio": "television",
+        "website": "https://mardelplata.telefe.com/institucional"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.5495574,
+              -37.9967136
+            ],
+            [
+              -57.5492031,
+              -37.996894
+            ],
+            [
+              -57.5490459,
+              -37.9967022
+            ],
+            [
+              -57.5494002,
+              -37.9965218
+            ],
+            [
+              -57.5495574,
+              -37.9967136
+            ]
+          ]
+        ]
+      },
+      "id": "way/766374922"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/766374923",
+        "addr:housenumber": "1163",
+        "addr:street": "Avenida Independencia",
+        "amenity": "studio",
+        "building": "yes",
+        "check_date": "2023-07-08",
+        "name": "Canal Diez Mar del Plata",
+        "phone": "0223 494-1003",
+        "studio": "television",
+        "website": "https://www.canal10mardelplata.tv/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.5496369,
+              -37.9918821
+            ],
+            [
+              -57.5494921,
+              -37.9917267
+            ],
+            [
+              -57.5496708,
+              -37.9916587
+            ],
+            [
+              -57.5498126,
+              -37.9918141
+            ],
+            [
+              -57.5496369,
+              -37.9918821
+            ]
+          ]
+        ]
+      },
+      "id": "way/766374923"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/829842519",
+        "amenity": "studio",
+        "building": "yes",
+        "building:colour": "white",
+        "roof:colour": "white",
+        "roof:shape": "round",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.6260787,
+              -34.4813364
+            ],
+            [
+              -58.6262714,
+              -34.481438
+            ],
+            [
+              -58.6260931,
+              -34.4816679
+            ],
+            [
+              -58.6259004,
+              -34.4815663
+            ],
+            [
+              -58.6260787,
+              -34.4813364
+            ]
+          ]
+        ]
+      },
+      "id": "way/829842519"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/829842520",
+        "amenity": "studio",
+        "building": "yes",
+        "building:colour": "white",
+        "roof:colour": "white",
+        "roof:shape": "round",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.6259004,
+              -34.4815663
+            ],
+            [
+              -58.6257125,
+              -34.4814672
+            ],
+            [
+              -58.6258908,
+              -34.4812374
+            ],
+            [
+              -58.6260787,
+              -34.4813364
+            ],
+            [
+              -58.6259004,
+              -34.4815663
+            ]
+          ]
+        ]
+      },
+      "id": "way/829842520"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/829842531",
+        "amenity": "studio",
+        "building": "yes",
+        "building:colour": "white",
+        "roof:colour": "white",
+        "roof:shape": "round",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.6261726,
+              -34.4812192
+            ],
+            [
+              -58.6259847,
+              -34.4811201
+            ],
+            [
+              -58.6261631,
+              -34.4808902
+            ],
+            [
+              -58.6263509,
+              -34.4809893
+            ],
+            [
+              -58.6261726,
+              -34.4812192
+            ]
+          ]
+        ]
+      },
+      "id": "way/829842531"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/829842532",
+        "amenity": "studio",
+        "building": "yes",
+        "building:colour": "white",
+        "roof:colour": "white",
+        "roof:shape": "round",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.6263509,
+              -34.4809893
+            ],
+            [
+              -58.6265436,
+              -34.4810909
+            ],
+            [
+              -58.6263653,
+              -34.4813207
+            ],
+            [
+              -58.6261726,
+              -34.4812192
+            ],
+            [
+              -58.6263509,
+              -34.4809893
+            ]
+          ]
+        ]
+      },
+      "id": "way/829842532"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/841999554",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "LU 18 Radio Latina",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.5795608,
+              -39.0280106
+            ],
+            [
+              -67.5796023,
+              -39.0282029
+            ],
+            [
+              -67.5796275,
+              -39.0283199
+            ],
+            [
+              -67.579618,
+              -39.0283211
+            ],
+            [
+              -67.5795082,
+              -39.0283346
+            ],
+            [
+              -67.5794434,
+              -39.0280256
+            ],
+            [
+              -67.5795608,
+              -39.0280106
+            ]
+          ]
+        ]
+      },
+      "id": "way/841999554"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/848080898",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "FM Álamo 106.9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.578507,
+              -39.0282793
+            ],
+            [
+              -67.5785258,
+              -39.028366
+            ],
+            [
+              -67.5783918,
+              -39.0283833
+            ],
+            [
+              -67.578338,
+              -39.0283901
+            ],
+            [
+              -67.5783196,
+              -39.0283034
+            ],
+            [
+              -67.5783864,
+              -39.0282948
+            ],
+            [
+              -67.578507,
+              -39.0282793
+            ]
+          ]
+        ]
+      },
+      "id": "way/848080898"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/885922942",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -68.2447117,
+              -38.9655417
+            ],
+            [
+              -68.2446268,
+              -38.9655683
+            ],
+            [
+              -68.2445361,
+              -38.9653938
+            ],
+            [
+              -68.2446211,
+              -38.9653672
+            ],
+            [
+              -68.2447117,
+              -38.9655417
+            ]
+          ]
+        ]
+      },
+      "id": "way/885922942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/886352135",
+        "addr:city": "Alvear",
+        "addr:postcode": "2126",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "The cousin studio",
+        "studio": "audio",
+        "website": "https://www.instagram.com/thecousinbeats/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.6183221,
+              -33.054001
+            ],
+            [
+              -60.6183152,
+              -33.0540106
+            ],
+            [
+              -60.6182801,
+              -33.0540597
+            ],
+            [
+              -60.618197,
+              -33.0540179
+            ],
+            [
+              -60.6182391,
+              -33.0539592
+            ],
+            [
+              -60.6183221,
+              -33.054001
+            ]
+          ]
+        ]
+      },
+      "id": "way/886352135"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/892476039",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio Uno",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.6178987,
+              -33.0278902
+            ],
+            [
+              -60.6178153,
+              -33.0278887
+            ],
+            [
+              -60.6178116,
+              -33.027769
+            ],
+            [
+              -60.6178987,
+              -33.0277675
+            ],
+            [
+              -60.6178987,
+              -33.0278902
+            ]
+          ]
+        ]
+      },
+      "id": "way/892476039"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/892780197",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "FM Pueblo Esther",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.5834152,
+              -33.0688163
+            ],
+            [
+              -60.5832403,
+              -33.0689472
+            ],
+            [
+              -60.5831013,
+              -33.0688167
+            ],
+            [
+              -60.5831641,
+              -33.0687697
+            ],
+            [
+              -60.5832006,
+              -33.068804
+            ],
+            [
+              -60.5833127,
+              -33.0687201
+            ],
+            [
+              -60.5834152,
+              -33.0688163
+            ]
+          ]
+        ]
+      },
+      "id": "way/892780197"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/901809362",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "TV Cable Bermudez",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.713463,
+              -32.8261757
+            ],
+            [
+              -60.7134907,
+              -32.8260837
+            ],
+            [
+              -60.7136244,
+              -32.8260929
+            ],
+            [
+              -60.7137357,
+              -32.8261006
+            ],
+            [
+              -60.7137309,
+              -32.8261839
+            ],
+            [
+              -60.713463,
+              -32.8261757
+            ]
+          ]
+        ]
+      },
+      "id": "way/901809362"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/906293436",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5234178,
+              -34.6760914
+            ],
+            [
+              -58.5233255,
+              -34.6761713
+            ],
+            [
+              -58.5231997,
+              -34.676073
+            ],
+            [
+              -58.5231347,
+              -34.6761293
+            ],
+            [
+              -58.5230755,
+              -34.6760831
+            ],
+            [
+              -58.5231497,
+              -34.6760188
+            ],
+            [
+              -58.5232327,
+              -34.6759469
+            ],
+            [
+              -58.5234178,
+              -34.6760914
+            ]
+          ]
+        ]
+      },
+      "id": "way/906293436"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/907901726",
+        "addr:housenumber": "2099",
+        "addr:street": "Avenida Córdoba",
+        "addr:street2": "Juan Bautista Alberdi",
+        "amenity": "studio",
+        "building:part": "retail",
+        "check_date": "2025-07-06",
+        "description": "Local 2",
+        "level": "0",
+        "name": "FM Diez 93.9",
+        "operator": "Más Voces SRL",
+        "ref": "2",
+        "studio": "radio",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.8170479,
+              -32.9206958
+            ],
+            [
+              -60.8170113,
+              -32.9207025
+            ],
+            [
+              -60.8169993,
+              -32.9206562
+            ],
+            [
+              -60.817036,
+              -32.9206495
+            ],
+            [
+              -60.8170479,
+              -32.9206958
+            ]
+          ]
+        ]
+      },
+      "id": "way/907901726"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/948546157",
+        "addr:city": "Bahía Blanca",
+        "addr:housenumber": "30",
+        "addr:postcode": "B8000",
+        "addr:street": "Moreno",
+        "amenity": "studio",
+        "building": "yes",
+        "building:colour": "lightyellow",
+        "building:levels": "2",
+        "height": "6",
+        "name": "Radio Nacional",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.2674456,
+              -38.7183301
+            ],
+            [
+              -62.2673487,
+              -38.7182526
+            ],
+            [
+              -62.2673538,
+              -38.7182488
+            ],
+            [
+              -62.2674566,
+              -38.7181705
+            ],
+            [
+              -62.2677003,
+              -38.7179851
+            ],
+            [
+              -62.2677483,
+              -38.7179486
+            ],
+            [
+              -62.2678439,
+              -38.718027
+            ],
+            [
+              -62.2674456,
+              -38.7183301
+            ]
+          ]
+        ]
+      },
+      "id": "way/948546157"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/952804201",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "La Red Rosario",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.6275798,
+              -32.9595303
+            ],
+            [
+              -60.627407,
+              -32.9595597
+            ],
+            [
+              -60.6273674,
+              -32.959427
+            ],
+            [
+              -60.6273463,
+              -32.959356
+            ],
+            [
+              -60.6275284,
+              -32.9593227
+            ],
+            [
+              -60.6275369,
+              -32.9593571
+            ],
+            [
+              -60.6275406,
+              -32.9593717
+            ],
+            [
+              -60.6275798,
+              -32.9595303
+            ]
+          ]
+        ]
+      },
+      "id": "way/952804201"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/975466576",
+        "addr:city": "Viedma",
+        "addr:housenumber": "649",
+        "addr:postcode": "8500",
+        "addr:street": "Saavedra",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Radio24",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.9950691,
+              -40.81019
+            ],
+            [
+              -62.9949723,
+              -40.8101468
+            ],
+            [
+              -62.9950511,
+              -40.8100449
+            ],
+            [
+              -62.9951006,
+              -40.8099816
+            ],
+            [
+              -62.9951506,
+              -40.810005
+            ],
+            [
+              -62.9951065,
+              -40.8100618
+            ],
+            [
+              -62.9951525,
+              -40.8100827
+            ],
+            [
+              -62.9950691,
+              -40.81019
+            ]
+          ]
+        ]
+      },
+      "id": "way/975466576"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1000018361",
+        "addr:city": "General Fernández Oro",
+        "addr:housenumber": "S/N",
+        "addr:postcode": "R8324",
+        "addr:street": "Ruta Provincial 65",
+        "amenity": "studio",
+        "landuse": "grass",
+        "name": "Planta Transmisora LU19",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.9365068,
+              -38.9545883
+            ],
+            [
+              -67.9382806,
+              -38.9542365
+            ],
+            [
+              -67.9398,
+              -38.9539352
+            ],
+            [
+              -67.94039,
+              -38.9561163
+            ],
+            [
+              -67.9370919,
+              -38.9567608
+            ],
+            [
+              -67.9367976,
+              -38.955668
+            ],
+            [
+              -67.9367147,
+              -38.9553603
+            ],
+            [
+              -67.9365068,
+              -38.9545883
+            ]
+          ]
+        ]
+      },
+      "id": "way/1000018361"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1002167440",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "AM 740 - La Carretera",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.8486546,
+              -39.0019141
+            ],
+            [
+              -67.8486241,
+              -39.0019412
+            ],
+            [
+              -67.8486523,
+              -39.0019602
+            ],
+            [
+              -67.8486038,
+              -39.0020035
+            ],
+            [
+              -67.8485728,
+              -39.0019826
+            ],
+            [
+              -67.8485378,
+              -39.0020138
+            ],
+            [
+              -67.8484161,
+              -39.0019314
+            ],
+            [
+              -67.8485301,
+              -39.0018298
+            ],
+            [
+              -67.8486546,
+              -39.0019141
+            ]
+          ]
+        ]
+      },
+      "id": "way/1002167440"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1018333483",
+        "addr:city": "Rufino",
+        "addr:country": "AR",
+        "addr:postcode": "6100",
+        "addr:province": "Santa Fe",
+        "addr:street": "Santa Fe",
+        "amenity": "studio",
+        "building": "yes",
+        "check_date": "2025-06-17",
+        "contact:facebook": "https://www.facebook.com/Canal6Rufino/",
+        "contact:phone": "+54 3382 427358",
+        "description": "LLegamos a 3 provincias del país (Santa Fe, Córdoba y Bs As). 100 Km de cobertura. Sintonizanos en el 2 de Cablevisión Rufino",
+        "height": "5.5",
+        "name": "Canal 6 Rufino",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.7124741,
+              -34.2632035
+            ],
+            [
+              -62.712339,
+              -34.2632302
+            ],
+            [
+              -62.7122862,
+              -34.2630473
+            ],
+            [
+              -62.7124206,
+              -34.2630194
+            ],
+            [
+              -62.7124397,
+              -34.2630846
+            ],
+            [
+              -62.7124741,
+              -34.2632035
+            ]
+          ]
+        ]
+      },
+      "id": "way/1018333483"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1057876803",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.4421203,
+              -33.7536662
+            ],
+            [
+              -60.4422364,
+              -33.7538735
+            ],
+            [
+              -60.4421989,
+              -33.753888
+            ],
+            [
+              -60.4422052,
+              -33.7538991
+            ],
+            [
+              -60.4420499,
+              -33.7539592
+            ],
+            [
+              -60.4419904,
+              -33.753853
+            ],
+            [
+              -60.4420961,
+              -33.7538121
+            ],
+            [
+              -60.4420333,
+              -33.7536999
+            ],
+            [
+              -60.4421203,
+              -33.7536662
+            ]
+          ]
+        ]
+      },
+      "id": "way/1057876803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1058032530",
+        "addr:city": "Neuquén",
+        "addr:housenumber": "679",
+        "addr:postcode": "Q8300",
+        "addr:street": "Santa Cruz",
+        "amenity": "studio",
+        "name": "Radio y Televisión del Neuquén",
+        "operator": "Gobierno de la Provincia del Neuquén",
+        "studio": "television",
+        "website": "https://www.rtnweb.gob.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -68.0539587,
+              -38.9624626
+            ],
+            [
+              -68.053913,
+              -38.9624595
+            ],
+            [
+              -68.0537364,
+              -38.9624601
+            ],
+            [
+              -68.0536738,
+              -38.9624135
+            ],
+            [
+              -68.0536734,
+              -38.9622935
+            ],
+            [
+              -68.0536722,
+              -38.9620322
+            ],
+            [
+              -68.0536711,
+              -38.961895
+            ],
+            [
+              -68.0538579,
+              -38.961895
+            ],
+            [
+              -68.053858,
+              -38.9620325
+            ],
+            [
+              -68.0539187,
+              -38.9620325
+            ],
+            [
+              -68.0539587,
+              -38.9620325
+            ],
+            [
+              -68.0539587,
+              -38.9622444
+            ],
+            [
+              -68.0539587,
+              -38.9624626
+            ]
+          ]
+        ]
+      },
+      "id": "way/1058032530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1058032532",
+        "amenity": "studio",
+        "building": "yes",
+        "building:levels": "2",
+        "height": "6",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -68.0539187,
+              -38.9620325
+            ],
+            [
+              -68.0539193,
+              -38.9621566
+            ],
+            [
+              -68.0538108,
+              -38.9621569
+            ],
+            [
+              -68.0538112,
+              -38.9622443
+            ],
+            [
+              -68.0538114,
+              -38.9622931
+            ],
+            [
+              -68.0537745,
+              -38.9622933
+            ],
+            [
+              -68.0536734,
+              -38.9622935
+            ],
+            [
+              -68.0536722,
+              -38.9620322
+            ],
+            [
+              -68.053858,
+              -38.9620325
+            ],
+            [
+              -68.0539187,
+              -38.9620325
+            ]
+          ]
+        ]
+      },
+      "id": "way/1058032532"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1058032533",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -68.0539587,
+              -38.9622444
+            ],
+            [
+              -68.0539587,
+              -38.9624626
+            ],
+            [
+              -68.053913,
+              -38.9624595
+            ],
+            [
+              -68.0539124,
+              -38.9623607
+            ],
+            [
+              -68.0538638,
+              -38.9623608
+            ],
+            [
+              -68.053864,
+              -38.9623959
+            ],
+            [
+              -68.0538133,
+              -38.962396
+            ],
+            [
+              -68.0538132,
+              -38.9623827
+            ],
+            [
+              -68.053775,
+              -38.9623828
+            ],
+            [
+              -68.0537745,
+              -38.9622933
+            ],
+            [
+              -68.0538114,
+              -38.9622931
+            ],
+            [
+              -68.0538112,
+              -38.9622443
+            ],
+            [
+              -68.0538704,
+              -38.9622441
+            ],
+            [
+              -68.0538709,
+              -38.9623365
+            ],
+            [
+              -68.0539119,
+              -38.9623363
+            ],
+            [
+              -68.0539114,
+              -38.9622445
+            ],
+            [
+              -68.0539587,
+              -38.9622444
+            ]
+          ]
+        ]
+      },
+      "id": "way/1058032533"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1090826133",
+        "addr:city": "Neuquén",
+        "addr:housenumber": "2057",
+        "addr:postcode": "Q8300",
+        "addr:street": "Intendente Carro",
+        "amenity": "studio",
+        "name": "Valle TV Canal 9 - FM Cosmos",
+        "office": "telecommunication",
+        "studio": "television_and_radio",
+        "website": "https://valletvcanal9.es.tl/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -68.0863273,
+              -38.9596319
+            ],
+            [
+              -68.086332,
+              -38.9603291
+            ],
+            [
+              -68.0862891,
+              -38.9603642
+            ],
+            [
+              -68.0855749,
+              -38.9603678
+            ],
+            [
+              -68.0855726,
+              -38.9600835
+            ],
+            [
+              -68.0855694,
+              -38.9596865
+            ],
+            [
+              -68.0855686,
+              -38.9595972
+            ],
+            [
+              -68.0859182,
+              -38.9595955
+            ],
+            [
+              -68.0859189,
+              -38.9596793
+            ],
+            [
+              -68.0861476,
+              -38.9596782
+            ],
+            [
+              -68.0861469,
+              -38.9595947
+            ],
+            [
+              -68.0862806,
+              -38.959594
+            ],
+            [
+              -68.0863046,
+              -38.9596135
+            ],
+            [
+              -68.0863273,
+              -38.9596319
+            ]
+          ]
+        ]
+      },
+      "id": "way/1090826133"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1119022756",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "2794",
+        "addr:postcode": "1437",
+        "addr:street": "Laguna",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "FM Soldati - El Hormiguero",
+        "studio": "radio",
+        "website": "https://www.fmsoldati.com"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.4535529,
+              -34.6604387
+            ],
+            [
+              -58.4535207,
+              -34.6604172
+            ],
+            [
+              -58.4535274,
+              -34.6603593
+            ],
+            [
+              -58.4535844,
+              -34.6603179
+            ],
+            [
+              -58.4536427,
+              -34.6603676
+            ],
+            [
+              -58.4535529,
+              -34.6604387
+            ]
+          ]
+        ]
+      },
+      "id": "way/1119022756"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1193894876",
+        "amenity": "studio",
+        "building": "yes",
+        "building:levels": "2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5652647,
+              -34.6685765
+            ],
+            [
+              -58.5651943,
+              -34.6685137
+            ],
+            [
+              -58.5652495,
+              -34.668473
+            ],
+            [
+              -58.5652404,
+              -34.6684644
+            ],
+            [
+              -58.5652345,
+              -34.6684591
+            ],
+            [
+              -58.5652636,
+              -34.668438
+            ],
+            [
+              -58.5653502,
+              -34.6685153
+            ],
+            [
+              -58.5652647,
+              -34.6685765
+            ]
+          ]
+        ]
+      },
+      "id": "way/1193894876"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1202581289",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.0611547,
+              -33.1245144
+            ],
+            [
+              -66.0611691,
+              -33.1245869
+            ],
+            [
+              -66.0610822,
+              -33.124599
+            ],
+            [
+              -66.0610679,
+              -33.1245265
+            ],
+            [
+              -66.0611547,
+              -33.1245144
+            ]
+          ]
+        ]
+      },
+      "id": "way/1202581289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1226355017",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "561",
+        "addr:postcode": "C1180AAT",
+        "addr:street": "Francisco Acuña de Figueroa",
+        "amenity": "studio",
+        "building": "commercial",
+        "building:levels": "2",
+        "name": "UNIFE",
+        "phone": "+54 1152759502",
+        "roof:shape": "flat",
+        "studio": "television",
+        "website": "https://www.unifetv.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.422003,
+              -34.6040072
+            ],
+            [
+              -58.4226167,
+              -34.6039253
+            ],
+            [
+              -58.4226419,
+              -34.6041277
+            ],
+            [
+              -58.422029,
+              -34.6042144
+            ],
+            [
+              -58.422003,
+              -34.6040072
+            ]
+          ]
+        ]
+      },
+      "id": "way/1226355017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1232611600",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "BBT Canal 4",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.9888588,
+              -34.3336141
+            ],
+            [
+              -58.98918,
+              -34.3335486
+            ],
+            [
+              -58.9892003,
+              -34.3336275
+            ],
+            [
+              -58.9892796,
+              -34.3336158
+            ],
+            [
+              -58.9893365,
+              -34.3337903
+            ],
+            [
+              -58.9889097,
+              -34.3338642
+            ],
+            [
+              -58.9888588,
+              -34.3336141
+            ]
+          ]
+        ]
+      },
+      "id": "way/1232611600"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1280237836",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Canal 5 Maipú",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.8886807,
+              -36.8683756
+            ],
+            [
+              -57.8892699,
+              -36.8679693
+            ],
+            [
+              -57.8894097,
+              -36.8680741
+            ],
+            [
+              -57.8888346,
+              -36.8685045
+            ],
+            [
+              -57.8886807,
+              -36.8683756
+            ]
+          ]
+        ]
+      },
+      "id": "way/1280237836"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1289026986",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.7964131,
+              -37.9422304
+            ],
+            [
+              -57.7969937,
+              -37.9425717
+            ],
+            [
+              -57.7976283,
+              -37.9429432
+            ],
+            [
+              -57.7963914,
+              -37.943878
+            ],
+            [
+              -57.7952471,
+              -37.9429716
+            ],
+            [
+              -57.7951646,
+              -37.9429066
+            ],
+            [
+              -57.795129,
+              -37.9428785
+            ],
+            [
+              -57.7956007,
+              -37.9425367
+            ],
+            [
+              -57.7960643,
+              -37.9424167
+            ],
+            [
+              -57.7964131,
+              -37.9422304
+            ]
+          ]
+        ]
+      },
+      "id": "way/1289026986"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1289026987",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.792569,
+              -37.9415032
+            ],
+            [
+              -57.7927846,
+              -37.9416914
+            ],
+            [
+              -57.7925706,
+              -37.9418662
+            ],
+            [
+              -57.7928462,
+              -37.9420865
+            ],
+            [
+              -57.7929018,
+              -37.9420469
+            ],
+            [
+              -57.7929276,
+              -37.9422978
+            ],
+            [
+              -57.7930376,
+              -37.9423571
+            ],
+            [
+              -57.7933469,
+              -37.9422892
+            ],
+            [
+              -57.7933701,
+              -37.9423948
+            ],
+            [
+              -57.7930619,
+              -37.9424979
+            ],
+            [
+              -57.7923941,
+              -37.9425145
+            ],
+            [
+              -57.7911659,
+              -37.9430025
+            ],
+            [
+              -57.7900263,
+              -37.9420416
+            ],
+            [
+              -57.7902166,
+              -37.9420119
+            ],
+            [
+              -57.7910731,
+              -37.9418781
+            ],
+            [
+              -57.791933,
+              -37.9418268
+            ],
+            [
+              -57.7920306,
+              -37.9419406
+            ],
+            [
+              -57.7921281,
+              -37.9419471
+            ],
+            [
+              -57.7924513,
+              -37.9418685
+            ],
+            [
+              -57.792569,
+              -37.9415032
+            ]
+          ]
+        ]
+      },
+      "id": "way/1289026987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1322949400",
+        "addr:city": "Cipolletti",
+        "addr:housenumber": "3000",
+        "addr:postcode": "R8324",
+        "addr:street": "Saturnino Franco",
+        "amenity": "studio",
+        "building": "yes",
+        "height": "3",
+        "name": "FM San Sebastián 99.7",
+        "studio": "radio",
+        "website": "http://www.fmsansebastian.com.ar/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.9595114,
+              -38.9220988
+            ],
+            [
+              -67.9595121,
+              -38.9219741
+            ],
+            [
+              -67.9595126,
+              -38.9218897
+            ],
+            [
+              -67.9596071,
+              -38.92189
+            ],
+            [
+              -67.9596067,
+              -38.9219742
+            ],
+            [
+              -67.9596777,
+              -38.9219745
+            ],
+            [
+              -67.9596771,
+              -38.9220986
+            ],
+            [
+              -67.9597619,
+              -38.9220989
+            ],
+            [
+              -67.9597612,
+              -38.9222167
+            ],
+            [
+              -67.9596767,
+              -38.9222165
+            ],
+            [
+              -67.9596071,
+              -38.9222162
+            ],
+            [
+              -67.9595107,
+              -38.9222159
+            ],
+            [
+              -67.9595114,
+              -38.9220988
+            ]
+          ]
+        ]
+      },
+      "id": "way/1322949400"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1357531160",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Megacable",
+        "office": "company",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -65.4636376,
+              -33.6813735
+            ],
+            [
+              -65.4637072,
+              -33.681419
+            ],
+            [
+              -65.4637264,
+              -33.6814782
+            ],
+            [
+              -65.4634925,
+              -33.6815257
+            ],
+            [
+              -65.4633354,
+              -33.6815576
+            ],
+            [
+              -65.4633053,
+              -33.6814439
+            ],
+            [
+              -65.4636376,
+              -33.6813735
+            ]
+          ]
+        ]
+      },
+      "id": "way/1357531160"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1385813096",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "Supercanal",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -65.4651099,
+              -33.677848
+            ],
+            [
+              -65.4650272,
+              -33.677565
+            ],
+            [
+              -65.4655639,
+              -33.6774555
+            ],
+            [
+              -65.4656166,
+              -33.6776344
+            ],
+            [
+              -65.4654474,
+              -33.6776689
+            ],
+            [
+              -65.4654781,
+              -33.6777729
+            ],
+            [
+              -65.4651099,
+              -33.677848
+            ]
+          ]
+        ]
+      },
+      "id": "way/1385813096"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004576",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5241848,
+              -34.4947725
+            ],
+            [
+              -58.5237204,
+              -34.4945532
+            ],
+            [
+              -58.5239528,
+              -34.494219
+            ],
+            [
+              -58.5244172,
+              -34.4944384
+            ],
+            [
+              -58.5241848,
+              -34.4947725
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004576"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004577",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5247363,
+              -34.4945042
+            ],
+            [
+              -58.5249444,
+              -34.494602
+            ],
+            [
+              -58.524656,
+              -34.4950188
+            ],
+            [
+              -58.5243546,
+              -34.4948771
+            ],
+            [
+              -58.5246181,
+              -34.4944963
+            ],
+            [
+              -58.5247114,
+              -34.4945401
+            ],
+            [
+              -58.5247363,
+              -34.4945042
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004577"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004579",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5246736,
+              -34.4936358
+            ],
+            [
+              -58.5250127,
+              -34.4937952
+            ],
+            [
+              -58.524856,
+              -34.4940216
+            ],
+            [
+              -58.5249242,
+              -34.4940536
+            ],
+            [
+              -58.5247951,
+              -34.4942401
+            ],
+            [
+              -58.5243879,
+              -34.4940487
+            ],
+            [
+              -58.5246736,
+              -34.4936358
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004579"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004580",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5245253,
+              -34.4937648
+            ],
+            [
+              -58.5243598,
+              -34.4940116
+            ],
+            [
+              -58.5242399,
+              -34.493957
+            ],
+            [
+              -58.5244054,
+              -34.4937102
+            ],
+            [
+              -58.5245253,
+              -34.4937648
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004580"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004581",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5241693,
+              -34.4939443
+            ],
+            [
+              -58.5238074,
+              -34.4937726
+            ],
+            [
+              -58.5240944,
+              -34.4933615
+            ],
+            [
+              -58.524458,
+              -34.493534
+            ],
+            [
+              -58.5242413,
+              -34.4938443
+            ],
+            [
+              -58.5240532,
+              -34.4937551
+            ],
+            [
+              -58.5240251,
+              -34.4937953
+            ],
+            [
+              -58.5242116,
+              -34.4938837
+            ],
+            [
+              -58.5241693,
+              -34.4939443
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004581"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004582",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5253186,
+              -34.4930024
+            ],
+            [
+              -58.5250707,
+              -34.4933648
+            ],
+            [
+              -58.5250374,
+              -34.4933493
+            ],
+            [
+              -58.5249628,
+              -34.4934583
+            ],
+            [
+              -58.5247197,
+              -34.4933452
+            ],
+            [
+              -58.5247408,
+              -34.4933144
+            ],
+            [
+              -58.5243778,
+              -34.4931455
+            ],
+            [
+              -58.524675,
+              -34.4927115
+            ],
+            [
+              -58.5249599,
+              -34.492844
+            ],
+            [
+              -58.5247363,
+              -34.4931704
+            ],
+            [
+              -58.5247905,
+              -34.4931956
+            ],
+            [
+              -58.5250183,
+              -34.4928628
+            ],
+            [
+              -58.5253186,
+              -34.4930024
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004582"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004586",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5265089,
+              -34.4921462
+            ],
+            [
+              -58.5258874,
+              -34.4918421
+            ],
+            [
+              -58.5261213,
+              -34.4915176
+            ],
+            [
+              -58.5267427,
+              -34.4918218
+            ],
+            [
+              -58.5265089,
+              -34.4921462
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004586"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1396004587",
+        "amenity": "studio",
+        "building": "yes",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -58.5257463,
+              -34.4919071
+            ],
+            [
+              -58.5263412,
+              -34.4922061
+            ],
+            [
+              -58.5264114,
+              -34.4921112
+            ],
+            [
+              -58.5265512,
+              -34.4921815
+            ],
+            [
+              -58.526384,
+              -34.4924073
+            ],
+            [
+              -58.5261514,
+              -34.4922904
+            ],
+            [
+              -58.5260321,
+              -34.4924516
+            ],
+            [
+              -58.5255301,
+              -34.4921993
+            ],
+            [
+              -58.5257463,
+              -34.4919071
+            ]
+          ]
+        ]
+      },
+      "id": "way/1396004587"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1409761481",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "UNICA"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -65.4565414,
+              -33.6789551
+            ],
+            [
+              -65.4564724,
+              -33.67897
+            ],
+            [
+              -65.4564091,
+              -33.6789448
+            ],
+            [
+              -65.456347,
+              -33.6787378
+            ],
+            [
+              -65.4564644,
+              -33.6787079
+            ],
+            [
+              -65.4565414,
+              -33.6789551
+            ]
+          ]
+        ]
+      },
+      "id": "way/1409761481"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1499484236",
+        "amenity": "studio"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -52.1413204,
+              -32.0477168
+            ],
+            [
+              -52.1418694,
+              -32.0479431
+            ],
+            [
+              -52.1417567,
+              -32.0481397
+            ],
+            [
+              -52.1412076,
+              -32.0479135
+            ],
+            [
+              -52.1413204,
+              -32.0477168
+            ]
+          ]
+        ]
+      },
+      "id": "way/1499484236"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/833400386",
+        "amenity": "studio",
+        "name": "Radio Del Carmen",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9856268,
+          -40.7900342
+        ]
+      },
+      "id": "node/833400386"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1104917241",
+        "amenity": "studio",
+        "name": "FM 94.5",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.0772394,
+          -35.1689908
+        ]
+      },
+      "id": "node/1104917241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1469313720",
+        "addr:city": "Miramar",
+        "addr:housenumber": "1461",
+        "addr:postcode": "7607",
+        "addr:street": "Avenida 26",
+        "amenity": "studio",
+        "name": "Radio Marina Miramar 100.5",
+        "studio": "audio",
+        "website": "http://www.marinaonline.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.8420799,
+          -38.2721396
+        ]
+      },
+      "id": "node/1469313720"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1691279582",
+        "addr:city": "Coronel Martínez de Hoz",
+        "addr:postcode": "6533",
+        "addr:street": "San Martín",
+        "amenity": "studio",
+        "name": "FM Pueblo",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.6134686,
+          -35.330453
+        ]
+      },
+      "id": "node/1691279582"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1691279605",
+        "amenity": "studio",
+        "name": "Hot Radio FM (105.7 Mhz)",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.6139281,
+          -35.327347
+        ]
+      },
+      "id": "node/1691279605"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1691279643",
+        "addr:city": "Coronel Martínez de Hoz",
+        "addr:postcode": "6533",
+        "addr:street": "Independencia",
+        "amenity": "studio",
+        "name": "FM Impacto",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.616478,
+          -35.3315996
+        ]
+      },
+      "id": "node/1691279643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1854428081",
+        "addr:city": "Neuquén",
+        "addr:housenumber": "609",
+        "addr:postcode": "Q8300",
+        "addr:street": "Bernardino Rivadavia",
+        "amenity": "studio",
+        "name": "AM Cumbre",
+        "studio": "radio",
+        "website": "https://www.amcumbre.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.0505771,
+          -38.9541214
+        ]
+      },
+      "id": "node/1854428081"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2140980412",
+        "amenity": "studio",
+        "name": "FM Passión 99.7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.8304522,
+          -38.9773662
+        ]
+      },
+      "id": "node/2140980412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2365196093",
+        "amenity": "studio",
+        "man_made": "antenna",
+        "name": "Canal Once",
+        "operator": "Grupo Monte Carlo",
+        "phone": "+598 4222 4788",
+        "short_name": "Canal 11",
+        "studio": "television",
+        "website": "https://canal11.uy",
+        "wikidata": "Q104416698",
+        "wikipedia": "es:Canal Once (Maldonado)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9466213,
+          -34.9235224
+        ]
+      },
+      "id": "node/2365196093"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2365229895",
+        "amenity": "studio",
+        "name": "Canal 7",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9634947,
+          -34.9075931
+        ]
+      },
+      "id": "node/2365229895"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2367656492",
+        "amenity": "studio",
+        "name": "Punta Cable",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9352677,
+          -34.9439698
+        ]
+      },
+      "id": "node/2367656492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2390213853",
+        "amenity": "studio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.6744587,
+          -36.7248098
+        ]
+      },
+      "id": "node/2390213853"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2391029870",
+        "amenity": "studio",
+        "name": "Carolino Cable Satelital",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9104533,
+          -34.7928459
+        ]
+      },
+      "id": "node/2391029870"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2393275668",
+        "amenity": "studio",
+        "name": "Fm Gente",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9600628,
+          -34.9037767
+        ]
+      },
+      "id": "node/2393275668"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2408394118",
+        "addr:city": "Cervantes",
+        "addr:housenumber": "14",
+        "addr:postcode": "8326",
+        "addr:street": "9 de Julio",
+        "amenity": "studio",
+        "email": "radiolabarcaza@hotmail.com.ar",
+        "email_1": "radiolabarcaza@yahoo.com.ar",
+        "name": "Radio La Barcaza",
+        "website": "https://radiolabarcaza.com.ar/w/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.3888553,
+          -39.051759
+        ]
+      },
+      "id": "node/2408394118"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2436935460",
+        "amenity": "studio",
+        "name": "Estudios Cadena del Mar",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.95778,
+          -34.9080898
+        ]
+      },
+      "id": "node/2436935460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2488282906",
+        "amenity": "studio",
+        "name": "FM 97.7 Continental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.8362117,
+          -38.978217
+        ]
+      },
+      "id": "node/2488282906"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2682740484",
+        "amenity": "studio",
+        "name": "Radio Universidad Nacional de Luján",
+        "studio": "radio",
+        "website": "https://www.prensa.unlu.edu.ar/?q=node/15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0872823,
+          -34.577987
+        ]
+      },
+      "id": "node/2682740484"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2777058354",
+        "addr:city": "Las Perdices",
+        "addr:housenumber": "341",
+        "addr:postcode": "5921",
+        "addr:street": "San Jerónimo",
+        "amenity": "studio",
+        "description": "Señal Distintiva LRN841 Canal 271 Res. Comfer 1073/2009",
+        "name": "Radio X102 | FM 102.1Mhz.",
+        "phone": "0353-4941729",
+        "website": "https://www.radiox1021.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.7061511,
+          -32.7011579
+        ]
+      },
+      "id": "node/2777058354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2790406106",
+        "amenity": "studio",
+        "check_date": "2023-05-19",
+        "name": "RBC del Este",
+        "website": "https://radiorbc.com/RBC2012/index.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.2657857,
+          -34.8721206
+        ]
+      },
+      "id": "node/2790406106"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2819408127",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "420,422",
+        "addr:street": "Sarandí",
+        "amenity": "studio",
+        "mvdgis:padron": "4058",
+        "name": "Radio Uruguay 1050 AM",
+        "operator": "SODRE",
+        "ref": "CX 26 SODRE",
+        "studio": "radio",
+        "website": "http://www.radiouruguay.com.uy/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.2063772,
+          -34.9080894
+        ]
+      },
+      "id": "node/2819408127"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2925396938",
+        "amenity": "studio",
+        "contact:website": "http://elfarofm.com/",
+        "name": "FM El Faro",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8369549,
+          -32.931073
+        ]
+      },
+      "id": "node/2925396938"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3070484254",
+        "addr:city": "Quilmes Oeste",
+        "addr:postcode": "1879",
+        "addr:street": "Urrestarazu",
+        "amenity": "studio",
+        "name": "Radio Vox 102.9Mhz",
+        "phone": "+54 11 4200-6511",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2875829,
+          -34.7494658
+        ]
+      },
+      "id": "node/3070484254"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3129438995",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "873",
+        "addr:street": "Lambaré",
+        "amenity": "studio",
+        "description": "Comunicación comunitaria, alternativa, social. /FM 88.7 La Tribu / Centro de capacitación y producción /Audiovisual / Digital / Ediciones / Bar – Territorio / Cultura Libre /",
+        "name": "Colectivo La Tribu. FM 88.7",
+        "phone": "+54 11 4866-1095; +54 11 4864-0489",
+        "studio": "audio",
+        "website": "https://fmlatribu.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4303291,
+          -34.6045158
+        ]
+      },
+      "id": "node/3129438995"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3178912001",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1981",
+        "addr:street": "Emilio Francou",
+        "amenity": "studio",
+        "name": "Open Radio 97.5",
+        "studio": "audio",
+        "website": "http://www.open975.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4049214,
+          -32.1579153
+        ]
+      },
+      "id": "node/3178912001"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3178912002",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1624",
+        "addr:street": "Tratado del Pilar",
+        "amenity": "studio",
+        "name": "Radio Acuario 107.3",
+        "studio": "audio",
+        "website": "http://www.fmacuario1073.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4007514,
+          -32.1596217
+        ]
+      },
+      "id": "node/3178912002"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3178912003",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1571",
+        "addr:street": "Guex",
+        "amenity": "studio",
+        "name": "Radio Centenario 99.3",
+        "studio": "audio",
+        "website": "https://www.villaelisaaldia.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3984768,
+          -32.1588332
+        ]
+      },
+      "id": "node/3178912003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3178912004",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1794",
+        "addr:street": "Guex",
+        "amenity": "studio",
+        "name": "Radio Orbita 104.9",
+        "studio": "audio",
+        "website": "https://www.orbitafm.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4001796,
+          -32.1568281
+        ]
+      },
+      "id": "node/3178912004"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3178912011",
+        "addr:city": "Villa Elisa",
+        "addr:country": "AR",
+        "addr:housenumber": "1764",
+        "addr:street": "El Fresno",
+        "amenity": "studio",
+        "name": "90.7 La Radio de Pototo",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4079206,
+          -32.1639682
+        ]
+      },
+      "id": "node/3178912011"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3356706305",
+        "amenity": "studio",
+        "name": "FORTY FM 106.9",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8842656,
+          -35.4400529
+        ]
+      },
+      "id": "node/3356706305"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3417311441",
+        "amenity": "studio",
+        "name": "FM 96.9 de la Ventana - Un Vagón de Sueños",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.7997954,
+          -38.1283963
+        ]
+      },
+      "id": "node/3417311441"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3567245805",
+        "amenity": "studio",
+        "name": "Radio Latina FM 99.7",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7893229,
+          -34.651955
+        ]
+      },
+      "id": "node/3567245805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3647758209",
+        "amenity": "studio",
+        "name": "Nuevo Mundo",
+        "studio": "audio;video"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.1492272,
+          -32.8611122
+        ]
+      },
+      "id": "node/3647758209"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3647758216",
+        "amenity": "studio",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.1558542,
+          -32.8617714
+        ]
+      },
+      "id": "node/3647758216"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3742100647",
+        "amenity": "studio",
+        "name": "Canal Luz HD",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6581438,
+          -32.9660038
+        ]
+      },
+      "id": "node/3742100647"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3755892654",
+        "amenity": "studio",
+        "name": "Canal 13",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.2379121,
+          -34.3771821
+        ]
+      },
+      "id": "node/3755892654"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3755892655",
+        "amenity": "studio",
+        "name": "Emisora del Este",
+        "ref": "CW54",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.2378837,
+          -34.3771559
+        ]
+      },
+      "id": "node/3755892655"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3755892657",
+        "amenity": "studio",
+        "name": "Radio Lavalleja",
+        "ref": "CW43",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.2361455,
+          -34.3777523
+        ]
+      },
+      "id": "node/3755892657"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3774755337",
+        "addr:street": "San Martín",
+        "amenity": "studio",
+        "name": "Radio y Television FRD",
+        "note": "Estudio de Radio FM y Canal de Television local, dependientes de FRD.",
+        "studio": "video",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.9623808,
+          -34.1785687
+        ]
+      },
+      "id": "node/3774755337"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3860994968",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "1460",
+        "addr:street": "Doctor Javier Barrios Amorín",
+        "amenity": "studio",
+        "name": "tevé Ciudad",
+        "operator": "Intendencia de Montevideo",
+        "phone": "+598 2400 1908; +598 2402 9161; +598 2402 9369; +598 2403 0678",
+        "studio": "television",
+        "website": "www.teveciudad.uy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1854299,
+          -34.9032683
+        ]
+      },
+      "id": "node/3860994968"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3916879419",
+        "amenity": "studio",
+        "name": "Radio FM Estudiantil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.4661399,
+          -32.0750402
+        ]
+      },
+      "id": "node/3916879419"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4108856017",
+        "addr:city": "Rosario",
+        "addr:country": "AR",
+        "addr:housenumber": "840",
+        "addr:postcode": "2000",
+        "addr:state": "Santa Fe",
+        "addr:street": "Balcarce",
+        "amenity": "studio",
+        "description": "Rosario Solidaria. Centro de recepción.",
+        "name": "Radio LT3",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6521487,
+          -32.944472
+        ]
+      },
+      "id": "node/4108856017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4126785903",
+        "addr:housenumber": "1169",
+        "addr:street": "San José",
+        "amenity": "studio",
+        "contact:phone": "+54 341 493-2839",
+        "description": "Frecuencia FM 94.7",
+        "frequency": "94.7",
+        "name": "Radio Uno Funes",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8054534,
+          -32.9215085
+        ]
+      },
+      "id": "node/4126785903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4220759683",
+        "addr:city": "Olavarría",
+        "addr:housenumber": "3377",
+        "addr:postcode": "7400",
+        "addr:street": "Alsina",
+        "amenity": "studio",
+        "description": "AM 1160 y FM Cristal 98.7. La banda AM tiene un amplio radio de alcance por lo que cumple el rol de emisora de referencia en casos de catástrofe.",
+        "name": "LU 32 Radio Coronel Olavarría- AM y FM",
+        "phone": "02284 41-0911",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.3194402,
+          -36.8886438
+        ]
+      },
+      "id": "node/4220759683"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4317726408",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "1561",
+        "addr:street": "Avenida Sayago",
+        "amenity": "studio",
+        "name": "Radioactiva 102.5 FM",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.2042621,
+          -34.8260949
+        ]
+      },
+      "id": "node/4317726408"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4319030940",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "3551",
+        "addr:street": "Olleros",
+        "amenity": "studio",
+        "contact:website": "http://www.c5n.com/",
+        "name": "C5N",
+        "owner": "Grupo Indalo",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4507049,
+          -34.5813938
+        ]
+      },
+      "id": "node/4319030940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4319030942",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "1899",
+        "addr:street": "Uriarte",
+        "addr:suburb": "Palermo",
+        "amenity": "studio",
+        "contact:website": "http://radio10.com.ar/",
+        "name": "Radio 10",
+        "owner": "Grupo Indalo",
+        "studio": "radio",
+        "wikipedia": "es:Radio 10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4288607,
+          -34.5854697
+        ]
+      },
+      "id": "node/4319030942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4372615758",
+        "addr:city": "Merlo",
+        "addr:housenumber": "25214",
+        "addr:postcode": "1722",
+        "addr:street": "Avenida Presidente Juan Domingo Perón",
+        "amenity": "studio",
+        "name": "Televisora Privada del Oeste",
+        "office": "telecommunication",
+        "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-13:00",
+        "studio": "television",
+        "website": "http://www.tposa.com.ar/index.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7228075,
+          -34.6655942
+        ]
+      },
+      "id": "node/4372615758"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4452414457",
+        "addr:city": "La Plata",
+        "addr:country": "AR",
+        "addr:housenumber": "533",
+        "addr:postcode": "1900",
+        "addr:state": "Buenos Aires",
+        "addr:street": "Calle 3",
+        "amenity": "studio",
+        "description": "Departamento 3",
+        "name": "Euterpe Estudio",
+        "studio": "recording"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.9530501,
+          -34.9057709
+        ]
+      },
+      "id": "node/4452414457"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4534554527",
+        "addr:street": "Avenida Sayago",
+        "amenity": "studio",
+        "name": "Amanecer Tropical",
+        "source": "Reconocimiento cartogáfico de campo 2016 por KG",
+        "source_1": "Reconocimiento cartogáfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.214878,
+          -34.8321619
+        ]
+      },
+      "id": "node/4534554527"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4547224720",
+        "amenity": "studio",
+        "name": "Estudio Acosta",
+        "source_1": "Reconocimiento cartogáfico de campo 2016 por KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.2156327,
+          -34.7278233
+        ]
+      },
+      "id": "node/4547224720"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4549999681",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "67",
+        "addr:street": "Fraga",
+        "amenity": "studio",
+        "name": "Mandarina Productora",
+        "studio": "video"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4469117,
+          -34.5870175
+        ]
+      },
+      "id": "node/4549999681"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4551107333",
+        "amenity": "studio",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1703386,
+          -34.8638535
+        ]
+      },
+      "id": "node/4551107333"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4565437698",
+        "amenity": "studio",
+        "name": "Metro 95.1",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4516846,
+          -34.5758706
+        ]
+      },
+      "id": "node/4565437698"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4565437710",
+        "amenity": "studio",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4520279,
+          -34.5765
+        ]
+      },
+      "id": "node/4565437710"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4565516144",
+        "amenity": "studio",
+        "name": "Studio Inmobiliario",
+        "source": "Reconocimiento cartográfico de campo 2016 por KG."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3980288,
+          -34.6296024
+        ]
+      },
+      "id": "node/4565516144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4632819838",
+        "amenity": "studio",
+        "name": "Oscar Studio",
+        "source": "Reconocimiento terrestre por Kaart 2016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4932406,
+          -34.5712236
+        ]
+      },
+      "id": "node/4632819838"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4699671235",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:street": "Avenida Rivadavia",
+        "amenity": "studio",
+        "name": "AM 1070 Radio El Mundo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3782045,
+          -34.6081354
+        ]
+      },
+      "id": "node/4699671235"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4710661084",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:street": "Avenida Belgrano",
+        "amenity": "studio",
+        "name": "Papafrancisco",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3898512,
+          -34.613553
+        ]
+      },
+      "id": "node/4710661084"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4710799619",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:street": "Avenida Belgrano",
+        "amenity": "studio",
+        "name": "Homero Manzi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4162555,
+          -34.615767
+        ]
+      },
+      "id": "node/4710799619"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4827990044",
+        "amenity": "studio",
+        "description": "Estudios y planta transmisora de SOL FM y Canal 8 Rufino",
+        "email": "rufinociudad@gmail.com",
+        "name": "SOL FM Rufino Canal 8 TV",
+        "studio": "television_and_radio",
+        "website": "https://www.canal8rufino.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.7047983,
+          -34.2531824
+        ]
+      },
+      "id": "node/4827990044"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4870486762",
+        "amenity": "studio",
+        "name": "FM Santa Maria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.9595024,
+          -34.1643478
+        ]
+      },
+      "id": "node/4870486762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4946559954",
+        "addr:city": "Villa María",
+        "addr:housenumber": "756",
+        "addr:postcode": "5900",
+        "addr:street": "Mendoza",
+        "amenity": "studio",
+        "description": "Estudio de grabación de Audio y Post-producción de Sonido para AV.\n",
+        "name": "La Pua",
+        "phone": "0353 15-424-4408",
+        "studio": "sound",
+        "website": "BLOG: http://lapuaestudio.blogspot.com.ar;FB: https://www.facebook.com/pg/lapuaestudio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2441349,
+          -32.4161731
+        ]
+      },
+      "id": "node/4946559954"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4985030555",
+        "addr:housenumber": "1873",
+        "addr:street": "Gustavo Cochet",
+        "amenity": "studio",
+        "contact:facebook": "RadioUnoFunes947",
+        "contact:phone": "+54 341 231-0947",
+        "contact:website": "http://radiounofunes.com.ar/",
+        "name": "Radio Uno Funes 94.7 FM",
+        "opening_hours": "Mo-Sa 09:00-17:00",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8053319,
+          -32.9200173
+        ]
+      },
+      "id": "node/4985030555"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5031218488",
+        "addr:housenumber": "1541",
+        "addr:street": "229 - Galileo",
+        "amenity": "studio",
+        "name": "Pares TV",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.1413819,
+          -34.5592929
+        ]
+      },
+      "id": "node/5031218488"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5133463661",
+        "addr:housenumber": "1758",
+        "addr:street": "Avenida Santa Fe",
+        "amenity": "studio",
+        "description": "Oficina 4",
+        "level": "2",
+        "name": "Estación Online",
+        "opening_hours": "Mo-Fr 09:00-13:00 , 16:00-20:00; Sa 09:00-13:00 , 16:00-21:00",
+        "ref": "4",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8120868,
+          -32.9178026
+        ]
+      },
+      "id": "node/5133463661"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5165581020",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "2261",
+        "addr:street": "Avenida Cabildo",
+        "addr:suburb": "Belgrano",
+        "amenity": "studio",
+        "description": "Productora FX",
+        "name": "Monster Vision FX"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4577673,
+          -34.560483
+        ]
+      },
+      "id": "node/5165581020"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5205048464",
+        "addr:housenumber": "3293",
+        "addr:postcode": "B1715CBC",
+        "addr:street": "La Pialada",
+        "amenity": "studio",
+        "name": "Del Cielito Records",
+        "phone": "+54 11 4621-4222",
+        "start_date": "1985",
+        "studio": "audio",
+        "wikipedia": "es:Del Cielito Records"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6975801,
+          -34.6262723
+        ]
+      },
+      "id": "node/5205048464"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5286077227",
+        "addr:city": "Catriló",
+        "addr:housenumber": "293",
+        "addr:postcode": "6330",
+        "addr:street": "Avelleneda",
+        "amenity": "studio",
+        "description": "Radio FM fundada en 1991",
+        "name": "Radio Fusión",
+        "phone": "+54 295 4517595",
+        "studio": "radio",
+        "website": "www.radiofusiobcatrilo.blogspot.com.ar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.4237101,
+          -36.4075826
+        ]
+      },
+      "id": "node/5286077227"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5410988233",
+        "addr:city": "Coronel Pringles",
+        "addr:housenumber": "420",
+        "addr:postcode": "7530",
+        "addr:street": "Alvear",
+        "amenity": "studio",
+        "name": "FM de Paut",
+        "studio": "radio",
+        "website": "http://www.fmdepaut.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.3563243,
+          -37.9905651
+        ]
+      },
+      "id": "node/5410988233"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5431971260",
+        "addr:city": "Fortín El Patria",
+        "addr:postcode": "6279",
+        "addr:street": "Avenida Thomás Dixón",
+        "amenity": "studio",
+        "contact:facebook": "https://www.facebook.com/FM-La-Red-1079-Mhz-1568226953409587/",
+        "name": "FM La Red 107.9 Mhz",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.5226791,
+          -34.7713013
+        ]
+      },
+      "id": "node/5431971260"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5626809982",
+        "addr:city": "Ingeniero Luiggi",
+        "addr:postcode": "6205",
+        "addr:street": "Bartolomé Mitre",
+        "amenity": "studio",
+        "contact:facebook": "https://www.facebook.com/FM-CRISTAL-895-INGENIERO-LUIGGI-153496584750219/",
+        "name": "FM Cristal 89.5",
+        "phone": "+54 2335 471072",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.4662187,
+          -35.3900459
+        ]
+      },
+      "id": "node/5626809982"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5737225190",
+        "addr:city": "Claromecó",
+        "addr:housenumber": "791",
+        "addr:postcode": "7505",
+        "addr:street": "40",
+        "amenity": "studio",
+        "name": "Radio Comunidad Claromecó FM 97.9 mhz",
+        "phone": "+54 2982 495979",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.0633344,
+          -38.8586257
+        ]
+      },
+      "id": "node/5737225190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5760480592",
+        "addr:city": "Carlos Tejedor",
+        "addr:housenumber": "120",
+        "addr:postcode": "6455",
+        "addr:street": "Rivadavia",
+        "amenity": "studio",
+        "contact:facebook": "https://www.facebook.com/Fm-del-Sol-1023-Carlos-Tejedor-1422371691381841/",
+        "name": "Fm del Sol 102.3 Carlos Tejedor",
+        "phone": "+54 (2357) 42-1062",
+        "studio": "radio",
+        "website": "https://www.tejedordigital.com.ar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.416405,
+          -35.3913865
+        ]
+      },
+      "id": "node/5760480592"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5837110654",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "194",
+        "addr:street": "Avenida Callao",
+        "amenity": "studio",
+        "contact:email": "direccion@radiozonica.com.ar",
+        "contact:phone": "+54 11 4371-4740",
+        "name": "Radio Zonica",
+        "short_name": "La RZ",
+        "studio": "radio",
+        "website": "https://www.larz.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3923111,
+          -34.6070375
+        ]
+      },
+      "id": "node/5837110654"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5967164366",
+        "addr:housenumber": "2119",
+        "addr:street": "1000 - Avenida Constitución",
+        "amenity": "studio",
+        "name": "Radio Génesis",
+        "studio": "radio",
+        "website": "https://www.genesislujan.com.ar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0923503,
+          -34.5726483
+        ]
+      },
+      "id": "node/5967164366"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6057529116",
+        "addr:city": "Montes de Oca",
+        "addr:postcode": "S2521",
+        "addr:street": "Manuel Montes de Oca",
+        "amenity": "studio",
+        "name": "TV Cable Color",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.7668497,
+          -32.5628877
+        ]
+      },
+      "id": "node/6057529116"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6112207266",
+        "amenity": "studio",
+        "name": "FM del Sol",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.0050738,
+          -40.8118537
+        ]
+      },
+      "id": "node/6112207266"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6112208109",
+        "addr:city": "Viedma",
+        "addr:housenumber": "326",
+        "addr:postcode": "8500",
+        "addr:street": "Saavedra",
+        "amenity": "studio",
+        "layer": "1",
+        "name": "Radio La Puntual",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9912935,
+          -40.8088628
+        ]
+      },
+      "id": "node/6112208109"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6112208449",
+        "amenity": "studio",
+        "name": "FM El Rayo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9881669,
+          -40.8072071
+        ]
+      },
+      "id": "node/6112208449"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6129604711",
+        "amenity": "studio",
+        "name": "FM Pehuenche",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.6994598,
+          -34.9759224
+        ]
+      },
+      "id": "node/6129604711"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6184867153",
+        "amenity": "studio",
+        "name": "FM Tiempo",
+        "phone": "+54 2475 465988",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7337594,
+          -34.1986188
+        ]
+      },
+      "id": "node/6184867153"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6268990322",
+        "addr:housename": "Moreno Shopping Center",
+        "addr:housenumber": "151",
+        "addr:street": "Pedro Martínez Melo",
+        "amenity": "studio",
+        "indoor": "yes",
+        "level": "1",
+        "name": "Radio Shopping",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7926803,
+          -34.651269
+        ]
+      },
+      "id": "node/6268990322"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6423116050",
+        "amenity": "studio",
+        "name": "Gabriel Carranza Video - Cinematografía"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.7351161,
+          -32.4244603
+        ]
+      },
+      "id": "node/6423116050"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6537253335",
+        "amenity": "studio",
+        "contact:facebook": "https://www.facebook.com/farofm98.1/",
+        "contact:instagram": "https://www.instagram.com/farofm981/",
+        "contact:phone": "092981816",
+        "contact:website": "www.rfarofm.blogspot.com.uy",
+        "description": "Radio comunitaria creada en 2014. Formas de contacto: 092981816 Facebook: Faro FM 981",
+        "name": "Faro FM 98.1",
+        "start_date": "2014",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.8598517,
+          -34.1997819
+        ]
+      },
+      "id": "node/6537253335"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6707589183",
+        "addr:housenumber": "180",
+        "addr:street": "Avenida del Libertador",
+        "amenity": "studio",
+        "name": "Radio FM Aborigen",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.891113,
+          -38.3292567
+        ]
+      },
+      "id": "node/6707589183"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6757830463",
+        "addr:city": "Cipolletti",
+        "addr:housenumber": "365",
+        "addr:postcode": "R8324",
+        "addr:street": "General Roca",
+        "amenity": "studio",
+        "contact:instagram": "https://www.instagram.com/lu19am",
+        "level": "2",
+        "name": "LU19",
+        "operator": "Radio Televisión de Río Negro S.E.",
+        "studio": "radio",
+        "website": "https://lu19.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.9970062,
+          -38.9391663
+        ]
+      },
+      "id": "node/6757830463"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6777270944",
+        "addr:city": "Cipolletti",
+        "addr:housenumber": "113",
+        "addr:postcode": "R8324",
+        "addr:street": "Miguel Muñoz",
+        "amenity": "studio",
+        "contact:instagram": "https://www.instagram.com/radio_cipolletti_fm",
+        "level": "1",
+        "mobile": "+54 9 299 428-8869",
+        "name": "Radio Cipolletti",
+        "studio": "radio",
+        "website": "https://www.radiocipollettifm.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.9950418,
+          -38.9403051
+        ]
+      },
+      "id": "node/6777270944"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6929156305",
+        "addr:city": "Guernica",
+        "addr:housenumber": "229",
+        "addr:postcode": "1862",
+        "addr:street": "Democracia",
+        "amenity": "studio",
+        "name": "Fresh Radio",
+        "studio": "radio",
+        "website": "https://www.elperonense.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3778199,
+          -34.9169854
+        ]
+      },
+      "id": "node/6929156305"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6966401040",
+        "amenity": "studio",
+        "name": "La 105 FM"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.3581159,
+          -35.6243919
+        ]
+      },
+      "id": "node/6966401040"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7058049451",
+        "addr:city": "Tortuguitas",
+        "addr:housenumber": "371",
+        "addr:postcode": "1667",
+        "addr:street": "Guayanas",
+        "amenity": "studio",
+        "name": "LU9DCE",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7557534,
+          -34.4700078
+        ]
+      },
+      "id": "node/7058049451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7157657998",
+        "addr:housenumber": "1163",
+        "addr:street": "Avenida Independencia",
+        "amenity": "studio",
+        "check_date": "2023-07-08",
+        "name": "Canal Diez",
+        "phone": "0223 494-1003",
+        "studio": "television",
+        "website": "https://www.canal10mardelplata.tv/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.5495815,
+          -37.9917582
+        ]
+      },
+      "id": "node/7157657998"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7159366294",
+        "amenity": "studio",
+        "name": "FM Class 91.9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5294578,
+          -34.611025
+        ]
+      },
+      "id": "node/7159366294"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7173119407",
+        "addr:city": "Algarrobo",
+        "addr:housenumber": "153",
+        "addr:postcode": "8136",
+        "addr:street": "Libertad",
+        "amenity": "studio",
+        "contact:phone": "(02927) 491195",
+        "name": "Algarrobo Video Cable",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.1395774,
+          -38.8928739
+        ]
+      },
+      "id": "node/7173119407"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7313768653",
+        "addr:city": "Juan Couste",
+        "addr:housenumber": "692",
+        "addr:postcode": "8136",
+        "addr:street": "Alvear",
+        "amenity": "studio",
+        "name": "FM Algarrobo 90.5",
+        "phone": "02927 491264",
+        "studio": "radio",
+        "website": "algarrobofm.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.138284,
+          -38.893163
+        ]
+      },
+      "id": "node/7313768653"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7317471741",
+        "amenity": "studio",
+        "name": "LR3 CNN Radio AM 950",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6647951,
+          -34.5901273
+        ]
+      },
+      "id": "node/7317471741"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7319947968",
+        "addr:city": "Virrey del Pino",
+        "amenity": "studio",
+        "name": "Planta Transmisora LS4 Radio Continental (AM 590)",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6725826,
+          -34.8843266
+        ]
+      },
+      "id": "node/7319947968"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7323163849",
+        "amenity": "studio",
+        "name": "RC2 Leones",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.3014831,
+          -32.659118
+        ]
+      },
+      "id": "node/7323163849"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7369979935",
+        "addr:city": "Viedma",
+        "addr:housenumber": "526",
+        "addr:postcode": "8500",
+        "addr:street": "Boulevard Ituzaingó",
+        "amenity": "studio",
+        "name": "Radio Uno",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9860229,
+          -40.8188495
+        ]
+      },
+      "id": "node/7369979935"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7390291420",
+        "addr:city": "Viedma",
+        "addr:housenumber": "283",
+        "addr:postcode": "8500",
+        "addr:street": "Álvaro Barros",
+        "amenity": "studio",
+        "name": "Frecuencia VyP - FM 90.1",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9896982,
+          -40.810312
+        ]
+      },
+      "id": "node/7390291420"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7390300329",
+        "addr:city": "Viedma",
+        "addr:housenumber": "40",
+        "addr:postcode": "8500",
+        "addr:street": "Sarmiento",
+        "amenity": "studio",
+        "name": "Radio Noticias - FM 105.5 Mhz",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9901451,
+          -40.8087631
+        ]
+      },
+      "id": "node/7390300329"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7413732735",
+        "addr:city": "San Carlos",
+        "addr:housenumber": "382",
+        "addr:postcode": "B1900",
+        "addr:street": "Calle 152",
+        "amenity": "studio",
+        "name": "382 Studio",
+        "start_date": "2017",
+        "studio": "music"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.0069164,
+          -34.9493853
+        ]
+      },
+      "id": "node/7413732735"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7464810575",
+        "addr:city": "San Antonio Oeste",
+        "addr:housenumber": "1990",
+        "addr:postcode": "8520",
+        "addr:street": "Belgrano",
+        "amenity": "studio",
+        "name": "Radio Municipal",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9601095,
+          -40.7299923
+        ]
+      },
+      "id": "node/7464810575"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7483906424",
+        "addr:city": "Ministro Ramos Mexía",
+        "addr:postcode": "8534",
+        "addr:street": "12 de Octubre",
+        "amenity": "studio",
+        "name": "Radio Nativa",
+        "studio": "radio",
+        "website": "https://lafmnativa.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.2627552,
+          -40.5066069
+        ]
+      },
+      "id": "node/7483906424"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7593176914",
+        "addr:city": "City Bell",
+        "addr:full": "Cantilo entre 13b y 13c, City Bell;antilo (Calle 473) entre 13b y 13c, City Bell - BsAs",
+        "addr:postcode": "1896",
+        "addr:street": "Cantilo",
+        "amenity": "studio",
+        "contact:facebook": "https://www.facebook.com/RadioCantilo/",
+        "contact:instagram": "https://www.instagram.com/radiocantilo/",
+        "contact:mobile": "+54 221 154194952",
+        "email": "contacto@radiocantilo.com",
+        "name": "Radio Cantilo",
+        "phone": "221 4722065;221 154194952;+54 221 4722065",
+        "studio": "radio",
+        "website": "https://www.radiocantilo.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.0442354,
+          -34.8684819
+        ]
+      },
+      "id": "node/7593176914"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7609210249",
+        "addr:city": "La Plata",
+        "addr:postcode": "1900",
+        "addr:street": "Calle 117 esq. 40",
+        "amenity": "studio",
+        "name": "Radio estación Sur",
+        "studio": "radio",
+        "website": "https://radioestacionsur.org/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.9501075,
+          -34.8988416
+        ]
+      },
+      "id": "node/7609210249"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7634038664",
+        "amenity": "studio",
+        "name": "Radio La Imposible",
+        "operator": "Hijos e Hijas por la Identidad y la Justicia Contra el Olvido y el Silencio",
+        "start_date": "2014-08-26",
+        "studio": "radio",
+        "website": "http://www.laimposible.org.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4619677,
+          -34.5384355
+        ]
+      },
+      "id": "node/7634038664"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7705253998",
+        "amenity": "studio",
+        "name": "TV Clube",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -52.0380419,
+          -32.015286
+        ]
+      },
+      "id": "node/7705253998"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7774746299",
+        "amenity": "studio",
+        "level": "4",
+        "name": "Radio Nacional",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2875431,
+          -36.6189633
+        ]
+      },
+      "id": "node/7774746299"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7785704263",
+        "addr:city": "Rosario del Tala",
+        "addr:housenumber": "62",
+        "addr:postcode": "3174",
+        "addr:street": "1 de Mayo",
+        "amenity": "studio",
+        "contact:facebook": "https://www.facebook.com/dimension.laradio/",
+        "phone": "+54 3445 421212",
+        "studio": "radio",
+        "website": "http://www.laradiodimension.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.1401097,
+          -32.3027209
+        ]
+      },
+      "id": "node/7785704263"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7924222724",
+        "addr:city": "Azul",
+        "addr:housenumber": "819",
+        "addr:postcode": "7300",
+        "addr:street": "Avenida Bartolomé Mitre",
+        "amenity": "studio",
+        "check_date": "2026-03-10",
+        "name": "Radio Azul LU10",
+        "operator": "Radio Azul Cooperativa de Trabajo Limitada",
+        "studio": "radio",
+        "website": "https://lu10radioazul.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.8549548,
+          -36.7808744
+        ]
+      },
+      "id": "node/7924222724"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8188208245",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "3934",
+        "addr:street": "Amenábar",
+        "addr:suburb": "Saavedra",
+        "amenity": "studio",
+        "name": "Mandinga",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4719856,
+          -34.547224
+        ]
+      },
+      "id": "node/8188208245"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8828356954",
+        "addr:city": "Coronel Moldes",
+        "addr:housenumber": "794",
+        "addr:postcode": "5847",
+        "addr:street": "Avenida 9 de Julio",
+        "amenity": "studio",
+        "name": "Radio Ciudad FM 100.3",
+        "studio": "radio",
+        "website": "https://rcm88.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.6043089,
+          -33.6260983
+        ]
+      },
+      "id": "node/8828356954"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8910355669",
+        "amenity": "studio",
+        "name": "Pares TV",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.1148558,
+          -34.5645824
+        ]
+      },
+      "id": "node/8910355669"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9026550421",
+        "addr:city": "Viedma",
+        "addr:housenumber": "686",
+        "addr:postcode": "8500",
+        "addr:street": "25 de Mayo",
+        "amenity": "studio",
+        "name": "Austral Radio FM 99.1 mhz",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9967633,
+          -40.8086536
+        ]
+      },
+      "id": "node/9026550421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9168214492",
+        "addr:city": "Valle Maria",
+        "addr:postcode": "3101",
+        "addr:street": "Marienthal",
+        "amenity": "studio",
+        "name": "Canal 3 Valle Maria",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.585932,
+          -31.9913601
+        ]
+      },
+      "id": "node/9168214492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9179080620",
+        "addr:city": "Cipolletti",
+        "addr:housenumber": "428",
+        "addr:postcode": "R8324",
+        "addr:street": "Hipólito Yrigoyen",
+        "amenity": "studio",
+        "name": "FM Master",
+        "old_name": "Centro Integral de Rehabilitación Odontológica",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.9955302,
+          -38.9380492
+        ]
+      },
+      "id": "node/9179080620"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9205626371",
+        "amenity": "studio",
+        "name": "Radio Municipal 104.9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.4681981,
+          -32.1599708
+        ]
+      },
+      "id": "node/9205626371"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9248639034",
+        "addr:city": "Lobos",
+        "addr:housenumber": "45",
+        "addr:street": "Aristóbulo del Valle",
+        "amenity": "studio",
+        "check_date": "2024-10-11",
+        "level": "1",
+        "name": "Radio Antena",
+        "phone": "+54 2227 42-1211",
+        "studio": "radio",
+        "website": "http://amradioantena.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0977076,
+          -35.1813546
+        ]
+      },
+      "id": "node/9248639034"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9328326454",
+        "addr:housenumber": "561",
+        "addr:street": "25 de Mayo",
+        "amenity": "studio",
+        "name": "Onnainty Agrimensura y Obras",
+        "opening_hours": "Mo-Fr 08:30-16:30",
+        "phone": "0353 4086183",
+        "website": "https://www.onnainty.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2365189,
+          -32.4150352
+        ]
+      },
+      "id": "node/9328326454"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9370975105",
+        "addr:city": "Santa Lucía",
+        "addr:housenumber": "s/n",
+        "addr:postcode": "90700",
+        "addr:street": "Ángel \"Coco\" Muñoz",
+        "amenity": "studio",
+        "internet_access": "yes",
+        "name": "Espika FM 90.7",
+        "studio": "radio",
+        "website": "http://colectivoespika.sejuntalagente.org/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.3991547,
+          -34.4487185
+        ]
+      },
+      "id": "node/9370975105"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9464626942",
+        "addr:housenumber": "724",
+        "addr:street": "Lamadrid",
+        "amenity": "studio",
+        "name": "Go Audiovisuales",
+        "phone": "0353 4064084",
+        "studio": "video",
+        "website": "https://www.facebook.com/go.audiovisuales/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2291105,
+          -32.4130832
+        ]
+      },
+      "id": "node/9464626942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9474382872",
+        "addr:city": "Santa Rosa",
+        "addr:housenumber": "1728",
+        "addr:postcode": "L6300",
+        "addr:street": "Gladys Mabel Tourn",
+        "amenity": "studio",
+        "name": "SF777 Radio Metal Online",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2560953,
+          -36.6420244
+        ]
+      },
+      "id": "node/9474382872"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9749237268",
+        "amenity": "studio",
+        "name": "FM Power",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2850994,
+          -36.6221847
+        ]
+      },
+      "id": "node/9749237268"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9766844916",
+        "amenity": "studio",
+        "name": "FM 100 Santa Rosa",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.3211585,
+          -36.6396653
+        ]
+      },
+      "id": "node/9766844916"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9781485406",
+        "amenity": "studio",
+        "name": "Radio LU 100 - FM 102.5",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2919665,
+          -36.625805
+        ]
+      },
+      "id": "node/9781485406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9804953742",
+        "addr:city": "Sierra de la Ventana",
+        "addr:housenumber": "94",
+        "addr:postcode": "8168",
+        "addr:street": "Avenida Roca",
+        "amenity": "studio",
+        "name": "Sierra Visión",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.7955305,
+          -38.1387836
+        ]
+      },
+      "id": "node/9804953742"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9870571648",
+        "amenity": "studio",
+        "name": "Hit Radio 88.5",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9417814,
+          -32.922531
+        ]
+      },
+      "id": "node/9870571648"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9881274156",
+        "amenity": "studio",
+        "name": "Radio Agraria",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.1309432,
+          -33.1068699
+        ]
+      },
+      "id": "node/9881274156"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9881274159",
+        "amenity": "studio",
+        "name": "TV Cable Teveca",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.130238,
+          -33.1073022
+        ]
+      },
+      "id": "node/9881274159"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9885526467",
+        "addr:city": "Montevideo",
+        "addr:country": "UY",
+        "addr:housenumber": "1510",
+        "addr:street": "San Salvador",
+        "amenity": "studio",
+        "name": "Radio Pedal",
+        "phone": "+598 2900 0880",
+        "studio": "radio",
+        "website": "https://radiopedal.uy/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1824162,
+          -34.9118685
+        ]
+      },
+      "id": "node/9885526467"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10087494567",
+        "addr:city": "La Lonja",
+        "addr:housenumber": "1180",
+        "addr:street": "Chile",
+        "amenity": "studio",
+        "check_date": "2025-04-13",
+        "name": "Radio Disney Argentina",
+        "phone": "+54 800-999-9430",
+        "studio": "radio",
+        "website": "www.radiodisney.disneylatino.com/argentina"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.835938,
+          -34.4382473
+        ]
+      },
+      "id": "node/10087494567"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10233337408",
+        "addr:city": "Neuquén",
+        "addr:housenumber": "560",
+        "addr:postcode": "Q8300",
+        "addr:street": "Maestro Thames Alderete",
+        "amenity": "studio",
+        "name": "Radio Nacional LRA 43 Neuquén",
+        "studio": "radio",
+        "website": "https://www.radionacional.com.ar/category/lra-43-neuquen/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.0510487,
+          -38.950584
+        ]
+      },
+      "id": "node/10233337408"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10660468379",
+        "addr:city": "General San Martín",
+        "addr:country": "AR",
+        "addr:housenumber": "1970",
+        "addr:postcode": "B1650BFH",
+        "addr:street": "89 - Intendente Alberto Manuel Campos",
+        "amenity": "studio",
+        "level": "1",
+        "name": "Cuatro Cuartos",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5365798,
+          -34.5775738
+        ]
+      },
+      "id": "node/10660468379"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10805325405",
+        "addr:city": "San Isidro",
+        "addr:housenumber": "84",
+        "addr:postcode": "B1642",
+        "addr:street": "Diego Palma",
+        "amenity": "studio",
+        "name": "Sala FF",
+        "opening_hours": "Mo-Fr 16:00-01:00",
+        "phone": "+54 11 4743-7961",
+        "studio": "audio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5170235,
+          -34.4711514
+        ]
+      },
+      "id": "node/10805325405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10991114484",
+        "amenity": "studio",
+        "name": "Canal 4",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.4039926,
+          -37.6031952
+        ]
+      },
+      "id": "node/10991114484"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11060736140",
+        "addr:city": "Montevideo",
+        "addr:housenumber": "1969",
+        "addr:street": "Canelones",
+        "amenity": "studio",
+        "check_date": "2025-09-08",
+        "name": "CX40 - Radio Fénix",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1727449,
+          -34.9073163
+        ]
+      },
+      "id": "node/11060736140"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11484332765",
+        "amenity": "studio",
+        "name": "LRA Radio Nacional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3766305,
+          -34.60166
+        ]
+      },
+      "id": "node/11484332765"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11517515614",
+        "amenity": "studio",
+        "name": "Genesis 106.9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.2961147,
+          -32.6623718
+        ]
+      },
+      "id": "node/11517515614"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11517515615",
+        "amenity": "studio",
+        "name": "Urbana 91.3",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.2987382,
+          -32.6629099
+        ]
+      },
+      "id": "node/11517515615"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11541131016",
+        "addr:city": "Santa Teresita",
+        "addr:country": "AR",
+        "addr:housenumber": "206",
+        "addr:postcode": "B7107",
+        "addr:province": "Buenos Aires",
+        "addr:street": "Calle 35",
+        "amenity": "studio",
+        "check_date": "2026-01-21",
+        "contact:facebook": "https://www.facebook.com/fmarena983/",
+        "contact:instagram": "https://www.instagram.com/fmarena983/",
+        "contact:mobile": "+54 2246 50-3002",
+        "contact:tunein": "https://tunein.com/radio/Frecuencia-Arena-983-s103252/",
+        "level": "1",
+        "name": "Frecuencia Arena",
+        "studio": "radio",
+        "website": "https://arena983.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.6898125,
+          -36.5385945
+        ]
+      },
+      "id": "node/11541131016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11784572512",
+        "amenity": "studio",
+        "name": "Radio Bahía Blanca AM 840",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.2650926,
+          -38.6623974
+        ]
+      },
+      "id": "node/11784572512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11796413061",
+        "addr:housenumber": "650",
+        "addr:street": "Julio A. Roca",
+        "amenity": "studio",
+        "frequency": "102.9",
+        "name": "Radio Tifón",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6985429,
+          -32.8377361
+        ]
+      },
+      "id": "node/11796413061"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11797218643",
+        "addr:city": "María Teresa",
+        "addr:country": "AR",
+        "addr:housenumber": "172",
+        "addr:postcode": "S2609",
+        "addr:state": "Santa Fe",
+        "addr:street": "Mitre",
+        "amenity": "studio",
+        "name": "FM Cordial",
+        "phone": "+54 (3462) 48-0400",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.9124068,
+          -34.0103383
+        ]
+      },
+      "id": "node/11797218643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11826415178",
+        "addr:city": "Ciudad Autónoma de Buenos Aires",
+        "addr:country": "AR",
+        "addr:housenumber": "250",
+        "addr:street": "Azopardo",
+        "amenity": "studio",
+        "level": "2",
+        "name": "FM Soldados 87.5",
+        "phone": "+54 11 4346-6336",
+        "studio": "radio",
+        "website": "https://fmsoldados.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3679157,
+          -34.6096867
+        ]
+      },
+      "id": "node/11826415178"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11890408927",
+        "amenity": "studio",
+        "name": "Terminal de Radio",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3969564,
+          -34.6432339
+        ]
+      },
+      "id": "node/11890408927"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12018807609",
+        "addr:city": "Bahía Blanca",
+        "addr:housenumber": "696",
+        "addr:postcode": "8000",
+        "addr:street": "Uruguay",
+        "amenity": "studio",
+        "contact:telegram": "+54 9 291 446-1845",
+        "contact:whatsapp": "+54 9 291 446-1845",
+        "email": "info@labrujula24.com",
+        "name": "La Brújula 24",
+        "phone": "+54 9 291 485-6400;+54 9 291 517-3303;+54 9 291 485-5001",
+        "studio": "radio",
+        "website": "https://www.labrujula24.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.2726216,
+          -38.6995292
+        ]
+      },
+      "id": "node/12018807609"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12038530511",
+        "amenity": "studio",
+        "name": "Construir TV"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3888816,
+          -34.6147778
+        ]
+      },
+      "id": "node/12038530511"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12040681148",
+        "amenity": "studio",
+        "name": "Agrupación Hispano Argentina",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4651701,
+          -34.6578564
+        ]
+      },
+      "id": "node/12040681148"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12040681149",
+        "amenity": "studio",
+        "name": "Audición Furia Española",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.465174,
+          -34.6578806
+        ]
+      },
+      "id": "node/12040681149"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12097939429",
+        "amenity": "studio",
+        "name": "FM Viñas",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.6955638,
+          -34.9768184
+        ]
+      },
+      "id": "node/12097939429"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12097969699",
+        "amenity": "studio",
+        "name": "Fm Rock & Hits 106.9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.6941005,
+          -34.9781895
+        ]
+      },
+      "id": "node/12097969699"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12121461649",
+        "addr:city": "Cipolletti",
+        "addr:housenumber": "38",
+        "addr:postcode": "R8324",
+        "addr:street": "Sarmiento",
+        "amenity": "studio",
+        "contact:instagram": "https://www.instagram.com/rtlcipolletti/",
+        "level": "2",
+        "mobile": "+54 9 299 551-0790",
+        "name": "RTL FM 98.7",
+        "studio": "radio",
+        "website": "http://www.rtlcipolletti.com.ar/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.994275,
+          -38.9413084
+        ]
+      },
+      "id": "node/12121461649"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12255170579",
+        "amenity": "studio",
+        "name": "Cadena del Mar",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9545492,
+          -34.9018212
+        ]
+      },
+      "id": "node/12255170579"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12282752139",
+        "amenity": "studio",
+        "building": "yes",
+        "name": "FM Gospel",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.3451246,
+          -33.1185815
+        ]
+      },
+      "id": "node/12282752139"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12303109177",
+        "amenity": "studio",
+        "name": "Latina",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7565231,
+          -34.470851
+        ]
+      },
+      "id": "node/12303109177"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12303109178",
+        "amenity": "studio",
+        "name": "Tortuguitas 91.9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7611874,
+          -34.4704906
+        ]
+      },
+      "id": "node/12303109178"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12396351936",
+        "amenity": "studio",
+        "name": "Canal 79 MDP",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.5475671,
+          -37.9913319
+        ]
+      },
+      "id": "node/12396351936"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12485014607",
+        "amenity": "studio",
+        "name": "Grupo Radial Centro",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2475969,
+          -32.4035104
+        ]
+      },
+      "id": "node/12485014607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12504698764",
+        "amenity": "studio",
+        "name": "Televisión por Cable Canal 5",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.6748683,
+          -36.7264318
+        ]
+      },
+      "id": "node/12504698764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12545612743",
+        "addr:city": "Rosario",
+        "addr:country": "AR",
+        "addr:housenumber": "624",
+        "addr:postcode": "2000",
+        "addr:state": "Santa Fe",
+        "addr:street": "Sarmiento",
+        "amenity": "studio",
+        "contact:website": "http://www.express.com.ar/",
+        "name": "Express",
+        "office": "company",
+        "opening_hours": "Mo-Fr 09:00-18:00",
+        "operator": "CableHogar",
+        "studio": "television"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6378799,
+          -32.9445596
+        ]
+      },
+      "id": "node/12545612743"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055458",
+        "amenity": "studio",
+        "name": "Prensa Escrita",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3968702,
+          -34.643133
+        ]
+      },
+      "id": "node/12618055458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055459",
+        "amenity": "studio",
+        "name": "H",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3967085,
+          -34.643052
+        ]
+      },
+      "id": "node/12618055459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055460",
+        "amenity": "studio",
+        "name": "7",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3971553,
+          -34.6432791
+        ]
+      },
+      "id": "node/12618055460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055461",
+        "amenity": "studio",
+        "name": "6",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3971311,
+          -34.643262
+        ]
+      },
+      "id": "node/12618055461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055462",
+        "amenity": "studio",
+        "name": "15",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3964308,
+          -34.6429168
+        ]
+      },
+      "id": "node/12618055462"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055463",
+        "amenity": "studio",
+        "name": "14",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3964573,
+          -34.6429252
+        ]
+      },
+      "id": "node/12618055463"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055464",
+        "amenity": "studio",
+        "name": "5",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3971045,
+          -34.6432491
+        ]
+      },
+      "id": "node/12618055464"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055465",
+        "amenity": "studio",
+        "name": "4",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3970779,
+          -34.6432362
+        ]
+      },
+      "id": "node/12618055465"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055466",
+        "amenity": "studio",
+        "name": "3",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3970513,
+          -34.6432226
+        ]
+      },
+      "id": "node/12618055466"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055467",
+        "amenity": "studio",
+        "name": "2",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3970267,
+          -34.6432105
+        ]
+      },
+      "id": "node/12618055467"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055468",
+        "amenity": "studio",
+        "name": "1",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3969981,
+          -34.6431967
+        ]
+      },
+      "id": "node/12618055468"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055469",
+        "amenity": "studio",
+        "name": "Voz del Estadio",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3969085,
+          -34.6431517
+        ]
+      },
+      "id": "node/12618055469"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055470",
+        "amenity": "studio",
+        "name": "C",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.396929,
+          -34.6431616
+        ]
+      },
+      "id": "node/12618055470"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055471",
+        "amenity": "studio",
+        "name": "B",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3969526,
+          -34.6431731
+        ]
+      },
+      "id": "node/12618055471"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055472",
+        "amenity": "studio",
+        "name": "A",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3969742,
+          -34.6431844
+        ]
+      },
+      "id": "node/12618055472"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055475",
+        "amenity": "studio",
+        "name": "13",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3964813,
+          -34.642938
+        ]
+      },
+      "id": "node/12618055475"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055476",
+        "amenity": "studio",
+        "name": "12",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3965041,
+          -34.6429491
+        ]
+      },
+      "id": "node/12618055476"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055477",
+        "amenity": "studio",
+        "name": "11",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3965256,
+          -34.6429596
+        ]
+      },
+      "id": "node/12618055477"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055478",
+        "amenity": "studio",
+        "name": "10",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.396546,
+          -34.64297
+        ]
+      },
+      "id": "node/12618055478"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055479",
+        "amenity": "studio",
+        "name": "9",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3965699,
+          -34.6429824
+        ]
+      },
+      "id": "node/12618055479"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055480",
+        "amenity": "studio",
+        "name": "F",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3965945,
+          -34.6429942
+        ]
+      },
+      "id": "node/12618055480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055481",
+        "amenity": "studio",
+        "name": "E",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3966198,
+          -34.6430068
+        ]
+      },
+      "id": "node/12618055481"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055482",
+        "amenity": "studio",
+        "name": "D",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3966454,
+          -34.6430196
+        ]
+      },
+      "id": "node/12618055482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12618055483",
+        "amenity": "studio",
+        "name": "G",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3966747,
+          -34.6430336
+        ]
+      },
+      "id": "node/12618055483"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12860711089",
+        "amenity": "studio",
+        "name": "Positiva FM 91.7",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.33886,
+          -33.2933301
+        ]
+      },
+      "id": "node/12860711089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13003368107",
+        "addr:city": "Los Molles",
+        "addr:postcode": "5883",
+        "addr:street": "Belgrano",
+        "amenity": "studio",
+        "email": "radiomunicipaldelosmollesfm891@gmail.com",
+        "name": "Radio Municipal de Los Molles - FM 89.1",
+        "phone": "+54 9 266 436-5092",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.0088496,
+          -32.4383933
+        ]
+      },
+      "id": "node/13003368107"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13479346534",
+        "amenity": "studio",
+        "check_date": "2026-01-23",
+        "name": "Camioneros de La Costa Comunica",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.6919686,
+          -36.5440587
+        ]
+      },
+      "id": "node/13479346534"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13795205223",
+        "amenity": "studio",
+        "name": "Hot100",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.4687696,
+          -33.6859602
+        ]
+      },
+      "id": "node/13795205223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13801639326",
+        "amenity": "studio",
+        "name": "Radio Cadena del Interior",
+        "studio": "radio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.4620847,
+          -33.6722242
+        ]
+      },
+      "id": "node/13801639326"
+    }
+  ]
+}
