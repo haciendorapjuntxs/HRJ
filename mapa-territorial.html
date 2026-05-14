@@ -220,9 +220,10 @@ fetch(urlCSV)
                 }
             }
 
-            const lat = parseFloat(c[9].replace(/[ "]/g, "").replace(',', '.'));
-            const lng = parseFloat(c[10].replace(/[ "]/g, "").replace(',', '.'));
-            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+           // Limpieza de datos corregida
+const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
+const fechaRaw = c[5] ? c[5].replace(/^"|"$/g, "").trim() : "Fecha a confirmar"; 
+const linkOriginal = c[7] ? c[7].replace(/^"|"$/g, "").trim() : "";
 
             if (estado === "OK" && !isNaN(lat)) {
                 L.marker([lat, lng], {
