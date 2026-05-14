@@ -193,38 +193,33 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-   // --- MOTOR DE AGENDA REPARADO Y SINCRONIZADO ---
+// --- MOTOR DE AGENDA TERRITORIAL (VERSIÓN CORREGIDA) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
     .then(res => res.text())
     .then(csvText => {
         const lineas = csvText.split('\n');
-        const hoy = new Date();
-        hoy.setHours(0, 0, 0, 0);
 
         for (let i = 1; i < lineas.length; i++) {
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             if (c.length < 11) continue;
 
-            // 1. Extraer datos quitando comillas de Google Sheets
-            const nombre = c[2] ? c[2].replace(/"/g, "").trim() : "Evento HRJ";
-            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : ""; 
+            // Extraemos los datos de las columnas C (Nombre), G (Fecha) e I (Link Flyer)
+            const nombre = c[2] ? c[2].replace(/"/g, "").trim() : "EVENTO HRJ";
+            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
             const linkOriginal = c[8] ? c[8].replace(/"/g, "").trim() : "";
             
-            // 2. Extractor de ID de Drive Robusto
+            // Extractor de ID de imagen mejorado
             let linkFoto = "";
             if (linkOriginal.includes("drive.google.com")) {
-                let id = "";
-                const matchId = linkOriginal.match(/[-\w]{25,}/); // Busca cualquier cadena larga de ID de Drive
-                if (matchId) {
-                    id = matchId[0];
-                    // Link directo que SÍ funciona para mostrar imágenes
-                    linkFoto = `https://lh3.googleusercontent.com/u/0/d/${id}`;
+                const match = linkOriginal.match(/[-\w]{25,}/); 
+                if (match) {
+                    // Nuevo servidor de previsualización de Google (más estable)
+                    linkFoto = `https://lh3.googleusercontent.com/u/0/d/${match[0]}=w400`;
                 }
             }
 
-            // 3. Coordenadas y Estado
             const lat = parseFloat(c[9].replace(/[ "]/g, "").replace(',', '.'));
             const lng = parseFloat(c[10].replace(/[ "]/g, "").replace(',', '.'));
             const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
@@ -233,30 +228,33 @@ fetch(urlCSV)
                 L.marker([lat, lng], {
                     icon: L.divIcon({ 
                         className: 'pulse-green', 
-                        iconSize: [20, 20], 
-                        iconAnchor: [10, 10] 
+                        iconSize: [22, 22], 
+                        iconAnchor: [11, 11] 
                     })
                 }).addTo(map).bindPopup(`
-                    <div style="text-align:center; font-family:'Anton', sans-serif; width:240px; color:#000;">
-                        <div style="background:#1fd655; color:#000; padding:6px; font-size:13px; margin-bottom:10px; border-radius:3px;">AGENDA TERRITORIAL</div>
+                    <div style="text-align:center; font-family:'Anton', sans-serif; width:250px; color:#000; padding:5px;">
+                        <div style="background:#1fd655; color:#000; padding:8px; font-size:14px; margin-bottom:12px; border-radius:4px; letter-spacing:1px;">AGENDA TERRITORIAL</div>
                         
-                        <strong style="font-size:18px; display:block; margin-bottom:5px; text-transform:uppercase; line-height:1.2;">${nombre}</strong>
-                        <div style="font-family:'Courier Prime'; font-size:14px; margin-bottom:12px; background:#f0f0f0; display:inline-block; padding:2px 8px; border-radius:4px;">📅 ${fechaRaw}</div>
+                        <h2 style="font-size:20px; margin:0 0 8px 0; text-transform:uppercase; line-height:1.1; color:#000;">${nombre}</h2>
                         
-                        <div style="margin-bottom:10px; min-height:100px; background:#eee; border-radius:5px; display:flex; align-items:center; justify-content:center;">
+                        <div style="font-family:'Courier Prime', monospace; font-size:15px; margin-bottom:15px; background:#e8e8e8; padding:5px 10px; border-radius:4px; display:inline-block; border:1px solid #ccc;">
+                            📅 ${fechaRaw}
+                        </div>
+                        
+                        <div style="margin-bottom:12px; background:#f9f9f9; border-radius:8px; overflow:hidden; border:2px solid #1fd655; min-height:120px; display:flex; align-items:center; justify-content:center;">
                             ${linkFoto ? 
-                                `<img src="${linkFoto}" style="width:100%; border-radius:5px; border:2px solid #1fd655; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" 
-                                 onerror="this.src='https://hrj.com.ar/logo-hrj.png'; this.parentElement.style.background='none';">` : 
-                                `<img src="https://hrj.com.ar/logo-hrj.png" style="width:50%; opacity:0.5;">`
+                                `<img src="${linkFoto}" style="width:100%; display:block;" 
+                                 onerror="this.src='https://hrj.com.ar/logo-hrj.png'; this.style.width='60%';">` : 
+                                `<img src="https://hrj.com.ar/logo-hrj.png" style="width:60%; opacity:0.4;">`
                             }
                         </div>
 
-                        <a href="${linkOriginal}" target="_blank" style="background:#000; color:#fff; padding:10px; text-decoration:none; border-radius:4px; font-size:11px; display:block; margin-top:5px; font-family:sans-serif; font-weight:bold;">VER INFO / FLYER COMPLETO</a>
+                        <a href="${linkOriginal}" target="_blank" style="background:#000; color:#fff; padding:12px; text-decoration:none; border-radius:6px; font-size:13px; display:block; font-weight:bold; letter-spacing:0.5px; border:1px solid #333;">VER FLYER COMPLETO</a>
                     </div>
-                `, { maxWidth: 260 });
+                `, { maxWidth: 280, className: 'custom-popup' });
             }
         }
-    });
+    }); 
 </script>
     
 </body>
