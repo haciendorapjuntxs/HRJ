@@ -323,6 +323,54 @@ fetch(urlCSV)
             }
         }
     });
+
+
+
+// --- CARGA DE ESTUDIOS (RADIO, TV Y GRABACIÓN) ---
+// Usamos el nombre del archivo que subiste
+fetch('export (1).geojson')
+    .then(res => res.json())
+    .then(data => {
+        data.features.forEach(feature => {
+            let coords;
+            
+            // Si el estudio es un edificio (Polygon), calculamos el centro exacto
+            if (feature.geometry.type === 'Polygon') {
+                const lats = feature.geometry.coordinates[0].map(c => c[1]);
+                const lngs = feature.geometry.coordinates[0].map(c => c[0]);
+                const centerLat = (Math.min(...lats) + Math.max(...lats)) / 2;
+                const centerLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
+                coords = [centerLat, centerLng];
+            } else if (feature.geometry.type === 'Point') {
+                coords = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+            }
+
+            if (coords) {
+                const nombre = feature.properties.name || "Estudio Profesional";
+                const tipo = feature.properties.studio || "Audio";
+                
+                // Marcador Violeta Neón para infraestructura
+                L.circleMarker(coords, {
+                    radius: 6,
+                    fillColor: '#8a2be2', // Violeta intenso
+                    color: '#fff',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(map).bindPopup(`
+                    <div style="font-family: 'Anton', sans-serif; text-align: center; color: #fff; background: #111; padding: 10px; border-radius: 5px; border: 1px solid #8a2be2;">
+                        <span style="color: #8a2be2; font-size: 12px;">🎙️ ESTUDIO / MEDIO</span><br>
+                        <span style="font-size: 16px;">${nombre.toUpperCase()}</span><br>
+                        <small style="font-family: 'Courier Prime'; color: #aaa;">TIPO: ${tipo.toUpperCase()}</small>
+                    </div>
+                `);
+            }
+        });
+    })
+    .catch(err => console.log("Asegurate de que el archivo se llame export (1).geojson en tu carpeta"));
+
+
+    
 </script>
     
 </body>
