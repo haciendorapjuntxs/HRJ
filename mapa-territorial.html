@@ -193,7 +193,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA TERRITORIAL (CORRECCIÓN DEFINITIVA) ---
+// --- MOTOR DE AGENDA TERRITORIAL (VERSIÓN FINAL CORREGIDA) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -205,24 +205,21 @@ fetch(urlCSV)
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             if (c.length < 10) continue; 
 
-            // MAPEADO MANUAL BASADO EN TUS DATOS (Sin la columna hora):
-            // c[1] = Nombre del evento (Mosca Fest)
-            // c[6] = Fecha (23/5/2026)
-            // c[7] = Este es el link que estaba fallando (lo ignoramos)
-            // c[8] = EL LINK DE FACEBOOK/FLYER (Este es el que va al botón)
-            // c[9] = Latitud
-            // c[10] = Longitud
-            // c[11] = Estado OK
-
+            // MAPEADO SEGÚN TU ÚLTIMA ACTUALIZACIÓN (Sin columna hora):
+            // c[1] = Mosca Fest
+            // c[6] = 23/5/2026
+            // c[7] = Link de Facebook (El que me pasaste)
+            // c[8] = Latitud (-34.7258)
+            // c[9] = Longitud (-58.2612)
+            // c[10] = OK
+            
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "EVENTO HRJ";
             const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : "Fecha a confirmar"; 
+            const linkFlyer = c[7] ? c[7].replace(/"/g, "").trim() : "#";
             
-            // ACÁ ESTÁ EL CAMBIO: Usamos c[8] para el link del flyer
-            const linkFlyer = c[8] ? c[8].replace(/"/g, "").trim() : "#";
-            
-            const lat = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[10] ? c[10].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
 
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 L.marker([lat, lng], {
@@ -248,7 +245,7 @@ fetch(urlCSV)
                 `, { maxWidth: 250 });
             }
         }
-    });
+    }); 
 </script>
     
 </body>
