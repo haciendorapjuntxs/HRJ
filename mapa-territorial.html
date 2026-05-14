@@ -168,11 +168,7 @@
     L.control.locate().addTo(map);
 
     var unajCoords = [-34.7751535, -58.2678955]; 
-    
-    var unajMarker = L.marker(unajCoords, {
-        title: "UNAJ - Av. Calchaquí 6200"
-    }).addTo(map);
-    
+    var unajMarker = L.marker(unajCoords, {title: "UNAJ - Av. Calchaquí 6200"}).addTo(map);
     unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Av. Calchaquí 6200, Florencio Varela");
 
     var layerLazos = L.layerGroup().addTo(map);
@@ -181,95 +177,88 @@
         .then(res => res.json())
         .then(artistas => {
             var markersCluster = L.markerClusterGroup();
-            
             artistas.forEach(a => {
                 var marker = L.marker([a.lat, a.lng], {title: a.nombre});
                 marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
                 marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
-                
                 marker.on('click', function() {
                     layerLazos.clearLayers(); 
                     L.polyline([unajCoords, [a.lat, a.lng]], {
-                        color: '#ff4500',
-                        weight: 4,
-                        opacity: 0.7,
-                        dashArray: '10, 10'
+                        color: '#ff4500', weight: 4, opacity: 0.7, dashArray: '10, 10'
                     }).addTo(layerLazos);
                 });
-
                 markersCluster.addLayer(marker);
             });
-            
             map.addLayer(markersCluster);
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
+    // --- MOTOR DE AGENDA REPARADO ---
+    const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
-// --- MOTOR DE AGENDA CON VISTA DE FLYER ---
-const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+    fetch(urlCSV)
+        .then(res => res.text())
+        .then(csvText => {
+            const lineas = csvText.split('\n');
+            const hoy = new Date();
+            hoy.setHours(0, 0, 0, 0);
 
-fetch(urlCSV)
-    .then(res => res.text())
-    .then(csvText => {
-        const lineas = csvText.split('\n');
-        const hoy = new Date();
-        hoy.setHours(0, 0, 0, 0);
+            for (let i = 1; i < lineas.length; i++) {
+                const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+                if (c.length < 11) continue;
 
-        for (let i = 1; i < lineas.length; i++) {
-            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 11) continue;
-
-            // 1. Limpieza de datos (Nombre, Fecha, Link)
-            const nombre = c[2] ? c[2].replace(/"/g, "").trim() : "Evento HRJ";
-            const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : ""; 
-            const linkOriginal = c[8] ? c[8].replace(/"/g, "").trim() : "";
-            
-            // 2. MAGIA PARA LA IMAGEN: Convertimos el link de Drive en imagen directa
-            let linkFoto = "";
-            if (linkOriginal.includes("drive.google.com")) {
-                let id = "";
-                if (linkOriginal.includes("id=")) {
-                    id = linkOriginal.split("id=")[1].split("&")[0];
-                } else {
-                    id = linkOriginal.split("/d/")[1].split("/")[0];
+                const nombre = c[2] ? c[2].replace(/"/g, "").trim() : "Evento HRJ";
+                const fechaRaw = c[6] ? c[6].replace(/"/g, "").trim() : ""; 
+                const linkOriginal = c[8] ? c[8].replace(/"/g, "").trim() : "";
+                
+                let linkFoto = "";
+                if (linkOriginal.includes("drive.google.com")) {
+                    let id = "";
+                    // Extraemos el ID correctamente del link de Drive
+                    const parts = linkOriginal.split('/');
+                    const dIndex = parts.indexOf('d');
+                    if (dIndex !== -1 && parts[dIndex + 1]) {
+                        id = parts[dIndex + 1];
+                    } else if (linkOriginal.includes("id=")) {
+                        id = linkOriginal.split("id=")[1].split("&")[0];
+                    }
+                    
+                    if (id) {
+                        // Link directo de imagen para Google Drive
+                        linkFoto = `https://lh3.googleusercontent.com/u/0/d/${id}`;
+                    }
                 }
-                // Este link fuerza a Google a entregar el archivo como imagen
-                linkFoto = `https://lh3.googleusercontent.com/u/0/d/${id}`;
+
+                const lat = parseFloat(c[9].replace(/[ "]/g, "").replace(',', '.'));
+                const lng = parseFloat(c[10].replace(/[ "]/g, "").replace(',', '.'));
+                const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
+
+                if (estado === "OK" && !isNaN(lat)) {
+                    L.marker([lat, lng], {
+                        icon: L.divIcon({ 
+                            className: 'pulse-green', 
+                            iconSize: [20, 20], 
+                            iconAnchor: [10, 10] 
+                        })
+                    }).addTo(map).bindPopup(`
+                        <div style="text-align:center; font-family:'Anton'; width:240px; color:#000;">
+                            <div style="background:#1fd655; color:#000; padding:6px; font-size:13px; margin-bottom:10px; border-radius:3px;">AGENDA TERRITORIAL</div>
+                            
+                            <strong style="font-size:18px; display:block; margin-bottom:5px; text-transform:uppercase;">${nombre}</strong>
+                            <div style="font-family:'Courier Prime'; font-size:14px; margin-bottom:12px; background:#f0f0f0; display:inline-block; padding:2px 8px; border-radius:4px;">📅 ${fechaRaw}</div>
+                            
+                            <div style="margin-bottom:10px;">
+                                <img src="${linkFoto}" style="width:100%; border-radius:5px; border:2px solid #1fd655; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" 
+                                     alt="Flyer" onerror="this.onerror=null; this.src='https://hrj.com.ar/logo-hrj.png';">
+                            </div>
+
+                            <a href="${linkOriginal}" target="_blank" style="background:#000; color:#fff; padding:10px; text-decoration:none; border-radius:4px; font-size:11px; display:block; margin-top:5px; font-family:sans-serif; text-transform: uppercase; font-weight: bold;">VER FLYER ORIGINAL</a>
+                        </div>
+                    `, { maxWidth: 260 });
+                }
             }
-
-            // 3. Ubicación y Estado
-            const lat = parseFloat(c[9].replace(/[ "]/g, "").replace(',', '.'));
-            const lng = parseFloat(c[10].replace(/[ "]/g, "").replace(',', '.'));
-            const estado = c[11] ? c[11].replace(/"/g, "").trim().toUpperCase() : "";
-
-            if (estado === "OK" && !isNaN(lat)) {
-                L.marker([lat, lng], {
-                    icon: L.divIcon({ 
-                        className: 'pulse-green', 
-                        iconSize: [20, 20], 
-                        iconAnchor: [10, 10] 
-                    })
-                }).addTo(map).bindPopup(`
-                    <div style="text-align:center; font-family:'Anton'; width:240px; color:#000;">
-                        <div style="background:#1fd655; color:#000; padding:6px; font-size:13px; margin-bottom:10px; border-radius:3px;">AGENDA TERRITORIAL</div>
-                        
-                        <strong style="font-size:18px; display:block; margin-bottom:5px; text-transform:uppercase;">${nombre}</strong>
-                        <div style="font-family:'Courier Prime'; font-size:14px; margin-bottom:12px; background:#f0f0f0; display:inline-block; padding:2px 8px;">📅 ${fechaRaw}</div>
-                        
-                        ${linkFoto ? 
-                            `<div style="margin-bottom:10px;">
-                                <img src="${linkFoto}" style="width:100%; border-radius:5px; border:2px solid #1fd655; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Flyer del Evento">
-                             </div>` : 
-                            `<p style="font-size:11px; color:#666;">Cargando flyer...</p>`
-                        }
-
-                        <a href="${linkOriginal}" target="_blank" style="background:#000; color:#fff; padding:10px; text-decoration:none; border-radius:4px; font-size:11px; display:block; margin-top:5px; font-family:sans-serif;">ABRIR FLYER ORIGINAL</a>
-                    </div>
-                `, { maxWidth: 260 });
-            }
-        }
-    }); 
-</script> 
+        });
+</script>
     
 </body>
 </html> 
