@@ -351,6 +351,26 @@ fetch('estudios.geojson')
             }
         });
     });
+
+
+    function toggleEventosPasados(e) {
+    e.preventDefault(); // Para que no recargue la página
+    
+    // Le ponemos o sacamos la clase al body
+    document.body.classList.toggle('mostrar-pasados');
+    
+    // Cambiamos el estilo del botón para que se note que está activo
+    const btn = document.getElementById('toggle-pasados');
+    btn.classList.toggle('activo');
+    
+    // Cambiamos el texto del botón
+    if (document.body.classList.contains('mostrar-pasados')) {
+        btn.innerText = "OCULTAR PASADOS";
+    } else {
+        btn.innerText = "HISTORIAL";
+    }
+}
+    
 </script>
 </body>
 </html>
