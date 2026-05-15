@@ -234,7 +234,7 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA (PARCHE DE FECHA ARGENTINA) ---
+// --- 4. MOTOR DE AGENDA (RUTAS DE DRIVE REPARADAS) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const capaPasados = L.layerGroup(); 
 
@@ -261,35 +261,42 @@ fetch(urlCSV)
             const fechaTxt = c[5]?.trim() || ""; 
             const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
-            // PARCHE ROBUESTO: Forzar formato de dos dígitos para que JS no muera
-            const partes = fechaTxt.split(/[-/]/); // ["14", "5", "2026"]
+            // Procesador de Fecha Argentina (D/M/AAAA)
+            const partes = fechaTxt.split(/[-/]/); 
             if (partes.length !== 3) continue;
 
             let dia, mes, anio;
-            if (partes[0].length === 4) { // Formato ISO AAAA-MM-DD
+            if (partes[0].length === 4) { 
                 anio = partes[0];
                 mes = partes[1].padStart(2, '0');
                 dia = partes[2].padStart(2, '0');
-            } else { // Formato Argentino DD/MM/AAAA o D/M/AAAA
+            } else { 
                 dia = partes[0].padStart(2, '0');
                 mes = partes[1].padStart(2, '0');
                 anio = partes[2];
             }
 
-            // Armamos la fecha de manera nativa e inmune a errores
             let fEv = new Date(`${anio}-${mes}-${dia}T23:59:59`);
-
-            if (isNaN(fEv.getTime())) continue; // Si falló, salta la línea de forma segura
+            if (isNaN(fEv.getTime())) continue; 
 
             const esPasado = hoy > fEv;
             const colorTema = esPasado ? '#888' : '#1fd655';
 
+            // REPARACIÓN DE LOGICA HÍBRIDA (Local / Drive)
             let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
+            
             if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
-                           (datoFlyer.includes('/d/') ? datoFlyer.split('/d/')[1].split('/')[0] : "");
-                urlFinalImg = `https://lh3.googleusercontent.com/d/$${idImg}`;
+                // Extrae el ID de cualquier formato de enlace de Drive Compartido
+                let idImg = "";
+                if (datoFlyer.includes('id=')) {
+                    idImg = datoFlyer.split('id=')[1].split('&')[0];
+                } else if (datoFlyer.includes('/d/')) {
+                    idImg = datoFlyer.split('/d/')[1].split('/')[0];
+                }
+                // URL directa nativa para renderizar imágenes de Drive en la web
+                urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
             } else if (datoFlyer.length > 3) {
+                // Si es un archivo local (ej: clinica.jpg) o una URL externa común
                 urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
                               datoFlyer : `./flyer-territorial/${datoFlyer}`;
             }
@@ -317,8 +324,7 @@ fetch(urlCSV)
                 marcador.addTo(map);
             }
         }
-    });
-    
+    }); 
     
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
