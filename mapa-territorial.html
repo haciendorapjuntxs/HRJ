@@ -45,7 +45,7 @@
         padding: 10px;
         border: 1px solid var(--naranja);
         border-radius: 5px;
-        backdrop-filter: blur(5px); /* Efecto esmerilado premium */
+        backdrop-filter: blur(5px); /* Efecto esmerilado */
     }
 
     .btn-nav {
@@ -163,6 +163,17 @@
         70% { box-shadow: 0 0 0 12px rgba(31, 214, 85, 0); }
         100% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0); }
     } 
+
+
+        /* El punto gris para eventos que ya pasaron */
+.pulse-past {
+    background: #555; /* Gris oscuro */
+    border-radius: 50%;
+    border: 1px solid #888;
+    opacity: 0.6; /* Un poco transparente para que no distraiga */
+} 
+
+        
 </style> 
 </head>
 <body>
@@ -222,7 +233,7 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (EDICIÓN ALTO NIVEL) ---
+// --- MOTOR DE AGENDA CON HISTÓRICO Y CORRECCIÓN DE COLUMNAS ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -232,99 +243,101 @@ fetch(urlCSV)
 
         for (let i = 1; i < lineas.length; i++) {
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 10) continue; 
+            if (c.length < 14) continue; 
 
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-            const fecha = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
-            const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
-            
-            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
+            const fechaTexto = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
+            const linkInstagram = c[6] ? c[6].replace(/"/g, "").trim() : "#";
+            const lat = parseFloat(c[12] ? c[12].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[13] ? c[13].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[14] ? c[14].replace(/"/g, "").trim().toUpperCase() : "";
 
-            // Generador de nombre de archivo seguro
-            const nombreArchivo = nombre.toLowerCase()
-                .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-                .replace(/\s+/g, '-')
-                .replace(/[^\w-]/g, '');
-            
-            const rutaFlyer = `./flyer-territorial/${nombreArchivo}.jpg?v=${new Date().getTime()}`;
+            if (estado === "OK" && !isNaN(lat) && !isNaN(lng) && fechaTexto) {
+                // LÓGICA DE FECHAS (ACTIVO VS ARCHIVO)
+                const partesFecha = fechaTexto.split(/[-/]/);
+                let fechaEvento;
+                if (partesFecha[0].length === 4) { 
+                    fechaEvento = new Date(partesFecha[0], partesFecha[1] - 1, partesFecha[2]);
+                } else { 
+                    fechaEvento = new Date(partesFecha[2], partesFecha[1] - 1, partesFecha[0]);
+                }
 
-            if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
+                const hoy = new Date();
+                const fechaVencimiento = new Date(fechaEvento);
+                fechaVencimiento.setDate(fechaVencimiento.getDate() + 2);
+
+                let claseIcono = 'pulse-green';
+                let etiqueta = 'EVENTO ACTIVO';
+                let colorBorde = '#1fd655';
+
+                if (hoy > fechaVencimiento) {
+                    claseIcono = 'pulse-past'; // Asegurate de tener este estilo en tu CSS
+                    etiqueta = 'ARCHIVO TERRITORIAL';
+                    colorBorde = '#555';
+                }
+
+                const nombreArchivo = nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+                const rutaFlyer = `./flyer-territorial/${nombreArchivo}.jpg?v=${new Date().getTime()}`;
+
                 L.marker([lat, lng], {
-                    icon: L.divIcon({ 
-                        className: 'pulse-green', 
-                        iconSize: [22, 22],
-                        iconAnchor: [11, 11]
-                    })
+                    icon: L.divIcon({ className: claseIcono, iconSize: [20, 20], iconAnchor: [10, 10] })
                 }).addTo(map).bindPopup(`
-                    <div style="
-                        text-align: center; 
-                        font-family: 'Anton', sans-serif; 
-                        width: 230px; 
-                        background: #111; 
-                        color: #fff; 
-                        padding: 15px; 
-                        border-radius: 8px; 
-                        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-                        border: 1px solid #222;
-                        box-sizing: border-box;
-                    ">
-                        <div style="position: relative; overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000;">
-                            <img src="${rutaFlyer}" 
-                                 onerror="this.style.display='none'" 
-                                 style="width: 100%; display: block; border-bottom: 3px solid #1fd655; min-height: 100px; object-fit: cover;">
+                    <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorBorde};">
+                        <div style="font-size: 10px; color: ${colorBorde}; margin-bottom: 5px; letter-spacing:1px;">${etiqueta}</div>
+                        <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000;">
+                            <img src="${rutaFlyer}" onerror="this.style.display='none'" style="width: 100%; border-bottom: 3px solid ${colorBorde};">
                         </div>
-                        
-                        <h2 style="
-                            margin: 0 0 8px 0; 
-                            font-size: 20px; 
-                            text-transform: uppercase; 
-                            line-height: 1.2; 
-                            letter-spacing: 0.5px; 
-                            color: #fff;
-                        ">${nombre}</h2>
-                        
-                        <div style="
-                            font-family: 'Courier Prime', monospace; 
-                            font-size: 13px; 
-                            margin-bottom: 15px; 
-                            color: #1fd655; 
-                            background: rgba(31, 214, 85, 0.1); 
-                            padding: 6px; 
-                            border-radius: 4px; 
-                            display: inline-block;
-                            border: 1px dashed rgba(31, 214, 85, 0.3);
-                        ">
-                            📅 ${fecha}
+                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase;">${nombre}</h2>
+                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorBorde}; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 4px; display: inline-block;">
+                            📅 ${fechaTexto}
                         </div>
-
-                        <a href="${linkFB}" target="_blank" class="btn-popup-agenda" style="
-                            display: block; 
-                            background: #1fd655; 
-                            color: #000; 
-                            padding: 12px; 
-                            text-decoration: none; 
-                            font-weight: bold; 
-                            border-radius: 5px; 
-                            font-size: 14px;
-                            letter-spacing: 1px;
-                            transition: all 0.2s ease-in-out;
-                            text-transform: uppercase;
-                        " onmouseover="this.style.background='#fff'; this.style.color='#000';" 
-                           onmouseout="this.style.background='#1fd655'; this.style.color='#000';">
-                            MÁS INFO ACÁ
-                        </a>
+                        <a href="${linkInstagram}" target="_blank" style="display: block; background: ${colorBorde}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 13px; text-transform: uppercase;">INFO</a>
                     </div>
-                `, { 
-                    maxWidth: 260,
-                    className: 'custom-agenda-popup' // Clase limpia por si después querés meterle estilos globales
-                });
+                `);
             }
         }
     });
 
+// --- MOTOR DE CARGA FILTRADO: ESTUDIOS UNDER (AMBA) ---
+fetch('estudios.geojson')
+    .then(res => res.json())
+    .then(data => {
+        // Filtro Anti-Mainstream
+        const mainstream = ["DISNEY", "TELEFE", "CANAL", "MITRE", "ESTUDIOS MAYOR", "AMERICA TV", "C5N"];
 
+        data.features.forEach(feature => {
+            let coords;
+            if (feature.geometry.type === 'Polygon') {
+                const lats = feature.geometry.coordinates[0].map(c => c[1]);
+                const lngs = feature.geometry.coordinates[0].map(c => c[0]);
+                coords = [(Math.min(...lats) + Math.max(...lats)) / 2, (Math.min(...lngs) + Math.max(...lngs)) / 2];
+            } else {
+                coords = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+            }
+
+            const nombre = (feature.properties.name || "Estudio").toUpperCase();
+            const esMainstream = mainstream.some(palabra => nombre.includes(palabra));
+            const lat = coords[0];
+            const lng = coords[1];
+            const dentroDeRango = (lat < -34.35 && lat > -35.05) && (lng < -57.80 && lng > -59.10);
+
+            if (dentroDeRango && !esMainstream) {
+                L.circleMarker(coords, {
+                    radius: 5,
+                    fillColor: '#8a2be2', 
+                    color: '#ffffff',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.7
+                }).addTo(map).bindPopup(`
+                    <div style="text-align: center; font-family: 'Anton', sans-serif; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid #8a2be2;">
+                        <div style="font-size: 9px; color: #8a2be2; letter-spacing: 1px;">🎙️ ESPACIO UNDER</div>
+                        <div style="font-size: 14px;">${nombre}</div>
+                    </div>
+                `);
+            }
+        });
+    }); 
 
 // --- MOTOR DE CARGA FILTRADO: AMBA Y CAPITAL ---
 fetch('estudios.geojson')
