@@ -167,12 +167,10 @@
 
   /* El Punto Gris oculto por defecto */
 .pulse-past {
-    display: none; /* <--- Esto los oculta al cargar */
-    background: #555 !important;
-    border-radius: 50%;
-    border: 2px solid #888;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    opacity: 0.8;
+    display: none !important; /* Ocultos al inicio */
+}
+body.mostrar-pasados .pulse-past {
+    display: block !important; /* Se muestran al activar el historial */
 }
 
 /* Clase para mostrarlos cuando apretamos el botón */
