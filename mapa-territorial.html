@@ -254,7 +254,7 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA TERRITORIAL (EVENTOS ACTIVOS Y PASADOS) ---
+// --- 4. MOTOR DE AGENDA TERRITORIAL (VERSION FINAL A PRUEBA DE ERRORES) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -263,42 +263,39 @@ fetch(urlCSV)
         const lineas = csvText.split('\n');
         const hoy = new Date();
 
+        // Empezamos en 1 para saltar el encabezado
         for (let i = 1; i < lineas.length; i++) {
-            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 11) continue; 
+            try {
+                const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+                if (!c || c.length < 11) continue; 
 
-            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-            const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
-            const fechaTxt = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
-            const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
-            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
+                const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
+                const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
+                const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
 
-            if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
-                
-             // Lógica de Fecha Ultra-Robusta
-const fechaLimpia = fechaTxt.trim();
-if (!fechaLimpia) continue; // Si no hay fecha, saltar
+                // FILTRO CRÍTICO: Solo procesar si tiene OK y Coordenadas válidas
+                if (estado !== "OK" || isNaN(lat) || isNaN(lng)) continue;
 
-const partes = fechaLimpia.split(/[-/ ]/);
-let fEv;
+                const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
+                const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
+                const fechaTxt = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
+                const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
-if (partes[0].length === 4) {
-    // Formato YYYY-MM-DD
-    fEv = new Date(partes[0], partes[1] - 1, partes[2]);
-} else if (partes[2] && partes[2].length === 4) {
-    // Formato DD-MM-YYYY
-    fEv = new Date(partes[2], partes[1] - 1, partes[0]);
-} else {
-    // Fallback por si la fecha es rara
-    fEv = new Date(fechaLimpia);
-}
+                // Procesamiento de fecha ultra-seguro
+                let esPasado = false;
+                if (fechaTxt) {
+                    const partes = fechaTxt.split(/[-/]/);
+                    let fEv;
+                    if (partes[0].length === 4) fEv = new Date(partes[0], partes[1]-1, partes[2]);
+                    else fEv = new Date(partes[2], partes[1]-1, partes[0]);
+                    
+                    fEv.setHours(23, 59, 59);
+                    esPasado = hoy > fEv;
+                }
 
-fEv.setHours(23, 59, 59);
-const esPasado = hoy > fEv;
+                const colorTema = esPasado ? '#555' : '#1fd655';
 
-                // Lógica de Flyer
+                // Lógica de Imagen
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                     let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
@@ -326,13 +323,17 @@ const esPasado = hoy > fEv;
                         <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block;">
                             📅 ${fechaTxt}
                         </div>
-                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 13px;">MÁS INFO ACÁ</a>
+                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 12px;">MÁS INFO</a>
                     </div>
                 `, { maxWidth: 260 });
+
+            } catch (err) {
+                console.warn("Error en fila " + i + ": ", err);
+                continue; // Si una fila falla, sigue con la otra
             }
         }
     })
-    .catch(err => console.error("Error en agenda:", err));
+    .catch(err => console.error("Error cargando agenda:", err));
 // 5. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
