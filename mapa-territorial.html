@@ -199,6 +199,122 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
+
+
+// 1. Configuración Base del Mapa
+var map = L.map('map').setView([-34.75, -58.55], 11);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    subdomains: 'abcd',
+    maxZoom: 20
+}).addTo(map);
+
+L.control.locate().addTo(map);
+
+// 2. Sede UNAJ y Capa de Lazos
+var unajCoords = [-34.7751535, -58.2678955]; 
+var unajMarker = L.marker(unajCoords, {title: "UNAJ"}).addTo(map);
+unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Florencio Varela");
+
+var layerLazos = L.layerGroup().addTo(map);
+
+// 3. Motor de Artistas (con Cluster y Buscador)
+fetch('artistas.json')
+    .then(res => res.json())
+    .then(artistas => {
+        var markersCluster = L.markerClusterGroup();
+        artistas.forEach(a => {
+            var marker = L.marker([a.lat, a.lng], {title: a.nombre});
+            marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
+            marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
+            
+            marker.on('click', function() {
+                layerLazos.clearLayers(); 
+                L.polyline([unajCoords, [a.lat, a.lng]], {
+                    color: '#ff4500', weight: 4, opacity: 0.7, dashArray: '10, 10'
+                }).addTo(layerLazos);
+            });
+            markersCluster.addLayer(marker);
+        });
+        map.addLayer(markersCluster);
+        map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
+    });
+
+// 4. MOTOR DE AGENDA TERRITORIAL (VALIDACIÓN Y RESCATE)
+const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+
+fetch(urlCSV)
+    .then(res => res.text())
+    .then(csvText => {
+        const lineas = csvText.split('\n');
+        for (let i = 1; i < lineas.length; i++) {
+            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+            if (c.length < 11) continue; 
+
+            const nombre = c[1]?.replace(/"/g, "").trim() || "Evento";
+            const imgDrive = c[2]?.replace(/"/g, "").trim() || "";
+            const direccion = c[3]?.replace(/"/g, "").trim() || "";
+            const fechaTexto = c[5]?.replace(/"/g, "").trim() || ""; 
+            const linkInsta = c[6]?.replace(/"/g, "").trim() || "#";
+            const estado = c[10]?.replace(/"/g, "").trim().toUpperCase() || "";
+
+            // Tratamiento de coordenadas
+            let lat = parseFloat(c[8]?.replace(/[ "]/g, "").replace(',', '.') || NaN);
+            let lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.') || NaN);
+
+            if (estado === "OK" && fechaTexto) {
+                const dibujarAgenda = (l, gn) => {
+                    const hoy = new Date();
+                    const partes = fechaTexto.split(/[-/]/);
+                    const fEv = partes[0].length === 4 ? new Date(partes[0], partes[1]-1, partes[2]) : new Date(partes[2], partes[1]-1, partes[0]);
+                    const fVenc = new Date(fEv); fVenc.setDate(fVenc.getDate() + 2);
+
+                    let esPasado = hoy > fVenc;
+                    let color = esPasado ? '#555' : '#1fd655';
+                    
+                    // Hack para visualizar imagen de Drive
+                    let idImg = imgDrive.includes('id=') ? imgDrive.split('id=')[1] : imgDrive.split('/d/')[1]?.split('/')[0];
+                    let finalImg = idImg ? `https://lh3.googleusercontent.com/d/${idImg}` : "https://hrj.com.ar/logo-hrj.png";
+
+                    L.marker([l, gn], {
+                        icon: L.divIcon({ className: esPasado ? 'pulse-past' : 'pulse-green', iconSize: [20, 20], iconAnchor: [10, 10] })
+                    }).addTo(map).bindPopup(`
+                        <div style="text-align:center; font-family:'Anton'; background:#111; color:#fff; padding:10px; border-radius:8px; border:1px solid ${color}; width:200px;">
+                            <img src="${finalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width:100%; border-radius:4px; margin-bottom:8px;">
+                            <h4 style="margin:0; text-transform:uppercase;">${nombre}</h4>
+                            <p style="font-family:'Courier Prime'; font-size:11px; margin:5px 0;">📅 ${fechaTexto}</p>
+                            <a href="${linkInsta}" target="_blank" style="color:${color}; text-decoration:none; font-size:12px; font-weight:bold;">[ VER INFO ]</a>
+                        </div>
+                    `);
+                };
+
+                if (isNaN(lat) || isNaN(lng) || lat === 0) {
+                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion + ", Buenos Aires, Argentina")}`)
+                        .then(r => r.json()).then(d => { if(d.length > 0) dibujarAgenda(d[0].lat, d[0].lon); });
+                } else {
+                    dibujarAgenda(lat, lng);
+                }
+            }
+        }
+    });
+
+// 5. MOTOR DE ESTUDIOS UNDER
+fetch('estudios.geojson')
+    .then(res => res.json())
+    .then(data => {
+        const mainstream = ["DISNEY", "TELEFE", "CANAL", "MITRE", "ESTUDIOS MAYOR", "AMERICA TV", "C5N"];
+        data.features.forEach(f => {
+            let coords = f.geometry.type === 'Point' ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : 
+                         [(f.geometry.coordinates[0][0][1] + f.geometry.coordinates[0][2][1])/2, (f.geometry.coordinates[0][0][0] + f.geometry.coordinates[0][2][0])/2];
+            
+            const nombre = (f.properties.name || "Estudio").toUpperCase();
+            if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
+                L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 }).addTo(map)
+                .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`);
+            }
+        });
+    });
+    
     var map = L.map('map').setView([-34.75, -58.55], 11);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -233,116 +349,16 @@
             map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
         });
 
-// --- MOTOR DE AGENDA CON HISTÓRICO Y CORRECCIÓN DE COLUMNAS ---
-const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+// --- MOTOR DE AGENDA 100% AUTÓNOMO (EL QUE YA TENÉS) ---
+// ... (Aquí va todo el código de la agenda que pegaste arriba) ...
 
-fetch(urlCSV)
-    .then(res => res.text())
-    .then(csvText => {
-        const lineas = csvText.split('\n');
-
-        for (let i = 1; i < lineas.length; i++) {
-            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 14) continue; 
-
-            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-            const fechaTexto = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
-            const linkInstagram = c[6] ? c[6].replace(/"/g, "").trim() : "#";
-            const lat = parseFloat(c[12] ? c[12].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[13] ? c[13].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[14] ? c[14].replace(/"/g, "").trim().toUpperCase() : "";
-
-            if (estado === "OK" && !isNaN(lat) && !isNaN(lng) && fechaTexto) {
-                // LÓGICA DE FECHAS (ACTIVO VS ARCHIVO)
-                const partesFecha = fechaTexto.split(/[-/]/);
-                let fechaEvento;
-                if (partesFecha[0].length === 4) { 
-                    fechaEvento = new Date(partesFecha[0], partesFecha[1] - 1, partesFecha[2]);
-                } else { 
-                    fechaEvento = new Date(partesFecha[2], partesFecha[1] - 1, partesFecha[0]);
-                }
-
-                const hoy = new Date();
-                const fechaVencimiento = new Date(fechaEvento);
-                fechaVencimiento.setDate(fechaVencimiento.getDate() + 2);
-
-                let claseIcono = 'pulse-green';
-                let etiqueta = 'EVENTO ACTIVO';
-                let colorBorde = '#1fd655';
-
-                if (hoy > fechaVencimiento) {
-                    claseIcono = 'pulse-past'; // Asegurate de tener este estilo en tu CSS
-                    etiqueta = 'ARCHIVO TERRITORIAL';
-                    colorBorde = '#555';
-                }
-
-                const nombreArchivo = nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-                const rutaFlyer = `./flyer-territorial/${nombreArchivo}.jpg?v=${new Date().getTime()}`;
-
-                L.marker([lat, lng], {
-                    icon: L.divIcon({ className: claseIcono, iconSize: [20, 20], iconAnchor: [10, 10] })
-                }).addTo(map).bindPopup(`
-                    <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorBorde};">
-                        <div style="font-size: 10px; color: ${colorBorde}; margin-bottom: 5px; letter-spacing:1px;">${etiqueta}</div>
-                        <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000;">
-                            <img src="${rutaFlyer}" onerror="this.style.display='none'" style="width: 100%; border-bottom: 3px solid ${colorBorde};">
-                        </div>
-                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase;">${nombre}</h2>
-                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorBorde}; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 4px; display: inline-block;">
-                            📅 ${fechaTexto}
-                        </div>
-                        <a href="${linkInstagram}" target="_blank" style="display: block; background: ${colorBorde}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 13px; text-transform: uppercase;">INFO</a>
-                    </div>
-                `);
-            }
-        }
-    });
-
-// --- MOTOR DE CARGA FILTRADO: ESTUDIOS UNDER (AMBA) ---
+// --- MOTOR DE CARGA UNIFICADO: ESTUDIOS UNDER ---
 fetch('estudios.geojson')
     .then(res => res.json())
     .then(data => {
-        // Filtro Anti-Mainstream
+        // Lista negra para filtrar estudios corporativos/mainstream
         const mainstream = ["DISNEY", "TELEFE", "CANAL", "MITRE", "ESTUDIOS MAYOR", "AMERICA TV", "C5N"];
 
-        data.features.forEach(feature => {
-            let coords;
-            if (feature.geometry.type === 'Polygon') {
-                const lats = feature.geometry.coordinates[0].map(c => c[1]);
-                const lngs = feature.geometry.coordinates[0].map(c => c[0]);
-                coords = [(Math.min(...lats) + Math.max(...lats)) / 2, (Math.min(...lngs) + Math.max(...lngs)) / 2];
-            } else {
-                coords = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-            }
-
-            const nombre = (feature.properties.name || "Estudio").toUpperCase();
-            const esMainstream = mainstream.some(palabra => nombre.includes(palabra));
-            const lat = coords[0];
-            const lng = coords[1];
-            const dentroDeRango = (lat < -34.35 && lat > -35.05) && (lng < -57.80 && lng > -59.10);
-
-            if (dentroDeRango && !esMainstream) {
-                L.circleMarker(coords, {
-                    radius: 5,
-                    fillColor: '#8a2be2', 
-                    color: '#ffffff',
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.7
-                }).addTo(map).bindPopup(`
-                    <div style="text-align: center; font-family: 'Anton', sans-serif; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid #8a2be2;">
-                        <div style="font-size: 9px; color: #8a2be2; letter-spacing: 1px;">🎙️ ESPACIO UNDER</div>
-                        <div style="font-size: 14px;">${nombre}</div>
-                    </div>
-                `);
-            }
-        });
-    }); 
-
-// --- MOTOR DE CARGA FILTRADO: AMBA Y CAPITAL ---
-fetch('estudios.geojson')
-    .then(res => res.json())
-    .then(data => {
         data.features.forEach(feature => {
             let coords;
             
@@ -350,9 +366,7 @@ fetch('estudios.geojson')
             if (feature.geometry.type === 'Polygon') {
                 const lats = feature.geometry.coordinates[0].map(c => c[1]);
                 const lngs = feature.geometry.coordinates[0].map(c => c[0]);
-                const centerLat = (Math.min(...lats) + Math.max(...lats)) / 2;
-                const centerLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-                coords = [centerLat, centerLng];
+                coords = [(Math.min(...lats) + Math.max(...lats)) / 2, (Math.min(...lngs) + Math.max(...lngs)) / 2];
             } else if (feature.geometry.type === 'Point') {
                 coords = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
             }
@@ -360,27 +374,25 @@ fetch('estudios.geojson')
             if (coords) {
                 const lat = coords[0];
                 const lng = coords[1];
+                const nombre = (feature.properties.name || "Estudio").toUpperCase();
+                const tipo = feature.properties.studio || "Audio";
 
-                // FILTRO TERRITORIAL ESTRICTO (ZONA NORTE, SUR, OESTE Y CABA)
-                // Latitudes: Entre Tigre/Pilar y La Plata
-                // Longitudes: Entre el Río y Luján/Rodríguez
+                // FILTRO TERRITORIAL + FILTRO MAINSTREAM
                 const dentroDeRango = (lat < -34.35 && lat > -35.05) && (lng < -57.80 && lng > -59.10);
+                const esMainstream = mainstream.some(palabra => nombre.includes(palabra));
 
-                if (dentroDeRango) {
-                    const nombre = feature.properties.name || "Estudio de Grabación";
-                    const tipo = feature.properties.studio || "Audio";
-
+                if (dentroDeRango && !esMainstream) {
                     L.circleMarker(coords, {
-                        radius: 6,
+                        radius: 5,
                         fillColor: '#8a2be2', 
                         color: '#ffffff',
-                        weight: 1.5,
+                        weight: 1,
                         opacity: 1,
-                        fillOpacity: 0.8
+                        fillOpacity: 0.7
                     }).addTo(map).bindPopup(`
-                        <div style="text-align: center; font-family: 'Anton', sans-serif; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid #8a2be2; min-width: 150px;">
-                            <div style="font-size: 9px; color: #8a2be2; letter-spacing: 1px; margin-bottom: 3px;">🎙️ INFRAESTRUCTURA</div>
-                            <div style="font-size: 14px; text-transform: uppercase;">${nombre}</div>
+                        <div style="text-align: center; font-family: 'Anton', sans-serif; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid #8a2be2;">
+                            <div style="font-size: 9px; color: #8a2be2; letter-spacing: 1px; margin-bottom: 3px;">🎙️ INFRAESTRUCTURA UNDER</div>
+                            <div style="font-size: 14px;">${nombre}</div>
                             <div style="font-family: 'Courier Prime', monospace; font-size: 11px; color: #aaa; margin-top: 5px;">
                                 ${tipo.toUpperCase()}
                             </div>
@@ -390,8 +402,7 @@ fetch('estudios.geojson')
             }
         });
     })
-    .catch(err => console.error("Error al cargar estudios.geojson", err)); 
-    
+    .catch(err => console.error("Error al cargar estudios.geojson", err));
 </script>
     
 </body>
