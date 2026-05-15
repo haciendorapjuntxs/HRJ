@@ -187,6 +187,16 @@ body.mostrar-pasados .pulse-past {
     color: #fff !important;
 } 
 
+
+/* El Punto Gris (Archivo Histórico) */
+.pulse-past {
+    background: #555 !important; /* Gris oscuro */
+    border-radius: 50%;
+    border: 2px solid #888;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    opacity: 0.8;
+}
+
         
 </style> 
 </head>
@@ -337,32 +347,6 @@ fetch('estudios.geojson')
             }
         });
     });
-
-
-   // --- FUNCIÓN PARA MOSTRAR/OCULTAR EL ARCHIVO HISTÓRICO ---
-function toggleEventosPasados(e) {
-    e.preventDefault();
-    
-    // 1. Le ponemos la etiqueta al body
-    document.body.classList.toggle('mostrar-pasados');
-    
-    const activo = document.body.classList.contains('mostrar-pasados');
-    const btn = document.getElementById('toggle-pasados');
-
-    // 2. FORZADO: Buscamos todos los puntos grises y los prendemos/apagamos
-    // Usamos el estilo directamente porque a veces el CSS solo no alcanza con Leaflet
-    document.querySelectorAll('.pulse-past').forEach(el => {
-        el.style.display = activo ? 'block' : 'none';
-    });
-
-    // 3. Estética del botón
-    if (activo) {
-        btn.classList.add('activo');
-        btn.innerText = "OCULTAR PASADOS";
-    } else {
-        btn.classList.remove('activo');
-        btn.innerText = "HISTORIAL";
-    }
 } 
 </script>
 </body>
