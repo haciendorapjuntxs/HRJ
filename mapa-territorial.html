@@ -256,76 +256,32 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// 4. MOTOR DE AGENDA TERRITORIAL (EVENTOS ACTIVOS Y PASADOS)
-const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+function toggleEventosPasados(e) {
+    e.preventDefault();
+    
+    // 1. Cambiamos el estado en el body
+    const cuerpo = document.body;
+    cuerpo.classList.toggle('mostrar-pasados');
+    
+    const btn = document.getElementById('toggle-pasados');
+    const estaActivo = cuerpo.classList.contains('mostrar-pasados');
 
-fetch(urlCSV)
-    .then(res => res.text())
-    .then(csvText => {
-        const lineas = csvText.split('\n');
-        const hoy = new Date();
-
-        for (let i = 1; i < lineas.length; i++) {
-            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (c.length < 11) continue; 
-
-            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-            const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
-            const fechaTxt = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
-            const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
-            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
-            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
-
-            if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
-                
-                // Lógica de Fecha para reconocer el archivo histórico
-                const partes = fechaTxt.split(/[-/]/);
-                let fEv;
-                if (partes[0].length === 4) {
-                    fEv = new Date(partes[0], partes[1]-1, partes[2]);
-                } else {
-                    fEv = new Date(partes[2], partes[1]-1, partes[0]);
-                }
-                fEv.setHours(23, 59, 59);
-                
-                const esPasado = hoy > fEv;
-                const colorTema = esPasado ? '#555' : '#1fd655';
-
-                let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
-                if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                    let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
-                               (datoFlyer.includes('/d/') ? datoFlyer.split('/d/')[1].split('/')[0] : "");
-                    urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
-                } else if (datoFlyer.length > 3) {
-                    urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                                  datoFlyer : `./flyer-territorial/${datoFlyer}`;
-                }
-
-                L.marker([lat, lng], {
-                    icon: L.divIcon({ 
-                        className: esPasado ? 'pulse-past' : 'pulse-green', 
-                        iconSize: [20, 20],
-                        iconAnchor: [10, 10]
-                    })
-                }).addTo(map).bindPopup(`
-                    <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorTema};">
-                        <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                            <img src="${urlFinalImg}" 
-                                 onerror="this.src='https://hrj.com.ar/logo-hrj.png'" 
-                                 style="width: 100%; display: block; border-bottom: 3px solid ${colorTema}; min-height: 100px; object-fit: cover;">
-                        </div>
-                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase;">${nombre}</h2>
-                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block;">
-                            📅 ${fechaTxt}
-                        </div>
-                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase;">MÁS INFO ACÁ</a>
-                    </div>
-                `, { maxWidth: 260 });
-            }
-        }
+    // 2. FORZADO MANUAL: Buscamos todos los div de los iconos en el mapa
+    // Esto soluciona el problema si Leaflet intenta bloquear el CSS
+    const iconosPasados = document.querySelectorAll('.pulse-past');
+    iconosPasados.forEach(icon => {
+        icon.style.display = estaActivo ? 'block' : 'none';
     });
 
+    // 3. Estética del botón
+    if (estaActivo) {
+        btn.classList.add('activo');
+        btn.innerText = "OCULTAR PASADOS";
+    } else {
+        btn.classList.remove('activo');
+        btn.innerText = "HISTORIAL";
+    }
+}
 // 5. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
@@ -350,24 +306,31 @@ fetch('estudios.geojson')
     });
 
 
-    function toggleEventosPasados(e) {
-    e.preventDefault(); // Para que no recargue la página
+   // --- FUNCIÓN PARA MOSTRAR/OCULTAR EL ARCHIVO HISTÓRICO ---
+function toggleEventosPasados(e) {
+    e.preventDefault();
     
-    // Le ponemos o sacamos la clase al body
+    // 1. Le ponemos la etiqueta al body
     document.body.classList.toggle('mostrar-pasados');
     
-    // Cambiamos el estilo del botón para que se note que está activo
+    const activo = document.body.classList.contains('mostrar-pasados');
     const btn = document.getElementById('toggle-pasados');
-    btn.classList.toggle('activo');
-    
-    // Cambiamos el texto del botón
-    if (document.body.classList.contains('mostrar-pasados')) {
+
+    // 2. FORZADO: Buscamos todos los puntos grises y los prendemos/apagamos
+    // Usamos el estilo directamente porque a veces el CSS solo no alcanza con Leaflet
+    document.querySelectorAll('.pulse-past').forEach(el => {
+        el.style.display = activo ? 'block' : 'none';
+    });
+
+    // 3. Estética del botón
+    if (activo) {
+        btn.classList.add('activo');
         btn.innerText = "OCULTAR PASADOS";
     } else {
+        btn.classList.remove('activo');
         btn.innerText = "HISTORIAL";
     }
-}
-    
+} 
 </script>
 </body>
 </html>
