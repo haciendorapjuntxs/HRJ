@@ -246,7 +246,7 @@ fetch(urlCSV)
         hoy.setHours(0, 0, 0, 0); 
 
         for (let i = 1; i < lineas.length; i++) {
-            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+            const c = lineas[i].split(/,(?=(?:(?:[^\"*]*\"){2})*[^\"*]*$)/); 
             if (!c || c.length < 11) continue; 
 
             const estado = c[10] ? c[10].toUpperCase().trim() : "";
@@ -282,19 +282,18 @@ fetch(urlCSV)
             const esPasado = hoy > fEv;
             const colorTema = esPasado ? '#888' : '#1fd655';
 
-            // REPARACIÓN DE LOGICA HÍBRIDA (Local / Drive)
+            // REPARACIÓN DEFINITIVA DE LÓGICA HÍBRIDA (Local / Servidor Drive)
             let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
             
             if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                // Extrae el ID de cualquier formato de enlace de Drive Compartido
                 let idImg = "";
                 if (datoFlyer.includes('id=')) {
                     idImg = datoFlyer.split('id=')[1].split('&')[0];
                 } else if (datoFlyer.includes('/d/')) {
                     idImg = datoFlyer.split('/d/')[1].split('/')[0];
                 }
-                // URL directa nativa para renderizar imágenes de Drive en la web
-                urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
+                // Usamos el servidor de miniaturas para evitar que Google bloquee el flyer
+                urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
             } else if (datoFlyer.length > 3) {
                 // Si es un archivo local (ej: clinica.jpg) o una URL externa común
                 urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
@@ -324,7 +323,7 @@ fetch(urlCSV)
                 marcador.addTo(map);
             }
         }
-    }); 
+    });
     
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
