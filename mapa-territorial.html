@@ -240,7 +240,7 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (CON ARCHIVO HISTÓRICO) ---
+// 4 --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (UNIFICADO: LOCAL + DRIVE) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -263,48 +263,52 @@ fetch(urlCSV)
 
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 
-                // --- LÓGICA DE FECHA PARA PUNTOS GRISES ---
                 const partes = fechaTxt.split(/[-/]/);
-                // Asume formato DD/MM/AAAA o AAAA-MM-DD
                 const fEv = partes[0].length === 4 ? 
                             new Date(partes[0], partes[1]-1, partes[2]) : 
                             new Date(partes[2], partes[1]-1, partes[0]);
                 
-                // Le damos 24hs de changüí antes de pasarlo a gris
                 const fVencimiento = new Date(fEv);
                 fVencimiento.setDate(fVencimiento.getDate() + 1);
-
                 const esPasado = hoy > fVencimiento;
-                const clasePunto = esPasado ? 'pulse-past' : 'pulse-green';
                 const colorTema = esPasado ? '#555' : '#1fd655';
 
-                // --- LÓGICA DE FLYER ---
-                let rutaFlyerFinal = "https://hrj.com.ar/logo-hrj.png";
-                if (datoFlyer.length > 5) {
-                    rutaFlyerFinal = datoFlyer.includes('/') || datoFlyer.startsWith('http') ? 
-                                     datoFlyer : `./flyer-territorial/${datoFlyer}`;
+                // --- NUEVA LÓGICA DE FLYER MULTI-ORIGEN ---
+                let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
+
+                if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
+                    // Es un link de Drive: extraemos el ID
+                    let idImg = "";
+                    if (datoFlyer.includes('id=')) {
+                        idImg = datoFlyer.split('id=')[1].split('&')[0];
+                    } else if (datoFlyer.includes('/d/')) {
+                        idImg = datoFlyer.split('/d/')[1].split('/')[0];
+                    }
+                    urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
+                } else if (datoFlyer.length > 3) {
+                    // Es una ruta local o nombre de archivo
+                    urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
+                                  datoFlyer : `./flyer-territorial/${datoFlyer}`;
                 }
 
                 L.marker([lat, lng], {
                     icon: L.divIcon({ 
-                        className: clasePunto, 
+                        className: esPasado ? 'pulse-past' : 'pulse-green', 
                         iconSize: [20, 20],
                         iconAnchor: [10, 10]
                     })
                 }).addTo(map).bindPopup(`
                     <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorTema};">
                         <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                            <img src="${rutaFlyerFinal}" 
+                            <img src="${urlFinalImg}" 
                                  onerror="this.src='https://hrj.com.ar/logo-hrj.png'" 
                                  style="width: 100%; display: block; border-bottom: 3px solid ${colorTema}; min-height: 100px; object-fit: cover;">
                         </div>
-                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase; color: #fff;">${nombre} ${esPasado ? '(PASADO)' : ''}</h2>
-                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block; border: 1px solid ${colorTema}55;">
+                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase;">${nombre}</h2>
+                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block;">
                             📅 ${fechaTxt}
                         </div>
-                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: ${esPasado ? '#ccc' : '#000'}; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 13px;">
-                            ${esPasado ? 'VER ARCHIVO' : 'MÁS INFO ACÁ'}
-                        </a>
+                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 13px;">MÁS INFO ACÁ</a>
                     </div>
                 `, { maxWidth: 260 });
             }
