@@ -269,13 +269,16 @@ fetch(urlCSV)
                 const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
                 if (!c || c.length < 11) continue; 
 
-                const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
-                const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
-                const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+               // Buscamos si la línea entera contiene la palabra OK (sin importar la columna)
+const lineaCompleta = lineas[i].toUpperCase();
+if (!lineaCompleta.includes("OK")) continue;
 
-                // FILTRO CRÍTICO: Solo procesar si tiene OK y Coordenadas válidas
-                if (estado !== "OK" || isNaN(lat) || isNaN(lng)) continue;
+// Buscamos las coordenadas limpiando comillas y espacios
+const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
+const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
 
+// Si las coordenadas no son números válidos, pasamos a la siguiente fila
+if (isNaN(lat) || isNaN(lng)) continue;
                 const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
                 const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
                 const fechaTxt = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
