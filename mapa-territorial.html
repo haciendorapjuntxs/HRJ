@@ -166,9 +166,7 @@
 
 
   /* El Punto Gris oculto por defecto */
-.pulse-past {
-    display: none !important; /* Ocultos al inicio */
-}
+
 body.mostrar-pasados .pulse-past {
     display: block !important; /* Se muestran al activar el historial */
 }
@@ -254,8 +252,11 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA TERRITORIAL (VERSION FINAL A PRUEBA DE ERRORES) ---
+// --- 4. MOTOR DE AGENDA (CON CAPAS SEPARADAS) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+
+// Creamos un grupo para los eventos pasados
+const capaPasados = L.layerGroup(); 
 
 fetch(urlCSV)
     .then(res => res.text())
@@ -263,80 +264,57 @@ fetch(urlCSV)
         const lineas = csvText.split('\n');
         const hoy = new Date();
 
-        // Empezamos en 1 para saltar el encabezado
         for (let i = 1; i < lineas.length; i++) {
-            try {
-                const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-                if (!c || c.length < 11) continue; 
+            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+            if (!c || c.length < 11) continue; 
 
-               // Buscamos si la línea entera contiene la palabra OK (sin importar la columna)
-const lineaCompleta = lineas[i].toUpperCase();
-if (!lineaCompleta.includes("OK")) continue;
+            const estado = c[10] ? c[10].toUpperCase() : "";
+            if (!estado.includes("OK")) continue;
 
-// Buscamos las coordenadas limpiando comillas y espacios
-const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
-const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lat = parseFloat(c[8]?.replace(',', '.'));
+            const lng = parseFloat(c[9]?.replace(',', '.'));
+            if (isNaN(lat) || isNaN(lng)) continue;
 
-// Si las coordenadas no son números válidos, pasamos a la siguiente fila
-if (isNaN(lat) || isNaN(lng)) continue;
-                const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-                const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
-                const fechaTxt = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
-                const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
+            const fechaTxt = c[5]?.trim() || "";
+            const partes = fechaTxt.split(/[-/]/);
+            let fEv = partes[0].length === 4 ? new Date(partes[0], partes[1]-1, partes[2]) : new Date(partes[2], partes[1]-1, partes[0]);
+            fEv.setHours(23, 59, 59);
 
-                // Procesamiento de fecha ultra-seguro
-                let esPasado = false;
-                if (fechaTxt) {
-                    const partes = fechaTxt.split(/[-/]/);
-                    let fEv;
-                    if (partes[0].length === 4) fEv = new Date(partes[0], partes[1]-1, partes[2]);
-                    else fEv = new Date(partes[2], partes[1]-1, partes[0]);
-                    
-                    fEv.setHours(23, 59, 59);
-                    esPasado = hoy > fEv;
-                }
+            const esPasado = hoy > fEv;
+            const nombre = c[1]?.replace(/"/g, "") || "Evento";
+            const colorTema = esPasado ? '#555' : '#1fd655';
 
-                const colorTema = esPasado ? '#555' : '#1fd655';
+            const marcador = L.marker([lat, lng], {
+                icon: L.divIcon({ 
+                    className: esPasado ? 'pulse-past' : 'pulse-green', 
+                    iconSize: [20, 20]
+                })
+            }).bindPopup(`<b style="color:${colorTema}">${nombre}</b><br>${fechaTxt}`);
 
-                // Lógica de Imagen
-                let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
-                if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                    let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
-                               (datoFlyer.includes('/d/') ? datoFlyer.split('/d/')[1].split('/')[0] : "");
-                    urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
-                } else if (datoFlyer.length > 3) {
-                    urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                                  datoFlyer : `./flyer-territorial/${datoFlyer}`;
-                }
-
-                L.marker([lat, lng], {
-                    icon: L.divIcon({ 
-                        className: esPasado ? 'pulse-past' : 'pulse-green', 
-                        iconSize: [20, 20],
-                        iconAnchor: [10, 10]
-                    })
-                }).addTo(map).bindPopup(`
-                    <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorTema};">
-                        <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                            <img src="${urlFinalImg}" 
-                                 onerror="this.src='https://hrj.com.ar/logo-hrj.png'" 
-                                 style="width: 100%; display: block; border-bottom: 3px solid ${colorTema}; min-height: 100px; object-fit: cover;">
-                        </div>
-                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase;">${nombre}</h2>
-                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block;">
-                            📅 ${fechaTxt}
-                        </div>
-                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 12px;">MÁS INFO</a>
-                    </div>
-                `, { maxWidth: 260 });
-
-            } catch (err) {
-                console.warn("Error en fila " + i + ": ", err);
-                continue; // Si una fila falla, sigue con la otra
+            // SI ES PASADO, LO MANDAMOS A LA CAPA OCULTA. SI NO, AL MAPA DIRECTO.
+            if (esPasado) {
+                marcador.addTo(capaPasados);
+            } else {
+                marcador.addTo(map);
             }
         }
-    })
-    .catch(err => console.error("Error cargando agenda:", err));
+    });
+
+// --- 5. FUNCIÓN DEL BOTÓN (ACTUALIZADA) ---
+function toggleEventosPasados(e) {
+    e.preventDefault();
+    const btn = document.getElementById('toggle-pasados');
+    
+    if (map.hasLayer(capaPasados)) {
+        map.removeLayer(capaPasados);
+        btn.innerText = "HISTORIAL";
+        btn.classList.remove('activo');
+    } else {
+        map.addLayer(capaPasados);
+        btn.innerText = "OCULTAR PASADOS";
+        btn.classList.add('activo');
+    }
+}
 // 5. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
