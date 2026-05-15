@@ -234,8 +234,9 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA (VERSIÓN REFORZADA) ---
-const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
+// --- 4. MOTOR DE AGENDA (FORCE UPDATE) ---
+// El + new Date().getTime() evita que el navegador use una versión vieja guardada
+const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cachebuster=' + new Date().getTime();
 const capaPasados = L.layerGroup(); 
 
 fetch(urlCSV)
@@ -243,74 +244,58 @@ fetch(urlCSV)
     .then(csvText => {
         const lineas = csvText.split('\n');
         const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0); // Normalizamos hoy a las 00:00
+
+        console.log("Líneas detectadas en el CSV: " + lineas.length);
 
         for (let i = 1; i < lineas.length; i++) {
+            // Separador robusto para evitar líos con comas dentro de textos
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             if (!c || c.length < 11) continue; 
 
-            const estado = c[10] ? c[10].toUpperCase() : "";
+            const estado = c[10] ? c[10].toUpperCase().trim() : "";
             if (!estado.includes("OK")) continue;
 
-            // Limpieza total de espacios y comillas en coordenadas
             const lat = parseFloat(c[8]?.replace(/[ "]/g, "").replace(',', '.'));
             const lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
             
-            if (isNaN(lat) || isNaN(lng)) {
-                console.warn("Fila " + i + ": Coordenadas inválidas");
-                continue;
-            }
+            if (isNaN(lat) || isNaN(lng)) continue;
 
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-            const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
             const fechaTxt = c[5]?.trim() || ""; 
-            const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
-            // Procesamiento de Fecha
+            // PROCESADOR DE FECHA ULTRA-SEGURO
             const partes = fechaTxt.split(/[-/]/);
             let fEv;
-            if (partes[0].length === 4) {
-                fEv = new Date(partes[0], partes[1]-1, partes[2]);
-            } else {
-                fEv = new Date(partes[2], partes[1]-1, partes[0]);
-            }
-            fEv.setHours(23, 59, 59);
+            try {
+                if (partes[0].length === 4) {
+                    fEv = new Date(partes[0], partes[1]-1, partes[2]);
+                } else {
+                    fEv = new Date(partes[2], partes[1]-1, partes[0]);
+                }
+                fEv.setHours(23, 59, 59);
+            } catch(e) { continue; }
 
             const esPasado = hoy > fEv;
-            const colorTema = esPasado ? '#888' : '#1fd655';
-
-            // Lógica de Flyers (Corregida la llave {idImg} que sobraba)
-            let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
-            if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
-                           (datoFlyer.includes('/d/') ? datoFlyer.split('/d/')[1].split('/')[0] : "");
-                urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
-            } else if (datoFlyer.length > 3) {
-                urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                              datoFlyer : `./flyer-territorial/${datoFlyer}`;
-            }
-
+            
             const marcador = L.marker([lat, lng], {
                 icon: L.divIcon({ 
                     className: esPasado ? 'pulse-past' : 'pulse-green', 
                     iconSize: [20, 20],
                     iconAnchor: [10, 10]
                 })
-            }).bindPopup(`
-                <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
-                    <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; border-radius: 4px; margin-bottom: 8px;">
-                    <h3 style="margin: 5px 0; font-size: 16px;">${nombre}</h3>
-                    <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema};">📅 ${fechaTxt}</p>
-                    <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 8px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 11px;">MÁS INFO</a>
-                </div>
-            `);
+            }).bindPopup(`<b>${nombre}</b><br>${fechaTxt}`);
 
             if (esPasado) {
                 marcador.addTo(capaPasados);
+                console.log("Evento pasado detectado: " + nombre);
             } else {
                 marcador.addTo(map);
+                console.log("Evento activo detectado: " + nombre);
             }
         }
-    });
+    })
+    .catch(err => console.error("Error cargando el CSV: ", err)); 
     
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
