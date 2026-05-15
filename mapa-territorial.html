@@ -165,14 +165,31 @@
     } 
 
 
-  /* El Punto Gris para el Archivo Histórico */
+  /* El Punto Gris oculto por defecto */
 .pulse-past {
-    background: #555 !important; /* Gris oscuro */
+    display: none; /* <--- Esto los oculta al cargar */
+    background: #555 !important;
     border-radius: 50%;
     border: 2px solid #888;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     opacity: 0.8;
 }
+
+/* Clase para mostrarlos cuando apretamos el botón */
+.mostrar-pasados .pulse-past {
+    display: block !important;
+}
+
+/* Estilo para el botón de "Historial" */
+.btn-historial {
+    background: #333 !important;
+    border: 1px solid #555 !important;
+}
+.btn-historial.activo {
+    background: #555 !important;
+    border-color: #fff !important;
+    color: #fff !important;
+} 
 
         
 </style> 
