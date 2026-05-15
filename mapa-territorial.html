@@ -240,62 +240,76 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// 4. Agenda Territorial (CON REPARACIÓN DE FLYERS)
+// --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (CON ARCHIVO HISTÓRICO) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
-fetch(urlCSV).then(res => res.text()).then(csvText => {
-    const lineas = csvText.split('\n');
-    for (let i = 1; i < lineas.length; i++) {
-        const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-        if (c.length < 11 || c[10].toUpperCase().trim() !== "OK") continue; 
+fetch(urlCSV)
+    .then(res => res.text())
+    .then(csvText => {
+        const lineas = csvText.split('\n');
+        const hoy = new Date();
 
-        const nombre = c[1].replace(/"/g, "").trim();
-        const imgDrive = c[2].replace(/"/g, "").trim(); // Columna del Flyer
-        const direccion = c[3].replace(/"/g, "").trim();
-        const fechaTxt = c[5].replace(/"/g, "").trim();
-        const link = c[6].replace(/"/g, "").trim();
-        let lat = parseFloat(c[8].replace(/[ "]/g, "").replace(',', '.'));
-        let lng = parseFloat(c[9].replace(/[ "]/g, "").replace(',', '.'));
+        for (let i = 1; i < lineas.length; i++) {
+            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+            if (c.length < 10) continue; 
 
-        const dibujar = (lt, lg) => {
-            const hoy = new Date();
-            const p = fechaTxt.split(/[-/]/);
-            const fEv = p[0].length === 4 ? new Date(p[0], p[1]-1, p[2]) : new Date(p[2], p[1]-1, p[0]);
-            const fVenc = new Date(fEv); fVenc.setDate(fVenc.getDate() + 2);
-            const esPasado = hoy > fVenc;
-            const color = esPasado ? '#555' : '#1fd655';
+            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
+            const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
+            const fechaTxt = c[5] ? c[5].replace(/"/g, "").trim() : ""; 
+            const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
+            const lat = parseFloat(c[8] ? c[8].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const lng = parseFloat(c[9] ? c[9].replace(/[ "]/g, "").replace(',', '.') : NaN);
+            const estado = c[10] ? c[10].replace(/"/g, "").trim().toUpperCase() : "";
 
-            // TRANSFORMACIÓN DE LINK DRIVE A IMAGEN DIRECTA
-            let idImg = "";
-            if (imgDrive.includes('id=')) {
-                idImg = imgDrive.split('id=')[1].split('&')[0];
-            } else if (imgDrive.includes('/d/')) {
-                idImg = imgDrive.split('/d/')[1].split('/')[0];
+            if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
+                
+                // --- LÓGICA DE FECHA PARA PUNTOS GRISES ---
+                const partes = fechaTxt.split(/[-/]/);
+                // Asume formato DD/MM/AAAA o AAAA-MM-DD
+                const fEv = partes[0].length === 4 ? 
+                            new Date(partes[0], partes[1]-1, partes[2]) : 
+                            new Date(partes[2], partes[1]-1, partes[0]);
+                
+                // Le damos 24hs de changüí antes de pasarlo a gris
+                const fVencimiento = new Date(fEv);
+                fVencimiento.setDate(fVencimiento.getDate() + 1);
+
+                const esPasado = hoy > fVencimiento;
+                const clasePunto = esPasado ? 'pulse-past' : 'pulse-green';
+                const colorTema = esPasado ? '#555' : '#1fd655';
+
+                // --- LÓGICA DE FLYER ---
+                let rutaFlyerFinal = "https://hrj.com.ar/logo-hrj.png";
+                if (datoFlyer.length > 5) {
+                    rutaFlyerFinal = datoFlyer.includes('/') || datoFlyer.startsWith('http') ? 
+                                     datoFlyer : `./flyer-territorial/${datoFlyer}`;
+                }
+
+                L.marker([lat, lng], {
+                    icon: L.divIcon({ 
+                        className: clasePunto, 
+                        iconSize: [20, 20],
+                        iconAnchor: [10, 10]
+                    })
+                }).addTo(map).bindPopup(`
+                    <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorTema};">
+                        <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
+                            <img src="${rutaFlyerFinal}" 
+                                 onerror="this.src='https://hrj.com.ar/logo-hrj.png'" 
+                                 style="width: 100%; display: block; border-bottom: 3px solid ${colorTema}; min-height: 100px; object-fit: cover;">
+                        </div>
+                        <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase; color: #fff;">${nombre} ${esPasado ? '(PASADO)' : ''}</h2>
+                        <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block; border: 1px solid ${colorTema}55;">
+                            📅 ${fechaTxt}
+                        </div>
+                        <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: ${esPasado ? '#ccc' : '#000'}; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 13px;">
+                            ${esPasado ? 'VER ARCHIVO' : 'MÁS INFO ACÁ'}
+                        </a>
+                    </div>
+                `, { maxWidth: 260 });
             }
-            
-            // Si hay ID usamos el proxy de Google, si no, el logo de HRJ
-            const urlFinalImg = idImg ? `https://lh3.googleusercontent.com/d/${idImg}` : "https://hrj.com.ar/logo-hrj.png";
-
-            L.marker([lt, lg], {
-                icon: L.divIcon({ className: esPasado ? 'pulse-past' : 'pulse-green', iconSize: [20, 20], iconAnchor: [10, 10] })
-            }).addTo(map).bindPopup(`
-                <div style="text-align:center; font-family:'Anton'; background:#111; color:#fff; padding:10px; border-radius:8px; border:1px solid ${color}; width:200px;">
-                    <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width:100%; border-radius:4px; margin-bottom:8px; display:block;">
-                    <h4 style="margin:0; font-size:14px; text-transform:uppercase;">${nombre}</h4>
-                    <p style="font-family:'Courier Prime'; font-size:11px; margin:5px 0; color:#aaa;">📅 ${fechaTxt}</p>
-                    <a href="${link}" target="_blank" style="background:${color}; color:#000; padding:4px 8px; text-decoration:none; border-radius:4px; font-size:11px; display:inline-block; margin-top:5px;">MÁS INFO</a>
-                </div>
-            `);
-        };
-
-        if (isNaN(lat) || lat === 0) {
-            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion + ", Buenos Aires, Argentina")}`)
-                .then(r => r.json()).then(d => { if(d[0]) dibujar(d[0].lat, d[0].lon); });
-        } else { 
-            dibujar(lat, lng); 
         }
-    }
-});
+    });
 
 // 5. MOTOR DE ESTUDIOS UNDER
 fetch('estudios.geojson')
