@@ -189,7 +189,7 @@
 </nav>
 
 <div class="agenda-promo">
-    <p>¿Tenés un evento? Subilo <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8kjFM9Pg1SqjkHXsJjLA_eF_4itxfDL4_josRkLXTc_RhGQ/viewform?usp=sharing&ouid=112545650355580882446" target="_blank">a la Agenda Territorial</a></p>
+    <p>¿Tenés un evento? Subilo <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8kjFM9Pg1SqjkHXsJjLA_eF_4itxfDL4_josRkLXTc_RhGQ/viewform" target="_blank">a la Agenda Territorial</a></p>
 </div>
 
 <div id="map"></div>
@@ -200,26 +200,24 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
-
-
-// 1. Configuración Base del Mapa
+// 1. CONFIGURACIÓN BASE (UNA SOLA VEZ)
 var map = L.map('map').setView([-34.75, -58.55], 11);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    attribution: '© OpenStreetMap contributors © CARTO',
     subdomains: 'abcd',
     maxZoom: 20
 }).addTo(map);
 
 L.control.locate().addTo(map);
 
-// 2. Sede UNAJ y Capa de Lazos
+// 2. SEDE UNAJ
 var unajCoords = [-34.7751535, -58.2678955]; 
 var unajMarker = L.marker(unajCoords, {title: "UNAJ"}).addTo(map);
 unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Florencio Varela");
 
 var layerLazos = L.layerGroup().addTo(map);
 
-// 3. Motor de Artistas (con Cluster y Buscador)
+// 3. MOTOR DE ARTISTAS
 fetch('artistas.json')
     .then(res => res.json())
     .then(artistas => {
@@ -228,7 +226,6 @@ fetch('artistas.json')
             var marker = L.marker([a.lat, a.lng], {title: a.nombre});
             marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
             marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
-            
             marker.on('click', function() {
                 layerLazos.clearLayers(); 
                 L.polyline([unajCoords, [a.lat, a.lng]], {
@@ -241,7 +238,7 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- MOTOR AUTOMÁTICO DE AGENDA TERRITORIAL (VERSIÓN RECUPERADA) ---
+// 4. MOTOR DE AGENDA TERRITORIAL (EVENTOS ACTIVOS Y PASADOS)
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 
 fetch(urlCSV)
@@ -264,16 +261,19 @@ fetch(urlCSV)
 
             if (estado === "OK" && !isNaN(lat) && !isNaN(lng)) {
                 
-                // Lógica de Fecha para puntos grises
+                // Lógica de Fecha para reconocer el archivo histórico
                 const partes = fechaTxt.split(/[-/]/);
-                const fEv = partes[0].length === 4 ? 
-                            new Date(partes[0], partes[1]-1, partes[2]) : 
-                            new Date(partes[2], partes[1]-1, partes[0]);
+                let fEv;
+                if (partes[0].length === 4) {
+                    fEv = new Date(partes[0], partes[1]-1, partes[2]);
+                } else {
+                    fEv = new Date(partes[2], partes[1]-1, partes[0]);
+                }
                 fEv.setHours(23, 59, 59);
+                
                 const esPasado = hoy > fEv;
                 const colorTema = esPasado ? '#555' : '#1fd655';
 
-                // Lógica de Flyer Híbrida (Drive + Local)
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                     let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
@@ -306,16 +306,22 @@ fetch(urlCSV)
                 `, { maxWidth: 260 });
             }
         }
-    })
-    .catch(err => console.error("Error en agenda:", err));
-// 5. MOTOR DE ESTUDIOS UNDER
+    });
+
+// 5. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
     .then(data => {
         const mainstream = ["DISNEY", "TELEFE", "CANAL", "MITRE", "ESTUDIOS MAYOR", "AMERICA TV", "C5N"];
         data.features.forEach(f => {
-            let coords = f.geometry.type === 'Point' ? [f.geometry.coordinates[1], f.geometry.coordinates[0]] : 
-                         [(f.geometry.coordinates[0][0][1] + f.geometry.coordinates[0][2][1])/2, (f.geometry.coordinates[0][0][0] + f.geometry.coordinates[0][2][0])/2];
+            let coords;
+            if (f.geometry.type === 'Polygon') {
+                const lats = f.geometry.coordinates[0].map(c => c[1]);
+                const lngs = f.geometry.coordinates[0].map(c => c[0]);
+                coords = [(Math.min(...lats) + Math.max(...lats)) / 2, (Math.min(...lngs) + Math.max(...lngs)) / 2];
+            } else {
+                coords = [f.geometry.coordinates[1], f.geometry.coordinates[0]];
+            }
             
             const nombre = (f.properties.name || "Estudio").toUpperCase();
             if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
@@ -324,95 +330,6 @@ fetch('estudios.geojson')
             }
         });
     });
-    
-    var map = L.map('map').setView([-34.75, -58.55], 11);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 20
-}).addTo(map);
-    L.control.locate().addTo(map);
-
-    var unajCoords = [-34.7751535, -58.2678955]; 
-    var unajMarker = L.marker(unajCoords, {title: "UNAJ - Av. Calchaquí 6200"}).addTo(map);
-    unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Av. Calchaquí 6200, Florencio Varela");
-
-    var layerLazos = L.layerGroup().addTo(map);
-
-    fetch('artistas.json')
-        .then(res => res.json())
-        .then(artistas => {
-            var markersCluster = L.markerClusterGroup();
-            artistas.forEach(a => {
-                var marker = L.marker([a.lat, a.lng], {title: a.nombre});
-                marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
-                marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
-                marker.on('click', function() {
-                    layerLazos.clearLayers(); 
-                    L.polyline([unajCoords, [a.lat, a.lng]], {
-                        color: '#ff4500', weight: 4, opacity: 0.7, dashArray: '10, 10'
-                    }).addTo(layerLazos);
-                });
-                markersCluster.addLayer(marker);
-            });
-            map.addLayer(markersCluster);
-            map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
-        });
-
-
-
-// --- MOTOR DE CARGA UNIFICADO: ESTUDIOS UNDER ---
-fetch('estudios.geojson')
-    .then(res => res.json())
-    .then(data => {
-        // Lista negra para filtrar estudios corporativos/mainstream
-        const mainstream = ["DISNEY", "TELEFE", "CANAL", "MITRE", "ESTUDIOS MAYOR", "AMERICA TV", "C5N"];
-
-        data.features.forEach(feature => {
-            let coords;
-            
-            // Gestión de geometría: Polígonos a Puntos
-            if (feature.geometry.type === 'Polygon') {
-                const lats = feature.geometry.coordinates[0].map(c => c[1]);
-                const lngs = feature.geometry.coordinates[0].map(c => c[0]);
-                coords = [(Math.min(...lats) + Math.max(...lats)) / 2, (Math.min(...lngs) + Math.max(...lngs)) / 2];
-            } else if (feature.geometry.type === 'Point') {
-                coords = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-            }
-
-            if (coords) {
-                const lat = coords[0];
-                const lng = coords[1];
-                const nombre = (feature.properties.name || "Estudio").toUpperCase();
-                const tipo = feature.properties.studio || "Audio";
-
-                // FILTRO TERRITORIAL + FILTRO MAINSTREAM
-                const dentroDeRango = (lat < -34.35 && lat > -35.05) && (lng < -57.80 && lng > -59.10);
-                const esMainstream = mainstream.some(palabra => nombre.includes(palabra));
-
-                if (dentroDeRango && !esMainstream) {
-                    L.circleMarker(coords, {
-                        radius: 5,
-                        fillColor: '#8a2be2', 
-                        color: '#ffffff',
-                        weight: 1,
-                        opacity: 1,
-                        fillOpacity: 0.7
-                    }).addTo(map).bindPopup(`
-                        <div style="text-align: center; font-family: 'Anton', sans-serif; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid #8a2be2;">
-                            <div style="font-size: 9px; color: #8a2be2; letter-spacing: 1px; margin-bottom: 3px;">🎙️ INFRAESTRUCTURA UNDER</div>
-                            <div style="font-size: 14px;">${nombre}</div>
-                            <div style="font-family: 'Courier Prime', monospace; font-size: 11px; color: #aaa; margin-top: 5px;">
-                                ${tipo.toUpperCase()}
-                            </div>
-                        </div>
-                    `);
-                }
-            }
-        });
-    })
-    .catch(err => console.error("Error al cargar estudios.geojson", err));
 </script>
-    
 </body>
 </html>
