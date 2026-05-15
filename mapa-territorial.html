@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     
     <style>
-    body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+    body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; overflow: hidden; }
 
     :root { 
         --naranja: #ff4500; 
@@ -45,7 +45,7 @@
         padding: 10px;
         border: 1px solid var(--naranja);
         border-radius: 5px;
-        backdrop-filter: blur(5px); /* Efecto esmerilado */
+        backdrop-filter: blur(5px);
     }
 
     .btn-nav {
@@ -58,7 +58,7 @@
         transition: all 0.3s ease;
     }
 
-    .btn-nav:hover {
+    .btn-nav:hover, .btn-nav.activo {
         color: var(--negro);
         background-color: var(--naranja);
         border-color: var(--naranja);
@@ -72,7 +72,7 @@
         top: 0; 
         left: 0; 
         z-index: 1;
-        background: #0d0d0d; /* Fondo base ultra oscuro antes de cargar las calles */
+        background: #0d0d0d;
     }
 
     /* TEXTURA CALLEJERA DE ASFALTO OVERLAY */
@@ -83,9 +83,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        pointer-events: none; /* Crucial para que puedas seguir arrastrando el mapa sin trabas */
-        z-index: 400; /* Se posiciona arriba de las calles pero abajo de los marcadores y popups */
-        opacity: 0.12; /* Subido un toque para que en pantallas oscuras se note la textura de brea */
+        pointer-events: none;
+        z-index: 400;
+        opacity: 0.12;
         background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
     } 
 
@@ -94,7 +94,7 @@
     .marker-text { color: var(--naranja); font-weight: bold; text-align: center; font-family: 'Anton', sans-serif; }
     .custom-tooltip { background: rgba(0,0,0,0.85) !important; color: var(--naranja) !important; border: 1px solid var(--naranja) !important; font-family: 'Anton', sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 
-    /* Personalización interna de los popups nativos de Leaflet para que combinen con la cartelera oscura */
+    /* Personalización interna de los popups nativos de Leaflet */
     .leaflet-popup-content-wrapper {
         background: #111 !important;
         color: #fff !important;
@@ -130,13 +130,13 @@
             border: 1px solid var(--naranja);
             white-space: nowrap;
         }
-        #map { height: 100vh; width: 100vw; }
+        .agenda-promo { bottom: 80px; width: 80%; text-align: center; }
     } 
 
     /* Botón de la Agenda Flotante */
     .agenda-promo {
         position: fixed;
-        bottom: 80px; 
+        bottom: 30px; 
         left: 50%;
         transform: translateX(-50%);
         z-index: 10000;
@@ -148,8 +148,6 @@
         border: 2px solid #fff;
         letter-spacing: 0.5px;
     }
-    .agenda-promo p { margin: 0; font-size: 14px; color: #000; }
-    .agenda-promo a { color: #000; text-decoration: underline; font-weight: bold; }
 
     /* El Punto Verde estilo Agenda Activa */
     .pulse-green {
@@ -164,40 +162,14 @@
         100% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0); }
     } 
 
-
-  /* El Punto Gris oculto por defecto */
-
-body.mostrar-pasados .pulse-past {
-    display: block !important; /* Se muestran al activar el historial */
-}
-
-/* Clase para mostrarlos cuando apretamos el botón */
-.mostrar-pasados .pulse-past {
-    display: block !important;
-}
-
-/* Estilo para el botón de "Historial" */
-.btn-historial {
-    background: #333 !important;
-    border: 1px solid #555 !important;
-}
-.btn-historial.activo {
-    background: #555 !important;
-    border-color: #fff !important;
-    color: #fff !important;
-} 
-
-
-/* El Punto Gris (Archivo Histórico) */
-.pulse-past {
-    background: #555 !important; /* Gris oscuro */
-    border-radius: 50%;
-    border: 2px solid #888;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5);
-    opacity: 0.8;
-}
-
-        
+    /* El Punto Gris (Archivo Histórico) */
+    .pulse-past {
+        background: #555 !important;
+        border-radius: 50%;
+        border: 2px solid #888;
+        box-shadow: 0 0 8px rgba(0,0,0,0.5);
+        opacity: 0.8;
+    }
 </style> 
 </head>
 <body>
@@ -209,11 +181,11 @@ body.mostrar-pasados .pulse-past {
     <a href="staff.html" class="btn-nav">STAFF</a>
     <a href="medios.html" class="btn-nav">PRENSA</a>
     <a href="contacto.html" class="btn-nav">CONTACTO</a>
-    <a href="#" class="btn-nav btn-historial" id="toggle-pasados" onclick="toggleEventosPasados(event)">HISTORIAL</a>
+    <a href="#" class="btn-nav" id="toggle-pasados" onclick="toggleEventosPasados(event)">HISTORIAL</a>
 </nav>
 
 <div class="agenda-promo">
-    <p>¿Tenés un evento? Subilo <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8kjFM9Pg1SqjkHXsJjLA_eF_4itxfDL4_josRkLXTc_RhGQ/viewform" target="_blank">a la Agenda Territorial</a></p>
+    <p style="margin: 0; font-size: 14px; color: #000;">¿Tenés un evento? Subilo <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8kjFM9Pg1SqjkHXsJjLA_eF_4itxfDL4_josRkLXTc_RhGQ/viewform" target="_blank" style="color:#000; font-weight:bold;">a la Agenda Territorial</a></p>
 </div>
 
 <div id="map"></div>
@@ -224,7 +196,7 @@ body.mostrar-pasados .pulse-past {
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
-// 1. CONFIGURACIÓN BASE (UNA SOLA VEZ)
+// 1. CONFIGURACIÓN BASE
 var map = L.map('map').setView([-34.75, -58.55], 11);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap contributors © CARTO',
@@ -262,10 +234,8 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA (CON CAPAS SEPARADAS) ---
+// 4. MOTOR DE AGENDA (CON CAPAS SEPARADAS)
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
-
-// Creamos un grupo para los eventos pasados
 const capaPasados = L.layerGroup(); 
 
 fetch(urlCSV)
@@ -292,16 +262,15 @@ fetch(urlCSV)
 
             const esPasado = hoy > fEv;
             const nombre = c[1]?.replace(/"/g, "") || "Evento";
-            const colorTema = esPasado ? '#555' : '#1fd655';
 
             const marcador = L.marker([lat, lng], {
                 icon: L.divIcon({ 
                     className: esPasado ? 'pulse-past' : 'pulse-green', 
-                    iconSize: [20, 20]
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
                 })
-            }).bindPopup(`<b style="color:${colorTema}">${nombre}</b><br>${fechaTxt}`);
+            }).bindPopup(`<b>${nombre}</b><br>${fechaTxt}`);
 
-            // SI ES PASADO, LO MANDAMOS A LA CAPA OCULTA. SI NO, AL MAPA DIRECTO.
             if (esPasado) {
                 marcador.addTo(capaPasados);
             } else {
@@ -310,7 +279,7 @@ fetch(urlCSV)
         }
     });
 
-// --- 5. FUNCIÓN DEL BOTÓN (ACTUALIZADA) ---
+// 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados');
@@ -325,7 +294,8 @@ function toggleEventosPasados(e) {
         btn.classList.add('activo');
     }
 }
-// 5. MOTOR DE ESTUDIOS
+
+// 6. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
     .then(data => {
@@ -347,7 +317,6 @@ fetch('estudios.geojson')
             }
         });
     });
-} 
 </script>
 </body>
 </html>
