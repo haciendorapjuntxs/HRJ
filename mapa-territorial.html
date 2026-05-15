@@ -246,7 +246,7 @@ fetch(urlCSV)
         hoy.setHours(0, 0, 0, 0); 
 
         for (let i = 1; i < lineas.length; i++) {
-            const c = lineas[i].split(/,(?=(?:(?:[^\"*]*\"){2})*[^\"*]*$)/); 
+            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             if (!c || c.length < 11) continue; 
 
             const estado = c[10] ? c[10].toUpperCase().trim() : "";
