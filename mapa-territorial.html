@@ -234,7 +234,7 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// 4. MOTOR DE AGENDA (RUTAS HÍBRIDAS RESTAURADAS)
+// --- 4. MOTOR DE AGENDA (VERSIÓN REFORZADA) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv';
 const capaPasados = L.layerGroup(); 
 
@@ -251,23 +251,34 @@ fetch(urlCSV)
             const estado = c[10] ? c[10].toUpperCase() : "";
             if (!estado.includes("OK")) continue;
 
+            // Limpieza total de espacios y comillas en coordenadas
             const lat = parseFloat(c[8]?.replace(/[ "]/g, "").replace(',', '.'));
             const lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
-            if (isNaN(lat) || isNaN(lng)) continue;
+            
+            if (isNaN(lat) || isNaN(lng)) {
+                console.warn("Fila " + i + ": Coordenadas inválidas");
+                continue;
+            }
 
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
             const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
             const fechaTxt = c[5]?.trim() || ""; 
             const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
+            // Procesamiento de Fecha
             const partes = fechaTxt.split(/[-/]/);
-            let fEv = partes[0].length === 4 ? new Date(partes[0], partes[1]-1, partes[2]) : new Date(partes[2], partes[1]-1, partes[0]);
+            let fEv;
+            if (partes[0].length === 4) {
+                fEv = new Date(partes[0], partes[1]-1, partes[2]);
+            } else {
+                fEv = new Date(partes[2], partes[1]-1, partes[0]);
+            }
             fEv.setHours(23, 59, 59);
 
             const esPasado = hoy > fEv;
-            const colorTema = esPasado ? '#555' : '#1fd655';
+            const colorTema = esPasado ? '#888' : '#1fd655';
 
-            // Lógica híbrida original restaurada al 100%
+            // Lógica de Flyers (Corregida la llave {idImg} que sobraba)
             let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
             if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                 let idImg = datoFlyer.includes('id=') ? datoFlyer.split('id=')[1].split('&')[0] : 
@@ -285,19 +296,13 @@ fetch(urlCSV)
                     iconAnchor: [10, 10]
                 })
             }).bindPopup(`
-                <div style="text-align: center; font-family: 'Anton', sans-serif; width: 230px; background: #111; color: #fff; padding: 15px; border-radius: 8px; border: 1px solid ${colorTema};">
-                    <div style="overflow: hidden; border-radius: 6px; margin-bottom: 12px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                        <img src="${urlFinalImg}" 
-                             onerror="this.src='https://hrj.com.ar/logo-hrj.png'" 
-                             style="width: 100%; display: block; border-bottom: 3px solid ${colorTema}; min-height: 100px; object-fit: cover;">
-                    </div>
-                    <h2 style="margin: 0 0 8px 0; font-size: 18px; text-transform: uppercase;">${nombre}</h2>
-                    <div style="font-family: 'Courier Prime', monospace; font-size: 12px; margin-bottom: 15px; color: ${colorTema}; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 4px; display: inline-block;">
-                        📅 ${fechaTxt}
-                    </div>
-                    <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 10px; text-decoration: none; font-weight: bold; border-radius: 5px; text-transform: uppercase; font-size: 12px;">MÁS INFO</a>
+                <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
+                    <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; border-radius: 4px; margin-bottom: 8px;">
+                    <h3 style="margin: 5px 0; font-size: 16px;">${nombre}</h3>
+                    <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema};">📅 ${fechaTxt}</p>
+                    <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 8px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 11px;">MÁS INFO</a>
                 </div>
-            `, { maxWidth: 260 });
+            `);
 
             if (esPasado) {
                 marcador.addTo(capaPasados);
@@ -306,7 +311,7 @@ fetch(urlCSV)
             }
         }
     });
-
+    
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
     e.preventDefault();
