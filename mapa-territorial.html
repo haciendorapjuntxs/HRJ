@@ -324,18 +324,20 @@ fetch(urlCSV)
             }
         }
     }); 
+
+    
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL
 
 function toggleEventosPasados(e) {
     e.preventDefault();
-    const btn = document.getElementById('toggle-pasados');
+    const btn = document.getElementById('toggle-pasados'); 
     
-    if (map.hasLayer(capaPasados)) {
-        map.removeLayer(capaPasados);
+    if (map.hasLayer(capaPasados)) {    
+        map.removeLayer(capaPasados);    
         btn.innerText = "HISTORIAL";
         btn.classList.remove('activo');
     } else {
-        map.addLayer(capaPasados);
+        map.addLayer(capaPasados);       
         btn.innerText = "OCULTAR PASADOS";
         btn.classList.add('activo');
     }
