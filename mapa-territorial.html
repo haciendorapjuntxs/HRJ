@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://hrj.com.ar/index.html">
+    
+    <title>Mapa Territorial | Haciendo Rap Juntxs</title>
+    <meta name="description" content="Explorá el mapa territorial de Haciendo Rap Juntxs: el punto de encuentro entre el rap, los barrios del conurbano y la Universidad Nacional Arturo Jauretche.">
+    <meta name="keywords" content="Haciendo Rap Juntxs, mapa, rap, conurbano, UNAJ, territorio, cultura">
+    
+    <meta property="og:title" content="Mapa Territorial | Haciendo Rap Juntxs">
+    <meta property="og:description" content="Un recorrido visual por las voces del conurbano. Explorá el mapa de artistas y sedes de Haciendo Rap Juntxs.">
+    <meta property="og:image" content="https://hrj.com.ar/logo-hrj.png">
+    <meta property="og:url" content="https://hrj.com.ar/mapa-territorial.html">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    
+    <style>
+    body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; overflow: hidden; }
+
+    :root { 
+        --naranja: #ff4500; 
+        --negro: #000; 
+        --verde-agenda: #1fd655;
+    }
+
+    /* Contenedor principal de navegación */
+    nav {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 10px;
+        border: 1px solid var(--naranja);
+        border-radius: 5px;
+        backdrop-filter: blur(5px);
+    }
+
+    .btn-nav {
+        font-family: 'Anton', sans-serif;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 5px 15px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .btn-nav:hover, .btn-nav.activo {
+        color: var(--negro);
+        background-color: var(--naranja);
+        border-color: var(--naranja);
+    }
+
+    /* Mapa a pantalla completa */
+    #map { 
+        height: 100vh; 
+        width: 100vw; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 1;
+        background: #0d0d0d;
+    }
+
+    /* TEXTURA CALLEJERA DE ASFALTO OVERLAY */
+    #map::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 400;
+        opacity: 0.12;
+        background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    } 
+
+    /* Estilos de elementos sobre el mapa */
+    .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--naranja); }
+    .marker-text { color: var(--naranja); font-weight: bold; text-align: center; font-family: 'Anton', sans-serif; }
+    .custom-tooltip { background: rgba(0,0,0,0.85) !important; color: var(--naranja) !important; border: 1px solid var(--naranja) !important; font-family: 'Anton', sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+
+    /* Personalización interna de los popups nativos de Leaflet */
+    .leaflet-popup-content-wrapper {
+        background: #111 !important;
+        color: #fff !important;
+        border-radius: 8px !important;
+        padding: 0 !important;
+        overflow: hidden;
+    }
+    .leaflet-popup-content { margin: 0 !important; }
+    .leaflet-popup-tip { background: #111 !important; }
+
+    @media (max-width: 768px) {
+        nav {
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            border-top: 2px solid var(--naranja);
+            background: #000;
+            border-radius: 0;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .btn-nav {
+            font-size: 0.6rem;
+            padding: 8px 4px;
+            flex: 1 1 30%;
+            text-align: center;
+            border: 1px solid var(--naranja);
+            white-space: nowrap;
+        }
+        .agenda-promo { bottom: 80px; width: 80%; text-align: center; }
+    } 
+
+    /* Botón de la Agenda Flotante */
+    .agenda-promo {
+        position: fixed;
+        bottom: 30px; 
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10000;
+        background: var(--verde-agenda);
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-family: 'Anton', sans-serif;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+        border: 2px solid #fff;
+        letter-spacing: 0.5px;
+    }
+
+    /* El Punto Verde estilo Agenda Activa */
+    .pulse-green {
+        background: var(--verde-agenda);
+        border-radius: 50%;
+        border: 2px solid white;
+        animation: pulse-green-animation 2s infinite;
+    }
+    @keyframes pulse-green-animation {
+        0% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0.7); }
+        70% { box-shadow: 0 0 0 12px rgba(31, 214, 85, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0); }
+    } 
+
+    /* El Punto Gris (Archivo Histórico) */
+    .pulse-past {
+        background: #555 !important;
+        border-radius: 50%;
+        border: 2px solid #888;
+        box-shadow: 0 0 8px rgba(0,0,0,0.5);
+        opacity: 0.8;
+    }
+</style> 
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="btn-nav">INICIO</a>
+    <a href="biografias.html" class="btn-nav">BIOGRAFÍAS</a>
+    <a href="discografia.html" class="btn-nav">DISCOGRAFÍA</a>
+    <a href="staff.html" class="btn-nav">STAFF</a>
+    <a href="medios.html" class="btn-nav">PRENSA</a>
+    <a href="contacto.html" class="btn-nav">CONTACTO</a>
+    <a href="#" class="btn-nav" id="toggle-pasados" onclick="toggleEventosPasados(event)">HISTORIAL</a> 
+</nav>
+
+<div class="agenda-promo">
+    <p style="margin: 0; font-size: 14px; color: #000;">¿Tenés un evento? Subilo <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8kjFM9Pg1SqjkHXsJjLA_eF_4itxfDL4_josRkLXTc_RhGQ/viewform" target="_blank" style="color:#000; font-weight:bold;">a la Agenda Territorial</a></p>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
+<script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<script>
+// 1. CONFIGURACIÓN BASE
+var map = L.map('map').setView([-34.75, -58.55], 11);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors © CARTO',
+    subdomains: 'abcd',
+    maxZoom: 20
+}).addTo(map);
+
+L.control.locate().addTo(map);
+
+// GRUPO INTELIGENTE PARA DISPERSAR EVENTOS EN LA UNAJ (Estilo esferas del dragón)
+const grupoClustering = L.markerClusterGroup({
+    spiderfyOnMaxZoom: true, // Abre en abanico los marcadores que coinciden en el mismo punto
+    showCoverageOnHover: false,
+    zoomToBoundsOnClick: true
+});
+map.addLayer(grupoClustering); 
+
+// 2. SEDE UNAJ
+var unajCoords = [-34.7751535, -58.2678955]; 
+var unajMarker = L.marker(unajCoords, {title: "UNAJ"}).addTo(map);
+unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Florencio Varela");
+
+var layerLazos = L.layerGroup().addTo(map);
+
+// 3. MOTOR DE ARTISTAS
+fetch('artistas.json')
+    .then(res => res.json())
+    .then(artistas => {
+        var markersCluster = L.markerClusterGroup();
+        artistas.forEach(a => {
+            var marker = L.marker([a.lat, a.lng], {title: a.nombre});
+            marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
+            marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
+            marker.on('click', function() {
+                layerLazos.clearLayers(); 
+                L.polyline([unajCoords, [a.lat, a.lng]], {
+                    color: '#ff4500', weight: 4, opacity: 0.7, dashArray: '10, 10'
+                }).addTo(layerLazos);
+            });
+            markersCluster.addLayer(marker);
+        });
+        map.addLayer(markersCluster);
+        map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
+    });
+
+// --- 4. MOTOR DE AGENDA (RUTAS DE DRIVE REPARADAS) ---
+const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
+const capaPasados = L.layerGroup(); 
+
+fetch(urlCSV)
+    .then(res => res.text())
+    .then(csvText => {
+        const lineas = csvText.split('\n');
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0); 
+
+        for (let i = 1; i < lineas.length; i++) {
+            const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+            if (!c || c.length < 11) continue; 
+
+            const estado = c[10] ? c[10].toUpperCase().trim() : "";
+            if (!estado.includes("OK")) continue;
+
+            const lat = parseFloat(c[8]?.replace(/[ "]/g, "").replace(',', '.'));
+            const lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
+            if (isNaN(lat) || isNaN(lng)) continue;
+
+            const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
+            const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
+            const fechaTxt = c[5]?.trim() || ""; 
+            const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
+
+            // Procesador de Fecha Argentina (D/M/AAAA)
+            const partes = fechaTxt.split(/[-/]/); 
+            if (partes.length !== 3) continue;
+
+            let dia, mes, anio;
+            if (partes[0].length === 4) { 
+                anio = partes[0];
+                mes = partes[1].padStart(2, '0');
+                dia = partes[2].padStart(2, '0');
+            } else { 
+                dia = partes[0].padStart(2, '0');
+                mes = partes[1].padStart(2, '0');
+                anio = partes[2];
+            }
+
+            let fEv = new Date(`${anio}-${mes}-${dia}T23:59:59`);
+            if (isNaN(fEv.getTime())) continue; 
+
+            const esPasado = hoy > fEv;
+            const colorTema = esPasado ? '#888' : '#1fd655';
+
+            // REPARACIÓN DEFINITIVA DE LÓGICA HÍBRIDA (Local / Servidor Drive)
+            let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
+            
+            if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
+                let idImg = "";
+                if (datoFlyer.includes('id=')) {
+                    idImg = datoFlyer.split('id=')[1].split('&')[0];
+                } else if (datoFlyer.includes('/d/')) {
+                    idImg = datoFlyer.split('/d/')[1].split('/')[0];
+                }
+                // Usamos el servidor de miniaturas para evitar que Google bloquee el flyer
+                urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
+            } else if (datoFlyer.length > 3) {
+                // Si es un archivo local (ej: clinica.jpg) o una URL externa común
+                urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
+                              datoFlyer : `./flyer-territorial/${datoFlyer}`;
+            }
+
+            const marcador = L.marker([lat, lng], {
+                icon: L.divIcon({ 
+                    className: esPasado ? 'pulse-past' : 'pulse-green', 
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                })
+            }).bindPopup(`
+                <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
+                    <div style="overflow: hidden; border-radius: 4px; margin-bottom: 8px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
+                        <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 100px;">
+                    </div>
+                    <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase;">${nombre}</h3>
+                    <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema}; margin: 5px 0 10px 0;">📅 ${fechaTxt}</p>
+                    <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 8px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 11px; text-transform: uppercase;">MÁS INFO</a>
+                </div>
+            `, { maxWidth: 250 });
+
+       if (esPasado) {
+    // En vez de ir sueltos a capaPasados, se meten al grupo inteligente
+    marcador.addTo(grupoClustering); 
+    // Y además guardamos una referencia para saber que es viejo si querés filtrarlo después
+    capaPasados.addLayer(marcador); 
+} else {
+    marcador.addTo(grupoClustering);
+} 
+        }
+    }); 
+
+    
+// 5. FUNCIÓN DEL BOTÓN HISTORIAL
+
+function toggleEventosPasados(e) {
+    e.preventDefault();
+    const btn = document.getElementById('toggle-pasados'); 
+    
+    if (map.hasLayer(capaPasados)) {    
+        map.removeLayer(capaPasados);    
+        btn.innerText = "HISTORIAL";
+        btn.classList.remove('activo');
+    } else {
+        map.addLayer(capaPasados);       
+        btn.innerText = "OCULTAR PASADOS";
+        btn.classList.add('activo');
+    }
+} 
+    
+// 6. MOTOR DE ESTUDIOS
+fetch('estudios.geojson')
+    .then(res => res.json())
+    .then(data => {
+        const mainstream = ["DISNEY", "TELEFE", "CANAL", "MITRE", "ESTUDIOS MAYOR", "AMERICA TV", "C5N"];
+        data.features.forEach(f => {
+            let coords;
+            if (f.geometry.type === 'Polygon') {
+                const lats = f.geometry.coordinates[0].map(c => c[1]);
+                const lngs = f.geometry.coordinates[0].map(c => c[0]);
+                coords = [(Math.min(...lats) + Math.max(...lats)) / 2, (Math.min(...lngs) + Math.max(...lngs)) / 2];
+            } else {
+                coords = [f.geometry.coordinates[1], f.geometry.coordinates[0]];
+            }
+            
+            const nombre = (f.properties.name || "Estudio").toUpperCase();
+            if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
+                L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 }).addTo(map)
+                .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`);
+            }
+        });
+    });
+</script>
+</body>
+</html>
