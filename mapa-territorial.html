@@ -60,11 +60,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    <script src="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
-    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
-
     <style>
     body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; overflow: hidden; }
 
@@ -74,7 +69,6 @@
         --verde-agenda: #1fd655;
     }
 
-    /* Contenedor principal de navegación */
     nav {
         position: fixed;
         top: 20px;
@@ -105,7 +99,6 @@
         border-color: var(--naranja);
     }
 
-    /* Mapa a pantalla completa */
     #map { 
         height: 100vh; 
         width: 100vw; 
@@ -116,7 +109,6 @@
         background: #0d0d0d;
     }
 
-    /* TEXTURA CALLEJERA DE ASFALTO OVERLAY */
     #map::after {
         content: "";
         position: absolute;
@@ -130,12 +122,10 @@
         background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
     } 
 
-    /* Estilos de elementos sobre el mapa */
     .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--naranja); }
     .marker-text { color: var(--naranja); font-weight: bold; text-align: center; font-family: 'Anton', sans-serif; }
     .custom-tooltip { background: rgba(0,0,0,0.85) !important; color: var(--naranja) !important; border: 1px solid var(--naranja) !important; font-family: 'Anton', sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 
-    /* Personalización interna de los popups nativos de Leaflet */
     .leaflet-popup-content-wrapper {
         background: #111 !important;
         color: #fff !important;
@@ -174,7 +164,6 @@
         .agenda-promo { bottom: 80px; width: 80%; text-align: center; }
     } 
 
-    /* Botón de la Agenda Flotante */
     .agenda-promo {
         position: fixed;
         bottom: 30px; 
@@ -190,7 +179,6 @@
         letter-spacing: 0.5px;
     }
 
-    /* El Punto Verde estilo Agenda Activa */
     .pulse-green {
         background: var(--verde-agenda);
         border-radius: 50%;
@@ -203,7 +191,6 @@
         100% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0); }
     } 
 
-    /* El Punto Gris (Archivo Histórico) */
     .pulse-past {
         background: #555 !important;
         border-radius: 50%;
@@ -234,7 +221,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
 <script>
 // 1. CONFIGURACIÓN BASE
@@ -247,9 +234,8 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 
 L.control.locate().addTo(map);
 
-// GRUPO INTELIGENTE PARA DISPERSAR EVENTOS EN LA UNAJ (Estilo esferas del dragón)
 const grupoClustering = L.markerClusterGroup({
-    spiderfyOnMaxZoom: true, // Abre en abanico los marcadores que coinciden en el mismo punto
+    spiderfyOnMaxZoom: true, 
     showCoverageOnHover: false,
     zoomToBoundsOnClick: true
 });
@@ -283,9 +269,9 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA (RUTAS DE DRIVE REPARADAS) ---
+// 4. MOTOR DE AGENDA (CON DETECTOR DINÁMICO DE FILAS LARGAS/CORTAS)
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
-const capaPasados = L.layerGroup(); // Guardará los marcadores viejos en memoria
+const capaPasados = L.layerGroup(); 
 
 fetch(urlCSV)
     .then(res => res.text())
@@ -296,15 +282,20 @@ fetch(urlCSV)
 
         for (let i = 1; i < lineas.length; i++) {
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-            if (!c || c.length < 11) continue; 
+            if (!c || c.length < 8) continue; // Rescata filas sin la columna Email
 
-            // Debido a la nueva columna 'Email', las coordenadas y el OK se corrieron un lugar:
-            // Columna 9 (J) = Latitud | Columna 10 (K) = Longitud | Columna 11 (L) = Estado (OK)
-            const lat = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
-            const lng = parseFloat(c[10]?.replace(/[ "]/g, "").replace(',', '.'));
+            let latRaw = "", lngRaw = "", estadoRaw = "";
+            if (c.length >= 12) {
+                latRaw = c[9]; lngRaw = c[10]; estadoRaw = c[11];
+            } else {
+                latRaw = c[8]; lngRaw = c[9]; estadoRaw = c[10];
+            }
+
+            const lat = parseFloat(latRaw?.replace(/[ "]/g, "").replace(',', '.'));
+            const lng = parseFloat(lngRaw?.replace(/[ "]/g, "").replace(',', '.'));
             if (isNaN(lat) || isNaN(lng)) continue;
 
-            const estado = c[11] ? c[11].toUpperCase().trim() : "";
+            const estado = estadoRaw ? estadoRaw.toUpperCase().trim() : "";
             if (!estado.includes("OK")) continue;
 
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
@@ -312,7 +303,6 @@ fetch(urlCSV)
             const fechaTxt = c[5]?.trim() || ""; 
             const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
-            // Procesador de Fecha Argentina (D/M/AAAA)
             const partes = fechaTxt.split(/[-/]/); 
             if (partes.length !== 3) continue;
 
@@ -333,7 +323,6 @@ fetch(urlCSV)
             const esPasado = hoy > fEv;
             const colorTema = esPasado ? '#888' : '#1fd655';
 
-            // Lógica híbrida intacta (Drive + Locales)
             let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
             if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                 let idImg = "";
@@ -342,7 +331,7 @@ fetch(urlCSV)
                 } else if (datoFlyer.includes('/d/')) {
                     idImg = datoFlyer.split('/d/')[1].split('/')[0];
                 }
-                urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
+                urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
             } else if (datoFlyer.length > 3) {
                 urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
                               datoFlyer : `./flyer-territorial/${datoFlyer}`;
@@ -371,59 +360,16 @@ fetch(urlCSV)
                 marcador.addTo(grupoClustering);
             } 
         } 
-
-            // REPARACIÓN DEFINITIVA DE LÓGICA HÍBRIDA (Local / Servidor Drive)
-            let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
-            
-            if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                let idImg = "";
-                if (datoFlyer.includes('id=')) {
-                    idImg = datoFlyer.split('id=')[1].split('&')[0];
-                } else if (datoFlyer.includes('/d/')) {
-                    idImg = datoFlyer.split('/d/')[1].split('/')[0];
-                }
-                urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
-            } else if (datoFlyer.length > 3) {
-                urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                              datoFlyer : `./flyer-territorial/${datoFlyer}`;
-            }
-
-            const marcador = L.marker([lat, lng], {
-                icon: L.divIcon({ 
-                    className: esPasado ? 'pulse-past' : 'pulse-green', 
-                    iconSize: [20, 20],
-                    iconAnchor: [10, 10]
-                })
-            }).bindPopup(`
-                <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
-                    <div style="overflow: hidden; border-radius: 4px; margin-bottom: 8px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                        <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 100px;">
-                    </div>
-                    <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase;">${nombre}</h3>
-                    <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema}; margin: 5px 0 10px 0;">📅 ${fechaTxt}</p>
-                    <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 8px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 11px; text-transform: uppercase;">MÁS INFO</a>
-                </div>
-            `, { maxWidth: 250 });
-
-            // LÓGICA DE CAPAS INTELIGENTE
-           if (esPasado) {
-                capaPasados.addLayer(marcador); 
-            } else {
-                marcador.addTo(grupoClustering);
-            } 
-        } 
     });   
 
-    
-// 5. FUNCIÓN DEL BOTÓN HISTORIAL (INTEGRADA CON CLUSTERING)
-let pasadosVisibles = false; // Controla si el historial está activado
+// 5. FUNCIÓN DEL BOTÓN HISTORIAL
+let pasadosVisibles = false; 
 
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados'); 
     
     if (pasadosVisibles) {    
-        // Si el historial estaba activo, removemos los marcadores viejos del clustering
         capaPasados.eachLayer(function(marcadorViejo) {
             grupoClustering.removeLayer(marcadorViejo);
         });
@@ -431,7 +377,6 @@ function toggleEventosPasados(e) {
         btn.classList.remove('activo');
         pasadosVisibles = false;
     } else {
-        // Si estaba oculto, inyectamos los marcadores viejos al clustering para que se dispersen
         capaPasados.eachLayer(function(marcadorViejo) {
             grupoClustering.addLayer(marcadorViejo);
         });       
@@ -440,7 +385,6 @@ function toggleEventosPasados(e) {
         pasadosVisibles = true;
     }
 } 
-    }); 
     
 // 6. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
@@ -466,4 +410,4 @@ fetch('estudios.geojson')
     });
 </script>
 </body>
-</html>
+</html> 
