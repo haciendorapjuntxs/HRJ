@@ -325,6 +325,7 @@ fetch(urlCSV)
         }
     }); 
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL
+
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados');
@@ -338,8 +339,8 @@ function toggleEventosPasados(e) {
         btn.innerText = "OCULTAR PASADOS";
         btn.classList.add('activo');
     }
-}
-
+} 
+    
 // 6. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
