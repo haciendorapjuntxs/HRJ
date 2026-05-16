@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     
     <style>
     body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; overflow: hidden; }
@@ -206,6 +211,14 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 
 L.control.locate().addTo(map);
 
+// GRUPO INTELIGENTE PARA DISPERSAR EVENTOS EN LA UNAJ (Estilo esferas del dragón)
+const grupoClustering = L.markerClusterGroup({
+    spiderfyOnMaxZoom: true, // Abre en abanico los marcadores que coinciden en el mismo punto
+    showCoverageOnHover: false,
+    zoomToBoundsOnClick: true
+});
+map.addLayer(grupoClustering); 
+
 // 2. SEDE UNAJ
 var unajCoords = [-34.7751535, -58.2678955]; 
 var unajMarker = L.marker(unajCoords, {title: "UNAJ"}).addTo(map);
@@ -317,11 +330,11 @@ fetch(urlCSV)
                 </div>
             `, { maxWidth: 250 });
 
-            if (esPasado) {
-                marcador.addTo(capaPasados);
-            } else {
-                marcador.addTo(map);
-            }
+          if (esPasado) {
+    marcador.addTo(capaPasados);
+          } else {
+    marcador.addTo(grupoClustering); // <-- Cambiá 'map' por 'grupoClustering' acá
+        } 
         }
     }); 
 
