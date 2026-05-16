@@ -406,15 +406,13 @@ fetch(urlCSV)
             `, { maxWidth: 250 });
 
             // LÓGICA DE CAPAS INTELIGENTE
-            if (esPasado) {
-                // Si es viejo, NO lo metemos al mapa todavía. Lo guardamos oculto en capaPasados.
+           if (esPasado) {
                 capaPasados.addLayer(marcador); 
             } else {
-                // Si es actual, entra de cabeza al grupo de dispersión visible
                 marcador.addTo(grupoClustering);
             } 
-        }
-    }); 
+        } 
+    });   
 
     
 // 5. FUNCIÓN DEL BOTÓN HISTORIAL (INTEGRADA CON CLUSTERING)
