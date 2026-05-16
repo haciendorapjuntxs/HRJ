@@ -249,7 +249,7 @@ fetch('artistas.json')
 
 // --- 4. MOTOR DE AGENDA (RUTAS DE DRIVE REPARADAS) ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
-const capaPasados = L.layerGroup(); 
+const capaPasados = L.layerGroup(); // Guardará los marcadores viejos en memoria
 
 fetch(urlCSV)
     .then(res => res.text())
@@ -305,10 +305,8 @@ fetch(urlCSV)
                 } else if (datoFlyer.includes('/d/')) {
                     idImg = datoFlyer.split('/d/')[1].split('/')[0];
                 }
-                // Usamos el servidor de miniaturas para evitar que Google bloquee el flyer
                 urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
             } else if (datoFlyer.length > 3) {
-                // Si es un archivo local (ej: clinica.jpg) o una URL externa común
                 urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
                               datoFlyer : `./flyer-territorial/${datoFlyer}`;
             }
@@ -330,32 +328,41 @@ fetch(urlCSV)
                 </div>
             `, { maxWidth: 250 });
 
-       if (esPasado) {
-    // En vez de ir sueltos a capaPasados, se meten al grupo inteligente
-    marcador.addTo(grupoClustering); 
-    // Y además guardamos una referencia para saber que es viejo si querés filtrarlo después
-    capaPasados.addLayer(marcador); 
-} else {
-    marcador.addTo(grupoClustering);
-} 
+            // LÓGICA DE CAPAS INTELIGENTE
+            if (esPasado) {
+                // Si es viejo, NO lo metemos al mapa todavía. Lo guardamos oculto en capaPasados.
+                capaPasados.addLayer(marcador); 
+            } else {
+                // Si es actual, entra de cabeza al grupo de dispersión visible
+                marcador.addTo(grupoClustering);
+            } 
         }
     }); 
 
     
-// 5. FUNCIÓN DEL BOTÓN HISTORIAL
+// 5. FUNCIÓN DEL BOTÓN HISTORIAL (INTEGRADA CON CLUSTERING)
+let pasadosVisibles = false; // Controla si el historial está activado
 
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados'); 
     
-    if (map.hasLayer(capaPasados)) {    
-        map.removeLayer(capaPasados);    
+    if (pasadosVisibles) {    
+        // Si el historial estaba activo, removemos los marcadores viejos del clustering
+        capaPasados.eachLayer(function(marcadorViejo) {
+            grupoClustering.removeLayer(marcadorViejo);
+        });
         btn.innerText = "HISTORIAL";
         btn.classList.remove('activo');
+        pasadosVisibles = false;
     } else {
-        map.addLayer(capaPasados);       
+        // Si estaba oculto, inyectamos los marcadores viejos al clustering para que se dispersen
+        capaPasados.eachLayer(function(marcadorViejo) {
+            grupoClustering.addLayer(marcadorViejo);
+        });       
         btn.innerText = "OCULTAR PASADOS";
         btn.classList.add('activo');
+        pasadosVisibles = true;
     }
 } 
     
