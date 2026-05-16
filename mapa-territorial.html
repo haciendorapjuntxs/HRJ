@@ -4,31 +4,67 @@
     <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://hrj.com.ar/mapa-territorial.html">
+    
+    <title>Mapa Territorial | Haciendo Rap Juntxs | Cultura Hip Hop Conurbano</title>
+    <meta name="description" content="Mapeo territorial y archivo artístico del colectivo Haciendo Rap Juntxs en la Universidad Nacional Arturo Jauretche (UNAJ). Descubrí artistas, eventos culturales de hip hop, rap, freestyle y estudios independientes en Florencio Varela, Quilmes, Berazategui y el Conurbano Sur.">
+    <meta name="keywords" content="Haciendo Rap Juntxs, mapa territorial, rap conurbano, hip hop argentino, UNAJ, Universidad Arturo Jauretche, Florencio Varela, cultura popular, hip hop varela, rap varela, freestyle conurbano, artistas locales, estudios de grabacion independientes, archivo territorial, cultura de barrio">
+    <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://hrj.com.ar/index.html">
-    
-    <title>Mapa Territorial | Haciendo Rap Juntxs</title>
-    <meta name="description" content="Explorá el mapa territorial de Haciendo Rap Juntxs: el punto de encuentro entre el rap, los barrios del conurbano y la Universidad Nacional Arturo Jauretche.">
-    <meta name="keywords" content="Haciendo Rap Juntxs, mapa, rap, conurbano, UNAJ, territorio, cultura">
-    
-    <meta property="og:title" content="Mapa Territorial | Haciendo Rap Juntxs">
-    <meta property="og:description" content="Un recorrido visual por las voces del conurbano. Explorá el mapa de artistas y sedes de Haciendo Rap Juntxs.">
+    <meta name="geo.region" content="AR-B">
+    <meta name="geo.placename" content="Florencio Varela, Buenos Aires, Argentina">
+    <meta name="geo.position" content="-34.775154;-58.267896">
+    <meta name="ICBM" content="-34.775154, -58.267896">
+
+    <meta property="og:title" content="Mapa Territorial Cultural | Haciendo Rap Juntxs (UNAJ)">
+    <meta property="og:description" content="Explorá el archivo vivo del Hip Hop en el Conurbano. Eventos, artistas, estudios independientes y lazos territoriales desde la Universidad Nacional Arturo Jauretche.">
     <meta property="og:image" content="https://hrj.com.ar/logo-hrj.png">
+    <meta property="og:image:secure_url" content="https://hrj.com.ar/logo-hrj.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     <meta property="og:url" content="https://hrj.com.ar/mapa-territorial.html">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Haciendo Rap Juntxs">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mapa Territorial Cultural | Haciendo Rap Juntxs (UNAJ)">
+    <meta name="twitter:description" content="El mapeo digital definitivo del rap y la cultura urbana en el Conurbano Sur. Agendá eventos activos e históricos.">
+    <meta name="twitter:image" content="https://hrj.com.ar/logo-hrj.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArchiveComponent",
+      "name": "Mapa Territorial Haciendo Rap Juntxs",
+      "description": "Archivo territorial y mapeo cultural de artistas de rap y hip hop vinculados a la Universidad Nacional Arturo Jauretche.",
+      "url": "https://hrj.com.ar/mapa-territorial.html",
+      "image": "https://hrj.com.ar/logo-hrj.png",
+      "holdingArchive": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad Nacional Arturo Jauretche",
+        "sameAs": "https://www.unaj.edu.ar/"
+      },
+      "locationCreated": {
+        "@type": "Place",
+        "name": "Conurbano Bonaerense, Florencio Varela"
+      }
+    }
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-
-    
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
-     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
     <style>
     body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; overflow: hidden; }
 
@@ -262,12 +298,14 @@ fetch(urlCSV)
             const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
             if (!c || c.length < 11) continue; 
 
-            const estado = c[10] ? c[10].toUpperCase().trim() : "";
-            if (!estado.includes("OK")) continue;
-
-            const lat = parseFloat(c[8]?.replace(/[ "]/g, "").replace(',', '.'));
-            const lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
+            // Debido a la nueva columna 'Email', las coordenadas y el OK se corrieron un lugar:
+            // Columna 9 (J) = Latitud | Columna 10 (K) = Longitud | Columna 11 (L) = Estado (OK)
+            const lat = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
+            const lng = parseFloat(c[10]?.replace(/[ "]/g, "").replace(',', '.'));
             if (isNaN(lat) || isNaN(lng)) continue;
+
+            const estado = c[11] ? c[11].toUpperCase().trim() : "";
+            if (!estado.includes("OK")) continue;
 
             const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
             const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
@@ -294,6 +332,45 @@ fetch(urlCSV)
 
             const esPasado = hoy > fEv;
             const colorTema = esPasado ? '#888' : '#1fd655';
+
+            // Lógica híbrida intacta (Drive + Locales)
+            let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
+            if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
+                let idImg = "";
+                if (datoFlyer.includes('id=')) {
+                    idImg = datoFlyer.split('id=')[1].split('&')[0];
+                } else if (datoFlyer.includes('/d/')) {
+                    idImg = datoFlyer.split('/d/')[1].split('/')[0];
+                }
+                urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
+            } else if (datoFlyer.length > 3) {
+                urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
+                              datoFlyer : `./flyer-territorial/${datoFlyer}`;
+            }
+
+            const marcador = L.marker([lat, lng], {
+                icon: L.divIcon({ 
+                    className: esPasado ? 'pulse-past' : 'pulse-green', 
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                })
+            }).bindPopup(`
+                <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
+                    <div style="overflow: hidden; border-radius: 4px; margin-bottom: 8px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'};">
+                        <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 100px;">
+                    </div>
+                    <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase;">${nombre}</h3>
+                    <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema}; margin: 5px 0 10px 0;">📅 ${fechaTxt}</p>
+                    <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 8px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 11px; text-transform: uppercase;">MÁS INFO</a>
+                </div>
+            `, { maxWidth: 250 });
+
+            if (esPasado) {
+                capaPasados.addLayer(marcador); 
+            } else {
+                marcador.addTo(grupoClustering);
+            } 
+        } 
 
             // REPARACIÓN DEFINITIVA DE LÓGICA HÍBRIDA (Local / Servidor Drive)
             let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
