@@ -330,11 +330,14 @@ fetch(urlCSV)
                 </div>
             `, { maxWidth: 250 });
 
-          if (esPasado) {
-    marcador.addTo(capaPasados);
-          } else {
-    marcador.addTo(grupoClustering); // <-- Cambiá 'map' por 'grupoClustering' acá
-        } 
+       if (esPasado) {
+    // En vez de ir sueltos a capaPasados, se meten al grupo inteligente
+    marcador.addTo(grupoClustering); 
+    // Y además guardamos una referencia para saber que es viejo si querés filtrarlo después
+    capaPasados.addLayer(marcador); 
+} else {
+    marcador.addTo(grupoClustering);
+} 
         }
     }); 
 
