@@ -375,7 +375,7 @@ const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1V
 const capaPasados = L.layerGroup(); 
 
 // Función reutilizable para procesar filas de CSV de Sheets de forma unificada
-function procesarHojaCSV(url, esCapaHistorica Fija) {
+function procesarHojaCSV(url, esCapaHistoricaFija) {
     fetch(url)
         .then(res => res.text())
         .then(csvText => {
