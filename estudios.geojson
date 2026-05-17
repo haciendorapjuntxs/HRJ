@@ -125,6 +125,6 @@
     { "type": "Feature", "properties": { "col0": 121, "col1": "Cromo Música", "col2": "-34.611902, -58.439121", "col3": "https://www.google.com/maps/place/Cromo+M%C3%BAsicâ€¦AdAdu1vJURqW9mrfLwjug?authuser=0&hl=es-419&rclk=1" }, "geometry": { "type": "Point", "coordinates": [-58.439121, -34.611902] } },
     { "type": "Feature", "properties": { "col0": 122, "col1": "1999 Estudio Streaming y Podcast (Esmeralda)", "col2": "-34.602120, -58.379102", "col3": "https://www.google.com/maps/place/1999+Estudio+Strâ€¦PAJPzLvJURy5jwtyeqw4c?authuser=0&hl=es-419&rclk=1" }, "geometry": { "type": "Point", "coordinates": [-58.379102, -34.602120] } },
     { "type": "Feature", "properties": { "col0": 123, "col1": "Baires Norte Estudios", "col2": "-34.521902, -58.501922", "col3": "https://www.google.com/maps/place/Baires+Norte+Estâ€¦XTgeidvJURnYGvTVkMXyA?authuser=0&hl=es-419&rclk=1" }, "geometry": { "type": "Point", "coordinates": [-58.501922, -34.521902] } }
-    { "type": "Feature", "properties": { "col0": 123/4/5/6/etc, "col1": "Flow Inc Records", "col2": "-34.459535, -58.610606", "col3": "https://maps.app.goo.gl/iqjfkJmWeez6VMq47" }, "geometry": { "type": "Point", "coordinates": [-58.610606, -34.459535,] } }
+    { "type": "Feature", "properties": { "col0": 124, "col1": "Flow Inc Records", "col2": "-34.459535, -58.610606", "col3": "https://maps.app.goo.gl/iqjfkJmWeez6VMq47" }, "geometry": { "type": "Point", "coordinates": [-58.610606, -34.459535,] } }
  ]
 }
