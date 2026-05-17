@@ -48,7 +48,7 @@
         "https://www.wikidata.org/wiki/Q139548551",
         "https://www.wikidata.org/wiki/Q139548872",
         "https://es.wikipedia.org/wiki/Usuario:Lkl_20/Taller"
-      ]
+      }
     }
     </script>
 
@@ -372,30 +372,34 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const c = parsearLineaCSV(lineas[i]);
                 if (!c || c.length < 7) continue; 
 
-                const estado = c[10] ? c[10].toUpperCase().trim() : (esCapaHistoricaFija ? "OK" : "");
-                if (!esCapaHistoricaFija && !estado.includes("OK")) continue;
+                let latRaw = "", lngRaw = "", estadoRaw = "";
+                if (c.length >= 12) {
+                    latRaw = c[9]; lngRaw = c[10]; estadoRaw = c[11];
+                } else {
+                    latRaw = c[8]; lngRaw = c[9]; estadoRaw = c[10];
+                }
 
-                let latIndex = 8;
-                let lngIndex = 9;
-                
-                if(esCapaHistoricaFija && (isNaN(parseFloat(c[latIndex])) || isNaN(parseFloat(c[lngIndex])))) {
-                    for(let k=0; k<c.length; k++) {
-                        if(c[k] && c[k].includes('-34.')) latIndex = k;
-                        if(c[k] && (c[k].includes('-58.') || c[k].includes('-57.'))) lngIndex = k;
+                if (esCapaHistoricaFija && (isNaN(parseFloat(latRaw)) || isNaN(parseFloat(lngRaw)))) {
+                    for (let k = 0; k < c.length; k++) {
+                        if (c[k] && c[k].includes('-34.')) latRaw = c[k];
+                        if (c[k] && (c[k].includes('-58.') || c[k].includes('-57.'))) lngRaw = c[k];
                     }
                 }
 
-                const lat = parseFloat(c[latIndex]?.replace(/[ "]/g, "").replace(',', '.'));
-                const lng = parseFloat(c[lngIndex]?.replace(/[ "]/g, "").replace(',', '.'));
+                const lat = parseFloat(latRaw?.replace(/[ "]/g, "").replace(',', '.'));
+                const lng = parseFloat(lngRaw?.replace(/[ "]/g, "").replace(',', '.'));
                 if (isNaN(lat) || isNaN(lng)) continue;
 
-                const nombre = c[1] ? c[1].trim() : "Evento";
+                const estado = estadoRaw ? estadoRaw.toUpperCase().trim() : (esCapaHistoricaFija ? "OK" : "");
+                if (!esCapaHistoricaFija && !estado.includes("OK")) continue;
+
+                const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
                 
-                // SANITIZACIÓN CLAVE: Quitamos comillas, espacios extras y saltos de línea del campo del flyer
+                // SANITIZACIÓN: Quitamos comillas y saltos de línea del string del flyer
                 const datoFlyer = c[2] ? c[2].replace(/["']/g, "").trim() : "";
                 
                 const fechaTxt = c[5]?.trim() || ""; 
-                const linkFB = c[6] ? c[6].trim() : "#";
+                const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
                 const partes = fechaTxt.split(/[-/]/); 
                 if (partes.length !== 3) continue;
@@ -420,7 +424,7 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
                 if (datoFlyer.length > 3) {
-                    // NUEVA LÓGICA GOOGLE DRIVE: Usamos el endpoint de miniaturas (thumbnails) que burla el bloqueo de CORS
+                    // RESOLUCIÓN DRIVE DE CORTE MODERNO (BURLANDO CORS Y BLOQUEOS DE COOKIES)
                     if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                         let idImg = "";
                         if (datoFlyer.includes('id=')) {
@@ -429,13 +433,12 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                             idImg = datoFlyer.split('/d/')[1].split('/')[0];
                         }
                         if (idImg) {
-                            // Endpoint super estable y rápido para renderizar imágenes públicas de Drive
                             urlFinalImg = `https://drive.google.com/thumbnail?sz=w500&id=${idImg}`;
                         }
                     } 
-                    // ARCHIVO LOCAL HISTÓRICO: Limpieza profunda de strings para evitar rutas rotas por saltos de línea ocultos (\n)
+                    // ARCHIVO LOCAL HISTÓRICO: Limpieza de saltos de línea (\n o \r) que rompen las URLs relativas
                     else {
-                        const nombreArchivoLimpio = datoFlyer.replace(/\s+/g, ''); // Remueve saltos de línea y espacios en blanco invisibles
+                        const nombreArchivoLimpio = datoFlyer.replace(/\s+/g, '');
                         urlFinalImg = (nombreArchivoLimpio.includes('/') || nombreArchivoLimpio.startsWith('http')) ? 
                                       nombreArchivoLimpio : `https://hrj.com.ar/flyer-territorial/${nombreArchivoLimpio}`;
                     }
@@ -641,4 +644,4 @@ leyenda.onAdd = function (map) {
 leyenda.addTo(map);
 </script>
 </body>
-</html>
+</html> 
