@@ -158,7 +158,6 @@
         --naranja: #ff4500; 
         --negro: #000; 
         --verde-agenda: #1fd655;
-        --azul-unaj: #0056b3;
     }
 
     /* Contenedor principal de navegación */
@@ -277,7 +276,7 @@
         letter-spacing: 0.5px;
     }
 
-    /* El Punto Verde estilo Agenda Activa */
+    /* Puntos de Agenda Activa */
     .pulse-green {
         background: var(--verde-agenda);
         border-radius: 50%;
@@ -290,7 +289,7 @@
         100% { box-shadow: 0 0 0 0 rgba(31, 214, 85, 0); }
     } 
 
-    /* El Punto Gris (Archivo Histórico) */
+    /* Puntos de Archivo Histórico */
     .pulse-past {
         background: #555 !important;
         border-radius: 50%;
@@ -336,7 +335,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 
 L.control.locate().addTo(map);
 
-// GRUPO INTELIGENTE PARA DISPERSAR EVENTOS EN LA UNAJ (Estilo esferas del dragón)
+// GRUPO INTELIGENTE PARA DISPERSAR EVENTOS EN LA UNAJ
 const grupoClustering = L.markerClusterGroup({
     spiderfyOnMaxZoom: true, 
     showCoverageOnHover: false,
@@ -372,7 +371,7 @@ fetch('artistas.json')
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
     });
 
-// --- 4. MOTOR DE AGENDA (RUTAS DE DRIVE REPARADAS) ---
+// --- 4. MOTOR DE AGENDA ---
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
 
@@ -469,28 +468,22 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
 procesarHojaCSV(urlCSV, false);
 procesarHojaCSV(urlHistoricoCSV, true);
 
-// 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados'); 
-    
     if (grupoClustering.hasLayer(capaPasados.getLayers()[0])) {    
-        capaPasados.eachLayer(function(layer) {
-            grupoClustering.removeLayer(layer);
-        });
+        capaPasados.eachLayer(layer => grupoClustering.removeLayer(layer));
         btn.innerText = "HISTORIAL";
         btn.classList.remove('activo');
     } else {
-        capaPasados.eachLayer(function(layer) {
-            grupoClustering.addLayer(layer);
-        });       
+        capaPasados.eachLayer(layer => grupoClustering.addLayer(layer));       
         btn.innerText = "OCULTAR PASADOS";
         btn.classList.add('activo');
     }
 } 
     
 // =========================================================================
-// 6. MOTOR DE ESTUDIOS (AHORA EN ROJO)
+// 6. MOTOR DE ESTUDIOS
 // =========================================================================
 const capaEstudios = L.layerGroup().addTo(map); 
 
@@ -523,7 +516,6 @@ function toggleEstudios(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-estudios');
     const itemIndice = document.getElementById('item-indice-estudios');
-    
     if (map.hasLayer(capaEstudios)) {
         map.removeLayer(capaEstudios);
         btn.innerText = "ESTUDIOS";
@@ -538,13 +530,9 @@ function toggleEstudios(e) {
 }
 
 // =========================================================================
-// 7. MOTOR FEDERAL (CASAS DE LA CULTURA EN VIOLETA, SUBSECRETARÍAS EN CIAN)
+// 7. MOTOR FEDERAL (REPARADO CON CAPA INDEPENDIENTE Y CIRCLEMARKERS)
 // =========================================================================
-const clusterFederal = L.markerClusterGroup({
-    showCoverageOnHover: false,
-    maxClusterRadius: 45 
-});
-map.addLayer(clusterFederal);
+const capaFederal = L.layerGroup().addTo(map);
 
 const coloresFederal = {
     "CASA": "#9b59b6",         
@@ -557,7 +545,6 @@ fetch('espacios_federales.geojson')
         data.features.forEach(f => {
             const lon = f.geometry.coordinates[0];
             const lat = f.geometry.coordinates[1];
-            
             const cat = f.properties.categoria ? f.properties.categoria.toUpperCase().trim() : "";
             
             let colorMarcador = null;
@@ -573,36 +560,35 @@ fetch('espacios_federales.geojson')
 
             if (!colorMarcador) return;
             
-            const marcador = L.circleMarker([lat, lon], {
-                radius: 5,
+            // Usar circleMarker nativo para renderizar correctamente los colores definidos
+            L.circleMarker([lat, lon], {
+                radius: 6,
                 fillColor: colorMarcador,
                 color: '#fff',
-                weight: 1,
-                fillOpacity: 0.8
+                weight: 1.5,
+                fillOpacity: 0.85
             }).bindPopup(`
                 <div style="font-family: 'Anton', sans-serif; text-align: center; background: #111; color: #fff; padding: 5px; border-radius: 5px; border: 1px solid ${colorMarcador};">
                     <h4 style="margin: 5px 0; font-size: 14px; color: ${colorMarcador}; text-transform: uppercase;">${f.properties.name}</h4>
-                    <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${f.properties.domicilio}<br>${f.properties.localidad} (${f.properties.provincia})</p>
+                    <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${f.properties.domicilio || 'Sin Dirección'}<br>${f.properties.localidad || ''} (${f.properties.provincia || ''})</p>
                     <span style="font-size: 10px; background: ${colorMarcador}; color: #000; padding: 2px 6px; border-radius: 3px; font-weight: bold; display: inline-block; margin-top: 5px;">${tipoLimpio}</span>
                 </div>
-            `, { maxWidth: 220 });
-            
-            clusterFederal.addLayer(marcador);
+            `, { maxWidth: 220 }).addTo(capaFederal);
         });
-    });
+    }).catch(err => console.error("Error al cargar espacios_federales.geojson:", err));
 
 function toggleFederal(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-federal');
     const itemsFederales = document.querySelectorAll('.item-federal');
     
-    if (map.hasLayer(clusterFederal)) {
-        map.removeLayer(clusterFederal);
+    if (map.hasLayer(capaFederal)) {
+        map.removeLayer(capaFederal);
         btn.innerText = "FEDERAL";
         btn.classList.remove('activo');
         itemsFederales.forEach(item => item.style.opacity = '0.3');
     } else {
-        map.addLayer(clusterFederal);
+        map.addLayer(capaFederal);
         btn.innerText = "OCULTAR FEDERAL";
         btn.classList.add('activo');
         itemsFederales.forEach(item => item.style.opacity = '1');
@@ -610,7 +596,7 @@ function toggleFederal(e) {
 }
 
 // =========================================================================
-// 8. ÍNDICE DE COLORES EN EL COSTADITO (INFERIOR DERECHO)
+// 8. ÍNDICE DE COLORES (LEYENDA INFERIOR DERECHA)
 // =========================================================================
 const leyenda = L.control({ position: 'bottomright' });
 
