@@ -359,11 +359,11 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const esPasado = esCapaHistoricaFija ? true : (hoy > fEv);
                 const colorTema = esPasado ? '#888' : '#1fd655';
 
+                // URL base por defecto (Logo de respaldo)
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
-                if (esCapaHistoricaFija) {
-                    urlFinalImg = `./flyer-territorial/archivo-historico-del-hip-hop.jpg`;
-                } else if (datoFlyer.length > 3) {
+                if (datoFlyer.length > 3) {
+                    // SI ES LINK DE DRIVE (Eventos activos/nuevos): Extrae el ID y lo vuelve directo
                     if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                         let idImg = "";
                         if (datoFlyer.includes('id=')) {
@@ -374,9 +374,13 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                         if (idImg) {
                             urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
                         }
-                    } else {
+                    } 
+                    // SI ES TEXTO DEL FLYER (Eventos pasados / Archivo en repositorio)
+                    else {
+                        // Si ya viene con http o barras, se usa directo; si es solo el nombre del archivo,
+                        // se fuerza la ruta absoluta apuntando a la raíz del servidor para que no se rompa en ninguna sección.
                         urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                                      datoFlyer : `./flyer-territorial/${datoFlyer}`;
+                                      datoFlyer : `https://hrj.com.ar/flyer-territorial/${datoFlyer}`;
                     }
                 }
 
@@ -405,7 +409,7 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 } 
             }
         });
-}
+} 
 
 procesarHojaCSV(urlCSV, false);
 procesarHojaCSV(urlHistoricoCSV, true);
