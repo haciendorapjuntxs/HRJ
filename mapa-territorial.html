@@ -489,7 +489,11 @@ function toggleEventosPasados(e) {
     
 const capaEstudios = L.layerGroup().addTo(map); 
 
-// 6. MOTOR DE ESTUDIOS
+// =========================================================================
+// 6. MOTOR DE ESTUDIOS (AHORA EN ROJO)
+// =========================================================================
+const capaEstudios = L.layerGroup().addTo(map); 
+
 fetch('estudios.geojson')
     .then(res => res.json())
     .then(data => {
@@ -508,8 +512,9 @@ fetch('estudios.geojson')
             const nombre = nombreOriginal.toUpperCase();
             
             if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
-                L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 })
-                .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`)
+                // CAMBIADO A ROJO (#ff0000)
+                L.circleMarker(coords, { radius: 5, fillColor: '#ff0000', color: '#fff', weight: 1, fillOpacity: 0.8 })
+                .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px; color:#ff0000;">🎙️ ${nombre}</div>`)
                 .addTo(capaEstudios); 
             }
         });
@@ -518,40 +523,35 @@ fetch('estudios.geojson')
 function toggleEstudios(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-estudios');
+    const itemIndice = document.getElementById('item-indice-estudios');
     
     if (map.hasLayer(capaEstudios)) {
         map.removeLayer(capaEstudios);
         btn.innerText = "ESTUDIOS";
         btn.classList.remove('activo');
+        if(itemIndice) itemIndice.style.opacity = '0.3'; // Atenúa en el índice si se oculta
     } else {
         map.addLayer(capaEstudios);
         btn.innerText = "OCULTAR ESTUDIOS";
         btn.classList.add('activo');
+        if(itemIndice) itemIndice.style.opacity = '1';
     }
 }
 
-// --- 7. NUEVA CAPA INTELIGENTE: MOTOR FEDERAL (CON COLORES POR CATEGORÍA) ---
+// =========================================================================
+// 7. MOTOR FEDERAL (CASAS DE LA CULTURA EN VIOLETA, SUBSECRETARÍAS EN CIAN)
+// =========================================================================
 const clusterFederal = L.markerClusterGroup({
     showCoverageOnHover: false,
     maxClusterRadius: 45 
 });
 map.addLayer(clusterFederal);
 
-// Diccionario de colores según la categoría de tu base de datos
-const coloresCategorias = {
-    "MUSEOS": "#e74c3c",                // Rojo Alerta
-    "SALAS DE CINE": "#3498db",           // Azul Eléctrico
-    "SALAS DE TEATRO": "#f1c40f",         // Amarillo Graffiti
-    "BIBLIOCETAS ESPECIALIZADAS": "#e67e22",// Naranja Callejero
-    "BIBLIOTECA POPULAR": "#e67e22",      // Agrupamos bibliotecas
-    "CENTRO CULTURAL": "#1abc9c",         // Turquesa
-    "CASAS DE LA CULTURA Y EL BICENTENARIO": "#9b59b6", // Violeta
-    "GALERÍAS DE ARTE": "#ffffcc",        // Crema brillante
-    "PATRIMONIO DE LA HUMANIDAD": "#00ffff" // Neón cian
+// Colores específicos solicitados
+const coloresFederal = {
+    "CASA": "#9b59b6",         // Violeta para Casas de la Cultura
+    "SUBSECRETARIA": "#00ffff" // Cian Neón para Subsecretarías de Cultura
 };
-
-// Color por defecto si aparece alguna categoría nueva
-const colorPorDefecto = "#2ecc71"; 
 
 fetch('espacios_federales.geojson')
     .then(res => res.json())
@@ -560,17 +560,22 @@ fetch('espacios_federales.geojson')
             const lon = f.geometry.coordinates[0];
             const lat = f.geometry.coordinates[1];
             
-            // Extraemos la categoría y la pasamos a mayúsculas para evitar errores de tipeo
             const cat = f.properties.categoria ? f.properties.categoria.toUpperCase().trim() : "";
             
-            // Buscamos si el nombre de la categoría contiene alguna de nuestras claves
-            let colorMarcador = colorPorDefecto;
-            for (const [clave, color] of Object.entries(coloresCategorias)) {
-                if (cat.includes(clave)) {
-                    colorMarcador = color;
-                    break;
-                }
+            let colorMarcador = null;
+            let tipoLimpio = "";
+
+            // Clasificación inteligente basada en tu petición
+            if (cat.includes("CASA")) {
+                colorMarcador = coloresFederal["CASA"];
+                tipoLimpio = "Casa de la Cultura";
+            } else if (cat.includes("SUBSECRETARIA") || cat.includes("MINISTERIO") || cat.includes("SECRETARIA")) {
+                colorMarcador = coloresFederal["SUBSECRETARIA"];
+                tipoLimpio = "Subsecretaría de Cultura";
             }
+
+            // Si no pertenece a ninguna de las dos categorías clave, no lo graficamos para no saturar
+            if (!colorMarcador) return;
             
             const marcador = L.circleMarker([lat, lon], {
                 radius: 5,
@@ -582,7 +587,7 @@ fetch('espacios_federales.geojson')
                 <div style="font-family: 'Anton', sans-serif; text-align: center; background: #111; color: #fff; padding: 5px; border-radius: 5px; border: 1px solid ${colorMarcador};">
                     <h4 style="margin: 5px 0; font-size: 14px; color: ${colorMarcador}; text-transform: uppercase;">${f.properties.name}</h4>
                     <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${f.properties.domicilio}<br>${f.properties.localidad} (${f.properties.provincia})</p>
-                    <span style="font-size: 10px; background: ${colorMarcador}; color: #000; padding: 2px 6px; border-radius: 3px; font-weight: bold; display: inline-block; margin-top: 5px;">${f.properties.categoria}</span>
+                    <span style="font-size: 10px; background: ${colorMarcador}; color: #000; padding: 2px 6px; border-radius: 3px; font-weight: bold; display: inline-block; margin-top: 5px;">${tipoLimpio}</span>
                 </div>
             `, { maxWidth: 220 });
             
@@ -590,32 +595,33 @@ fetch('espacios_federales.geojson')
         });
     });
 
-// FUNCIÓN DEL BOTÓN FEDERAL
 function toggleFederal(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-federal');
-    const leyenda = document.querySelector('.leyenda-mapa');
+    const itemsFederales = document.querySelectorAll('.item-federal');
     
     if (map.hasLayer(clusterFederal)) {
         map.removeLayer(clusterFederal);
         btn.innerText = "FEDERAL";
         btn.classList.remove('activo');
-        if(leyenda) leyenda.style.display = 'none'; // Oculta el índice si apagás la capa
+        itemsFederales.forEach(item => item.style.opacity = '0.3');
     } else {
         map.addLayer(clusterFederal);
         btn.innerText = "OCULTAR FEDERAL";
         btn.classList.add('activo');
-        if(leyenda) leyenda.style.display = 'block'; // Muestra el índice si prendés la capa
+        itemsFederales.forEach(item => item.style.opacity = '1');
     }
 }
 
-// --- 8. CREACIÓN DEL ÍNDICE / LEYENDA EN UN COSTADITO ---
+// =========================================================================
+// 8. ÍNDICE DE COLORES EN EL COSTADITO (INFERIOR DERECHO)
+// =========================================================================
 const leyenda = L.control({ position: 'bottomright' });
 
 leyenda.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'leyenda-mapa');
     
-    // Estilos CSS inyectados directamente para mantener la estética oscura y urbana
+    // Estilos alineados con la estética underground/UNAJ
     div.style.background = 'rgba(0, 0, 0, 0.9)';
     div.style.border = '1px solid var(--naranja)';
     div.style.padding = '12px';
@@ -623,27 +629,39 @@ leyenda.onAdd = function (map) {
     div.style.color = '#fff';
     div.style.fontFamily = "'Courier Prime', monospace";
     div.style.fontSize = '12px';
-    div.style.maxHeight = '250px';
-    div.style.overflowY = 'auto';
-    div.style.boxShadow = '0 4px 15px rgba(0,0,0,0.5)';
-    div.style.marginBottom = '20px'; // Espacio para que no tape los controles de Leaflet abajo
+    div.style.boxShadow = '0 4px 15px rgba(0,0,0,0.8)';
+    div.style.marginBottom = '25px'; // Evita tapar logos nativos de Leaflet
+    div.style.lineHeight = '1.6';
 
-    let htmlContenido = `<h4 style="margin: 0 0 8px 0; font-family: 'Anton', sans-serif; color: var(--naranja); letter-spacing: 0.5px; text-transform: uppercase; font-size: 14px;">Índice Federal</h4>`;
-    
-    // Recorremos el diccionario para armar las filas del índice
-    for (const [categoria, color] of Object.entries(coloresCategorias)) {
-        // Formateamos el texto para que no quede todo en mayúsculas duras en el índice
-        const textoMostrar = categoria.charAt(0) + categoria.slice(1).toLowerCase();
+    div.innerHTML = `
+        <h4 style="margin: 0 0 10px 0; font-family: 'Anton', sans-serif; color: var(--naranja); letter-spacing: 0.5px; text-transform: uppercase; font-size: 14px; border-bottom: 1px solid var(--naranja); padding-bottom: 4px;">SIGNIFICADO</h4>
         
-        htmlContenido += `
-            <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                <span style="display: inline-block; width: 12px; height: 12px; background: ${color}; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
-                <span>${textoMostrar}</span>
-            </div>
-        `;
-    }
+        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: var(--verde-agenda); border-radius: 50%; margin-right: 8px; border: 1px solid #fff; box-shadow: 0 0 6px var(--verde-agenda);"></span>
+            <span>Evento Actual (Verde)</span>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: #555; border-radius: 50%; margin-right: 8px; border: 1px solid #888;"></span>
+            <span style="color: #aaa;">Evento Pasado (B&N)</span>
+        </div>
+        
+        <div id="item-indice-estudios" style="display: flex; align-items: center; margin-bottom: 6px; transition: opacity 0.3s;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: #ff0000; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
+            <span>Estudio de Grabación</span>
+        </div>
+        
+        <div class="item-federal" style="display: flex; align-items: center; margin-bottom: 6px; transition: opacity 0.3s;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: ${coloresFederal["CASA"]}; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
+            <span>Casa de la Cultura</span>
+        </div>
+        
+        <div class="item-federal" style="display: flex; align-items: center; transition: opacity 0.3s;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: ${coloresFederal["SUBSECRETARIA"]}; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
+            <span>Subsecretaría Cultura</span>
+        </div>
+    `;
     
-    div.innerHTML = htmlContenido;
     return div;
 };
 
