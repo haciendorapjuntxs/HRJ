@@ -90,6 +90,8 @@
         padding: 5px 15px;
         border: 2px solid transparent;
         transition: all 0.3s ease;
+        cursor: pointer;
+        background: none;
     }
 
     .btn-nav:hover, .btn-nav.activo {
@@ -121,7 +123,7 @@
         background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
     } 
 
-    .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--naranja); }
+    .popup-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--naranja); object-fit: cover; }
     .marker-text { color: var(--naranja); font-weight: bold; text-align: center; font-family: 'Anton', sans-serif; }
     .custom-tooltip { background: rgba(0,0,0,0.85) !important; color: var(--naranja) !important; border: 1px solid var(--naranja) !important; font-family: 'Anton', sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 
@@ -132,8 +134,13 @@
         padding: 0 !important;
         overflow: hidden;
     }
-    .leaflet-popup-content { margin: 0 !important; }
+    .leaflet-popup-content { margin: 0 !important; padding: 12px !important; }
     .leaflet-popup-tip { background: #111 !important; }
+
+    /* Filtro para que los iconos de los artistas coincidan con la leyenda */
+    .artista-marker-icon {
+        filter: hue-rotate(140deg);
+    }
 
     @media (max-width: 768px) {
         nav {
@@ -153,14 +160,15 @@
             box-sizing: border-box;
         }
         .btn-nav {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             padding: 8px 4px;
-            flex: 1 1 23%;
+            flex: 1 1 22%;
             text-align: center;
             border: 1px solid var(--naranja);
             white-space: nowrap;
         }
-        .agenda-promo { bottom: 80px; width: 80%; text-align: center; }
+        .agenda-promo { bottom: 85px; width: 90%; text-align: center; }
+        .leyenda-mapa { display: none !important; } /* Ocultamos leyenda en mobile para ganar espacio */
     } 
 
     .agenda-promo {
@@ -208,9 +216,9 @@
     <a href="staff.html" class="btn-nav">STAFF</a>
     <a href="medios.html" class="btn-nav">PRENSA</a>
     <a href="contacto.html" class="btn-nav">CONTACTO</a>
-    <a href="#" class="btn-nav activo" id="toggle-pasados" onclick="toggleEventosPasados(event)">OCULTAR PASADOS</a> 
-    <a href="#" class="btn-nav activo" id="toggle-estudios" onclick="toggleEstudios(event)">OCULTAR ESTUDIOS</a> 
-    <a href="#" class="btn-nav activo" id="toggle-cultura" onclick="toggleCultura(event)">OCULTAR CULTURA</a> 
+    <button class="btn-nav activo" id="toggle-pasados" onclick="toggleEventosPasados(event)">OCULTAR PASADOS</button> 
+    <button class="btn-nav activo" id="toggle-estudios" onclick="toggleEstudios(event)">OCULTAR ESTUDIOS</button> 
+    <button class="btn-nav activo" id="toggle-cultura" onclick="toggleCultura(event)">OCULTAR CULTURA</button> 
 </nav>
 
 <div class="agenda-promo">
@@ -225,7 +233,10 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
-var map = L.map('map').setView([-38.416097, -63.616672], 4);
+// CORRECCIÓN: Centrado estratégico directo en la UNAJ (Conurbano Sur) con zoom óptimo
+var unajCoords = [-34.7751535, -58.2678955]; 
+var map = L.map('map').setView(unajCoords, 11);
+
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap contributors © CARTO',
     subdomains: 'abcd',
@@ -241,21 +252,36 @@ const grupoClustering = L.markerClusterGroup({
 });
 map.addLayer(grupoClustering); 
 
-var unajCoords = [-34.7751535, -58.2678955]; 
+// Marcador central de la Universidad
 var unajMarker = L.marker(unajCoords, {title: "UNAJ"}).addTo(map);
-unajMarker.bindPopup("<b>UNAJ - Sede Central</b><br>Florencio Varela");
+unajMarker.bindPopup("<b style='font-family: Anton; color:#ff4500;'>UNAJ - Sede Central</b><br><span style='font-family: Courier Prime;'>Florencio Varela</span>");
 
 var layerLazos = L.layerGroup().addTo(map);
 
+// Icono personalizado para los artistas con la clase CSS para el filtro de color
+var artistaIcono = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+    className: 'artista-marker-icon'
+});
+
+// =========================================================================
 // 3. MOTOR DE ARTISTAS
+// =========================================================================
 fetch('artistas.json')
     .then(res => res.json())
     .then(artistas => {
         var markersCluster = L.markerClusterGroup();
         artistas.forEach(a => {
-            var marker = L.marker([a.lat, a.lng], {title: a.nombre});
+            // Aplicamos el icono personalizado para que coincida con la leyenda
+            var marker = L.marker([a.lat, a.lng], {title: a.nombre, icon: artistaIcono});
             marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
-            marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img"></a></div>`);
+            marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img" onerror="this.src='https://hrj.com.ar/logo-hrj.png'"></a></div>`);
+            
             marker.on('click', function() {
                 layerLazos.clearLayers(); 
                 L.polyline([unajCoords, [a.lat, a.lng]], {
@@ -266,24 +292,39 @@ fetch('artistas.json')
         });
         map.addLayer(markersCluster);
         map.addControl(new L.Control.Search({layer: markersCluster, propertyName: 'title', marker: false}));
-    });
+    }).catch(err => console.error("Error al cargar artistas.json:", err));
 
-// --- 4. MOTOR DE AGENDA ---
+// =========================================================================
+// 4. MOTOR DE AGENDA (CON PARSER SEGURO PARA RUTAS HÍBRIDAS)
+// =========================================================================
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
 
 const capaPasados = L.layerGroup(); 
 
+function parsearLineaCSV(texto) {
+    let r = [''], c = 0, q = false;
+    for (let i = 0; i < texto.length; i++) {
+        let ch = texto[i];
+        if (ch === '"') { q = !q; }
+        else if (ch === ',' && !q) { r[++c] = ''; }
+        else { r[c] += ch; }
+    }
+    return r;
+}
+
 function procesarHojaCSV(url, esCapaHistoricaFija) {
     fetch(url)
         .then(res => res.text())
         .then(csvText => {
-            const lineas = csvText.split('\n');
+            const lineas = csvText.split(/\r?\n/);
             const hoy = new Date();
             hoy.setHours(0, 0, 0, 0); 
 
             for (let i = 1; i < lineas.length; i++) {
-                const c = lineas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+                if (!lineas[i].trim()) continue;
+                
+                const c = parsearLineaCSV(lineas[i]);
                 if (!c || c.length < 11) continue; 
 
                 const estado = c[10] ? c[10].toUpperCase().trim() : "";
@@ -293,10 +334,10 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
                 if (isNaN(lat) || isNaN(lng)) continue;
 
-                const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-                const datoFlyer = c[2] ? c[2].replace(/"/g, "").trim() : "";
+                const nombre = c[1] ? c[1].trim() : "Evento";
+                const datoFlyer = c[2] ? c[2].trim() : "";
                 const fechaTxt = c[5]?.trim() || ""; 
-                const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
+                const linkFB = c[6] ? c[6].trim() : "#";
 
                 const partes = fechaTxt.split(/[-/]/); 
                 if (partes.length !== 3) continue;
@@ -322,17 +363,21 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 
                 if (esCapaHistoricaFija) {
                     urlFinalImg = `./flyer-territorial/archivo-historico-del-hip-hop.jpg`;
-                } else if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
-                    let idImg = "";
-                    if (datoFlyer.includes('id=')) {
-                        idImg = datoFlyer.split('id=')[1].split('&')[0];
-                    } else if (datoFlyer.includes('/d/')) {
-                        idImg = datoFlyer.split('/d/')[1].split('/')[0];
-                    }
-                    urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
                 } else if (datoFlyer.length > 3) {
-                    urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                                  datoFlyer : `./flyer-territorial/${datoFlyer}`;
+                    if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
+                        let idImg = "";
+                        if (datoFlyer.includes('id=')) {
+                            idImg = datoFlyer.split('id=')[1].split('&')[0];
+                        } else if (datoFlyer.includes('/d/')) {
+                            idImg = datoFlyer.split('/d/')[1].split('/')[0];
+                        }
+                        if (idImg) {
+                            urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
+                        }
+                    } else {
+                        urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
+                                      datoFlyer : `./flyer-territorial/${datoFlyer}`;
+                    }
                 }
 
                 const marcador = L.marker([lat, lng], {
@@ -377,8 +422,8 @@ function toggleEventosPasados(e) {
         btn.innerText = "OCULTAR PASADOS";
         btn.classList.add('activo');
     }
-} 
-    
+}
+
 // =========================================================================
 // 6. MOTOR DE ESTUDIOS
 // =========================================================================
@@ -427,7 +472,7 @@ function toggleEstudios(e) {
 }
 
 // =========================================================================
-// 7. MOTOR DE CULTURA (EX-FEDERAL: UNIFICADO SÓLO CON cultura.geojson)
+// 7. MOTOR DE CULTURA
 // =========================================================================
 const capaCultura = L.layerGroup().addTo(map);
 
@@ -440,19 +485,16 @@ fetch('cultura.geojson')
             let lon = f.geometry.coordinates[0];
             let lat = f.geometry.coordinates[1];
             
-            // Reparación inteligente si las coordenadas vienen invertidas en el GeoJSON
             if (lat > 0 && lon < 0) { 
                 let temp = lat; lat = lon; lon = temp; 
             }
 
             const p = f.properties || {};
-            const categoria = (p.categoria || p.CATEGORIA || p.tipo || p.TIPO || "").toUpperCase().trim();
-            const nombreEspacio = p.name || p.NAME || p.nombre || p.NOMBRE || "Espacio Cultural";
+            const nombreSpace = p.name || p.NAME || p.nombre || p.NOMBRE || "Espacio Cultural";
             const domicilio = p.domicilio || p.DOMICILIO || p.direccion || p.DIRECCION || 'Sin Dirección';
             const localidad = p.localidad || p.LOCALIDAD || "";
             const provincia = p.provincia || p.PROVINCIA || "";
 
-            // Forzamos el color a Violeta (#9b59b6) para las Subsecretarías y dependencias estatales
             const colorMarcador = "#9b59b6";
             const tipoLimpio = "Subsecretaría de Cultura";
             
@@ -464,7 +506,7 @@ fetch('cultura.geojson')
                 fillOpacity: 0.85
             }).bindPopup(`
                 <div style="font-family: 'Anton', sans-serif; text-align: center; background: #111; color: #fff; padding: 5px; border-radius: 5px; border: 1px solid ${colorMarcador};">
-                    <h4 style="margin: 5px 0; font-size: 14px; color: ${colorMarcador}; text-transform: uppercase;">${nombreEspacio}</h4>
+                    <h4 style="margin: 5px 0; font-size: 14px; color: ${colorMarcador}; text-transform: uppercase;">${nombreSpace}</h4>
                     <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${domicilio}<br>${localidad} ${provincia ? '('+provincia+')' : ''}</p>
                     <span style="font-size: 10px; background: ${colorMarcador}; color: #000; padding: 2px 6px; border-radius: 3px; font-weight: bold; display: inline-block; margin-top: 5px;">${tipoLimpio}</span>
                 </div>
@@ -491,7 +533,7 @@ function toggleCultura(e) {
 }
 
 // =========================================================================
-// 8. ÍNDICE DE COLORES (LEYENDA INFERIOR DERECHA - ACTUALIZADA)
+// 8. ÍNDICE DE COLORES (LEYENDA INFERIOR DERECHA)
 // =========================================================================
 const leyenda = L.control({ position: 'bottomright' });
 
