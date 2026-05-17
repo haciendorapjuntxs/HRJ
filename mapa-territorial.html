@@ -308,6 +308,7 @@
     <a href="medios.html" class="btn-nav">PRENSA</a>
     <a href="contacto.html" class="btn-nav">CONTACTO</a>
     <a href="#" class="btn-nav activo" id="toggle-pasados" onclick="toggleEventosPasados(event)">OCULTAR PASADOS</a> 
+    <a href="#" class="btn-nav activo" id="toggle-estudios" onclick="toggleEstudios(event)">OCULTAR ESTUDIOS</a> 
 </nav>
 
 <div class="agenda-promo">
@@ -490,6 +491,9 @@ function toggleEventosPasados(e) {
     }
 } 
     
+// Variable global para controlar la capa de estudios (ponela arriba junto a tus otras capas)
+const capaEstudios = L.layerGroup().addTo(map); 
+
 // 6. MOTOR DE ESTUDIOS
 fetch('estudios.geojson')
     .then(res => res.json())
@@ -505,16 +509,33 @@ fetch('estudios.geojson')
                 coords = [f.geometry.coordinates[1], f.geometry.coordinates[0]];
             }
             
-            // CORRECCIÓN AQUÍ: Ahora busca en 'col1' si 'name' no existe
             const nombreOriginal = f.properties.name || f.properties.col1 || f.properties.Nombre || "Estudio";
             const nombre = nombreOriginal.toUpperCase();
             
             if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
-                L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 }).addTo(map)
-                .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`);
+                // CAMBIO AQUÍ: En vez de .addTo(map), lo agregamos a .addTo(capaEstudios)
+                L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 })
+                .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`)
+                .addTo(capaEstudios); 
             }
         });
     }); 
+
+// 7. FUNCIÓN DEL BOTÓN ESTUDIOS
+function toggleEstudios(e) {
+    e.preventDefault();
+    const btn = document.getElementById('toggle-estudios');
+    
+    if (map.hasLayer(capaEstudios)) {
+        map.removeLayer(capaEstudios);
+        btn.innerText = "ESTUDIOS";
+        btn.classList.remove('activo');
+    } else {
+        map.addLayer(capaEstudios);
+        btn.innerText = "OCULTAR ESTUDIOS";
+        btn.classList.add('activo');
+    }
+}
 </script>
 </body>
-</html> 
+</html>
