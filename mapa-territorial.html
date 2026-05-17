@@ -362,7 +362,7 @@ function parsearCSVCompleto(textoCompleto) {
         let siguiente = textoCompleto[i+1];
 
         if (ch === '"') {
-            if (dentroComillas && Scientific === '"') { 
+            if (dentroComillas && siguiente === '"') { 
                 lineaActual[c] += '"'; i++; 
             } else { 
                 dentroComillas = !dentroComillas; 
