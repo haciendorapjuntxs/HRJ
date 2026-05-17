@@ -530,7 +530,7 @@ function toggleEstudios(e) {
 }
 
 // =========================================================================
-// 7. MOTOR FEDERAL (REPARADO CON CAPA INDEPENDIENTE Y CIRCLEMARKERS)
+// 7. MOTOR FEDERAL (REPARADO: CON VERIFICACIÓN DE ESTRUCTURA Y COORDENADAS)
 // =========================================================================
 const capaFederal = L.layerGroup().addTo(map);
 
@@ -539,28 +539,62 @@ const coloresFederal = {
     "SUBSECRETARIA": "#00ffff" 
 };
 
-fetch('espacios_federales.geojson')
-    .then(res => res.json())
+// Usamos 'cultura.geojson' que es el estándar de tu repositorio
+fetch('cultura.geojson')
+    .then(res => {
+        if (!res.ok) throw new Error("No se pudo mapear cultura.geojson, intentando respaldo...");
+        return res.json();
+    })
+    .catch(() => {
+        // Si falla por alguna razón, intenta automáticamente con el de respaldo
+        return fetch('espacios_federales.geojson').then(res => res.json());
+    })
     .then(data => {
         data.features.forEach(f => {
-            const lon = f.geometry.coordinates[0];
-            const lat = f.geometry.coordinates[1];
-            const cat = f.properties.categoria ? f.properties.categoria.toUpperCase().trim() : "";
-            
+            // 1. VALIDACIÓN EXTENSA DE COORDENADAS (Evita que el mapa se rompa si vienen vacías o invertidas)
+            let lat, lon;
+            if (f.geometry && f.geometry.coordinates) {
+                lon = f.geometry.coordinates[0];
+                lat = f.geometry.coordinates[1];
+            } else if (f.properties && (f.properties.lat || f.properties.latitude)) {
+                lat = parseFloat(f.properties.lat || f.properties.latitude);
+                lon = parseFloat(f.properties.lng || f.properties.longitude || f.properties.lon);
+            }
+
+            if (!lat || !lon || isNaN(lat) || isNaN(lon)) return;
+
+            // Asegurar el orden correcto para Sudamérica (Latitud siempre negativa y menor que longitud en Argentina)
+            if (lat > 0 && lon < 0) { 
+                let temp = lat; lat = lon; lon = temp; 
+            }
+
+            // 2. EXTRACCIÓN FLEXIBLE DE PROPIEDADES (Mapea mayúsculas, minúsculas y sinónimos)
+            const p = f.properties || {};
+            const categoria = (p.categoria || p.CATEGORIA || p.tipo || p.TIPO || p.subcategoria || "").toUpperCase().trim();
+            const nombreEspacio = p.name || p.NAME || p.nombre || p.NOMBRE || p.space || "Espacio Cultural";
+            const domicilio = p.domicilio || p.DOMICILIO || p.direccion || p.DIRECCION || p.calle || 'Sin Dirección';
+            const localidad = p.localidad || p.LOCALIDAD || p.ciudad || "";
+            const provincia = p.provincia || p.PROVINCIA || "";
+
             let colorMarcador = null;
             let tipoLimpio = "";
 
-            if (cat.includes("CASA")) {
+            // 3. ASIGNACIÓN DE FILTROS Y COLORES
+            if (categoria.includes("CASA") || categoria.includes("CENTRO") || categoria.includes("ESPACIO")) {
                 colorMarcador = coloresFederal["CASA"];
-                tipoLimpio = "Casa de la Cultura";
-            } else if (cat.includes("SUBSECRETARIA") || cat.includes("MINISTERIO") || cat.includes("SECRETARIA")) {
+                tipoLimpio = "Casa / Centro Cultural";
+            } else if (categoria.includes("SUBSECRETARIA") || categoria.includes("MINISTERIO") || categoria.includes("SECRETARIA") || categoria.includes("DIRECCION")) {
                 colorMarcador = coloresFederal["SUBSECRETARIA"];
-                tipoLimpio = "Subsecretaría de Cultura";
+                tipoLimpio = "Gestión Cultural";
             }
 
-            if (!colorMarcador) return;
+            // Respaldo por si la categoría viene vacía en el geojson, para que se pinte igual
+            if (!colorMarcador) {
+                colorMarcador = coloresFederal["CASA"];
+                tipoLimpio = "Espacio Cultural";
+            }
             
-            // Usar circleMarker nativo para renderizar correctamente los colores definidos
+            // 4. RENDERIZADO EN MAPA
             L.circleMarker([lat, lon], {
                 radius: 6,
                 fillColor: colorMarcador,
@@ -569,32 +603,13 @@ fetch('espacios_federales.geojson')
                 fillOpacity: 0.85
             }).bindPopup(`
                 <div style="font-family: 'Anton', sans-serif; text-align: center; background: #111; color: #fff; padding: 5px; border-radius: 5px; border: 1px solid ${colorMarcador};">
-                    <h4 style="margin: 5px 0; font-size: 14px; color: ${colorMarcador}; text-transform: uppercase;">${f.properties.name}</h4>
-                    <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${f.properties.domicilio || 'Sin Dirección'}<br>${f.properties.localidad || ''} (${f.properties.provincia || ''})</p>
+                    <h4 style="margin: 5px 0; font-size: 14px; color: ${colorMarcador}; text-transform: uppercase;">${nombreEspacio}</h4>
+                    <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${domicilio}<br>${localidad} ${provincia ? '('+provincia+')' : ''}</p>
                     <span style="font-size: 10px; background: ${colorMarcador}; color: #000; padding: 2px 6px; border-radius: 3px; font-weight: bold; display: inline-block; margin-top: 5px;">${tipoLimpio}</span>
                 </div>
             `, { maxWidth: 220 }).addTo(capaFederal);
         });
-    }).catch(err => console.error("Error al cargar espacios_federales.geojson:", err));
-
-function toggleFederal(e) {
-    e.preventDefault();
-    const btn = document.getElementById('toggle-federal');
-    const itemsFederales = document.querySelectorAll('.item-federal');
-    
-    if (map.hasLayer(capaFederal)) {
-        map.removeLayer(capaFederal);
-        btn.innerText = "FEDERAL";
-        btn.classList.remove('activo');
-        itemsFederales.forEach(item => item.style.opacity = '0.3');
-    } else {
-        map.addLayer(capaFederal);
-        btn.innerText = "OCULTAR FEDERAL";
-        btn.classList.add('activo');
-        itemsFederales.forEach(item => item.style.opacity = '1');
-    }
-}
-
+    }).catch(err => console.error("Error crítico en el Motor Federal:", err)); 
 // =========================================================================
 // 8. ÍNDICE DE COLORES (LEYENDA INFERIOR DERECHA)
 // =========================================================================
