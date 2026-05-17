@@ -505,13 +505,16 @@ fetch('estudios.geojson')
                 coords = [f.geometry.coordinates[1], f.geometry.coordinates[0]];
             }
             
-            const nombre = (f.properties.name || "Estudio").toUpperCase();
+            // CORRECCIÓN AQUÍ: Ahora busca en 'col1' si 'name' no existe
+            const nombreOriginal = f.properties.name || f.properties.col1 || f.properties.Nombre || "Estudio";
+            const nombre = nombreOriginal.toUpperCase();
+            
             if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
                 L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 }).addTo(map)
                 .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`);
             }
         });
-    });
+    }); 
 </script>
 </body>
 </html> 
