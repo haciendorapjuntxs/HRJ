@@ -229,7 +229,7 @@
         }
         .agenda-promo p { font-size: 12px !important; }
         
-        /* Modificamos comportamiento nativo de Leaflet para la leyenda en móviles */
+        /* comportamiento nativo de Leaflet para móviles */
         .leyenda-mapa { 
             position: fixed !important;
             top: 15px !important;
@@ -250,7 +250,7 @@
         .leyenda-mapa span { display: inline-block; vertical-align: middle; }
         .leyenda-mapa div span[style*="width: 12px"] { width: 8px !important; height: 8px !important; margin-right: 6px !important; }
         
-        /* Desplazar los controles nativos de Leaflet para que no tapen la leyenda */
+        /* Desplazar los controles nativos de Leaflet */
         .leaflet-top.leaflet-left { top: 145px !important; }
     } 
 </style> 
@@ -340,14 +340,14 @@ fetch('artistas.json')
     }).catch(err => console.error("Error al cargar artistas.json:", err));
 
 // =========================================================================
-// MOTOR DE AGENDA ROBUSTO (CONVERSOR DE DRIVE Y LIMPIEZA DE ARCHIVO LOCAL)
+// MOTOR DE AGENDA ROBUSTO 
 // =========================================================================
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
 
 const capaPasados = L.layerGroup(); 
 
-// Parser avanzado que soporta delimitadores dinámicos (, o ;) e ignora saltos de línea dentro de las comillas
+
 function parsearCSVCompleto(textoCompleto) {
     let lineas = [];
     let lineaActual = [''];
