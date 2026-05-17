@@ -1,0 +1,1811 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Secretaría de Cultura de la Nación",
+        "municipio": "Nación",
+        "direccion": "S/D",
+        "web": "https://www.google.com/maps/place/Secretar%C3%ADa+de+Cultura+de+la+Presidencia+de+Naci%C3%B3n/@-34.6107997,-58.3854479,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccad083260c0b:0x6a4d4aa6508f16e3!8m2!3d-34.6107997!4d-58.382873!16s%2Fg%2F1q62hlhmd?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D ",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.382894461699316, -34.610764352358274]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Adolfo Alsina",
+        "municipio": "Adolfo Alsina",
+        "direccion": "S/D",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.382894461699316, -34.610764352358274]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Adolfo Gonzales Chaves",
+        "municipio": "Adolfo Gonzales Chaves",
+        "direccion": "S/D",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.09853307817089, -38.03255546244803]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Alberti",
+        "municipio": "Alberti",
+        "direccion": "L N Alem Y 9 de Julio, Alberti",
+        "web": "https://alberti.gov.ar/",
+        "telefono": "02346470034"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.28411064001217, -35.02456140034643]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Almirante Brown",
+        "municipio": "Almirante Brown",
+        "direccion": "Esteban Adrogué 1224, Adrogué",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.39025943655261, -34.798383929609514]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Arrecifes",
+        "municipio": "Arrecifes",
+        "direccion": "Ricardo Gutiérrez 730, Arrecifes",
+        "web": "https://arrecifes.gob.ar/",
+        "telefono": "02478454822"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.107842661724774, -34.067649485633495]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Avellaneda",
+        "municipio": "Avellaneda",
+        "direccion": "San Martín 797, Avellaneda",
+        "web": "https://www.mda.gob.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.36545427334134, -34.663373943050686]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Ayacucho",
+        "municipio": "Ayacucho",
+        "direccion": "Yrigoyen 947, Ayacucho",
+        "web": "https://www.ayacucho.gob.ar/?q=cultura",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.497059506026936, -37.133296645063126]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Azul",
+        "municipio": "Azul",
+        "direccion": "Azul, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.86385406159459, -36.77775789862251]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Bahía Blanca",
+        "municipio": "Bahía Blanca",
+        "direccion": "Alsina 41 altos, Bahía Blanca",
+        "web": "http://www.bahia.gob.ar/cultura/",
+        "telefono": "02914594037"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.26459496149609, -38.7186226589802]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Balcarce",
+        "municipio": "Balcarce",
+        "direccion": "Av. René Favaloro 785, Balcarce",
+        "web": "https://www.balcarce.gob.ar/",
+        "telefono": "02266422617"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.270770324259075, -37.80788146680157]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Baradero",
+        "municipio": "Baradero",
+        "direccion": "Baradero, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.50279437523008, -33.80849084402889]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Benito Juárez",
+        "municipio": "Benito Juárez",
+        "direccion": "Benito Juárez, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.80411346154969, -37.67203149568854]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Berazategui",
+        "municipio": "Berazategui",
+        "direccion": "Berazategui, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.227530819362926, -34.771624959888726]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Berisso",
+        "municipio": "Berisso",
+        "direccion": "Av. Montevideo 821, Berisso",
+        "web": "https://www.facebook.com/CulturaBerisso/",
+        "telefono": "02214645512"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.88375057518052, -34.868634759702736]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Bolívar",
+        "municipio": "Bolívar",
+        "direccion": "Bolívar, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.113605648128186, -36.2306835006764]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Bragado",
+        "municipio": "Bragado",
+        "direccion": "Belgrano 1260, Bragado",
+        "web": "S/D",
+        "telefono": "02342421618"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.48940713283984, -35.114897820398035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Brandsen",
+        "municipio": "Brandsen",
+        "direccion": "Blvd. Sáenz Peña 601, Coronel Brandsen",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.2387064770152, -35.167354490621896]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Campana",
+        "municipio": "Campana",
+        "direccion": "Beruti 75, Campana",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.96443083250039, -34.15739282601866]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Cañuelas",
+        "municipio": "Cañuelas",
+        "direccion": "Del Carmen 664, Cañuelas",
+        "web": "S/D",
+        "telefono": "02226477607"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.760938961678384, -35.05329094152271]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Capitán Sarmiento",
+        "municipio": "Capitán Sarmiento",
+        "direccion": "Capitán Sarmiento, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.79232840589761, -34.17266892013887]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Carlos Casares",
+        "municipio": "Carlos Casares",
+        "direccion": "Cecilia Borja 200, Carlos Casares",
+        "web": "https://m.facebook.com/cultura.casares/",
+        "telefono": "02395450062"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.362871782815816, -35.616187793801146]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Carlos Tejedor",
+        "municipio": "Carlos Tejedor",
+        "direccion": "A. H. Almirón 301, Carlos Tejedor",
+        "web": "http://carlostejedor.gob.ar/",
+        "telefono": "02357420077"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.42046940214224, -35.392442703176144]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Carmen de Areco",
+        "municipio": "Carmen de Areco",
+        "direccion": "Moreno 561 1º piso, Carmen de Areco",
+        "web": "S/D",
+        "telefono": "02273442019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.82349981579618, -34.37656502034741]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Castelli",
+        "municipio": "Castelli",
+        "direccion": "Castelli, Provincia de Buenos Aires",
+        "web": "http://www.castelli.gob.ar/",
+        "telefono": "02245480101"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.8078462192994, -36.0918247724576]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Chacabuco",
+        "municipio": "Chacabuco",
+        "direccion": "Moreno 178, Chacabuco",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.466582048204536, -34.64092560357716]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Chascomús",
+        "municipio": "Chascomús",
+        "direccion": "Domingo Faustino Sarmiento 90, Chascomús",
+        "web": "http://chascomus.gob.ar/",
+        "telefono": "02241430960"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.01435000045397, -35.578965096339985]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Chivilcoy",
+        "municipio": "Chivilcoy",
+        "direccion": "Bolívar 319, Chivilcoy",
+        "web": "http://www.chivilcoy.gob.ar/",
+        "telefono": "02346439000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.02274247517949, -34.89131317163702]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Colón",
+        "municipio": "Colón",
+        "direccion": "C. 43 500, Colón",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.112237100454024, -33.89637743474036]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Coronel Rosales",
+        "municipio": "Coronel Rosales",
+        "direccion": "Rivadavia 584, Punta Alta",
+        "web": "http://mcr.gob.ar/contenidos/",
+        "telefono": "02932429522"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.07475556148771, -38.8796326595209]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Coronel Dorrego",
+        "municipio": "Coronel Dorrego",
+        "direccion": "Maciel 585, Coronel Dorrego",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.28843677498954, -38.717725629696865]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Coronel Pringles",
+        "municipio": "Coronel Pringles",
+        "direccion": "Sáenz Peña 867, Coronel Pringles",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.35700906153384, -37.98433955331785]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Daireaux",
+        "municipio": "Daireaux",
+        "direccion": "Belgrano 183, Daireaux",
+        "web": "http://www.daireaux.gob.ar/",
+        "telefono": "02316453282"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.74794716160337, -36.59908774550952]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Dolores",
+        "municipio": "Dolores",
+        "direccion": "Bartolomé Mitre 480, Dolores",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.67870449045311, -36.310827390511086]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Ensenada",
+        "municipio": "Ensenada",
+        "direccion": "Dr. Sidoti 139, Ensenada",
+        "web": "S/D",
+        "telefono": "02214693922"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.9030177004003, -34.86220763633812]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Escobar",
+        "municipio": "Escobar",
+        "direccion": "Mitre 451, Belén de Escobar",
+        "web": "https://www.facebook.com/escobarcultura",
+        "telefono": "01124397844"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.79326007705387, -34.348811783463184]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Esteban Echeverría",
+        "municipio": "Esteban Echeverría",
+        "direccion": "Av. Enrique Santamarina 432, Monte Grande",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.46629801936068, -34.81853192493025]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Exaltación de la Cruz",
+        "municipio": "Exaltación de la Cruz",
+        "direccion": "Estrada 553, Capilla del Señor",
+        "web": "S/D",
+        "telefono": "02323491223"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.10057657705649, -34.2912687891194]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Ezeiza",
+        "municipio": "Ezeiza",
+        "direccion": "Nicolás Avellaneda, Ezeiza",
+        "web": "https://linktr.ee/culturadeezeizaok",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.524923671223455, -34.85523863722092]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Florencio Varela",
+        "municipio": "Florencio Varela",
+        "direccion": "Bartolomé Mitre 149, Florencio Varela",
+        "web": "http://www.varela.gov.ar/",
+        "telefono": "01142551800"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.27554021936122, -34.80868223670049]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Florentino Ameghino",
+        "municipio": "Florentino Ameghino",
+        "direccion": "9 de Julio 668, Florentino Ameghino",
+        "web": "https://www.ameghino.gob.ar/",
+        "telefono": "03388471001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.46730516168836, -34.84459255725246]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Alvarado",
+        "municipio": "General Alvarado",
+        "direccion": "C. 21 Esq 28, Miramar",
+        "web": "S/D",
+        "telefono": "02291420190"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.84136079035483, -38.270100755848475]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Alvear (BA)",
+        "municipio": "General Alvear",
+        "direccion": "San Martín 650, General Alvear",
+        "web": "https://generalalvear.gob.ar/",
+        "telefono": "02344481014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.0163, -36.0427]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Arenales",
+        "municipio": "General Arenales",
+        "direccion": "Av B Mitre 50, General Arenales",
+        "web": "https://www.generalarenales.gob.ar/",
+        "telefono": "02353469000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.30611585057122, -34.30417400436466]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Belgrano",
+        "municipio": "General Belgrano",
+        "direccion": "Rodríguez Peña y Av. Larrea, Gral. Belgrano",
+        "web": "http://www.generalbelgrano.gob.ar/",
+        "telefono": "02243453060"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.49385461112166, -35.76969493127244]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Guido",
+        "municipio": "General Guido",
+        "direccion": "Gral. Belgrano 426, Gral. Guido",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.79123615475744, -36.64156044104499]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Juan Madariaga",
+        "municipio": "General Juan Madariaga",
+        "direccion": "Gral. Juan Madariaga, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "02267550057"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.1350591503378, -36.99737205804321]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General La Madrid",
+        "municipio": "General La Madrid",
+        "direccion": "San Martín 565, Gral. La Madrid",
+        "web": "http://www.lamadrid.gob.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.26173230574878, -37.249036456900605]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Las Heras (BA)",
+        "municipio": "General Las Heras",
+        "direccion": "Rivadavia 420, General Las Heras",
+        "web": "https://www.general lasheras.gob.ar/",
+        "telefono": "02204761011"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.9443, -34.9265]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Lavalle",
+        "municipio": "General Lavalle",
+        "direccion": "Av. Mitre 1168, Gral. Lavalle",
+        "web": "S/D",
+        "telefono": "02242491006"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-56.94107814811948, -36.40871586095667]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Paz",
+        "municipio": "General Paz",
+        "direccion": "Obdulio Hernández Castro 2858, Ranchos",
+        "web": "http://municipalidaddegeneralpaz.gob.ar/",
+        "telefono": "02241475364"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.32484682067696, -35.495136901259336]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Pinto",
+        "municipio": "General Pinto",
+        "direccion": "San Martín 938, Gral. Pinto",
+        "web": "S/D",
+        "telefono": "02355443511"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.891849611692315, -34.76040617289849]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Mar del Plata",
+        "municipio": "General Pueyrredón",
+        "direccion": "Moreno 4164, Mar del Plata",
+        "web": "https://www.facebook.com/lapapallona.teteriacultura/",
+        "telefono": "02235128266"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.56475183250039, -37.99352975229596]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Rodríguez",
+        "municipio": "General Rodríguez",
+        "direccion": "General Rodríguez, Provincia de Buenos Aires",
+        "web": "http://generalrodriguez.gob.ar/cultura",
+        "telefono": "02374841332"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.95337611937016, -34.616366236544685]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Martín",
+        "municipio": "General San Martín",
+        "direccion": "Belgrano 3747, San Martín",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.53810870726399, -34.57386056428838]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Viamonte",
+        "municipio": "General Viamonte",
+        "direccion": "General Rodríguez, Provincia de Buenos Aires",
+        "web": "http://generalrodriguez.gob.ar/cultura",
+        "telefono": "02374841332"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.95338684820576, -34.61641038430488]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de General Villegas",
+        "municipio": "General Villegas",
+        "direccion": "Mariano Moreno 846, Gral. Villegas",
+        "web": "S/D",
+        "telefono": "03388423608"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.01335173496841, -35.033756044873115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Guaminí",
+        "municipio": "Guaminí",
+        "direccion": "Guaminí, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.43249534382503, -36.976227442556564]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Hipólito Yrigoyen",
+        "municipio": "Hipólito Yrigoyen",
+        "direccion": "Moreno 443, Henderson",
+        "web": "http://www.hipolitoyrigoyen.gob.ar/",
+        "telefono": "02314452302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.751399142733625, -36.247247163913215]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Hurlingham",
+        "municipio": "Hurlingham",
+        "direccion": "Tte. Gral. Julio Argentino Roca 831, Hurlingham",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.62393906170027, -34.59218561963129]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Ituzaingó",
+        "municipio": "Ituzaingó",
+        "direccion": "Gral. Mansilla 893, Ituzaingó",
+        "web": "https://www.miituzaingo.gov.ar/",
+        "telefono": "01121201872"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.668099946355, -34.65787492266354]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de José C. Paz",
+        "municipio": "José C. Paz",
+        "direccion": "Gral. Lavalle 2015, José C. Paz",
+        "web": "S/D",
+        "telefono": "02320432961"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.752018925761114, -34.52381363107002]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Junín",
+        "municipio": "Junín",
+        "direccion": "Hipólito Yrigoyen 65, Junín",
+        "web": "http://www2.junin.gob.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.94635726170035, -34.590257808299455]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de La Matanza",
+        "municipio": "La Matanza",
+        "direccion": "Hipólito Yrigoyen 2562, San Justo",
+        "web": "http://instagram.com/culturamatanza",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.56201003037291, -34.676347848978956]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de La Plata",
+        "municipio": "La Plata",
+        "direccion": "C. 50 575, La Plata",
+        "web": "S/D",
+        "telefono": "02214248733"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.949256532849404, -34.914178779582244]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Lanús",
+        "municipio": "Lanús",
+        "direccion": "Pres. Domingo Faustino Sarmiento 1713, Lanús",
+        "web": "http://www.lanus.gob.ar/",
+        "telefono": "01143575148"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.38812464820151, -34.70532349222765]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Laprida",
+        "municipio": "Laprida",
+        "direccion": "Ramón Santamarina 1322, Laprida",
+        "web": "http://www.laprida.gov.ar/",
+        "telefono": "02285421301"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.80385891922717, -37.545381686561335]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Las Flores",
+        "municipio": "Las Flores",
+        "direccion": "Av. Gral. Paz 570, Las Flores",
+        "web": "S/D",
+        "telefono": "02244442387"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.103813219303, -36.01853217258588]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Lezama",
+        "municipio": "Lezama",
+        "direccion": "Hipólito Yrigoyen 311, Lezama",
+        "web": "http://lezama.gov.ar/",
+        "telefono": "02242432138"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.89792815789811, -35.87571855881652]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Lincoln",
+        "municipio": "Lincoln",
+        "direccion": "Lincoln, Provincia de Buenos Aires",
+        "web": "http://www.lincoln.gob.ar/",
+        "telefono": "02355439000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.530415457989484, -34.86742331777795]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Lobería",
+        "municipio": "Lobería",
+        "direccion": "Av. Campos 222, Lobería",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.7808022345381, -38.161244670569]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Lobos",
+        "municipio": "Lobos",
+        "direccion": "Salgado Oeste N°585, Lobos",
+        "web": "http://www.casadelaculturadelobos.blogspot.com/",
+        "telefono": "02227416141"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.103695132836535, -35.18579356148839]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Lomas de Zamora",
+        "municipio": "Lomas de Zamora",
+        "direccion": "Bernardo O'Higgins 1776, Ingeniero Budge",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.46016342636956, -34.75165782985833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Luján",
+        "municipio": "Luján",
+        "direccion": "P.º Calelian 1135, Luján",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.123237069573975, -34.56556999114674]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Magdalena",
+        "municipio": "Magdalena",
+        "direccion": "Magdalena, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.51806179051264, -35.07999353294876]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Malvinas Argentinas",
+        "municipio": "Malvinas Argentinas",
+        "direccion": "Av. Pres. Juan Domingo Perón 3985, Los Polvorines",
+        "web": "http://www.malvinasargentinas.gob.ar/",
+        "telefono": "01146609000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.6994899193758, -34.496284634553824]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Marcos Paz",
+        "municipio": "Marcos Paz",
+        "direccion": "Belgrano 2051, Marcos Paz",
+        "web": "http://www.marcospaz.gov.ar/la-ciudad/qu%C3%A9-visitar/casa-de-la-cultura.html",
+        "telefono": "02204773045"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.837856485255955, -34.78318791407365]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Mercedes",
+        "municipio": "Mercedes",
+        "direccion": "C. 29 575, Mercedes",
+        "web": "http://www.mercedes.gob.ar/",
+        "telefono": "02324437900"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.43293967965713, -34.64750576457578]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Merlo",
+        "municipio": "Merlo",
+        "direccion": "Av. Calle Real 298, Merlo",
+        "web": "http://www.merlo.gob.ar/",
+        "telefono": "02204826018"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.719927930084324, -34.67382280319124]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Monte",
+        "municipio": "Monte",
+        "direccion": "Petracchi 646, San Miguel del Monte",
+        "web": "S/D",
+        "telefono": "02271406600"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.805044990495425, -35.440755912941555]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Monte Hermoso",
+        "municipio": "Monte Hermoso",
+        "direccion": "Faro Recalada Centro, Monte Hermoso",
+        "web": "http://montehermoso.gov.ar/",
+        "telefono": "02921481123"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.29117759031768, -38.9868266198707]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Moreno",
+        "municipio": "Moreno",
+        "direccion": "Dr. Alberto Vera 247, Moreno",
+        "web": "S/D",
+        "telefono": "02374622144"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.790390332861776, -34.65344991214884]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Morón",
+        "municipio": "Morón",
+        "direccion": "Dr. José María Casullo 59, Morón",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.624315361697604, -34.64923866033192]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Navarro",
+        "municipio": "Navarro",
+        "direccion": "C. 111 2, Navarro",
+        "web": "S/D",
+        "telefono": "02272430390"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.276591188667446, -35.00463240002877]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Necochea",
+        "municipio": "Necochea",
+        "direccion": "Necochea, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.73404454058343, -38.54718590395488]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Nueve de Julio",
+        "municipio": "Nueve de Julio",
+        "direccion": "9 de Julio, Provincia de Buenos Aires",
+        "web": "https://9dejulio.gov.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.8855673904953, -35.44460004844055]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Olavarría",
+        "municipio": "Olavarría",
+        "direccion": "Cnel. Suárez 2924, Olavarría",
+        "web": "https://www.olavarria.gov.ar/cultura/",
+        "telefono": "02284427180"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.323089661588696, -36.89597741063733]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Patagones",
+        "municipio": "Patagones",
+        "direccion": "Mitre 27, Carmen de Patagones",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.98437844789215, -40.803433352657926]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Pehuajó",
+        "municipio": "Pehuajó",
+        "direccion": "Adolfo Alsina 555, Pehuajó",
+        "web": "http://www.pehuajo.gob.ar/",
+        "telefono": "02396470280"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-61.898570819990574, -35.80968537525506]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Pergamino",
+        "municipio": "Pergamino",
+        "direccion": "Gral. Paz 600, Pergamino",
+        "web": "S/D",
+        "telefono": "02477441099"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.57555053104816, -33.89884845935197]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Pila",
+        "municipio": "Pila",
+        "direccion": "Pila, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.14666814813951, -35.998969313467335]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Pilar",
+        "municipio": "Pilar",
+        "direccion": "B. Rivadavia 660, Pilar",
+        "web": "http://www.pilar.gov.ar/",
+        "telefono": "02304669200"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.91315140181598, -34.457899681815334]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Pinamar",
+        "municipio": "Pinamar",
+        "direccion": "Av. Arquitecto Jorge Bunge 428, Pinamar",
+        "web": "S/D",
+        "telefono": "02254482299"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-56.8608650192488, -37.11421270573184]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Presidente Perón",
+        "municipio": "Presidente Perón",
+        "direccion": "Av. Crisólogo Larralde 241, Guernica",
+        "web": "http://www.presidenteperon.gov.ar/",
+        "telefono": "02224507000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.37993017332945, -34.91746302496167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Puan",
+        "municipio": "Puan",
+        "direccion": "V. de Ortuzar 51, Puán",
+        "web": "S/D",
+        "telefono": "02923488001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.76842526155595, -37.548662354275166]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Punta Indio",
+        "municipio": "Punta Indio",
+        "direccion": "Punta Indio, Provincia de Buenos Aires",
+        "web": "http://puntaindio.gob.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.34039051409889, -35.378391272055964]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Quilmes",
+        "municipio": "Quilmes",
+        "direccion": "Av. Rivadavia 383, Quilmes",
+        "web": "http://www.quilmes.gov.ar/ciudad/cultura.php",
+        "telefono": "01120357553"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.25367516169415, -34.72025075111006]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Ramallo",
+        "municipio": "Ramallo",
+        "direccion": "Av. Gral. San Martín 989, Ramallo",
+        "web": "https://www.ramallo.gob.ar/",
+        "telefono": "03407421851"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.00605057392662, -33.48384696896785]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Rauch",
+        "municipio": "Rauch",
+        "direccion": "Av. San Martín 155, Rauch",
+        "web": "S/D",
+        "telefono": "02297443249"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.0934272057723, -36.778220858683696]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Rivadavia",
+        "municipio": "Rivadavia",
+        "direccion": "Rivadavia 752, América",
+        "web": "S/D",
+        "telefono": "02325440161"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.5302327014294, -34.24659163108355]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Rojas",
+        "municipio": "Rojas",
+        "direccion": "Rojas, Provincia de Buenos Aires",
+        "web": "http://www.rojas.gov.ar/",
+        "telefono": "02475462002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.7389987219125, -34.16311431356816]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Roque Pérez",
+        "municipio": "Roque Pérez",
+        "direccion": "Belgrano 101, Roque Pérez",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.332575162959266, -35.39835731173894]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Saavedra",
+        "municipio": "Saavedra",
+        "direccion": "Cdad. de Rodez 73, Pigüé",
+        "web": "https://saavedra.gob.ar/",
+        "telefono": "02923475555"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.421169560048675, -37.516937367416595]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Saladillo",
+        "municipio": "Saladillo",
+        "direccion": "Bartolomé Mitre 3325, Saladillo",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.782629405828025, -35.63940256693362]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Salliqueló",
+        "municipio": "Salliqueló",
+        "direccion": "Italia 98, Salliqueló",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.959127861595725, -36.75224402458629]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Salto",
+        "municipio": "Salto",
+        "direccion": "Buenos Aires 369, Salto",
+        "web": "https://salto.gob.ar/",
+        "telefono": "02474422103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.254922834727594, -34.29199107540892]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Andrés de Giles",
+        "municipio": "San Andrés de Giles",
+        "direccion": "Rivadavia 752, San Andrés de Giles",
+        "web": "S/D",
+        "telefono": "02325440161"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.44752916562401, -34.44388964103372]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Antonio de Areco",
+        "municipio": "San Antonio de Areco",
+        "direccion": "Lavalle 363, San Antonio de Areco",
+        "web": "https://areco.ar/",
+        "telefono": "02326454722"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.475534197748225, -34.23067348280371]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Cayetano",
+        "municipio": "San Cayetano",
+        "direccion": "Belgrano 353, San Cayetano",
+        "web": "http://www.facebook.com/culturasanca",
+        "telefono": "02983442785"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.61059924802194, -38.34471220852321]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Fernando",
+        "municipio": "San Fernando",
+        "direccion": "Gral. Lavalle 3021, San Fernando",
+        "web": "https://teatromartinelli.com/",
+        "telefono": "01147464173"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.543083904165414, -34.45303579615482]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Isidro",
+        "municipio": "San Isidro",
+        "direccion": "Av. del Libertador 16208, San Isidro",
+        "web": "https://sanisidro.gob.ar/municipio/cultura",
+        "telefono": "45123205"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.50953847139144, -34.467577474488515]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Miguel",
+        "municipio": "San Miguel",
+        "direccion": "Cnel. Charlone 1146, San Miguel",
+        "web": "S/D",
+        "telefono": "01160917100"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.98700907481421, -33.79601213424532]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Nicolás",
+        "municipio": "San Nicolás",
+        "direccion": "9 de Julio 82, San Nicolás de los Arroyos",
+        "web": "https://www.rumbosannicolas.com.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.2231566400122, -33.28507456002111]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Pedro",
+        "municipio": "San Pedro",
+        "direccion": "Carlos Pellegrini 150, San Pedro",
+        "web": "http://www.sanpedro.gov.ar/",
+        "telefono": "03329425361"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.66561514088275, -33.62074826803386]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de San Vicente",
+        "municipio": "San Vicente",
+        "direccion": "Av. Sarmiento 39, San Vicente",
+        "web": "http://www.sanvicente.gob.ar/",
+        "telefono": "02225481101"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.4556402617692, -34.862824683880746]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Suipacha",
+        "municipio": "Suipacha",
+        "direccion": "C. San Martín 325, Suipacha",
+        "web": "http://www.suipacha.gob.ar/",
+        "telefono": "02324480039"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.68735269336681, -34.76824911313516]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tandil",
+        "municipio": "Tandil",
+        "direccion": "Belgrano 338, Tandil",
+        "web": "http://cultura.tandil.gov.ar/",
+        "telefono": "0249154609302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.13884397506031, -37.33001361250313]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tapalqué",
+        "municipio": "Tapalqué",
+        "direccion": "Av. San Martín 179, Tapalqué",
+        "web": "http://www.municipiodetapalque.gob.ar/",
+        "telefono": "02283420117"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.02466159574463, -36.35590950773029]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tigre",
+        "municipio": "Tigre",
+        "direccion": "Lisandro de la Torre 2500, Troncos del Talar",
+        "web": "S/D",
+        "telefono": "01152827557"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.59756361937829, -34.4433733627737]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tordillo",
+        "municipio": "Tordillo",
+        "direccion": "General Conesa, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.32519864811405, -36.519818049973594]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tornquist",
+        "municipio": "Tornquist",
+        "direccion": "Av. Domingo Faustino Sarmiento 53, Tornquist",
+        "web": "http://www.tornquist.gob.ar/",
+        "telefono": "02914941075"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.22157480422244, -38.10042858344284]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Trenque Lauquen",
+        "municipio": "Trenque Lauquen",
+        "direccion": "Villegas 555, Trenque Lauquen",
+        "web": "http://www.trenquelauquen.gov.ar/",
+        "telefono": "02392410501"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.73339200090799, -35.973207305410774]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tres Arroyos",
+        "municipio": "Tres Arroyos",
+        "direccion": "Brandsen 187, Tres Arroyos",
+        "web": "http://www.cultura.tresarroyos.gov.ar/",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.272122442110636, -38.376472106869564]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tres de Febrero",
+        "municipio": "Tres de Febrero",
+        "direccion": "Int. Gabriel Larralde 1990, Caseros",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.56268620181595, -34.603302622238374]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Tres Lomas",
+        "municipio": "Tres Lomas",
+        "direccion": "Rivadavia 149, Tres Lomas",
+        "web": "http://www.treslomas.gob.ar/",
+        "telefono": "0239415430293"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.86196727435774, -36.45925189726531]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Vicente López",
+        "municipio": "Vicente López",
+        "direccion": "Ricardo Gutiérrez 1060, Olivos",
+        "web": "http://www.vicentelopez.gov.ar/",
+        "telefono": "01145139822"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.49951858534462, -34.533373356779265]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Villa Gesell",
+        "municipio": "Villa Gesell",
+        "direccion": "Villa Gesell, Provincia de Buenos Aires",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-56.99420307506252, -37.28648788757609]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Villarino",
+        "municipio": "Villarino",
+        "direccion": "Moreno 41, Médanos",
+        "web": "http://www.villarino.gob.ar/",
+        "telefono": "02927432201"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.69147325967221, -38.79579512327993]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cultura Municipalidad de Zárate",
+        "municipio": "Zárate",
+        "direccion": "Almte. Brown 299, Zárate",
+        "web": "S/D",
+        "telefono": "S/D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.02400726172331, -34.09871046696135]
+      }
+    }
+  ]
+}
