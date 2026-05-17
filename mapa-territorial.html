@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" type="image/png" href="https://hrj.com.ar/logo-hrj.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="canonical" href="https://hrj.com.ar/mapa-territorial.html">
     
@@ -137,39 +137,9 @@
     .leaflet-popup-content { margin: 0 !important; padding: 12px !important; }
     .leaflet-popup-tip { background: #111 !important; }
 
-    /* Filtro para que los iconos de los artistas coincidan con la leyenda */
     .artista-marker-icon {
         filter: hue-rotate(140deg);
     }
-
-    @media (max-width: 768px) {
-        nav {
-            top: auto;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-            border-top: 2px solid var(--naranja);
-            background: #000;
-            border-radius: 0;
-            padding: 5px;
-            box-sizing: border-box;
-        }
-        .btn-nav {
-            font-size: 0.65rem;
-            padding: 8px 4px;
-            flex: 1 1 22%;
-            text-align: center;
-            border: 1px solid var(--naranja);
-            white-space: nowrap;
-        }
-        .agenda-promo { bottom: 85px; width: 90%; text-align: center; }
-        .leyenda-mapa { display: none !important; } /* Ocultamos leyenda en mobile para ganar espacio */
-    } 
 
     .agenda-promo {
         position: fixed;
@@ -184,6 +154,20 @@
         box-shadow: 0 6px 20px rgba(0,0,0,0.7);
         border: 2px solid #fff;
         letter-spacing: 0.5px;
+        transition: bottom 0.3s ease;
+    }
+
+    .leyenda-mapa {
+        background: rgba(0, 0, 0, 0.9) !important;
+        border: 1px solid var(--naranja) !important;
+        padding: 12px !important;
+        border-radius: 5px !important;
+        color: #fff !important;
+        font-family: "'Courier Prime', monospace" !important;
+        font-size: 12px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.8) !important;
+        margin-bottom: 25px !important; 
+        line-height: 1.6 !important;
     }
 
     .pulse-green {
@@ -205,6 +189,70 @@
         box-shadow: 0 0 8px rgba(0,0,0,0.5);
         opacity: 0.8;
     }
+
+    /* =========================================================================
+       DISEÑO MOBILE: MENÚ RESPONSIVE ABAJO + LEYENDA ADAPTATIVA ARRIBA
+       ========================================================================= */
+    @media (max-width: 768px) {
+        nav {
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            border-top: 2px solid var(--naranja);
+            border-left: none; border-right: none; border-bottom: none;
+            background: #000;
+            border-radius: 0;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+        .btn-nav {
+            font-size: 0.65rem;
+            padding: 8px 2px;
+            text-align: center;
+            border: 1px solid var(--naranja);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: rgba(17, 17, 17, 0.6);
+        }
+        .agenda-promo { 
+            bottom: 125px; 
+            width: 85%; 
+            text-align: center; 
+            padding: 8px 12px;
+            font-size: 11px;
+        }
+        .agenda-promo p { font-size: 12px !important; }
+        
+        /* Modificamos comportamiento nativo de Leaflet para la leyenda en móviles */
+        .leyenda-mapa { 
+            position: fixed !important;
+            top: 15px !important;
+            left: 15px !important;
+            right: auto !important;
+            bottom: auto !important;
+            max-width: 150px !important;
+            padding: 8px !important;
+            font-size: 9px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 0 !important;
+            z-index: 99999 !important;
+            background: rgba(0, 0, 0, 0.95) !important;
+        }
+        .leyenda-mapa h4 { font-size: 11px !important; margin: 0 0 5px 0 !important; }
+        .leyenda-mapa div { margin-bottom: 3px !important; }
+        .leyenda-mapa img { width: 7px !important; height: 11px !important; margin-right: 6px !important; }
+        .leyenda-mapa span { display: inline-block; vertical-align: middle; }
+        .leyenda-mapa div span[style*="width: 12px"] { width: 8px !important; height: 8px !important; margin-right: 6px !important; }
+        
+        /* Desplazar los controles nativos de Leaflet para que no tapen la leyenda */
+        .leaflet-top.leaflet-left { top: 145px !important; }
+    } 
 </style> 
 </head>
 <body> 
@@ -233,17 +281,17 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
-// CORRECCIÓN: Centrado estratégico directo en la UNAJ (Conurbano Sur) con zoom óptimo
 var unajCoords = [-34.7751535, -58.2678955]; 
-var map = L.map('map').setView(unajCoords, 11);
+var map = L.map('map', {zoomControl: false}).setView(unajCoords, 11);
+
+L.control.zoom({ position: 'topleft' }).addTo(map);
+L.control.locate({ position: 'topleft' }).addTo(map);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap contributors © CARTO',
     subdomains: 'abcd',
     maxZoom: 20
 }).addTo(map);
-
-L.control.locate().addTo(map);
 
 const grupoClustering = L.markerClusterGroup({
     spiderfyOnMaxZoom: true, 
@@ -252,13 +300,11 @@ const grupoClustering = L.markerClusterGroup({
 });
 map.addLayer(grupoClustering); 
 
-// Marcador central de la Universidad
 var unajMarker = L.marker(unajCoords, {title: "UNAJ"}).addTo(map);
 unajMarker.bindPopup("<b style='font-family: Anton; color:#ff4500;'>UNAJ - Sede Central</b><br><span style='font-family: Courier Prime;'>Florencio Varela</span>");
 
 var layerLazos = L.layerGroup().addTo(map);
 
-// Icono personalizado para los artistas con la clase CSS para el filtro de color
 var artistaIcono = L.icon({
     iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
@@ -270,14 +316,13 @@ var artistaIcono = L.icon({
 });
 
 // =========================================================================
-// 3. MOTOR DE ARTISTAS
+// MOTOR DE ARTISTAS
 // =========================================================================
 fetch('artistas.json')
     .then(res => res.json())
     .then(artistas => {
         var markersCluster = L.markerClusterGroup();
         artistas.forEach(a => {
-            // Aplicamos el icono personalizado para que coincida con la leyenda
             var marker = L.marker([a.lat, a.lng], {title: a.nombre, icon: artistaIcono});
             marker.bindTooltip(a.barrio, {permanent: true, className: 'custom-tooltip'});
             marker.bindPopup(`<div class="marker-text">${a.nombre}<br><a href="${a.url}"><img src="${a.img}" class="popup-img" onerror="this.src='https://hrj.com.ar/logo-hrj.png'"></a></div>`);
@@ -295,7 +340,7 @@ fetch('artistas.json')
     }).catch(err => console.error("Error al cargar artistas.json:", err));
 
 // =========================================================================
-// 4. MOTOR DE AGENDA (CON PARSER SEGURO PARA RUTAS HÍBRIDAS)
+// MOTOR DE AGENDA (CON FILTRO ADAPTATIVO EXCLUSIVO)
 // =========================================================================
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
@@ -325,13 +370,26 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 if (!lineas[i].trim()) continue;
                 
                 const c = parsearLineaCSV(lineas[i]);
-                if (!c || c.length < 11) continue; 
+                if (!c || c.length < 7) continue; 
 
-                const estado = c[10] ? c[10].toUpperCase().trim() : "";
-                if (!estado.includes("OK")) continue;
+                // Forzar estado OK por defecto si es el archivo histórico plano
+                const estado = c[10] ? c[10].toUpperCase().trim() : (esCapaHistoricaFija ? "OK" : "");
+                if (!esCapaHistoricaFija && !estado.includes("OK")) continue;
 
-                const lat = parseFloat(c[8]?.replace(/[ "]/g, "").replace(',', '.'));
-                const lng = parseFloat(c[9]?.replace(/[ "]/g, "").replace(',', '.'));
+                // Encontrar coordenadas de forma dinámica en base al archivo (Maneja variaciones de columnas)
+                let latIndex = esCapaHistoricaFija ? 8 : 8;
+                let lngIndex = esCapaHistoricaFija ? 9 : 9;
+                
+                // Si las columnas estándar fallan en el histórico, buscamos campos con formato de coordenadas
+                if(esCapaHistoricaFija && (isNaN(parseFloat(c[latIndex])) || isNaN(parseFloat(c[lngIndex])))) {
+                    for(let k=0; k<c.length; k++) {
+                        if(c[k] && c[k].includes('-34.')) latIndex = k;
+                        if(c[k] && (c[k].includes('-58.') || c[k].includes('-57.'))) lngIndex = k;
+                    }
+                }
+
+                const lat = parseFloat(c[latIndex]?.replace(/[ "]/g, "").replace(',', '.'));
+                const lng = parseFloat(c[lngIndex]?.replace(/[ "]/g, "").replace(',', '.'));
                 if (isNaN(lat) || isNaN(lng)) continue;
 
                 const nombre = c[1] ? c[1].trim() : "Evento";
@@ -359,11 +417,10 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const esPasado = esCapaHistoricaFija ? true : (hoy > fEv);
                 const colorTema = esPasado ? '#888' : '#1fd655';
 
-                // URL base por defecto (Logo de respaldo)
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
                 if (datoFlyer.length > 3) {
-                    // SI ES LINK DE DRIVE (Eventos activos/nuevos): Extrae el ID y lo vuelve directo
+                    // PARSER DRIVE ROBUSTO: Detecta tanto open?id=, view?id=, uc?id= o strings planos de id
                     if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                         let idImg = "";
                         if (datoFlyer.includes('id=')) {
@@ -375,10 +432,8 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                             urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
                         }
                     } 
-                    // SI ES TEXTO DEL FLYER (Eventos pasados / Archivo en repositorio)
+                    // ARCHIVO LOCAL HISTÓRICO: Asegura que levante la imagen en JPG/PNG usando URL absoluta
                     else {
-                        // Si ya viene con http o barras, se usa directo; si es solo el nombre del archivo,
-                        // se fuerza la ruta absoluta apuntando a la raíz del servidor para que no se rompa en ninguna sección.
                         urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
                                       datoFlyer : `https://hrj.com.ar/flyer-territorial/${datoFlyer}`;
                     }
@@ -393,9 +448,9 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 }).bindPopup(`
                     <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
                         <div style="overflow: hidden; border-radius: 4px; margin-bottom: 8px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'}; -webkit-filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                            <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 100px;">
+                            <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 120px; max-height: 200px;">
                         </div>
-                        <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase;">${nombre}</h3>
+                        <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase; color:#fff;">${nombre}</h3>
                         <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema}; margin: 5px 0 10px 0;">📅 ${fechaTxt}</p>
                         <a href="${linkFB}" target="_blank" style="display: block; background: ${colorTema}; color: #000; padding: 8px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 11px; text-transform: uppercase;">MÁS INFO</a>
                     </div>
@@ -429,7 +484,7 @@ function toggleEventosPasados(e) {
 }
 
 // =========================================================================
-// 6. MOTOR DE ESTUDIOS
+// MOTOR DE ESTUDIOS
 // =========================================================================
 const capaEstudios = L.layerGroup().addTo(map); 
 
@@ -476,7 +531,7 @@ function toggleEstudios(e) {
 }
 
 // =========================================================================
-// 7. MOTOR DE CULTURA
+// MOTOR DE CULTURA
 // =========================================================================
 const capaCultura = L.layerGroup().addTo(map);
 
@@ -537,24 +592,13 @@ function toggleCultura(e) {
 }
 
 // =========================================================================
-// 8. ÍNDICE DE COLORES (LEYENDA INFERIOR DERECHA)
+// ÍNDICE DE COLORES (LEYENDA DINÁMICA CON POSICIONAMIENTO SMARTPHONE)
 // =========================================================================
 const leyenda = L.control({ position: 'bottomright' });
 
 leyenda.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'leyenda-mapa');
     
-    div.style.background = 'rgba(0, 0, 0, 0.9)';
-    div.style.border = '1px solid var(--naranja)';
-    div.style.padding = '12px';
-    div.style.borderRadius = '5px';
-    div.style.color = '#fff';
-    div.style.fontFamily = "'Courier Prime', monospace";
-    div.style.fontSize = '12px';
-    div.style.boxShadow = '0 4px 15px rgba(0,0,0,0.8)';
-    div.style.marginBottom = '25px'; 
-    div.style.lineHeight = '1.6';
-
     div.innerHTML = `
         <h4 style="margin: 0 0 10px 0; font-family: 'Anton', sans-serif; color: var(--naranja); letter-spacing: 0.5px; text-transform: uppercase; font-size: 14px; border-bottom: 1px solid var(--naranja); padding-bottom: 4px;">SIGNIFICADO</h4>
         
@@ -595,4 +639,4 @@ leyenda.onAdd = function (map) {
 leyenda.addTo(map);
 </script>
 </body>
-</html> 
+</html>
