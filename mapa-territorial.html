@@ -340,7 +340,7 @@ fetch('artistas.json')
     }).catch(err => console.error("Error al cargar artistas.json:", err));
 
 // =========================================================================
-// MOTOR DE AGENDA (CORREGIDO PARA IMÁGENES DE DRIVE Y ARCHIVO HISTÓRICO)
+// MOTOR DE AGENDA (DETECCIÓN DINÁMICA DE COLUMNAS ANTI-DESPLAZAMIENTO)
 // =========================================================================
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
@@ -363,6 +363,28 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
         .then(res => res.text())
         .then(csvText => {
             const lineas = csvText.split(/\r?\n/);
+            if (lineas.length < 2) return;
+
+            // Escaneo inteligente de cabeceras para hallar los índices exactos de las columnas
+            const cabecera = parsearLineaCSV(lineas[0]).map(h => h.toUpperCase().trim());
+            
+            let idxNombre = cabecera.findIndex(h => h.includes("NOMBRE"));
+            let idxFlyer = cabecera.findIndex(h => h.includes("FLYER"));
+            let idxFecha = cabecera.findIndex(h => h.includes("FECHA"));
+            let idxLink = cabecera.findIndex(h => h.includes("LINK"));
+            let idxLat = cabecera.findIndex(h => h.includes("LATITUD"));
+            let idxLng = cabecera.findIndex(h => h.includes("LONGITUD"));
+            let idxEstado = cabecera.findIndex(h => h.includes("ESTADO"));
+
+            // Valores de contingencia por si la cabecera exacta cambia
+            if (idxNombre === -1) idxNombre = 1;
+            if (idxFlyer === -1) idxFlyer = 2;
+            if (idxFecha === -1) idxFecha = 5;
+            if (idxLink === -1) idxLink = 6;
+            if (idxLat === -1) idxLat = 8;
+            if (idxLng === -1) idxLng = 9;
+            if (idxEstado === -1) idxEstado = 10;
+
             const hoy = new Date();
             hoy.setHours(0, 0, 0, 0); 
 
@@ -370,15 +392,12 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 if (!lineas[i].trim()) continue;
                 
                 const c = parsearLineaCSV(lineas[i]);
-                if (!c || c.length < 7) continue; 
+                if (!c || c.length < 4) continue; 
 
-                let latRaw = "", lngRaw = "", estadoRaw = "";
-                if (c.length >= 12) {
-                    latRaw = c[9]; lngRaw = c[10]; estadoRaw = c[11];
-                } else {
-                    latRaw = c[8]; lngRaw = c[9]; estadoRaw = c[10];
-                }
+                let latRaw = c[idxLat];
+                let lngRaw = c[idxLng];
 
+                // Si es el archivo histórico fijo y las celdas asignadas fallan, buscamos por contenido geográfico
                 if (esCapaHistoricaFija && (isNaN(parseFloat(latRaw)) || isNaN(parseFloat(lngRaw)))) {
                     for (let k = 0; k < c.length; k++) {
                         if (c[k] && c[k].includes('-34.')) latRaw = c[k];
@@ -390,16 +409,13 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const lng = parseFloat(lngRaw?.replace(/[ "]/g, "").replace(',', '.'));
                 if (isNaN(lat) || isNaN(lng)) continue;
 
-                const estado = estadoRaw ? estadoRaw.toUpperCase().trim() : (esCapaHistoricaFija ? "OK" : "");
+                const estado = c[idxEstado] ? c[idxEstado].toUpperCase().trim() : (esCapaHistoricaFija ? "OK" : "");
                 if (!esCapaHistoricaFija && !estado.includes("OK")) continue;
 
-                const nombre = c[1] ? c[1].replace(/"/g, "").trim() : "Evento";
-                
-                // SANITIZACIÓN: Quitamos comillas y saltos de línea del string del flyer
-                const datoFlyer = c[2] ? c[2].replace(/["']/g, "").trim() : "";
-                
-                const fechaTxt = c[5]?.trim() || ""; 
-                const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
+                const nombre = c[idxNombre] ? c[idxNombre].replace(/"/g, "").trim() : "Evento";
+                const datoFlyer = c[idxFlyer] ? c[idxFlyer].replace(/["']/g, "").trim() : "";
+                const fechaTxt = c[idxFecha]?.trim() || ""; 
+                const linkFB = c[idxLink] ? c[idxLink].replace(/"/g, "").trim() : "#";
 
                 const partes = fechaTxt.split(/[-/]/); 
                 if (partes.length !== 3) continue;
@@ -424,7 +440,6 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
                 if (datoFlyer.length > 3) {
-                    // RESOLUCIÓN DRIVE DE CORTE MODERNO (BURLANDO CORS Y BLOQUEOS DE COOKIES)
                     if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                         let idImg = "";
                         if (datoFlyer.includes('id=')) {
@@ -435,9 +450,8 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                         if (idImg) {
                             urlFinalImg = `https://drive.google.com/thumbnail?sz=w500&id=${idImg}`;
                         }
-                    } 
-                    // ARCHIVO LOCAL HISTÓRICO: Limpieza de saltos de línea (\n o \r) que rompen las URLs relativas
-                    else {
+                    } else {
+                        // Limpieza radical de saltos de línea (\n) arrastrados desde las planillas
                         const nombreArchivoLimpio = datoFlyer.replace(/\s+/g, '');
                         urlFinalImg = (nombreArchivoLimpio.includes('/') || nombreArchivoLimpio.startsWith('http')) ? 
                                       nombreArchivoLimpio : `https://hrj.com.ar/flyer-territorial/${nombreArchivoLimpio}`;
