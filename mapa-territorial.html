@@ -340,7 +340,7 @@ fetch('artistas.json')
     }).catch(err => console.error("Error al cargar artistas.json:", err));
 
 // =========================================================================
-// MOTOR DE AGENDA (CON FILTRO ADAPTATIVO EXCLUSIVO)
+// MOTOR DE AGENDA (CORREGIDO PARA IMÁGENES DE DRIVE Y ARCHIVO HISTÓRICO)
 // =========================================================================
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
@@ -372,15 +372,12 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const c = parsearLineaCSV(lineas[i]);
                 if (!c || c.length < 7) continue; 
 
-                // Forzar estado OK por defecto si es el archivo histórico plano
                 const estado = c[10] ? c[10].toUpperCase().trim() : (esCapaHistoricaFija ? "OK" : "");
                 if (!esCapaHistoricaFija && !estado.includes("OK")) continue;
 
-                // Encontrar coordenadas de forma dinámica en base al archivo (Maneja variaciones de columnas)
-                let latIndex = esCapaHistoricaFija ? 8 : 8;
-                let lngIndex = esCapaHistoricaFija ? 9 : 9;
+                let latIndex = 8;
+                let lngIndex = 9;
                 
-                // Si las columnas estándar fallan en el histórico, buscamos campos con formato de coordenadas
                 if(esCapaHistoricaFija && (isNaN(parseFloat(c[latIndex])) || isNaN(parseFloat(c[lngIndex])))) {
                     for(let k=0; k<c.length; k++) {
                         if(c[k] && c[k].includes('-34.')) latIndex = k;
@@ -393,7 +390,10 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 if (isNaN(lat) || isNaN(lng)) continue;
 
                 const nombre = c[1] ? c[1].trim() : "Evento";
-                const datoFlyer = c[2] ? c[2].trim() : "";
+                
+                // SANITIZACIÓN CLAVE: Quitamos comillas, espacios extras y saltos de línea del campo del flyer
+                const datoFlyer = c[2] ? c[2].replace(/["']/g, "").trim() : "";
+                
                 const fechaTxt = c[5]?.trim() || ""; 
                 const linkFB = c[6] ? c[6].trim() : "#";
 
@@ -420,7 +420,7 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
                 if (datoFlyer.length > 3) {
-                    // PARSER DRIVE ROBUSTO: Detecta tanto open?id=, view?id=, uc?id= o strings planos de id
+                    // NUEVA LÓGICA GOOGLE DRIVE: Usamos el endpoint de miniaturas (thumbnails) que burla el bloqueo de CORS
                     if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
                         let idImg = "";
                         if (datoFlyer.includes('id=')) {
@@ -429,13 +429,15 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                             idImg = datoFlyer.split('/d/')[1].split('/')[0];
                         }
                         if (idImg) {
-                            urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
+                            // Endpoint super estable y rápido para renderizar imágenes públicas de Drive
+                            urlFinalImg = `https://drive.google.com/thumbnail?sz=w500&id=${idImg}`;
                         }
                     } 
-                    // ARCHIVO LOCAL HISTÓRICO: Asegura que levante la imagen en JPG/PNG usando URL absoluta
+                    // ARCHIVO LOCAL HISTÓRICO: Limpieza profunda de strings para evitar rutas rotas por saltos de línea ocultos (\n)
                     else {
-                        urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
-                                      datoFlyer : `https://hrj.com.ar/flyer-territorial/${datoFlyer}`;
+                        const nombreArchivoLimpio = datoFlyer.replace(/\s+/g, ''); // Remueve saltos de línea y espacios en blanco invisibles
+                        urlFinalImg = (nombreArchivoLimpio.includes('/') || nombreArchivoLimpio.startsWith('http')) ? 
+                                      nombreArchivoLimpio : `https://hrj.com.ar/flyer-territorial/${nombreArchivoLimpio}`;
                     }
                 }
 
@@ -448,7 +450,7 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 }).bindPopup(`
                     <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
                         <div style="overflow: hidden; border-radius: 4px; margin-bottom: 8px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'}; -webkit-filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                            <img src="${urlFinalImg}" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 120px; max-height: 200px;">
+                            <img src="${urlFinalImg}" crossorigin="anonymous" onerror="this.src='https://hrj.com.ar/logo-hrj.png'" style="width: 100%; display: block; object-fit: cover; min-height: 120px; max-height: 200px;">
                         </div>
                         <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase; color:#fff;">${nombre}</h3>
                         <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema}; margin: 5px 0 10px 0;">📅 ${fechaTxt}</p>
