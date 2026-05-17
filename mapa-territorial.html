@@ -309,6 +309,7 @@
     <a href="contacto.html" class="btn-nav">CONTACTO</a>
     <a href="#" class="btn-nav activo" id="toggle-pasados" onclick="toggleEventosPasados(event)">OCULTAR PASADOS</a> 
     <a href="#" class="btn-nav activo" id="toggle-estudios" onclick="toggleEstudios(event)">OCULTAR ESTUDIOS</a> 
+    <a href="#" class="btn-nav activo" id="toggle-federal" onclick="toggleFederal(event)">OCULTAR FEDERAL</a> 
 </nav>
 
 <div class="agenda-promo">
@@ -323,8 +324,8 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
-// 1. CONFIGURACIÓN BASE
-var map = L.map('map').setView([-34.75, -58.55], 11);
+// 1. CONFIGURACIÓN BASE (Ajustada para que se vea toda la Argentina al cargar la web)
+var map = L.map('map').setView([-38.416097, -63.616672], 4);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap contributors © CARTO',
     subdomains: 'abcd',
@@ -335,7 +336,7 @@ L.control.locate().addTo(map);
 
 // GRUPO INTELIGENTE PARA DISPERSAR EVENTOS EN LA UNAJ (Estilo esferas del dragón)
 const grupoClustering = L.markerClusterGroup({
-    spiderfyOnMaxZoom: true, // Abre en abanico los marcadores que coinciden en el mismo punto
+    spiderfyOnMaxZoom: true, 
     showCoverageOnHover: false,
     zoomToBoundsOnClick: true
 });
@@ -375,7 +376,6 @@ const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1V
 
 const capaPasados = L.layerGroup(); 
 
-// Función reutilizable para procesar filas de CSV de Sheets de forma unificada
 function procesarHojaCSV(url, esCapaHistoricaFija) {
     fetch(url)
         .then(res => res.text())
@@ -400,7 +400,6 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 const fechaTxt = c[5]?.trim() || ""; 
                 const linkFB = c[6] ? c[6].replace(/"/g, "").trim() : "#";
 
-                // Procesador de Fecha Argentina (D/M/AAAA) o ISO (AAAA-MM-DD)
                 const partes = fechaTxt.split(/[-/]/); 
                 if (partes.length !== 3) continue;
 
@@ -418,11 +417,9 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 let fEv = new Date(`${anio}-${mes}-${dia}T23:59:59`);
                 if (isNaN(fEv.getTime())) continue; 
 
-                // Forzamos comportamiento pasado/blanco-negro si pertenece al Sheet Histórico curado
                 const esPasado = esCapaHistoricaFija ? true : (hoy > fEv);
                 const colorTema = esPasado ? '#888' : '#1fd655';
 
-                // REPARACIÓN DEFINITIVA DE LÓGICA HÍBRIDA (Local / Servidor Drive / Forzado Histórico)
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
                 if (esCapaHistoricaFija) {
@@ -467,11 +464,10 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
         });
 }
 
-// Inicializamos la carga de ambas hojas en simultáneo
 procesarHojaCSV(urlCSV, false);
 procesarHojaCSV(urlHistoricoCSV, true);
 
-// 5. FUNCIÓN DEL BOTÓN HISTORIAL (Control de clústeres optimizado)
+// 5. FUNCIÓN DEL BOTÓN HISTORIAL
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados'); 
@@ -491,7 +487,6 @@ function toggleEventosPasados(e) {
     }
 } 
     
-// Variable global para controlar la capa de estudios (ponela arriba junto a tus otras capas)
 const capaEstudios = L.layerGroup().addTo(map); 
 
 // 6. MOTOR DE ESTUDIOS
@@ -513,7 +508,6 @@ fetch('estudios.geojson')
             const nombre = nombreOriginal.toUpperCase();
             
             if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
-                // CAMBIO AQUÍ: En vez de .addTo(map), lo agregamos a .addTo(capaEstudios)
                 L.circleMarker(coords, { radius: 5, fillColor: '#8a2be2', color: '#fff', weight: 1, fillOpacity: 0.7 })
                 .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px;">🎙️ ${nombre}</div>`)
                 .addTo(capaEstudios); 
@@ -521,7 +515,6 @@ fetch('estudios.geojson')
         });
     }); 
 
-// 7. FUNCIÓN DEL BOTÓN ESTUDIOS
 function toggleEstudios(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-estudios');
@@ -536,6 +529,55 @@ function toggleEstudios(e) {
         btn.classList.add('activo');
     }
 }
+
+// --- 7. NUEVA CAPA INTELIGENTE: MOTOR FEDERAL (CON CLUSTERING OPTIMIZADO) ---
+const clusterFederal = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 45 // Evita que se amontonen los más de 1000 puntos del SINCA
+});
+map.addLayer(clusterFederal);
+
+fetch('espacios_federales.geojson')
+    .then(res => res.json())
+    .then(data => {
+        data.features.forEach(f => {
+            const lon = f.geometry.coordinates[0];
+            const lat = f.geometry.coordinates[1];
+            
+            // Círculos de color verde brillante urbano
+            const marcador = L.circleMarker([lat, lon], {
+                radius: 5,
+                fillColor: '#2ecc71',
+                color: '#fff',
+                weight: 1,
+                fillOpacity: 0.8
+            }).bindPopup(`
+                <div style="font-family: 'Anton', sans-serif; text-align: center; background: #111; color: #fff; padding: 5px; border-radius: 5px; border: 1px solid #2ecc71;">
+                    <h4 style="margin: 5px 0; font-size: 14px; color: #2ecc71; text-transform: uppercase;">${f.properties.name}</h4>
+                    <p style="font-family: 'Courier Prime'; font-size: 11px; margin: 5px 0; color: #aaa;">📍 ${f.properties.domicilio}<br>${f.properties.localidad} (${f.properties.provincia})</p>
+                    <span style="font-size: 10px; background: #2ecc71; color: #000; padding: 2px 6px; border-radius: 3px; font-weight: bold; display: inline-block; margin-top: 5px;">${f.properties.categoria}</span>
+                </div>
+            `, { maxWidth: 220 });
+            
+            clusterFederal.addLayer(marcador);
+        });
+    });
+
+// FUNCIÓN DEL BOTÓN FEDERAL (Mismo comportamiento urbano que tus otros botones)
+function toggleFederal(e) {
+    e.preventDefault();
+    const btn = document.getElementById('toggle-federal');
+    
+    if (map.hasLayer(clusterFederal)) {
+        map.removeLayer(clusterFederal);
+        btn.innerText = "FEDERAL";
+        btn.classList.remove('activo');
+    } else {
+        map.addLayer(clusterFederal);
+        btn.innerText = "OCULTAR FEDERAL";
+        btn.classList.add('activo');
+    }
+}
 </script>
 </body>
-</html>
+</html> 
