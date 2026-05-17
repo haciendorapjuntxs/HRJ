@@ -431,7 +431,7 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                     } else if (datoFlyer.includes('/d/')) {
                         idImg = datoFlyer.split('/d/')[1].split('/')[0];
                     }
-                    urlFinalImg = `https://lh3.googleusercontent.com/d/${idImg}`;
+                    urlFinalImg = `https://docs.google.com/uc?export=view&id=${idImg}`;
                 } else if (datoFlyer.length > 3) {
                     urlFinalImg = (datoFlyer.includes('/') || datoFlyer.startsWith('http')) ? 
                                   datoFlyer : `./flyer-territorial/${datoFlyer}`;
@@ -487,8 +487,6 @@ function toggleEventosPasados(e) {
     }
 } 
     
-const capaEstudios = L.layerGroup().addTo(map); 
-
 // =========================================================================
 // 6. MOTOR DE ESTUDIOS (AHORA EN ROJO)
 // =========================================================================
@@ -512,7 +510,6 @@ fetch('estudios.geojson')
             const nombre = nombreOriginal.toUpperCase();
             
             if (!mainstream.some(p => nombre.includes(p)) && coords[0] < -34.35 && coords[0] > -35.05) {
-                // CAMBIADO A ROJO (#ff0000)
                 L.circleMarker(coords, { radius: 5, fillColor: '#ff0000', color: '#fff', weight: 1, fillOpacity: 0.8 })
                 .bindPopup(`<div style="font-family:'Anton'; text-align:center; font-size:12px; color:#ff0000;">🎙️ ${nombre}</div>`)
                 .addTo(capaEstudios); 
@@ -529,7 +526,7 @@ function toggleEstudios(e) {
         map.removeLayer(capaEstudios);
         btn.innerText = "ESTUDIOS";
         btn.classList.remove('activo');
-        if(itemIndice) itemIndice.style.opacity = '0.3'; // Atenúa en el índice si se oculta
+        if(itemIndice) itemIndice.style.opacity = '0.3';
     } else {
         map.addLayer(capaEstudios);
         btn.innerText = "OCULTAR ESTUDIOS";
@@ -547,10 +544,9 @@ const clusterFederal = L.markerClusterGroup({
 });
 map.addLayer(clusterFederal);
 
-// Colores específicos solicitados
 const coloresFederal = {
-    "CASA": "#9b59b6",         // Violeta para Casas de la Cultura
-    "SUBSECRETARIA": "#00ffff" // Cian Neón para Subsecretarías de Cultura
+    "CASA": "#9b59b6",         
+    "SUBSECRETARIA": "#00ffff" 
 };
 
 fetch('espacios_federales.geojson')
@@ -565,7 +561,6 @@ fetch('espacios_federales.geojson')
             let colorMarcador = null;
             let tipoLimpio = "";
 
-            // Clasificación inteligente basada en tu petición
             if (cat.includes("CASA")) {
                 colorMarcador = coloresFederal["CASA"];
                 tipoLimpio = "Casa de la Cultura";
@@ -574,7 +569,6 @@ fetch('espacios_federales.geojson')
                 tipoLimpio = "Subsecretaría de Cultura";
             }
 
-            // Si no pertenece a ninguna de las dos categorías clave, no lo graficamos para no saturar
             if (!colorMarcador) return;
             
             const marcador = L.circleMarker([lat, lon], {
@@ -621,7 +615,6 @@ const leyenda = L.control({ position: 'bottomright' });
 leyenda.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'leyenda-mapa');
     
-    // Estilos alineados con la estética underground/UNAJ
     div.style.background = 'rgba(0, 0, 0, 0.9)';
     div.style.border = '1px solid var(--naranja)';
     div.style.padding = '12px';
@@ -630,7 +623,7 @@ leyenda.onAdd = function (map) {
     div.style.fontFamily = "'Courier Prime', monospace";
     div.style.fontSize = '12px';
     div.style.boxShadow = '0 4px 15px rgba(0,0,0,0.8)';
-    div.style.marginBottom = '25px'; // Evita tapar logos nativos de Leaflet
+    div.style.marginBottom = '25px'; 
     div.style.lineHeight = '1.6';
 
     div.innerHTML = `
@@ -652,12 +645,12 @@ leyenda.onAdd = function (map) {
         </div>
         
         <div class="item-federal" style="display: flex; align-items: center; margin-bottom: 6px; transition: opacity 0.3s;">
-            <span style="display: inline-block; width: 12px; height: 12px; background: ${coloresFederal["CASA"]}; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
+            <span style="display: inline-block; width: 12px; height: 12px; background: #9b59b6; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
             <span>Casa de la Cultura</span>
         </div>
         
         <div class="item-federal" style="display: flex; align-items: center; transition: opacity 0.3s;">
-            <span style="display: inline-block; width: 12px; height: 12px; background: ${coloresFederal["SUBSECRETARIA"]}; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
+            <span style="display: inline-block; width: 12px; height: 12px; background: #00ffff; border-radius: 50%; margin-right: 8px; border: 1px solid #fff;"></span>
             <span>Subsecretaría Cultura</span>
         </div>
     `;
@@ -666,8 +659,6 @@ leyenda.onAdd = function (map) {
 };
 
 leyenda.addTo(map);
-    }
-}
 </script>
 </body>
 </html> 
