@@ -340,7 +340,7 @@ fetch('artistas.json')
     }).catch(err => console.error("Error al cargar artistas.json:", err));
 
 // =========================================================================
-// MOTOR DE AGENDA ROBUSTO (AUTO-DETECCIÓN DE SEPARADOR Y CONVERSOR DE DRIVE)
+// MOTOR DE AGENDA ROBUSTO (CONVERSOR DE DRIVE Y LIMPIEZA DE ARCHIVO LOCAL)
 // =========================================================================
 const urlCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDb66cxjNWqp62AMf2HvWlBndeut6aXVi_cRhqKDO5Xp6DnZFtmWA2ubKoR0PITD2ydDxRz-VMmi9o/pub?gid=2141097724&single=true&output=csv&cb=' + new Date().getTime();
 const urlHistoricoCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ0u1VMMDvmJoLzbMXe7as01c2QPPNyFXaB_KRGSAZOxpDBVWAkMD_fHsIOSmO2AvWaoJ57gGIbFzM/pub?output=csv&cb=' + new Date().getTime();
@@ -362,7 +362,7 @@ function parsearCSVCompleto(textoCompleto) {
         let siguiente = textoCompleto[i+1];
 
         if (ch === '"') {
-            if (dentroComillas && siguiente === '"') { 
+            if (dentroComillas && Scientific === '"') { 
                 lineaActual[c] += '"'; i++; 
             } else { 
                 dentroComillas = !dentroComillas; 
@@ -397,14 +397,13 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
             const cabecera = matriz[0].map(h => h.toUpperCase().replace(/\s+/g, '').trim());
             
             let idxNombre = cabecera.findIndex(h => h.includes("NOMBRE"));
-            let idxFlyer = cabecera.findIndex(h => h.includes("FLYER")); // Mapea perfectamente "Flyer del Evento"
+            let idxFlyer = cabecera.findIndex(h => h.includes("FLYER")); 
             let idxFecha = cabecera.findIndex(h => h.includes("FECHA"));
             let idxLink = cabecera.findIndex(h => h.includes("LINK"));
             let idxLat = cabecera.findIndex(h => h.includes("LATITUD"));
             let idxLng = cabecera.findIndex(h => h.includes("LONGITUD"));
             let idxEstado = cabecera.findIndex(h => h.includes("ESTADO"));
 
-            // Índices de contingencia por si cambian de posición
             if (idxNombre === -1) idxNombre = 1;
             if (idxFlyer === -1) idxFlyer = 2; 
             if (idxFecha === -1) idxFecha = 5; 
@@ -438,7 +437,9 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 if (!esCapaHistoricaFija && !estado.includes("OK")) continue;
 
                 const nombre = c[idxNombre] ? c[idxNombre].trim() : "Evento";
-                const datoFlyer = c[idxFlyer] ? c[idxFlyer].trim() : "";
+                
+                // AQUÍ LA CLAVE: Limpieza absoluta de comillas y saltos de línea fantasmas (\r o \n)
+                const datoFlyer = c[idxFlyer] ? c[idxFlyer].replace(/[\r\n"']/g, "").trim() : "";
                 const fechaTxt = c[idxFecha]?.trim() || ""; 
                 const linkFB = c[idxLink] ? c[idxLink].trim() : "#";
 
@@ -461,20 +462,19 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 let urlFinalImg = "https://hrj.com.ar/logo-hrj.png";
                 
                 if (datoFlyer.length > 3) {
-                    // CONVERSOR DE LINKS DE GOOGLE DRIVE A MINIATURAS DIRECTAS IMÁGENES
                     if (datoFlyer.includes('drive.google.com') || datoFlyer.includes('id=')) {
+                        // Resuelve imágenes de Google Drive
                         let idImg = "";
                         if (datoFlyer.includes('id=')) {
-                            idImg = datoFlyer.split('id=')[1].split('&')[0].replace(/["']/g, "").trim();
+                            idImg = datoFlyer.split('id=')[1].split('&')[0].trim();
                         } else if (datoFlyer.includes('/d/')) {
-                            idImg = datoFlyer.split('/d/')[1].split('/')[0].replace(/["']/g, "").trim();
+                            idImg = datoFlyer.split('/d/')[1].split('/')[0].trim();
                         }
-                        
                         if (idImg) {
                             urlFinalImg = `https://drive.google.com/thumbnail?sz=w500&id=${idImg}`;
                         }
                     } else {
-                        // Si es un archivo local del repositorio
+                        // Resuelve archivos locales de la carpeta flyer-territorial (Ej: archivo-historico-del-hip-hop.jpg)
                         const nombreArchivoLimpio = datoFlyer.replace(/\s+/g, '');
                         urlFinalImg = (nombreArchivoLimpio.includes('/') || nombreArchivoLimpio.startsWith('http')) ? 
                                       nombreArchivoLimpio : `https://hrj.com.ar/flyer-territorial/${nombreArchivoLimpio}`;
@@ -490,7 +490,7 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
                 }).bindPopup(`
                     <div style="text-align: center; font-family: 'Anton', sans-serif; width: 220px; background: #111; color: #fff; padding: 10px; border-radius: 8px; border: 1px solid ${colorTema};">
                         <div style="overflow: hidden; border-radius: 4px; margin-bottom: 8px; background: #000; filter: ${esPasado ? 'grayscale(1)' : 'none'}; -webkit-filter: ${esPasado ? 'grayscale(1)' : 'none'};">
-                            <img src="${urlFinalImg}" style="width: 100%; display: block; object-fit: cover; min-height: 120px; max-height: 200px;">
+                            <img src="${urlFinalImg}" style="width: 100%; display: block; object-fit: cover; min-height: 120px; max-height: 200px;" onerror="this.src='https://hrj.com.ar/logo-hrj.png'">
                         </div>
                         <h3 style="margin: 5px 0; font-size: 16px; text-transform: uppercase; color:#fff;">${nombre}</h3>
                         <p style="font-family: 'Courier Prime'; font-size: 12px; color: ${colorTema}; margin: 5px 0 10px 0;">📅 ${fechaTxt}</p>
@@ -511,6 +511,9 @@ function procesarHojaCSV(url, esCapaHistoricaFija) {
 procesarHojaCSV(urlCSV, false);
 procesarHojaCSV(urlHistoricoCSV, true);
 
+
+
+    
 function toggleEventosPasados(e) {
     e.preventDefault();
     const btn = document.getElementById('toggle-pasados'); 
