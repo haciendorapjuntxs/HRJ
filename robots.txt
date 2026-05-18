@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# El mapa de tu sitio para los buscadores:
+Sitemap: https://hrj.com.ar/sitemap.xml
