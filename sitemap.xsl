@@ -10,92 +10,158 @@
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <style>
+                    /* Estilos Base - Modo Oscuro Radical */
                     body {
-                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-                        color: #333;
-                        background-color: #f9f9f9;
+                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                        color: #e0e0e0;
+                        background-color: #0a0a0a;
                         margin: 0;
-                        padding: 40px 20px;
+                        padding: 50px 20px;
+                        background-image: radial-gradient(circle at 50% 50%, #161616 0%, #0a0a0a 100%);
                     }
+                    
+                    /* Contenedor Principal Estilo Tarjeta Flotante */
                     .container {
                         max-width: 1000px;
                         margin: 0 auto;
-                        background: #fff;
-                        padding: 30px;
-                        border-radius: 8px;
-                        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                        background: #121212;
+                        padding: 40px;
+                        border-radius: 12px;
+                        border: 1px solid #222;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
                     }
+                    
+                    /* Encabezado */
                     h1 {
-                        font-size: 24px;
-                        color: #111;
+                        font-size: 28px;
+                        color: #fff;
                         margin-top: 0;
-                        margin-bottom: 10px;
+                        margin-bottom: 12px;
+                        font-weight: 800;
+                        letter-spacing: -0.5px;
                     }
+                    
                     p.desc {
-                        color: #666;
+                        color: #888;
                         font-size: 14px;
-                        margin-bottom: 30px;
-                        line-height: 1.5;
+                        margin-bottom: 35px;
+                        line-height: 1.6;
                     }
-                    table {
-                        width: 100%;
-                        border-collapse: collapse;
-                        text-align: left;
-                        margin-top: 10px;
-                    }
-                    th {
-                        background-color: #f3f4f6;
-                        color: #4b5563;
-                        padding: 12px 15px;
-                        font-size: 13px;
-                        font-weight: 600;
-                        border-bottom: 2px solid #e5e7eb;
-                    }
-                    td {
-                        padding: 12px 15px;
-                        font-size: 14px;
-                        border-bottom: 1px solid #e5e7eb;
-                        word-break: break-all;
-                    }
-                    tr:hover td {
-                        background-color: #f9fafb;
-                    }
-                    a {
-                        color: #0066cc;
+                    
+                    p.desc a {
+                        color: #ff4500;
                         text-decoration: none;
+                        border-bottom: 1px dashed #ff4500;
+                        transition: color 0.2s ease;
                     }
-                    a:hover {
-                        text-decoration: underline;
+                    p.desc a:hover {
+                        color: #ff6324;
                     }
+                    
+                    /* Contador Dinámico Naranja */
                     .counter {
                         display: inline-block;
-                        background: #e1effe;
-                        color: #1e429f;
-                        padding: 3px 10px;
-                        border-radius: 20px;
+                        background: rgba(255, 69, 0, 0.1);
+                        color: #ff4500;
+                        padding: 6px 16px;
+                        border-radius: 50px;
+                        font-size: 13px;
+                        font-weight: 700;
+                        border: 1px solid rgba(255, 69, 0, 0.3);
+                        margin-bottom: 20px;
+                        letter-spacing: 0.5px;
+                    }
+                    
+                    /* Tabla Estilo Cyberpunk / Limpio */
+                    table {
+                        width: 100%;
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        text-align: left;
+                        margin-top: 10px;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        border: 1px solid #1f1f1f;
+                    }
+                    
+                    th {
+                        background-color: #1a1a1a;
+                        color: #aaa;
+                        padding: 16px 20px;
                         font-size: 12px;
-                        font-weight: 600;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        border-bottom: 2px solid #252525;
+                    }
+                    
+                    td {
+                        padding: 16px 20px;
+                        font-size: 14px;
+                        background-color: #121212;
+                        border-bottom: 1px solid #1f1f1f;
+                        word-break: break-all;
+                        transition: all 0.2s ease;
+                    }
+                    
+                    /* Efecto Hover en las filas */
+                    tr:hover td {
+                        background-color: #181818;
+                        color: #fff;
+                    }
+                    
+                    /* Formato de Links Interactivos con Glow */
+                    td a {
+                        color: #ff4500;
+                        text-decoration: none;
+                        font-weight: 500;
+                        transition: all 0.2s ease;
+                        display: inline-block;
+                    }
+                    
+                    tr:hover td a {
+                        color: #ff6324;
+                        transform: translateX(4px);
+                        text-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+                    }
+                    
+                    /* Prefijo estético para simular un directorio de consola */
+                    td a::before {
+                        content: "↪ ";
+                        color: #444;
+                        margin-right: 6px;
+                        transition: color 0.2s ease;
+                    }
+                    tr:hover td a::before {
+                        color: #ff4500;
                     }
                 </style>
             </head>
             <body>
                 <div class="container">
-                    <h1>Mapa del Sitio XML (Sitemap)</h1>
+                    <h1>Indexación del Sitio (XML Sitemap)</h1>
                     <p class="desc">
-                        Este es un documento XML generado para que los motores de búsqueda indexen las páginas de forma óptima.
+                        Este mapa del sitio está optimizado estructuralmente para motores de búsqueda. <br/>
+                        Para ver las páginas directamente en el navegador, hacé clic sobre cualquiera de las rutas de la lista.
                     </p>
-                    <div class="counter">Total URLs: <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></div>
+                    
+                    <div class="counter">
+                        🟢 TOTAL URLS DETECTADAS: <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/>
+                    </div>
+                    
                     <table>
                         <thead>
                             <tr>
-                                <th>Dirección URL</th>
+                                <th>Rutas de Navegación del Servidor</th>
                             </tr>
                         </thead>
                         <tbody>
                             <xsl:for-each select="sitemap:urlset/sitemap:url">
                                 <tr>
                                     <td>
-                                        <a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc"/></a>
+                                        <a href="{sitemap:loc}">
+                                            <xsl:value-of select="sitemap:loc"/>
+                                        </a>
                                     </td>
                                 </tr>
                             </xsl:for-each>
@@ -105,4 +171,4 @@
             </body>
         </html>
     </xsl:template>
-</xsl:stylesheet>
+</xsl:stylesheet> 
