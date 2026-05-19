@@ -6,9 +6,11 @@
     <xsl:template match="/">
         <html lang="es">
             <head>
-                <title>Haciendo Rap Juntxs | XML Sitemap</title>
+               <title>Haciendo Rap Juntxs | XML Sitemap</title>
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                
+                <link rel="icon" type="image/png" href="/favicon-unaj.png"/>
                 <style>
                     /* Estilos Base - Modo Oscuro Radical */
                     body {
