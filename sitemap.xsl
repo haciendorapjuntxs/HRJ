@@ -6,7 +6,7 @@
     <xsl:template match="/">
         <html lang="es">
             <head>
-                <title>XML Sitemap | Mapa del Sitio</title>
+                <title>Haciendo Rap Juntxs | XML Sitemap</title>
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <style>
@@ -20,7 +20,6 @@
                         background-image: radial-gradient(circle at 50% 50%, #161616 0%, #0a0a0a 100%);
                     }
                     
-                    /* Contenedor Principal Estilo Tarjeta Flotante */
                     .container {
                         max-width: 1000px;
                         margin: 0 auto;
@@ -31,7 +30,6 @@
                         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
                     }
                     
-                    /* Encabezado */
                     h1 {
                         font-size: 28px;
                         color: #fff;
@@ -48,17 +46,6 @@
                         line-height: 1.6;
                     }
                     
-                    p.desc a {
-                        color: #ff4500;
-                        text-decoration: none;
-                        border-bottom: 1px dashed #ff4500;
-                        transition: color 0.2s ease;
-                    }
-                    p.desc a:hover {
-                        color: #ff6324;
-                    }
-                    
-                    /* Contador Dinámico Naranja */
                     .counter {
                         display: inline-block;
                         background: rgba(255, 69, 0, 0.1);
@@ -69,10 +56,8 @@
                         font-weight: 700;
                         border: 1px solid rgba(255, 69, 0, 0.3);
                         margin-bottom: 20px;
-                        letter-spacing: 0.5px;
                     }
                     
-                    /* Tabla Estilo Cyberpunk / Limpio */
                     table {
                         width: 100%;
                         border-collapse: separate;
@@ -91,7 +76,6 @@
                         font-size: 12px;
                         font-weight: 700;
                         text-transform: uppercase;
-                        letter-spacing: 1px;
                         border-bottom: 2px solid #252525;
                     }
                     
@@ -104,13 +88,11 @@
                         transition: all 0.2s ease;
                     }
                     
-                    /* Efecto Hover en las filas */
                     tr:hover td {
                         background-color: #181818;
                         color: #fff;
                     }
                     
-                    /* Formato de Links Interactivos con Glow */
                     td a {
                         color: #ff4500;
                         text-decoration: none;
@@ -122,27 +104,41 @@
                     tr:hover td a {
                         color: #ff6324;
                         transform: translateX(4px);
-                        text-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
                     }
                     
-                    /* Prefijo estético para simular un directorio de consola */
                     td a::before {
                         content: "↪ ";
                         color: #444;
                         margin-right: 6px;
-                        transition: color 0.2s ease;
                     }
-                    tr:hover td a::before {
-                        color: #ff4500;
+
+                    /* FIRMA DE MARCA ABAJO DEL TODO */
+                    .sitemap-footer {
+                        margin-top: 40px;
+                        padding-top: 20px;
+                        border-top: 1px solid #1f1f1f;
+                        text-align: center;
+                    }
+
+                    .sitemap-footer img {
+                        height: 32px;
+                        width: auto;
+                        opacity: 0.4;
+                        transition: all 0.3s ease;
+                    }
+
+                    .sitemap-footer img:hover {
+                        opacity: 0.9;
+                        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
                     }
                 </style>
             </head>
             <body>
                 <div class="container">
-                    <h1>Indexación del Sitio (XML Sitemap)</h1>
+                    <h1>Indexación de Haciendo Rap Juntxs</h1>
                     <p class="desc">
-                        Este mapa del sitio está optimizado estructuralmente para motores de búsqueda. <br/>
-                        Para ver las páginas directamente en el navegador, hacé clic sobre cualquiera de las rutas de la lista.
+                        Este mapa del sitio está optimizado estructuralmente para motores de búsqueda.<br/>
+                        Hacé clic sobre cualquiera de las rutas de la lista para navegar el archivo territorial.
                     </p>
                     
                     <div class="counter">
@@ -167,8 +163,12 @@
                             </xsl:for-each>
                         </tbody>
                     </table>
+
+                    <footer class="sitemap-footer">
+                        <img src="/cursor.png" alt="Diseño y Desarrollo Digital"/>
+                    </footer>
                 </div>
             </body>
         </html>
     </xsl:template>
-</xsl:stylesheet> 
+</xsl:stylesheet>
