@@ -350,30 +350,34 @@
             slides[currentSlide].classList.add('active');
         }, 2222);
 
-        // 2. Lógica del Carrusel Táctil (Solo para celulares)
-        if (window.innerWidth <= 768) {
-            const grid = document.querySelector('.bio-grid-mejorada');
-            let isDown = false;
-            let startX;
-            let scrollLeft;
+       // 2. Lógica del Carrusel Táctil (Solo para celulares)
+if (window.innerWidth <= 768) {
+    const grid = document.querySelector('.bio-grid-mejorada');
+    
+    // CONTROL DE SEGURIDAD: Solo ejecuta si el elemento existe en la página
+    if (grid) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-            grid.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - grid.offsetLeft;
-                scrollLeft = grid.scrollLeft;
-            });
-            
-            grid.addEventListener('mouseleave', () => { isDown = false; });
-            grid.addEventListener('mouseup', () => { isDown = false; });
-            
-            grid.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - grid.offsetLeft;
-                const walk = (x - startX) * 1.5; 
-                grid.scrollLeft = scrollLeft - walk;
-            });
-        }
+        grid.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - grid.offsetLeft;
+            scrollLeft = grid.scrollLeft;
+        });
+        
+        grid.addEventListener('mouseleave', () => { isDown = false; });
+        grid.addEventListener('mouseup', () => { isDown = false; });
+        
+        grid.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - grid.offsetLeft;
+            const walk = (x - startX) * 1.5; 
+            grid.scrollLeft = scrollLeft - walk;
+        });
+    }
+}
     </script>
 </body> 
 </html>
