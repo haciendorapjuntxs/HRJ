@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Mantenimiento | Haciendo Rap Juntxs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { --naranja: #ff4500; --negro: #000; }
+        body { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        
+        .container { text-align: center; z-index: 2; padding: 40px; }
+        
+        .logo-wrapper { display: flex; gap: 40px; justify-content: center; margin-bottom: 40px; }
+        .logo-img { height: 150px; width: auto; filter: drop-shadow(0 0 10px rgba(255,69,0,0.5)); }
+        
+        h1 { font-family: 'Anton', sans-serif; font-size: 3rem; text-transform: uppercase; margin: 10px 0; color: var(--naranja); }
+        p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6; }
+        
+        .status-box { border: 2px solid var(--naranja); padding: 20px; display: inline-block; background: rgba(255, 69, 0, 0.1); }
+        
+        @media (max-width: 768px) {
+            .logo-img { height: 90px; gap: 20px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-wrapper">
+            <!-- Asegúrate de que las rutas a tus imágenes sean correctas -->
+            <img src="logo-hrj.png" class="logo-img" alt="Logo HRJ">
+            <img src="logounaj.png" class="logo-img" alt="Logo UNAJ">
+        </div>
+        
+        <h1>Sitio en mantenimiento</h1>
+        <p>Estamos trabajando para mejorar nuestra plataforma y ofrecerte una mejor experiencia. Volveremos pronto.</p>
+        
+        <div class="status-box">
+            <strong>¿Consultas urgentes?</strong><br>
+            Puedes escribirnos a nuestro Instagram:<br>
+            <a href="https://www.instagram.com/haciendorapjuntxs" style="color: var(--naranja); font-weight: bold; text-decoration: none;">@haciendorapjuntxs</a>
+        </div>
+    </div>
+
+</body>
+</html>
