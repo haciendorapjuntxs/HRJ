@@ -7,21 +7,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         :root { --naranja: #ff4500; --negro: #000; }
-        body { margin: 0; padding: 0; background: var(--negro); color: #fff; font-family: 'Courier Prime', monospace; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         
-        .container { text-align: center; z-index: 2; padding: 40px; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: var(--negro); 
+            color: #fff; 
+            font-family: 'Courier Prime', monospace; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh;
+            text-align: center;
+        }
         
-        .logo-wrapper { display: flex; gap: 40px; justify-content: center; margin-bottom: 40px; }
-        .logo-img { height: 150px; width: auto; filter: drop-shadow(0 0 10px rgba(255,69,0,0.5)); }
+        .container { 
+            width: 90%; 
+            max-width: 500px; 
+            padding: 20px; 
+        }
         
-        h1 { font-family: 'Anton', sans-serif; font-size: 3rem; text-transform: uppercase; margin: 10px 0; color: var(--naranja); }
-        p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6; }
+        .logo-wrapper { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            margin-bottom: 30px; 
+        }
         
-        .status-box { border: 2px solid var(--naranja); padding: 20px; display: inline-block; background: rgba(255, 69, 0, 0.1); }
+        .logo-img { 
+            height: 80px; /* Tamaño adaptado para móvil */
+            width: auto; 
+        }
         
-        @media (max-width: 768px) {
-            .logo-img { height: 90px; gap: 20px; }
-            h1 { font-size: 2rem; }
+        h1 { 
+            font-family: 'Anton', sans-serif; 
+            font-size: 1.8rem; 
+            text-transform: uppercase; 
+            margin: 0 0 15px 0; 
+            color: var(--naranja); 
+        }
+        
+        p { 
+            font-size: 1rem; 
+            line-height: 1.5; 
+            margin-bottom: 25px; 
+        }
+        
+        .status-box { 
+            border: 2px solid var(--naranja); 
+            padding: 20px; 
+            background: rgba(255, 69, 0, 0.05); 
+        }
+        
+        /* Ajuste para pantallas grandes (por si la ven desde compu) */
+        @media (min-width: 768px) {
+            .logo-img { height: 120px; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -29,18 +70,18 @@
 
     <div class="container">
         <div class="logo-wrapper">
-            <!-- Asegúrate de que las rutas a tus imágenes sean correctas -->
             <img src="logo-hrj.png" class="logo-img" alt="Logo HRJ">
             <img src="logounaj.png" class="logo-img" alt="Logo UNAJ">
         </div>
         
         <h1>Sitio en mantenimiento</h1>
-        <p>Estamos trabajando para mejorar nuestra plataforma y ofrecerte una mejor experiencia. Volveremos pronto.</p>
+        <p>Estamos trabajando para mejorar nuestra plataforma. Pronto volveremos con más rap y territorio.</p>
         
         <div class="status-box">
-            <strong>¿Consultas urgentes?</strong><br>
-            Puedes escribirnos a nuestro Instagram:<br>
-            <a href="https://www.instagram.com/haciendorapjuntxs" style="color: var(--naranja); font-weight: bold; text-decoration: none;">@haciendorapjuntxs</a>
+            <p style="margin-bottom: 10px;">¿Consultas urgentes?</p>
+            <a href="https://www.instagram.com/haciendorapjuntxs" style="color: var(--naranja); font-weight: bold; text-decoration: none; font-size: 1.1rem;">
+                VISITAR NUESTRO INSTAGRAM
+            </a>
         </div>
     </div>
 
