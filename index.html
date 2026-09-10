@@ -168,6 +168,300 @@
     background-size: 3px 3px; 
     opacity: 0.6; 
 }
+
+/* =========================================
+   LANZAMIENTO SIN FRONTERAS
+   ========================================= */
+
+.lanzamiento-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.94) 0%,
+            rgba(0,0,0,0.78) 38%,
+            rgba(0,0,0,0.48) 72%,
+            rgba(0,0,0,0.25) 100%
+        ),
+        url('GALERY/sin-fronteras-presentacion.webp');
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* Trama visual */
+.lanzamiento-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.45;
+}
+
+/* Contenedor principal */
+.lanzamiento-contenido {
+    position: relative;
+    z-index: 3;
+
+    width: min(1150px, 90%);
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 70px;
+    align-items: center;
+}
+
+/* Columna izquierda */
+.lanzamiento-texto {
+    border-left: 5px solid var(--naranja);
+    padding-left: 35px;
+}
+
+/* Pequeño título superior */
+.lanzamiento-kicker {
+    font-family: 'Anton', sans-serif;
+    color: var(--naranja);
+    font-size: 1.25rem;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+/* Título principal */
+.lanzamiento-titulo {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    margin: 0;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+.lanzamiento-titulo span {
+    color: var(--naranja);
+}
+
+/* Descripción */
+.lanzamiento-subtitulo {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-top: 28px;
+    max-width: 720px;
+}
+
+/* Fecha */
+.lanzamiento-fecha {
+    margin-top: 32px;
+    display: inline-block;
+    padding: 18px 25px;
+
+    border: 1px solid rgba(255,255,255,0.45);
+    border-left: 4px solid var(--naranja);
+
+    background: rgba(0,0,0,0.72);
+    backdrop-filter: blur(5px);
+}
+
+.lanzamiento-fecha strong {
+    display: block;
+
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.lanzamiento-lugar {
+    margin-top: 8px;
+
+    color: var(--naranja);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Formatos físicos */
+.lanzamiento-formatos {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.formato-tag {
+    border: 1px solid var(--naranja);
+    padding: 10px 18px;
+
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    background: rgba(0,0,0,0.55);
+}
+
+/* Columna derecha */
+.lanzamiento-destacado {
+    text-align: center;
+
+    padding: 35px 25px;
+
+    background: rgba(0,0,0,0.62);
+    border: 1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow: 10px 10px 0 rgba(255,69,0,0.75);
+}
+
+.lanzamiento-destacado h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+}
+
+.lanzamiento-destacado p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.lanzamiento-destacado strong {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* Botón */
+.lanzamiento-entrada {
+    display: inline-block;
+
+    background: var(--naranja);
+    color: #000;
+
+    padding: 16px 28px;
+
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    margin-top: 25px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.lanzamiento-entrada:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   LANZAMIENTO - CELULAR
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .lanzamiento-section {
+        min-height: 100vh;
+        padding: 100px 0 70px;
+
+        background-position: 65% center;
+    }
+
+    .lanzamiento-contenido {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .lanzamiento-texto {
+        padding-left: 18px;
+        border-left-width: 3px;
+    }
+
+    .lanzamiento-kicker {
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+
+    .lanzamiento-titulo {
+        font-size: clamp(3rem, 15vw, 5rem);
+        line-height: 0.9;
+    }
+
+    .lanzamiento-subtitulo {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-top: 20px;
+    }
+
+    .lanzamiento-fecha {
+        margin-top: 22px;
+        padding: 14px 17px;
+        width: calc(100% - 34px);
+    }
+
+    .lanzamiento-fecha strong {
+        font-size: 1.35rem;
+    }
+
+    .lanzamiento-lugar {
+        font-size: 0.85rem;
+    }
+
+    .lanzamiento-formatos {
+        margin-top: 18px;
+        gap: 8px;
+    }
+
+    .formato-tag {
+        padding: 8px 13px;
+        font-size: 0.85rem;
+    }
+
+    .lanzamiento-destacado {
+        padding: 25px 18px;
+        box-shadow: 6px 6px 0 rgba(255,69,0,0.75);
+    }
+
+    .lanzamiento-destacado h3 {
+        font-size: 1.6rem;
+    }
+
+    .lanzamiento-destacado p {
+        font-size: 0.9rem;
+    }
+
+    .lanzamiento-entrada {
+        padding: 14px 22px;
+        font-size: 1rem;
+    }
+}
+   
         
 </style>
 </head>
@@ -221,6 +515,95 @@
             <a href="novedades.html" class="btn-ver-aca">VER LA NOTICIA COMPLETA</a>
         </div>
     </section>
+
+<!-- =========================================
+     PRIMERA PRESENTACIÓN - SIN FRONTERAS
+     ========================================= -->
+
+<section class="lanzamiento-section">
+
+    <div class="lanzamiento-contenido">
+
+        <div class="lanzamiento-texto">
+
+            <div class="lanzamiento-kicker">
+                PRIMERA PRESENTACIÓN OFICIAL
+            </div>
+
+            <h2 class="lanzamiento-titulo">
+                HACIENDO<br>
+                RAP JUNTXS<br>
+                <span>SIN FRONTERAS</span>
+            </h2>
+
+            <p class="lanzamiento-subtitulo">
+                El disco que reúne las voces del hip hop
+                latinoamericano llega a su primera presentación
+                oficial en la Universidad Nacional Arturo Jauretche.
+            </p>
+
+            <div class="lanzamiento-fecha">
+
+                <strong>
+                    JUEVES 29 DE OCTUBRE · 18 HS
+                </strong>
+
+                <div class="lanzamiento-lugar">
+                    AUDITORIO LEONARDO FABIO · UNAJ
+                </div>
+
+            </div>
+
+            <div class="lanzamiento-formatos">
+
+                <span class="formato-tag">
+                    DISCO
+                </span>
+
+                <span class="formato-tag">
+                    VINILO
+                </span>
+
+                <span class="formato-tag">
+                    CASSETTE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="lanzamiento-destacado">
+
+            <h3>
+                MÚSICA<br>
+                CULTURA<br>
+                INTEGRACIÓN
+            </h3>
+
+            <p>
+                Una obra nacida desde el territorio,
+                la universidad y la cultura hip hop.
+            </p>
+
+            <strong>
+                ENTRADA LIBRE Y GRATUITA
+            </strong>
+
+            <br>
+
+            <a
+                href="discografia.html"
+                class="lanzamiento-entrada"
+            >
+                VER SIN FRONTERAS
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
     <section class="full-screen-section" style="background: #000;">
         <div class="content">
