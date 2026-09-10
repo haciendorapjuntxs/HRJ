@@ -87,6 +87,176 @@
         
         .logo-container { position: absolute; top: 20px; right: 20px; z-index: 5; display: flex; gap: 10px; }
 
+/* =========================================
+   NOTICIA DESTACADA — SIN FRONTERAS
+   ========================================= */
+
+.lanzamiento-news {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.94) 0%,
+            rgba(0,0,0,0.78) 42%,
+            rgba(0,0,0,0.40) 100%
+        ),
+        url('GALERY/sin-fronteras-presentacion.webp');
+
+    background-size: cover;
+    background-position: center;
+}
+
+.lanzamiento-news .news-content {
+    border-left: 6px solid #ff4500;
+    box-shadow:
+        12px 12px 0 rgba(255,69,0,0.75),
+        10px 10px 30px rgba(0,0,0,0.8);
+}
+
+.lanzamiento-news h2 span {
+    color: #ff4500;
+    display: block;
+}
+
+.news-lead {
+    font-size: 1.3rem !important;
+    font-weight: bold;
+}
+
+.evento-datos {
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.evento-datos div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.evento-datos strong {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.evento-datos span {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.evento-datos .evento-gratuito {
+    display: inline-block;
+    color: #ff4500;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.formatos-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.formatos-news span {
+    border: 1px solid #ff4500;
+    padding: 8px 14px;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    background: rgba(0,0,0,0.6);
+}
+
+.btn-evento {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 25px;
+    background: #ff4500;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+}
+
+.btn-evento:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+.lanzamiento-img-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lanzamiento-img-col img {
+    width: 100%;
+    max-width: 600px;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 1px solid #444;
+    box-shadow: 10px 10px 0 rgba(255,69,0,0.7);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .lanzamiento-news {
+        background-position: center;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .lanzamiento-news .news-content {
+        width: 88%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .lanzamiento-news-split {
+        gap: 25px;
+    }
+
+    .lanzamiento-news h2 {
+        font-size: 2.5rem;
+    }
+
+    .news-lead {
+        font-size: 1.05rem !important;
+    }
+
+    .evento-datos strong {
+        font-size: 1.2rem;
+    }
+
+    .evento-datos span {
+        font-size: 0.8rem;
+    }
+
+    .formatos-news span {
+        font-size: 0.8rem;
+        padding: 7px 10px;
+    }
+
+    .lanzamiento-img-col img {
+        max-height: 35vh;
+        box-shadow: 6px 6px 0 rgba(255,69,0,0.7);
+    }
+}
+
+
         @media (max-width: 850px) {
             .news-split { flex-direction: column; }
             .news-content h2 { font-size: 2.2rem; }
@@ -105,6 +275,118 @@
     <div class="logo-container">
         <img src="logo-hrj.png" width="60" alt="Logo HRJ">
     </div>
+
+<!-- =========================================
+     NOTICIA: PRESENTACIÓN SIN FRONTERAS
+     ========================================= -->
+
+<section class="section-news lanzamiento-news con-trama">
+    <div class="news-content">
+        <div class="news-split lanzamiento-news-split">
+
+            <div class="news-text-col">
+                <span class="news-date">OCTUBRE 2026 · PRÓXIMO EVENTO</span>
+
+                <h2>
+                    Haciendo Rap Juntxs:
+                    <span>Sin Fronteras</span>
+                </h2>
+
+                <p class="news-lead">
+                    El proyecto <strong>Haciendo Rap Juntxs</strong> presenta
+                    oficialmente su disco <strong>Sin Fronteras</strong> en la
+                    Universidad Nacional Arturo Jauretche.
+                </p>
+
+                <p>
+                    Será la <strong>primera presentación oficial</strong> de una
+                    obra que reúne voces del hip hop del Conurbano Bonaerense
+                    y de distintos países de Latinoamérica, construida desde
+                    el territorio, la universidad y la cultura.
+                </p>
+
+                <div class="evento-datos">
+                    <div>
+                        <strong>JUEVES 29 DE OCTUBRE</strong>
+                        <span>18 HS</span>
+                    </div>
+
+                    <div>
+                        <strong>AUDITORIO LEONARDO FABIO</strong>
+                        <span>UNIVERSIDAD NACIONAL ARTURO JAURETCHE · UNAJ</span>
+                    </div>
+
+                    <div class="evento-gratuito">
+                        ENTRADA LIBRE Y GRATUITA
+                    </div>
+                </div>
+
+                <div class="formatos-news">
+                    <span>DISCO</span>
+                    <span>VINILO</span>
+                    <span>CASSETTE</span>
+                </div>
+
+                <a href="discografia.html" class="btn-evento">
+                    CONOCÉ SIN FRONTERAS
+                </a>
+            </div>
+
+            <div class="news-img-col lanzamiento-img-col">
+                <img
+                    src="GALERY/sin-fronteras-presentacion.webp"
+                    alt="Primera presentación oficial de Haciendo Rap Juntxs Sin Fronteras en la UNAJ"
+                    loading="eager"
+                >
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================
+     NOTICIA: URUGUAY
+     ========================================= -->
+
+<section class="section-news">
+    <div class="news-content">
+        <div class="news-split">
+
+            <div class="news-text-col">
+                <span class="news-date">JULIO 2026</span>
+
+                <h2>
+                    Declarados de Interés Ministerial en Uruguay
+                </h2>
+
+                <p>
+                    El proyecto <strong>Haciendo Rap Juntxs</strong> ha sido
+                    oficialmente declarado de interés ministerial en la
+                    República Oriental del Uruguay. Este reconocimiento
+                    internacional subraya la importancia de nuestro archivo
+                    territorial y valida el inmenso impacto que tiene la
+                    articulación comunitaria a través de la cultura hip hop,
+                    borrando fronteras y uniendo a la región.
+                </p>
+            </div>
+
+            <div class="news-img-col">
+                <img
+                    src="ASSETS-NOVEDADES/uruguay-foto1.webp"
+                    alt="Declaración de Interés Ministerial de Haciendo Rap Juntxs en Uruguay"
+                >
+
+                <img
+                    src="ASSETS-NOVEDADES/uruguay-foto2.webp"
+                    alt="Haciendo Rap Juntxs en Uruguay"
+                >
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <main class="main-wrapper">
         <section class="section-news">
