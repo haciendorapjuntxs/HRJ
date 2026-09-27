@@ -461,7 +461,157 @@
         font-size: 1rem;
     }
 }
-   
+  /* =========================================================
+   SIN FRONTERAS · COUNTDOWN HOME
+   ========================================================= */
+
+.sf-home-countdown {
+
+    margin-top: 28px;
+
+    width: 100%;
+
+    border-top: 1px solid rgba(255,255,255,.20);
+    border-bottom: 1px solid rgba(255,255,255,.20);
+
+    background: rgba(0,0,0,.22);
+
+}
+@media (max-width: 700px) {
+
+    .sf-home-countdown {
+        margin-top: 24px;
+    }
+
+    .sf-home-clock {
+        gap: 3px;
+        padding: 15px 0 17px;
+    }
+
+    .sf-home-unit {
+        min-width: 48px;
+    }
+
+    .sf-home-unit strong {
+        font-size: 1.9rem;
+    }
+
+    .sf-home-unit span {
+        font-size: .45rem;
+        letter-spacing: 1px;
+    }
+
+    .sf-home-clock i {
+        font-size: 1.35rem;
+    }
+
+}
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
+
+.sf-home-countdown-head {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 9px 0;
+
+    color: rgba(255,255,255,.52);
+
+    font-family: 'Courier Prime', monospace;
+
+    font-size: .62rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RELOJ
+   ========================================================= */
+
+.sf-home-clock {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 17px 5px 19px;
+}
+
+
+.sf-home-unit {
+
+    min-width: 58px;
+
+    text-align: center;
+}
+
+
+.sf-home-unit strong {
+
+    display: block;
+
+    color: #fff;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: clamp(2.1rem, 4vw, 3.2rem);
+
+    font-weight: normal;
+
+    line-height: .9;
+
+    letter-spacing: 0;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+.sf-home-unit span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: rgba(255,255,255,.42);
+
+    font-family: 'Courier Prime', monospace;
+
+    font-size: .52rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+}
+
+
+.sf-home-clock i {
+
+    color: #ff4500;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: 1.8rem;
+
+    font-style: normal;
+
+    line-height: .9;
+
+    opacity: .75;
+} 
         
 </style>
 </head>
@@ -520,9 +670,17 @@
      PRIMERA PRESENTACIÓN - SIN FRONTERAS
      ========================================= -->
 
-<section class="lanzamiento-section">
+<section
+    class="lanzamiento-section"
+    aria-labelledby="lanzamiento-titulo"
+>
 
     <div class="lanzamiento-contenido">
+
+
+        <!-- =====================================
+             INFORMACIÓN PRINCIPAL
+             ===================================== -->
 
         <div class="lanzamiento-texto">
 
@@ -530,17 +688,25 @@
                 PRIMERA PRESENTACIÓN OFICIAL
             </div>
 
-            <h2 class="lanzamiento-titulo">
+
+            <h2
+                class="lanzamiento-titulo"
+                id="lanzamiento-titulo"
+            >
                 HACIENDO<br>
                 RAP JUNTXS<br>
                 <span>SIN FRONTERAS</span>
             </h2>
 
+
             <p class="lanzamiento-subtitulo">
+
                 El disco que reúne las voces del hip hop
                 latinoamericano llega a su primera presentación
                 oficial en la Universidad Nacional Arturo Jauretche.
+
             </p>
+
 
             <div class="lanzamiento-fecha">
 
@@ -549,10 +715,108 @@
                 </strong>
 
                 <div class="lanzamiento-lugar">
-                    AUDITORIO LEONARDO FABIO · UNAJ
+                    AUDITORIO LEONARDO FAVIO · UNAJ
                 </div>
 
             </div>
+
+
+            <!-- =====================================
+                 CUENTA REGRESIVA
+                 ===================================== -->
+
+            <div
+                class="sf-home-countdown"
+                data-countdown="2026-10-29T18:00:00-03:00"
+                aria-label="Cuenta regresiva para la presentación de Sin Fronteras"
+            >
+
+                <div class="sf-home-countdown-head">
+
+                    <span>
+                        FALTAN
+                    </span>
+
+                    <span>
+                        29 · 10 · 2026
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="sf-home-clock"
+                    aria-live="polite"
+                >
+
+                    <div class="sf-home-unit">
+
+                        <strong id="home-sf-days">
+                            00
+                        </strong>
+
+                        <span>
+                            DÍAS
+                        </span>
+
+                    </div>
+
+
+                    <i>:</i>
+
+
+                    <div class="sf-home-unit">
+
+                        <strong id="home-sf-hours">
+                            00
+                        </strong>
+
+                        <span>
+                            HORAS
+                        </span>
+
+                    </div>
+
+
+                    <i>:</i>
+
+
+                    <div class="sf-home-unit">
+
+                        <strong id="home-sf-minutes">
+                            00
+                        </strong>
+
+                        <span>
+                            MIN
+                        </span>
+
+                    </div>
+
+
+                    <i>:</i>
+
+
+                    <div class="sf-home-unit">
+
+                        <strong id="home-sf-seconds">
+                            00
+                        </strong>
+
+                        <span>
+                            SEG
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 FORMATOS
+                 ===================================== -->
 
             <div class="lanzamiento-formatos">
 
@@ -573,6 +837,10 @@
         </div>
 
 
+        <!-- =====================================
+             DESTACADO
+             ===================================== -->
+
         <div class="lanzamiento-destacado">
 
             <h3>
@@ -581,16 +849,20 @@
                 INTEGRACIÓN
             </h3>
 
+
             <p>
                 Una obra nacida desde el territorio,
                 la universidad y la cultura hip hop.
             </p>
 
+
             <strong>
                 ENTRADA LIBRE Y GRATUITA
             </strong>
 
+
             <br>
+
 
             <a
                 href="discografia.html"
@@ -801,5 +1073,155 @@ if (window.innerWidth <= 768) {
     }
 }
     </script>
+  <!-- =========================================================
+     COUNTDOWN · SIN FRONTERAS · HOME
+     ========================================================= -->
+
+<script>
+
+(function () {
+
+    function iniciarCountdownHome() {
+
+        const countdown =
+            document.querySelector('.sf-home-countdown');
+
+        if (!countdown) return;
+
+
+        const objetivo =
+            new Date(
+                countdown.dataset.countdown
+            ).getTime();
+
+
+        const dias =
+            document.getElementById('home-sf-days');
+
+        const horas =
+            document.getElementById('home-sf-hours');
+
+        const minutos =
+            document.getElementById('home-sf-minutes');
+
+        const segundos =
+            document.getElementById('home-sf-seconds');
+
+
+        if (
+            !dias ||
+            !horas ||
+            !minutos ||
+            !segundos
+        ) {
+            return;
+        }
+
+
+        function pad(numero) {
+
+            return String(numero)
+                .padStart(2, '0');
+
+        }
+
+
+        function actualizarCountdown() {
+
+            const ahora =
+                Date.now();
+
+            const diferencia =
+                objetivo - ahora;
+
+
+            /* =========================================
+               EVENTO INICIADO
+               ========================================= */
+
+            if (diferencia <= 0) {
+
+                dias.textContent = '00';
+                horas.textContent = '00';
+                minutos.textContent = '00';
+                segundos.textContent = '00';
+
+                return;
+            }
+
+
+            const totalSegundos =
+                Math.floor(
+                    diferencia / 1000
+                );
+
+
+            const d =
+                Math.floor(
+                    totalSegundos / 86400
+                );
+
+
+            const h =
+                Math.floor(
+                    (totalSegundos % 86400) / 3600
+                );
+
+
+            const m =
+                Math.floor(
+                    (totalSegundos % 3600) / 60
+                );
+
+
+            const s =
+                totalSegundos % 60;
+
+
+            dias.textContent =
+                pad(d);
+
+            horas.textContent =
+                pad(h);
+
+            minutos.textContent =
+                pad(m);
+
+            segundos.textContent =
+                pad(s);
+
+        }
+
+
+        actualizarCountdown();
+
+
+        setInterval(
+            actualizarCountdown,
+            1000
+        );
+
+    }
+
+
+    if (
+        document.readyState === 'loading'
+    ) {
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            iniciarCountdownHome
+        );
+
+    } else {
+
+        iniciarCountdownHome();
+
+    }
+
+})();
+
+</script>
+  
 </body> 
 </html>
