@@ -877,7 +877,228 @@
         #uruguay-interes-ministerial {
             background: #111;
         }
+/* =====================================================
+   CUENTA REGRESIVA · SIN FRONTERAS
+   ===================================================== */
 
+.sf-countdown {
+
+    margin-top: 32px;
+
+    width: 100%;
+
+    border-top: 1px solid rgba(255,255,255,.22);
+    border-bottom: 1px solid rgba(255,255,255,.22);
+
+    background: rgba(0,0,0,.35);
+}
+
+
+/* =====================================================
+   CABECERA
+   ===================================================== */
+
+.sf-countdown-head {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.10);
+
+    color: rgba(255,255,255,.55);
+
+    font-family: 'Courier Prime', monospace;
+
+    font-size: .68rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   CUERPO
+   ===================================================== */
+
+.sf-countdown-body {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 22px 0;
+}
+
+
+/* =====================================================
+   IDENTIFICACIÓN
+   ===================================================== */
+
+.sf-countdown-label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex-shrink: 0;
+}
+
+.sf-countdown-label span {
+
+    color: #fff;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: 1.4rem;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+}
+
+.sf-countdown-label small {
+
+    color: #ff4500;
+
+    font-family: 'Courier Prime', monospace;
+
+    font-size: .65rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   RELOJ
+   ===================================================== */
+
+.sf-clock {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+
+.sf-unit {
+
+    min-width: 55px;
+
+    text-align: center;
+}
+
+
+.sf-unit strong {
+
+    display: block;
+
+    color: #fff;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    line-height: .9;
+
+    font-weight: normal;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+.sf-unit span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: rgba(255,255,255,.45);
+
+    font-family: 'Courier Prime', monospace;
+
+    font-size: .55rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.sf-clock i {
+
+    color: #ff4500;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: 1.8rem;
+
+    font-style: normal;
+
+    line-height: .9;
+
+    opacity: .75;
+}
+
+
+/* =====================================================
+   PIE
+   ===================================================== */
+
+.sf-countdown-foot {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 10px 0;
+
+    border-top: 1px solid rgba(255,255,255,.10);
+
+    color: rgba(255,255,255,.55);
+
+    font-family: 'Courier Prime', monospace;
+
+    font-size: .62rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.sf-countdown-foot strong {
+
+    margin-left: auto;
+
+    color: #ff4500;
+
+    font-weight: bold;
+} 
 
         /* =====================================================
            MOBILE
@@ -1026,7 +1247,69 @@
                 height: 45px;
             }
         }
+/* =====================================================
+   COUNTDOWN MOBILE
+   ===================================================== */
 
+.sf-countdown {
+    margin-top: 28px;
+}
+
+.sf-countdown-body {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 20px;
+}
+
+.sf-countdown-label {
+
+    flex-direction: row;
+
+    align-items: baseline;
+
+    justify-content: space-between;
+}
+
+.sf-clock {
+
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+.sf-unit {
+
+    min-width: 52px;
+}
+
+.sf-unit strong {
+
+    font-size: 2.1rem;
+}
+
+.sf-clock i {
+
+    font-size: 1.5rem;
+}
+
+.sf-countdown-foot {
+
+    flex-wrap: wrap;
+
+    gap: 7px 12px;
+}
+
+.sf-countdown-foot strong {
+
+    width: 100%;
+
+    margin-left: 0;
+}
 
         /* =====================================================
            MOBILE MUY PEQUEÑO
@@ -1065,7 +1348,37 @@
                 text-align: center;
             }
         }
+.sf-countdown-head {
+    font-size: .55rem;
+}
 
+.sf-countdown-label span {
+    font-size: 1.15rem;
+}
+
+.sf-unit {
+    min-width: 45px;
+}
+
+.sf-unit strong {
+    font-size: 1.75rem;
+}
+
+.sf-unit span {
+    font-size: .48rem;
+}
+
+.sf-clock {
+    gap: 2px;
+}
+
+.sf-clock i {
+    font-size: 1.2rem;
+}
+
+.sf-countdown-foot {
+    font-size: .52rem;
+}
     </style>
 
 </head>
@@ -1238,72 +1551,115 @@
 
                         </div>
 
+<!-- =====================================
+     CUENTA REGRESIVA · SIN FRONTERAS
+     ===================================== -->
 
-                        <section class="sin-fronteras-countdown"
-         aria-labelledby="sin-fronteras-countdown-title"
-         data-event-end="2026-10-29T18:00:00-03:00">
+<section
+    class="sf-countdown"
+    data-countdown="2026-10-29T18:00:00-03:00"
+    aria-labelledby="sf-countdown-title"
+>
 
-  <div class="countdown-wrap">
+    <div class="sf-countdown-head">
 
-    <div class="countdown-info">
-      <span class="countdown-label">HACIENDO RAP JUNTXS · SIN FRONTERAS</span>
+        <span>
+            PRÓXIMA PRESENTACIÓN
+        </span>
 
-      <h2 id="sin-fronteras-countdown-title">
-        La presentación comienza en
-      </h2>
-
-      <p>
-        Jueves 29 de octubre · 18 HS · Auditorio Leonardo Favio ·
-        Universidad Nacional Arturo Jauretche
-      </p>
-    </div>
-
-    <div class="countdown-box">
-
-      <div class="countdown-head">
-        <span>CUENTA REGRESIVA</span>
-        <strong>ENTRADA LIBRE Y GRATUITA</strong>
-      </div>
-
-      <div class="countdown"
-           aria-live="polite"
-           aria-label="Tiempo restante para la presentación Sin Fronteras">
-
-        <div class="countdown-unit">
-          <strong id="sf-days">00</strong>
-          <span>DÍAS</span>
-        </div>
-
-        <div class="countdown-divider">:</div>
-
-        <div class="countdown-unit">
-          <strong id="sf-hours">00</strong>
-          <span>HORAS</span>
-        </div>
-
-        <div class="countdown-divider">:</div>
-
-        <div class="countdown-unit">
-          <strong id="sf-minutes">00</strong>
-          <span>MIN</span>
-        </div>
-
-        <div class="countdown-divider">:</div>
-
-        <div class="countdown-unit">
-          <strong id="sf-seconds">00</strong>
-          <span>SEG</span>
-        </div>
-
-      </div>
-
-      <a class="countdown-cta" href="/discografia.html">
-        CONOCÉ SIN FRONTERAS →
-      </a>
+        <span>
+            29 · 10 · 2026
+        </span>
 
     </div>
 
-  </div>
+
+    <div class="sf-countdown-body">
+
+        <div class="sf-countdown-label">
+
+            <span id="sf-countdown-title">
+                SIN FRONTERAS
+            </span>
+
+            <small>
+                FALTAN
+            </small>
+
+        </div>
+
+
+        <div
+            class="sf-clock"
+            aria-live="polite"
+            aria-label="Cuenta regresiva para la presentación Sin Fronteras"
+        >
+
+            <div class="sf-unit">
+
+                <strong id="sf-days">00</strong>
+
+                <span>DÍAS</span>
+
+            </div>
+
+
+            <i>:</i>
+
+
+            <div class="sf-unit">
+
+                <strong id="sf-hours">00</strong>
+
+                <span>HORAS</span>
+
+            </div>
+
+
+            <i>:</i>
+
+
+            <div class="sf-unit">
+
+                <strong id="sf-minutes">00</strong>
+
+                <span>MIN</span>
+
+            </div>
+
+
+            <i>:</i>
+
+
+            <div class="sf-unit">
+
+                <strong id="sf-seconds">00</strong>
+
+                <span>SEG</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="sf-countdown-foot">
+
+        <span>
+            JUEVES · 18 HS
+        </span>
+
+        <span>
+            AUDITORIO LEONARDO FAVIO · UNAJ
+        </span>
+
+        <strong>
+            ENTRADA LIBRE Y GRATUITA
+        </strong>
+
+    </div>
+
 </section>
                         
 
@@ -1459,7 +1815,163 @@
         </article>
 
     </main>
+ <script>
 
+        (function () {
+
+            function iniciarCuentaRegresiva() {
+
+                const countdown =
+                    document.querySelector('.sf-countdown');
+
+                if (!countdown) return;
+
+
+                const fechaEvento =
+                    countdown.dataset.countdown;
+
+                const objetivo =
+                    new Date(fechaEvento).getTime();
+
+
+                const dias =
+                    document.getElementById('sf-days');
+
+                const horas =
+                    document.getElementById('sf-hours');
+
+                const minutos =
+                    document.getElementById('sf-minutes');
+
+                const segundos =
+                    document.getElementById('sf-seconds');
+
+                const titulo =
+                    document.getElementById('sf-countdown-title');
+
+
+                if (
+                    !dias ||
+                    !horas ||
+                    !minutos ||
+                    !segundos
+                ) {
+                    return;
+                }
+
+
+                function dosDigitos(numero) {
+
+                    return String(numero)
+                        .padStart(2, '0');
+
+                }
+
+
+                function actualizar() {
+
+                    const ahora = Date.now();
+
+                    const diferencia =
+                        objetivo - ahora;
+
+
+                    /* EVENTO INICIADO */
+
+                    if (diferencia <= 0) {
+
+                        dias.textContent = '00';
+
+                        horas.textContent = '00';
+
+                        minutos.textContent = '00';
+
+                        segundos.textContent = '00';
+
+
+                        if (titulo) {
+
+                            titulo.textContent =
+                                'SIN FRONTERAS · EN VIVO';
+
+                        }
+
+                        return;
+                    }
+
+
+                    const totalSegundos =
+                        Math.floor(
+                            diferencia / 1000
+                        );
+
+
+                    const d =
+                        Math.floor(
+                            totalSegundos / 86400
+                        );
+
+
+                    const h =
+                        Math.floor(
+                            (totalSegundos % 86400) / 3600
+                        );
+
+
+                    const m =
+                        Math.floor(
+                            (totalSegundos % 3600) / 60
+                        );
+
+
+                    const s =
+                        totalSegundos % 60;
+
+
+                    dias.textContent =
+                        dosDigitos(d);
+
+                    horas.textContent =
+                        dosDigitos(h);
+
+                    minutos.textContent =
+                        dosDigitos(m);
+
+                    segundos.textContent =
+                        dosDigitos(s);
+
+                }
+
+
+                actualizar();
+
+
+                setInterval(
+                    actualizar,
+                    1000
+                );
+
+            }
+
+
+            if (
+                document.readyState === 'loading'
+            ) {
+
+                document.addEventListener(
+                    'DOMContentLoaded',
+                    iniciarCuentaRegresiva
+                );
+
+            } else {
+
+                iniciarCuentaRegresiva();
+
+            }
+
+        })();
+
+    </script>
 </body>
 
 </html>
